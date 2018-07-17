@@ -1,0 +1,2 @@
+class CulturalCentersController < ApplicationController
+end

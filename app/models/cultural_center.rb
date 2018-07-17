@@ -1,0 +1,2 @@
+class CulturalCenter < ApplicationRecord
+end
