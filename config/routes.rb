@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :points
   resources :tours
   resources :staff_users
   resources :cultural_centers
