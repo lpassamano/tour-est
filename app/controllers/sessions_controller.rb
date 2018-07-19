@@ -5,14 +5,11 @@ class SessionsController < ApplicationController
 
     user = StaffUser.find_by(username: username)
     if user&.authenticate(password)
-      render json: {token: "abc123"}
+      token = Token.encode(user)
+      render json: { token: token }
     else
-      render json: {error: "bad"}, status: 401
+      # fix error message
+      render json: { error: "Unauthorized" }, status: 401
     end
   end
-
-  def delete
-
-  end
-
 end
