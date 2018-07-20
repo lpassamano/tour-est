@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_17_205619) do
+ActiveRecord::Schema.define(version: 2018_07_18_171539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,4 +21,36 @@ ActiveRecord::Schema.define(version: 2018_07_17_205619) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "points", force: :cascade do |t|
+    t.bigint "tour_id"
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tour_id"], name: "index_points_on_tour_id"
+  end
+
+  create_table "staff_users", force: :cascade do |t|
+    t.bigint "cultural_center_id"
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cultural_center_id"], name: "index_staff_users_on_cultural_center_id"
+  end
+
+  create_table "tours", force: :cascade do |t|
+    t.string "title"
+    t.bigint "staff_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "cultural_center_id"
+    t.index ["cultural_center_id"], name: "index_tours_on_cultural_center_id"
+    t.index ["staff_user_id"], name: "index_tours_on_staff_user_id"
+  end
+
+  add_foreign_key "points", "tours"
+  add_foreign_key "staff_users", "cultural_centers"
+  add_foreign_key "tours", "cultural_centers"
+  add_foreign_key "tours", "staff_users"
 end
