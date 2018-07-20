@@ -1,2 +1,9 @@
 services:
   - postgresql
+
+env:
+  - RAILS_ENV=test
+
+script:
+  - bundle exec rails db:migrate RAILS_ENV=test
+  - bundle exec rspec
