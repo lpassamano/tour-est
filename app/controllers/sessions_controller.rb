@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
       token = Token.encode(user)
       render json: { token: token }
     else
-      # fix error message
       render json: { error: "Unauthorized" }, status: 401
     end
   end
