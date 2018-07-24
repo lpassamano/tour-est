@@ -9,7 +9,6 @@ RSpec.describe SessionsController do
       user.reload
       expect(response.status).to eq(200)
       body = JSON.parse(response.body)
-      secret = Rails.application.secret_key_base
       decoded = Token.decode(body["token"])
       expect(decoded).to eq(user)
     end
