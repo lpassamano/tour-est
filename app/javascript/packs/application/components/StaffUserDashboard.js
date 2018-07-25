@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import api from '../api'
 
 class StaffUserDashboard extends Component {
   state = {
@@ -11,13 +10,10 @@ class StaffUserDashboard extends Component {
   }}
 
   async componentDidMount() {
-    const { ok, data } = await api.authenticateStaffUser();
-
+    const { ok, data } = await this.props.onAuthenticate();
     if (!ok) {
       throw new Error('Not Authenticated!');
     }
-
-    console.log('user is', data);
   }
 
   render() {

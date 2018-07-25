@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
 import { navigate } from "@reach/router"
 
-import api from '../api'
-
 class LoginForm extends Component {
   state = { username: "", password: "" }
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const result = await api.login(this.state.username, this.state.password)
+    const result = await this.props.onLogin(this.state.username, this.state.password)
     if (result.ok) {
-      navigate('/staff_user')
+      navigate('/')
     } else {
       console.error(result.data.error)
     }
