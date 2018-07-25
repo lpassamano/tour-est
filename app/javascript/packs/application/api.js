@@ -17,13 +17,19 @@ const getStaffUser = () => {
   return api.get('/staff_user')
 }
 
+const authenticateStaffUser = () => {
+  const token = window.localStorage.getItem('token');
+  api.setHeader('Authorization', `Token token="${token}"`);
+  return getStaffUser();
+}
+
 const setAuthToken = (token) => {
   api.setHeader('Authorization', `Token token="${token}"`);
   window.localStorage.setItem('token', token)
 }
 
-
 export default {
   login,
-  getStaffUser
+  getStaffUser,
+  authenticateStaffUser
 }

@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
-import { create } from 'apisauce'
-
-const api = create({
-  baseURL: '/'
-})
+import api from '../api'
 
 class StaffUserDashboard extends Component {
   state = {
@@ -15,9 +11,7 @@ class StaffUserDashboard extends Component {
   }}
 
   async componentDidMount() {
-    const token = window.localStorage.getItem('token');
-    api.setHeader('Authorization', `Token token="${token}"`);
-    const { ok, data } = await api.get('/staff_user');
+    const { ok, data } = await api.authenticateStaffUser();
 
     if (!ok) {
       throw new Error('Not Authenticated!');
@@ -34,7 +28,5 @@ class StaffUserDashboard extends Component {
     )
   }
 }
-
-
 
 export default StaffUserDashboard;
