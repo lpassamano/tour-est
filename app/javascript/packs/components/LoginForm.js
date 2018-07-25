@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import { create } from 'apisauce'
+import { navigate } from "@reach/router"
+
+import App from './App'
+
+// TODO: refactor so that this component does not contain state!
 
 const api = create({
   baseURL: '/',
@@ -17,6 +22,7 @@ class LoginForm extends Component {
       console.log("Login successful.")
       api.setHeader('Authorization', token);
       window.localStorage.setItem('token', token)
+      navigate('/staff_user')
     } else {
       console.error(result.data.error)
     }
