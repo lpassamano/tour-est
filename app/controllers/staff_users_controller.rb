@@ -1,10 +1,11 @@
 class StaffUsersController < ApplicationController
+  before_action :authenticate_staff_user, only: [:show]
+
   def index
     @staff_users = StaffUser.all
   end
 
   def show
-    # send header to server
     render :show
   end
 
