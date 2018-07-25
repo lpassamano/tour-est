@@ -13,9 +13,12 @@ class LoginForm extends Component {
     event.preventDefault();
     const result = await api.post("/sessions", this.state)
     if (result.ok) {
-      console.log("Login successful!!!!", result.data)
+      const token = result.data.token
+      console.log("Login successful.")
+      api.setHeader('Authorization', token);
+      window.localStorage.setItem('token', token)
     } else {
-      console.error(result)
+      console.error(result.data.error)
     }
   }
 
