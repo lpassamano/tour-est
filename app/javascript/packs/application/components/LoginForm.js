@@ -1,27 +1,15 @@
 import React, { Component } from 'react'
-import { create } from 'apisauce'
 import { navigate } from "@reach/router"
 
-import App from './App'
-
-// TODO: refactor so that this component does not contain state!
-
-const api = create({
-  baseURL: '/',
-  headers: { 'x-csrf-token': document.querySelector("[name=csrf-token]").getAttribute("content") }
-})
+import api from '../api'
 
 class LoginForm extends Component {
   state = { username: "", password: "" }
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const result = await api.post("/sessions", this.state)
+    const result = await api.login(this.state.username, this.state.password)
     if (result.ok) {
-      const token = result.data.token
-      console.log("Login successful.")
-      api.setHeader('Authorization', `Token token="${token}"`);
-      window.localStorage.setItem('token', token)
       navigate('/staff_user')
     } else {
       console.error(result.data.error)
