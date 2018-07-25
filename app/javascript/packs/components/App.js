@@ -7,10 +7,13 @@ import StaffUserDashboard from './StaffUserDashboard'
 const App = () => (
   <div>
     <h1>Tour-est</h1>
-    <LoginForm />
+    <nav>
+      <Link to="/">Sign In</Link>
+    </nav>
+
     <Router>
-      <LoginForm path="/sessions" />
-      <StaffUserDashboard path="/staff_user" />
+      <LoginForm path="/" />
+      <StaffUserDashboard path="/" />
     </Router>
   </div>
 );

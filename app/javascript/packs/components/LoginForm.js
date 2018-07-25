@@ -20,7 +20,7 @@ class LoginForm extends Component {
     if (result.ok) {
       const token = result.data.token
       console.log("Login successful.")
-      api.setHeader('Authorization', token);
+      api.setHeader('Authorization', `Token token="${token}"`);
       window.localStorage.setItem('token', token)
       navigate('/staff_user')
     } else {
