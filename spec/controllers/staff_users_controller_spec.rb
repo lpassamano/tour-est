@@ -21,7 +21,6 @@ RSpec.describe StaffUsersController, type: :controller do
 
   it 'does not return a user when provided a invalid token' do
     request.headers["authorization"] = "fdsfas"
-    # next line breaks the test, need to fix show controller to account for bad data
     get :show, format: :json
     expect(response.status).to eq(401)
   end
