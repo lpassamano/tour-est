@@ -1,6 +1,10 @@
 {
   "name": "tour-est",
   "private": true,
+  "scripts": {
+    "test": "jest",
+    "format": "prettier '{app,config,test}/**/*.js' --write"
+  },
   "dependencies": {
     "@rails/webpacker": "3.5",
     "@reach/router": "^1.1.1",
@@ -12,6 +16,21 @@
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^23.4.1",
+    "prettier": "^1.13.7",
     "webpack-dev-server": "2.11.2"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/test/setupTests.js"
+    ],
+    "testRegex": "^.+\\.test\\.jsx?$",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   }
 }

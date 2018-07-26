@@ -1,12 +1,12 @@
-import 'babel-polyfill'
-import React from 'react'
-import ReactDOM from 'react-dom'
+import "babel-polyfill";
+import React from "react";
+import ReactDOM from "react-dom";
 
-import App from './application/App'
+import App from "./application/App";
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(
     <App />,
-    document.body.appendChild(document.createElement('div')),
-  )
-})
+    document.body.appendChild(document.createElement("div"))
+  );
+});
