@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe StaffUsersController, type: :controller do
-  context "Account Authentication" do
-    def json
-      JSON.parse(response.body)
-    end
+  def json
+    JSON.parse(response.body)
+  end
 
+  context "Existing Account Authentication" do
     def authenticate_staff_user(user)
       token = Token.encode(user)
       formatted_token = ActionController::HttpAuthentication::Token.encode_credentials(token)
@@ -27,5 +27,12 @@ RSpec.describe StaffUsersController, type: :controller do
     end
   end
 
-
+  context "New Account Authentication" do
+    it 'creates a staff user when provided valid username and password' do
+      user = build :staff_user
+      post :create, params: { username: user.username, password: user.password, cultural_center: user.cultural_center }
+      expect(response.status).to eq(200)
+      expect(json['id']).to eq(user.id)
+    end
+  end
 end

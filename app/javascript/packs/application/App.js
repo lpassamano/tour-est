@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Router, Link } from "@reach/router";
 
 import LoginForm from "./components/LoginForm";
+import CreateAccountForm from "./components/CreateAccountForm";
 import StaffUserDashboard from "./components/StaffUserDashboard";
 import api from "./api";
 
@@ -26,6 +27,14 @@ class App extends Component {
     return result;
   };
 
+  registerStaffUser = async attributes => {
+    const userResult = await api.createStaffUser(attributes);
+    if (userResult.ok) {
+      return this.loginStaffUser(attributes.username, attributes.password);
+    }
+    return userResult;
+  };
+
   render() {
     return (
       <div>
@@ -43,6 +52,10 @@ class App extends Component {
           ) : (
             <LoginForm path="/" onLogin={this.loginStaffUser} />
           )}
+          <CreateAccountForm
+            path="/create-account"
+            onCreateUser={this.registerStaffUser}
+          />
         </Router>
       </div>
     );

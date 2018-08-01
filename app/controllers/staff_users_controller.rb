@@ -9,6 +9,19 @@ class StaffUsersController < ApplicationController
     render :show
   end
 
+  def create
+    username = params[:username]
+    password = params[:password]
+    cultural_center = CulturalCenter.create_or_find_by name: params[:cultural_center]
+    user = StaffUser.new(username: username, password: password, cultural_center: cultural_center)
+
+    if user.save
+      render json: { user: user}
+    else
+      render json: { error: "Bad Request" }, status: 400
+    end
+  end
+
   private
 
   def current_staff_user

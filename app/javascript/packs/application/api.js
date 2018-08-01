@@ -9,6 +9,10 @@ const api = create({
   }
 });
 
+const createStaffUser = async attributes => {
+  return api.post("/users", attributes);
+};
+
 const login = async (username, password) => {
   const result = await api.post("/sessions", { username, password });
   if (result.ok) {
@@ -33,6 +37,7 @@ const setAuthToken = token => {
 };
 
 export default {
+  createStaffUser,
   login,
   getStaffUser,
   authenticateStaffUser

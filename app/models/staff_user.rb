@@ -1,5 +1,7 @@
 class StaffUser < ApplicationRecord
   has_secure_password
+  # use this gem for password strength validations:
+  # https://github.com/cmer/nobspw
 
   validates :username, uniqueness: true
   validates :password, length: { minimum: 8 }
