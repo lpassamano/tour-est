@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { navigate } from "@reach/router";
 
 class LoginForm extends Component {
+  static defaultProps = { navigate };
   state = { username: "", password: "" };
 
   handleSubmit = async event => {
@@ -11,7 +12,7 @@ class LoginForm extends Component {
       this.state.password
     );
     if (result.ok) {
-      navigate("/");
+      this.props.navigate("/");
     } else {
       console.error(result.data.error);
     }
