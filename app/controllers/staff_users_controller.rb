@@ -12,7 +12,7 @@ class StaffUsersController < ApplicationController
   def create
     username = params[:username]
     password = params[:password]
-    cultural_center = CulturalCenter.create_or_find_by name: params[:cultural_center]
+    cultural_center = CulturalCenter.find_or_create_by(name: params[:cultural_center])
     user = StaffUser.new(username: username, password: password, cultural_center: cultural_center)
 
     if user.save

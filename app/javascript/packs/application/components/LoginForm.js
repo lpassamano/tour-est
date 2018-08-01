@@ -4,7 +4,6 @@ import { navigate } from "@reach/router";
 // TODO add prop types
 
 class LoginForm extends Component {
-  // static defaultProps = { navigate: "/" };
   static defaultProps = { navigate };
   state = { username: "", password: "" };
 
@@ -15,7 +14,6 @@ class LoginForm extends Component {
       this.state.password
     );
     if (result.ok) {
-      // this.props.navigate;
       this.props.navigate("/");
     } else {
       console.error(result.data.error);
