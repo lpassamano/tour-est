@@ -27,26 +27,5 @@ RSpec.describe StaffUsersController, type: :controller do
     end
   end
 
-  context "Create Account" do
-    it 'must use a unique username' do
-      user = create :staff_user
-      cultural_center = create :cultural_center
-      new_user = StaffUser.new(username: user.username, password: "asdfjkl;", cultural_center: cultural_center)
-      expect(new_user.valid?).to eq(false)
-    end
 
-    it 'must have a valid password' do
-      # create my own validations in the model or is there a gem for that?
-    end
-
-    it 'creates a new user in the database' do
-      # should I even bother testing this?
-      user = create :staff_user
-      expect(StaffUser.all.last).to eq(user)
-    end
-
-    it 'logs the user in after their account is created' do
-      # should this be tested here or in the JS test suite?
-    end
-  end
 end
