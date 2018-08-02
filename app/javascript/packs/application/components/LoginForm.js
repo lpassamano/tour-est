@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
-
-// TODO add prop types
+import PropTypes from 'prop-types';
 
 class LoginForm extends Component {
   static defaultProps = { navigate };
@@ -46,6 +45,11 @@ class LoginForm extends Component {
       </form>
     );
   }
+}
+
+LoginForm.propTypes = {
+  username: PropTypes.string,
+  password: PropTypes.string,
 }
 
 export default LoginForm;

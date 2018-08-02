@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
+import PropTypes from 'prop-types';
 
 // TODO
 // see if any other fields are necessary for the form!
 // 2. add in note about password requirements (10 characters min)
 // 3. add in field for password errors
-// 4. add prop types
 
 class CreateAccountForm extends Component {
   static defaultProps = { navigate };
@@ -71,6 +71,13 @@ class CreateAccountForm extends Component {
       </form>
     );
   }
+}
+
+CreateAccountForm.propTypes = {
+  username: PropTypes.string,
+  password: PropTypes.string,
+  password_confirmation: PropTypes.string,
+  cultural_center: PropTypes.string,
 }
 
 export default CreateAccountForm;
