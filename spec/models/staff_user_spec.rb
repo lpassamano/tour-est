@@ -15,14 +15,14 @@ RSpec.describe StaffUser, type: :model do
       expect(new_user.errors[:username]).to include('has already been taken')
     end
 
-    it "can't have a password with less than 8 characters" do
+    it "can't have a password with less than 10 characters" do
       user = build :staff_user, password: "1"
       expect(user).to_not be_valid
       expect(user.errors[:password].first).to include('is too short')
     end
 
     it "is valid with a valid password" do
-      user = build :staff_user, password: "asdfjkl;"
+      user = build :staff_user, password: "coffeecup666"
       expect(user).to be_valid
     end
   end

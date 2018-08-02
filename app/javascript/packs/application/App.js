@@ -51,6 +51,7 @@ class App extends Component {
             <StaffUserDashboard
               path="/"
               onAuthenticate={this.authenticateStaffUser}
+              currentStaffUser={this.state.currentStaffUser}
             />
           ) : (
             <LoginForm

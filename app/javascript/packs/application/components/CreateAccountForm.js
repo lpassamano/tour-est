@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
 
-// TODO add prop types
+// TODO
+// see if any other fields are necessary for the form!
+// 2. add in note about password requirements (10 characters min)
+// 3. add in field for password errors
+// 4. add prop types
 
 class CreateAccountForm extends Component {
   static defaultProps = { navigate };
-  state = { username: "", password: "", cultural_center: "" };
+  state = { username: "", password: "", password_confirmation: "", cultural_center: "" };
 
   handleSubmit = async event => {
     event.preventDefault();
@@ -27,10 +31,6 @@ class CreateAccountForm extends Component {
     this.setState({ [name]: value });
   };
 
-  // TODO
-  // 1. password confirmation field - need to fix that on server side first
-  // see if any other fields are necessary for the form!
-
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -46,6 +46,13 @@ class CreateAccountForm extends Component {
           type="password"
           id="password"
           value={this.state.password}
+          onChange={this.handleChange}
+        />
+        <input
+          name="password_confirmation"
+          type="password"
+          id="password_confirmation"
+          value={this.state.password_confirmation}
           onChange={this.handleChange}
         />
         <input

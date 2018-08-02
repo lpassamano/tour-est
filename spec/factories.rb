@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :staff_user do
     username {Faker::Internet.username}
-    password "password123"
+    password "bananafeet1120"
     cultural_center
   end
 

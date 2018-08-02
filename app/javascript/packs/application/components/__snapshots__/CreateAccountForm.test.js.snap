@@ -22,6 +22,13 @@ exports[`<CreateAccountForm /> render 1`] = `
       value="12345abcde"
     />
     <input
+      id="password_confirmation"
+      name="password_confirmation"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+    <input
       id="cultural_center"
       name="cultural_center"
       onChange={[Function]}
