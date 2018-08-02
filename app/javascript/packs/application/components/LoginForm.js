@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
+import PropTypes from 'prop-types';
 
 // TODO add prop types
 
@@ -46,6 +47,11 @@ class LoginForm extends Component {
       </form>
     );
   }
+}
+
+LoginForm.propTypes = {
+  username: PropTypes.string,
+  password: PropTypes.string,
 }
 
 export default LoginForm;

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
+import PropTypes from 'prop-types';
 
 // TODO
 // see if any other fields are necessary for the form!
@@ -71,6 +72,13 @@ class CreateAccountForm extends Component {
       </form>
     );
   }
+}
+
+CreateAccountForm.propTypes = {
+  username: PropTypes.string,
+  password: PropTypes.string,
+  password_confirmation: PropTypes.string,
+  cultural_center: PropTypes.string,
 }
 
 export default CreateAccountForm;
