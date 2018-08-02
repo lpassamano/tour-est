@@ -29,8 +29,8 @@ class App extends Component {
 
   registerStaffUser = async (...attributes) => {
     const userResult = await api.createStaffUser(attributes);
-    const username = attributes[0]["username"]
-    const password = attributes[0]["password"]
+    const username = attributes[0]["username"];
+    const password = attributes[0]["password"];
     if (userResult.ok) {
       return this.loginStaffUser(username, password);
     }
@@ -54,10 +54,7 @@ class App extends Component {
               currentStaffUser={this.state.currentStaffUser}
             />
           ) : (
-            <LoginForm
-              path="/"
-              onLogin={this.loginStaffUser}
-            />
+            <LoginForm path="/" onLogin={this.loginStaffUser} />
           )}
           <CreateAccountForm
             path="/create-account"
