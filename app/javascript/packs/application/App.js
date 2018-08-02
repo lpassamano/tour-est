@@ -1,32 +1,32 @@
-import React, { Component } from 'react'
-import { Router, Link } from '@reach/router'
+import React, { Component } from "react";
+import { Router, Link } from "@reach/router";
 
-import LoginForm from './components/LoginForm'
-import StaffUserDashboard from './components/StaffUserDashboard'
-import api from './api'
+import LoginForm from "./components/LoginForm";
+import StaffUserDashboard from "./components/StaffUserDashboard";
+import api from "./api";
 
 class App extends Component {
   state = {
     currentStaffUser: null
-  }
+  };
 
   authenticateStaffUser = async () => {
     const result = await api.authenticateStaffUser();
     if (result.ok) {
-      this.setState({ currentStaffUser: result.data })
+      this.setState({ currentStaffUser: result.data });
     }
-    return result
-  }
+    return result;
+  };
 
   loginStaffUser = async (username, password) => {
-    const result = await api.login(username, password)
-    if(result.ok) {
-      this.setState({ currentStaffUser: result.data })
+    const result = await api.login(username, password);
+    if (result.ok) {
+      this.setState({ currentStaffUser: result.data });
     }
-    return result
-  }
+    return result;
+  };
 
-  render () {
+  render() {
     return (
       <div>
         <h1>Tour-est</h1>
@@ -35,9 +35,14 @@ class App extends Component {
         </nav>
 
         <Router>
-        { this.state.currentStaffUser
-            ? <StaffUserDashboard path="/" onAuthenticate={this.authenticateStaffUser}/>
-            : <LoginForm path="/" onLogin={this.loginStaffUser}/> }
+          {this.state.currentStaffUser ? (
+            <StaffUserDashboard
+              path="/"
+              onAuthenticate={this.authenticateStaffUser}
+            />
+          ) : (
+            <LoginForm path="/" onLogin={this.loginStaffUser} />
+          )}
         </Router>
       </div>
     );

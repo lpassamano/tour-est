@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class StaffUserDashboard extends Component {
   state = {
@@ -7,21 +7,18 @@ class StaffUserDashboard extends Component {
     cultural_center: {
       name: "",
       id: ""
-  }}
+    }
+  };
 
   async componentDidMount() {
     const { ok, data } = await this.props.onAuthenticate();
     if (!ok) {
-      throw new Error('Not Authenticated!');
+      throw new Error("Not Authenticated!");
     }
   }
 
   render() {
-    return (
-      <div>
-        Staff Dashboard
-      </div>
-    )
+    return <div>Staff Dashboard</div>;
   }
 }
 
