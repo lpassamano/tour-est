@@ -23,7 +23,11 @@ describe("<CreateAccountForm />", () => {
     onCreateUser.mockResolvedValue({ ok: true });
     const component = setup({ onCreateUser, navigate });
     component.find("form").simulate("submit", { preventDefault: () => null });
-    expect(onCreateUser).toHaveBeenCalledWith({ username: "leigh", password: "12345abcde", cultural_center: "Met Museum"});
+    expect(onCreateUser).toHaveBeenCalledWith({
+      username: "leigh",
+      password: "12345abcde",
+      cultural_center: "Met Museum"
+    });
   });
 
   test("handleChange - when text is typed into the email, password, and cultural center fields the state is updated", () => {

@@ -22,7 +22,7 @@ class StaffUserDashboard extends Component {
           name: this.props.currentStaffUser.cultural_center.name,
           id: this.props.currentStaffUser.cultural_center.id
         }
-      })
+      });
     }
   }
 

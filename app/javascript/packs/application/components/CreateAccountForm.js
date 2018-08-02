@@ -9,7 +9,12 @@ import { navigate } from "@reach/router";
 
 class CreateAccountForm extends Component {
   static defaultProps = { navigate };
-  state = { username: "", password: "", password_confirmation: "", cultural_center: "" };
+  state = {
+    username: "",
+    password: "",
+    password_confirmation: "",
+    cultural_center: ""
+  };
 
   handleSubmit = async event => {
     event.preventDefault();
@@ -18,7 +23,7 @@ class CreateAccountForm extends Component {
       password: this.state.password,
       cultural_center: this.state.cultural_center
     });
-    console.log(result)
+    console.log(result);
     if (result.ok) {
       this.props.navigate("/");
     } else {
