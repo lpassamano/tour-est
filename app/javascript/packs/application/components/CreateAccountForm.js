@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 // TODO
 // see if any other fields are necessary for the form!
