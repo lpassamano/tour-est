@@ -10,7 +10,7 @@ const api = create({
 });
 
 const createStaffUser = async attributes => {
-  return api.post("/users", attributes);
+  return api.post("/staff_users", attributes);
 };
 
 const login = async (username, password) => {

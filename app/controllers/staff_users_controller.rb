@@ -10,14 +10,15 @@ class StaffUsersController < ApplicationController
   end
 
   def create
-    username = params[:username]
-    password = params[:password]
-    cultural_center = CulturalCenter.find_or_create_by(name: params[:cultural_center])
+    username = staff_user_params[:username]
+    password = staff_user_params[:password]
+    cultural_center = CulturalCenter.find_or_create_by(name: staff_user_params[:cultural_center])
     user = StaffUser.new(username: username, password: password, cultural_center: cultural_center)
 
     if user.save
       render json: { user: user}
     else
+      # ask about better errors!
       render json: { error: "Bad Request" }, status: 400
     end
   end
@@ -34,5 +35,9 @@ class StaffUsersController < ApplicationController
     authenticate_or_request_with_http_token do |token, _options|
       Token.decode(token)
     end
+  end
+
+  def staff_user_params
+    params["_json"][0]
   end
 end
