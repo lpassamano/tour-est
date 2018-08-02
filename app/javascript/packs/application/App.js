@@ -29,8 +29,10 @@ class App extends Component {
 
   registerStaffUser = async (...attributes) => {
     const userResult = await api.createStaffUser(attributes);
+    const username = attributes[0]["username"]
+    const password = attributes[0]["password"]
     if (userResult.ok) {
-      return this.loginStaffUser(attributes.username, attributes.password);
+      return this.loginStaffUser(username, password);
     }
     return userResult;
   };
@@ -40,7 +42,8 @@ class App extends Component {
       <div>
         <h1>Tour-est</h1>
         <nav>
-          <Link to="/">Sign In</Link>
+          <Link to="/">Sign In</Link>{" "}
+          <Link to="/create-account">Create Account</Link>
         </nav>
 
         <Router>

@@ -30,7 +30,7 @@ RSpec.describe StaffUsersController, type: :controller do
   context "New Account Authentication" do
     it 'creates a staff user when provided valid username and password' do
       user = build :staff_user
-      post :create, params: { username: user.username, password: user.password, cultural_center: user.cultural_center }
+      post :create, params: { "_json": [{username: user.username, password: user.password, cultural_center: user.cultural_center}] }
       expect(response.status).to eq(200)
       expect(json['id']).to eq(user.id)
     end
