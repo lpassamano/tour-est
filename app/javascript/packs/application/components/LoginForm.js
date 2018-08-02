@@ -51,7 +51,7 @@ class LoginForm extends Component {
 
 LoginForm.propTypes = {
   username: PropTypes.string,
-  password: PropTypes.string,
-}
+  password: PropTypes.string
+};
 
 export default LoginForm;

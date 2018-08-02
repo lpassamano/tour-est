@@ -78,7 +78,7 @@ CreateAccountForm.propTypes = {
   username: PropTypes.string,
   password: PropTypes.string,
   password_confirmation: PropTypes.string,
-  cultural_center: PropTypes.string,
-}
+  cultural_center: PropTypes.string
+};
 
 export default CreateAccountForm;
