@@ -20,6 +20,7 @@
     "babel-jest": "^23.4.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "jest": "^23.4.1",
     "prettier": "^1.13.7",
     "webpack-dev-server": "2.11.2"
@@ -28,6 +29,7 @@
     "setupFiles": [
       "<rootDir>/test/setupTests.js"
     ],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
     "testRegex": "^.+\\.test\\.jsx?$",
     "transform": {
       "^.+\\.jsx?$": "babel-jest"

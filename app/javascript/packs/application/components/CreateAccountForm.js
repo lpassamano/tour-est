@@ -3,16 +3,18 @@ import { navigate } from "@reach/router";
 
 // TODO add prop types
 
-class LoginForm extends Component {
+class CreateAccountForm extends Component {
   static defaultProps = { navigate };
-  state = { username: "", password: "" };
+  state = { username: "", password: "", cultural_center: "" };
 
   handleSubmit = async event => {
     event.preventDefault();
-    const result = await this.props.onLogin(
-      this.state.username,
-      this.state.password
-    );
+    const result = await this.props.onCreateUser({
+      username: this.state.username,
+      password: this.state.password,
+      cultural_center: this.state.cultural_center
+    });
+    console.log(result)
     if (result.ok) {
       this.props.navigate("/");
     } else {
@@ -24,6 +26,10 @@ class LoginForm extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
+
+  // TODO
+  // 1. password confirmation field - need to fix that on server side first
+  // see if any other fields are necessary for the form!
 
   render() {
     return (
@@ -42,10 +48,17 @@ class LoginForm extends Component {
           value={this.state.password}
           onChange={this.handleChange}
         />
+        <input
+          name="cultural_center"
+          type="text"
+          id="cultural_center"
+          value={this.state.cultural_center}
+          onChange={this.handleChange}
+        />
         <button type="submit">Log In</button>
       </form>
     );
   }
 }
 
-export default LoginForm;
+export default CreateAccountForm;

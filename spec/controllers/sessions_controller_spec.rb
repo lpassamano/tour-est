@@ -5,7 +5,7 @@ RSpec.describe SessionsController do
   describe "post create" do
     it 'provides a token when given a username and password' do
       user = create :staff_user
-      post :create, params: { username: user.username, password: "password123" }
+      post :create, params: { username: user.username, password: user.password }
       user.reload
       expect(response.status).to eq(200)
       body = JSON.parse(response.body)
@@ -35,7 +35,7 @@ RSpec.describe SessionsController do
     it 'is not successful if an incorrect username is provided' do
       user = create :staff_user
       name = user.username + "1"
-      post :create, params: { username: name, password: "password123" }
+      post :create, params: { username: name, password: user.password }
       expect(response.status).to eq(401)
       expect(JSON.parse(response.body)).to include("error")
     end

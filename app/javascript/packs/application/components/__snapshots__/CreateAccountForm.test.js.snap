@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CreateAccountForm /> render 1`] = `
+<CreateAccountForm
+  navigate={[Function]}
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      id="username"
+      name="username"
+      onChange={[Function]}
+      type="text"
+      value="leigh"
+    />
+    <input
+      id="password"
+      name="password"
+      onChange={[Function]}
+      type="password"
+      value="12345abcde"
+    />
+    <input
+      id="cultural_center"
+      name="cultural_center"
+      onChange={[Function]}
+      type="text"
+      value="Met Museum"
+    />
+    <button
+      type="submit"
+    >
+      Log In
+    </button>
+  </form>
+</CreateAccountForm>
+`;

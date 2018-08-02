@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "*path", to: "pages#index", constraints: -> (request) {request.format.html?}
   resources :points
   resources :tours
-  resources :staff_users, only: [:index]
+  resources :staff_users, only: [:index, :create]
   resource :staff_user, only: [:show]
   resources :cultural_centers
   resources :sessions, only: [:create, :delete]
