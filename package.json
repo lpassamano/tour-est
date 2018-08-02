@@ -11,6 +11,7 @@
     "apisauce": "^0.15.2",
     "babel-polyfill": "^6.26.0",
     "babel-preset-react": "^6.24.1",
+    "husky": "^1.0.0-rc.13",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
@@ -29,10 +30,18 @@
     "setupFiles": [
       "<rootDir>/test/setupTests.js"
     ],
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "testRegex": "^.+\\.test\\.jsx?$",
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn format && yarn test && rspec",
+      "pre-push": "yarn format && yarn test"
     }
   }
 }
