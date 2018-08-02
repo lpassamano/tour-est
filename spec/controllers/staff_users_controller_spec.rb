@@ -30,9 +30,16 @@ RSpec.describe StaffUsersController, type: :controller do
   context "New Account Authentication" do
     it 'creates a staff user when provided valid username and password' do
       user = build :staff_user
-      post :create, params: { "_json": [{username: user.username, password: user.password, cultural_center: user.cultural_center}] }
+      post :create, params: { "_json": [{username: user.username, password: user.password, password_confirmation: user.password, cultural_center: user.cultural_center}] }
       expect(response.status).to eq(200)
       expect(json['id']).to eq(user.id)
+    end
+
+    it 'does returns an error message when the password and confirmation do not match' do
+      # HALP!
+      user = build :staff_user
+      post :create, params: { "_json": [{username: user.username, password: user.password, password_confirmation: "ferncouchplant", cultural_center: user.cultural_center}] }
+      expect(response.status).to eq(401)
     end
   end
 end

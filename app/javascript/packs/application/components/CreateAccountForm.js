@@ -5,7 +5,7 @@ import { navigate } from "@reach/router";
 
 class CreateAccountForm extends Component {
   static defaultProps = { navigate };
-  state = { username: "", password: "", cultural_center: "" };
+  state = { username: "", password: "", password_confirmation: "", cultural_center: "" };
 
   handleSubmit = async event => {
     event.preventDefault();
@@ -30,6 +30,8 @@ class CreateAccountForm extends Component {
   // TODO
   // 1. password confirmation field - need to fix that on server side first
   // see if any other fields are necessary for the form!
+  // 2. add in note about password requirements (10 characters min)
+  // 3. add in field for password errors
 
   render() {
     return (
@@ -46,6 +48,13 @@ class CreateAccountForm extends Component {
           type="password"
           id="password"
           value={this.state.password}
+          onChange={this.handleChange}
+        />
+        <input
+          name="password_confirmation"
+          type="password"
+          id="password_confirmation"
+          value={this.state.password_confirmation}
           onChange={this.handleChange}
         />
         <input

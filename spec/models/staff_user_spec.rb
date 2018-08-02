@@ -22,7 +22,7 @@ RSpec.describe StaffUser, type: :model do
     end
 
     it "is valid with a valid password" do
-      user = build :staff_user, password: "asdfjkl;"
+      user = build :staff_user, password: "coffeecup666"
       expect(user).to be_valid
     end
   end

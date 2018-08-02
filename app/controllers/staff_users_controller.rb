@@ -10,6 +10,7 @@ class StaffUsersController < ApplicationController
   end
 
   def create
+    # HALP w/ password validation!!
     username = staff_user_params[:username]
     password = staff_user_params[:password]
     cultural_center = CulturalCenter.find_or_create_by(name: staff_user_params[:cultural_center])
