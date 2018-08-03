@@ -12,6 +12,7 @@ class LoginForm extends Component {
       this.state.username,
       this.state.password
     );
+
     if (result.ok) {
       this.props.navigate("/");
     } else {

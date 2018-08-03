@@ -3,8 +3,10 @@ import { shallow, mount } from "enzyme";
 import React from "react";
 
 describe("<LoginForm />", () => {
-  const setup = props => {
-    const component = mount(<LoginForm {...props} />);
+  const setup = ({ onLogin = jest.fn(), navigate = jest.fn() }) => {
+    const component = mount(
+      <LoginForm onLogin={onLogin} navigate={navigate} />
+    );
     const event1 = { target: { name: "username", value: "leigh" } };
     const event2 = { target: { name: "password", value: "123abc" } };
     component.find("input#username").simulate("change", event1);

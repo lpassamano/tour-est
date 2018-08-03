@@ -3,8 +3,10 @@ import { shallow, mount } from "enzyme";
 import React from "react";
 
 describe("<CreateAccountForm />", () => {
-  const setup = props => {
-    const component = mount(<CreateAccountForm {...props} />);
+  const setup = ({ onCreateUser = jest.fn(), navigate = jest.fn() }) => {
+    const component = mount(
+      <CreateAccountForm onCreateUser={onCreateUser} navigate={navigate} />
+    );
     const event1 = { target: { name: "username", value: "leigh" } };
     const event2 = { target: { name: "password", value: "12345abcde" } };
     const event3 = { target: { name: "cultural_center", value: "Met Museum" } };

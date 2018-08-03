@@ -23,7 +23,7 @@ class CreateAccountForm extends Component {
       password: this.state.password,
       cultural_center: this.state.cultural_center
     });
-    console.log(result);
+
     if (result.ok) {
       this.props.navigate("/");
     } else {
