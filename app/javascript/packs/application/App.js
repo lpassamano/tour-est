@@ -13,27 +13,32 @@ class App extends Component {
 
   authenticateStaffUser = async () => {
     const result = await api.authenticateStaffUser();
+
     if (result.ok) {
       this.setState({ currentStaffUser: result.data });
     }
+
     return result;
   };
 
   loginStaffUser = async (username, password) => {
     const result = await api.login(username, password);
+
     if (result.ok) {
       this.setState({ currentStaffUser: result.data });
     }
+
     return result;
   };
 
-  registerStaffUser = async (...attributes) => {
+  registerStaffUser = async attributes => {
     const userResult = await api.createStaffUser(attributes);
-    const username = attributes[0]["username"];
-    const password = attributes[0]["password"];
+    const { username, password } = attributes.user;
+
     if (userResult.ok) {
       return this.loginStaffUser(username, password);
     }
+
     return userResult;
   };
 

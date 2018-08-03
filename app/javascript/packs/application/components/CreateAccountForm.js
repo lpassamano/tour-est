@@ -19,9 +19,14 @@ class CreateAccountForm extends Component {
   handleSubmit = async event => {
     event.preventDefault();
     const result = await this.props.onCreateUser({
-      username: this.state.username,
-      password: this.state.password,
-      cultural_center: this.state.cultural_center
+      user: {
+        username: this.state.username,
+        password: this.state.password,
+        password_confirmation: this.state.password_confirmation
+      },
+      cultural_center: {
+        name: this.state.cultural_center
+      }
     });
 
     if (result.ok) {

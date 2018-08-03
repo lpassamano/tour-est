@@ -30,14 +30,39 @@ RSpec.describe StaffUsersController, type: :controller do
   context "New Account Authentication" do
     it 'creates a staff user when provided valid username and password' do
       user = build :staff_user
-      post :create, params: { "_json": [{username: user.username, password: user.password, password_confirmation: user.password, cultural_center: user.cultural_center}] }
+      post :create, params: {
+        user: {
+          username: user.username,
+          password: "bananafeet",
+          password_confirmation: "bananafeet"
+        },
+        cultural_center: {
+          name: user.cultural_center.name
+        }
+      }
       expect(response.status).to eq(200)
       expect(json['id']).to eq(user.id)
     end
 
+    # see if user was created and cultural center created
+    # see what happens when user valid, cc in valid
+    # see what happends when user invalid cc valid
+    # in cc model validates name presence
+    # if both valid they are created and associated
+    # auto save true to cc assocation in user model asociation
+
     it 'returns an error message when the password and confirmation do not match' do
       user = build :staff_user
-      post :create, params: { "_json": [{username: user.username, password: user.password, password_confirmation: "fdsfa", cultural_center: user.cultural_center}] }
+      post :create, params: {
+        user: {
+          username: user.username,
+          password: "bananafeet",
+          password_confirmation: ""
+        },
+        cultural_center: {
+          name: user.cultural_center.name
+        }
+      }
       expect(response.status).to eq(400)
     end
   end
