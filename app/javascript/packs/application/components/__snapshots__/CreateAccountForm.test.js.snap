@@ -2,7 +2,8 @@
 
 exports[`<CreateAccountForm /> render 1`] = `
 <CreateAccountForm
-  navigate={[Function]}
+  navigate={[MockFunction]}
+  onCreateUser={[MockFunction]}
 >
   <form
     onSubmit={[Function]}

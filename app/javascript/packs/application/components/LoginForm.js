@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
-import PropTypes from 'prop-types';
-
-// TODO add prop types
+import PropTypes from "prop-types";
 
 class LoginForm extends Component {
   static defaultProps = { navigate };
@@ -14,6 +12,7 @@ class LoginForm extends Component {
       this.state.username,
       this.state.password
     );
+
     if (result.ok) {
       this.props.navigate("/");
     } else {
@@ -50,8 +49,8 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-  username: PropTypes.string,
-  password: PropTypes.string
+  navigate: PropTypes.func.isRequired,
+  onLogin: PropTypes.func.isRequired
 };
 
 export default LoginForm;

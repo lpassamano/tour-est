@@ -2,7 +2,8 @@
 
 exports[`<LoginForm /> render 1`] = `
 <LoginForm
-  navigate={[Function]}
+  navigate={[MockFunction]}
+  onLogin={[MockFunction]}
 >
   <form
     onSubmit={[Function]}
