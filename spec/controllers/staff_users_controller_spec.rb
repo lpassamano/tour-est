@@ -44,6 +44,7 @@ RSpec.describe StaffUsersController, type: :controller do
       expect(json['id']).to eq(user.id)
     end
 
+    # TODO
     # see if user was created and cultural center created
     # see what happens when user valid, cc in valid
     # see what happends when user invalid cc valid
@@ -63,7 +64,7 @@ RSpec.describe StaffUsersController, type: :controller do
           name: user.cultural_center.name
         }
       }
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(422)
     end
   end
 end

@@ -9,10 +9,14 @@ describe("<CreateAccountForm />", () => {
     );
     const event1 = { target: { name: "username", value: "leigh" } };
     const event2 = { target: { name: "password", value: "12345abcde" } };
-    const event3 = { target: { name: "cultural_center", value: "Met Museum" } };
+    const event3 = {
+      target: { name: "password_confirmation", value: "12345abcde" }
+    };
+    const event4 = { target: { name: "cultural_center", value: "Met Museum" } };
     component.find("input#username").simulate("change", event1);
     component.find("input#password").simulate("change", event2);
-    component.find("input#cultural_center").simulate("change", event3);
+    component.find("input#password_confirmation").simulate("change", event3);
+    component.find("input#cultural_center").simulate("change", event4);
     return component;
   };
 
@@ -26,9 +30,14 @@ describe("<CreateAccountForm />", () => {
     const component = setup({ onCreateUser, navigate });
     component.find("form").simulate("submit", { preventDefault: () => null });
     expect(onCreateUser).toHaveBeenCalledWith({
-      username: "leigh",
-      password: "12345abcde",
-      cultural_center: "Met Museum"
+      user: {
+        username: "leigh",
+        password: "12345abcde",
+        password_confirmation: "12345abcde"
+      },
+      cultural_center: {
+        name: "Met Museum"
+      }
     });
   });
 
