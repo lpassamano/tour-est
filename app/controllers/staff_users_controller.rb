@@ -16,7 +16,6 @@ class StaffUsersController < ApplicationController
     if user.save
       render json: { user: user}
     else
-      # ask about better errors!
       render json: user.errors, status: 422
     end
   end
