@@ -4,12 +4,18 @@ import PropTypes from "prop-types";
 
 class CreateTourForm extends Component {
   static defaultProps = { navigate };
-  state = { title: "" };
+  state = {
+    title: ""
+  };
 
   handleSubmit = async event => {
     event.preventDefault();
     const result = await this.props.onCreateTour({
-      tour: { title: this.state.title }
+      tour: {
+        title: this.state.title,
+        staff_user_id: this.props.staffUser,
+        cultural_center_id: this.props.culturalCenter
+      }
     });
 
     if (result.ok) {

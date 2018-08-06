@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import CreateTourForm from "./CreateTourForm";
 
 class StaffUserDashboard extends Component {
   state = {
@@ -32,6 +33,11 @@ class StaffUserDashboard extends Component {
         <h1>Staff Dashboard</h1>
         <h3>Current user: {this.state.username}</h3>
         <h3>{this.state.cultural_center.name}</h3>
+        <CreateTourForm
+          onCreateTour={this.props.onCreateTour}
+          staffUser={this.state.id}
+          culturalCenter={this.state.cultural_center.id}
+        />
       </div>
     );
   }

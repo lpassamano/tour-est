@@ -4,7 +4,6 @@ import { Router, Link } from "@reach/router";
 import LoginForm from "./components/LoginForm";
 import CreateAccountForm from "./components/CreateAccountForm";
 import StaffUserDashboard from "./components/StaffUserDashboard";
-import CreateTourForm from "./components/CreateTourForm";
 import api from "./api";
 
 class App extends Component {
@@ -68,6 +67,7 @@ class App extends Component {
               path="/"
               onAuthenticate={this.authenticateStaffUser}
               currentStaffUser={this.state.currentStaffUser}
+              onCreateTour={this.registerTour}
             />
           ) : (
             <LoginForm path="/" onLogin={this.loginStaffUser} />
@@ -75,10 +75,6 @@ class App extends Component {
           <CreateAccountForm
             path="/create-account"
             onCreateUser={this.registerStaffUser}
-          />
-          <CreateTourForm
-            path="/create-tour"
-            onCreateTour={this.registerTour}
           />
         </Router>
       </div>

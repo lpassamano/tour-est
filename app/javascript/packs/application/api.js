@@ -37,6 +37,7 @@ const setAuthToken = token => {
 };
 
 const createTour = async attributes => {
+  // only allowed to do if currentStaffUser
   return api.post("/tours", attributes);
 };
 
