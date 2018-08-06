@@ -3,7 +3,18 @@ import React, { Component } from "react";
 class CreateTourForm extends Component {
   state = { title: "" };
 
-  handleSubmit = event => {};
+  handleSubmit = async event => {
+    event.preventDefault();
+    const result = await this.props.onCreateTour({
+      tour: { title: this.state.title }
+    });
+
+    if (result.ok) {
+      this.props.navigate("/");
+    } else {
+      console.error(result.data.error);
+    }
+  };
 
   handleChange = event => {
     const { name, value } = event.target;
