@@ -2,10 +2,19 @@ import CreateTourForm from "./CreateTourForm";
 import React from "react";
 import { mount } from "enzyme";
 
+// TODO check to see if props are being passed properly
+
 describe("<CreateTourForm />", () => {
   const setup = ({ onCreateTour = jest.fn(), navigate = jest.fn() }) => {
+    const staffUser = "1";
+    const culturalCenter = "1";
     const component = mount(
-      <CreateTourForm onCreateTour={onCreateTour} navigate={navigate} />
+      <CreateTourForm
+        onCreateTour={onCreateTour}
+        navigate={navigate}
+        staffUser={staffUser}
+        culturalCenter={culturalCenter}
+      />
     );
     return component;
   };
@@ -22,7 +31,11 @@ describe("<CreateTourForm />", () => {
     component.find("input#title").simulate("change", event);
     component.find("form").simulate("submit", { preventDefault: () => null });
     expect(onCreateTour).toHaveBeenCalledWith({
-      tour: { title: "Best Tour Ever!" }
+      tour: {
+        title: "Best Tour Ever!",
+        staff_user_id: "1",
+        cultural_center_id: "1"
+      }
     });
   });
 

@@ -46,9 +46,12 @@ class CreateTourForm extends Component {
   }
 }
 
+// NOTE: should staffUser and culturalCenter be passed as integers?
 CreateTourForm.propTypes = {
   navigate: PropTypes.func.isRequired,
-  onCreateTour: PropTypes.func.isRequired
+  onCreateTour: PropTypes.func.isRequired,
+  staffUser: PropTypes.string.isRequired,
+  culturalCenter: PropTypes.string.isRequired
 };
 
 export default CreateTourForm;
