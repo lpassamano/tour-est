@@ -2,6 +2,7 @@
 
 exports[`<CreateTourForm /> render 1`] = `
 <CreateTourForm
+  navigate={[MockFunction]}
   onCreateTour={[MockFunction]}
 >
   <form

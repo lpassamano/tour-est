@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { navigate } from "@reach/router";
+import PropTypes from "prop-types";
 
 class CreateTourForm extends Component {
+  static defaultProps = { navigate };
   state = { title: "" };
 
   handleSubmit = async event => {
@@ -36,5 +39,10 @@ class CreateTourForm extends Component {
     );
   }
 }
+
+CreateTourForm.propTypes = {
+  navigate: PropTypes.func.isRequired,
+  onCreateTour: PropTypes.func.isRequired
+};
 
 export default CreateTourForm;
