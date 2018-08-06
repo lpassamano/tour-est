@@ -36,9 +36,14 @@ const setAuthToken = token => {
   window.localStorage.setItem("token", token);
 };
 
+const createTour = async attributes => {
+  return api.post("/tours", attributes);
+};
+
 export default {
   createStaffUser,
   login,
   getStaffUser,
-  authenticateStaffUser
+  authenticateStaffUser,
+  createTour
 };

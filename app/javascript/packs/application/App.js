@@ -4,6 +4,7 @@ import { Router, Link } from "@reach/router";
 import LoginForm from "./components/LoginForm";
 import CreateAccountForm from "./components/CreateAccountForm";
 import StaffUserDashboard from "./components/StaffUserDashboard";
+import CreateTourForm from "./components/CreateTourForm";
 import api from "./api";
 
 class App extends Component {
@@ -42,6 +43,16 @@ class App extends Component {
     return userResult;
   };
 
+  registerTour = async attributes => {
+    const tourResult = await api.createTour(attributes);
+
+    if (tourResult.ok) {
+      // triggers re-render of staff user dashboard
+    }
+
+    return tourResult;
+  };
+
   render() {
     return (
       <div>
@@ -64,6 +75,10 @@ class App extends Component {
           <CreateAccountForm
             path="/create-account"
             onCreateUser={this.registerStaffUser}
+          />
+          <CreateTourForm
+            path="/create-tour"
+            onCreateTour={this.registerTour}
           />
         </Router>
       </div>
