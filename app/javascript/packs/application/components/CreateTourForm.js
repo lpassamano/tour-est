@@ -5,7 +5,10 @@ class CreateTourForm extends Component {
 
   handleSubmit = event => {};
 
-  handleChange = event => {};
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
 
   render() {
     return (
