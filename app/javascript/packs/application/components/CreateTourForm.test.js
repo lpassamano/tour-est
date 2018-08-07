@@ -4,8 +4,8 @@ import { mount } from "enzyme";
 
 describe("<CreateTourForm />", () => {
   const setup = ({ onCreateTour = jest.fn(), navigate = jest.fn() }) => {
-    const staffUser = "1";
-    const culturalCenter = "1";
+    const staffUser = 1;
+    const culturalCenter = 1;
     const component = mount(
       <CreateTourForm
         onCreateTour={onCreateTour}
@@ -31,8 +31,8 @@ describe("<CreateTourForm />", () => {
     expect(onCreateTour).toHaveBeenCalledWith({
       tour: {
         title: "Best Tour Ever!",
-        staff_user_id: "1",
-        cultural_center_id: "1"
+        staff_user_id: 1,
+        cultural_center_id: 1
       }
     });
   });
