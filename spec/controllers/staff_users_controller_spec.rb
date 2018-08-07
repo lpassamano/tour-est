@@ -6,12 +6,6 @@ RSpec.describe StaffUsersController, type: :controller do
   end
 
   context "Existing Account Authentication" do
-    def authenticate_staff_user(user)
-      token = Token.encode(user)
-      formatted_token = ActionController::HttpAuthentication::Token.encode_credentials(token)
-      request.headers["authorization"] = formatted_token
-    end
-
     it 'return current user when provided a valid token' do
       user = create :staff_user
       authenticate_staff_user(user)
