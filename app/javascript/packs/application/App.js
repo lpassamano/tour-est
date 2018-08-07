@@ -25,7 +25,7 @@ class App extends Component {
     const result = await api.login(username, password);
 
     if (result.ok) {
-      this.setState({ currentStaffUser: result.data });
+      return this.authenticateStaffUser();
     }
 
     return result;
@@ -47,6 +47,7 @@ class App extends Component {
 
     if (tourResult.ok) {
       // triggers re-render of staff user dashboard
+      // with full list of all tours created by currentStaffUser
     }
 
     return tourResult;

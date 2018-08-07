@@ -49,8 +49,8 @@ class CreateTourForm extends Component {
 CreateTourForm.propTypes = {
   navigate: PropTypes.func.isRequired,
   onCreateTour: PropTypes.func.isRequired,
-  staffUser: PropTypes.string.isRequired,
-  culturalCenter: PropTypes.string.isRequired
+  staffUser: PropTypes.number.isRequired,
+  culturalCenter: PropTypes.number.isRequired
 };
 
 export default CreateTourForm;
