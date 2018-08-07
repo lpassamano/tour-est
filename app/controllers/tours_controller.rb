@@ -14,4 +14,6 @@ class ToursController < ApplicationController
   def tour_params
     params.require(:tour).permit(:title, :staff_user_id, :cultural_center_id)
   end
+
+
 end

@@ -20,6 +20,14 @@ RSpec.describe ToursController, type: :controller do
     # how to test? dashboard is only accessible when logged in...
     # since it gets the staff user/cc info from the dashboard, can test to make
     # sure not created w/out a user or cc
+    # delete header and make sure you get back 422
+    post :create, params: {
+      tour: {
+        title: "Awesome Tour",
+        staff_user_id: "1",
+        cultural_center_id: "1"
+      }
+    }
   end
 
   it 'new tours are associated with the current staff user and their cultural center' do
