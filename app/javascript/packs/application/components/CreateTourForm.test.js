@@ -2,8 +2,6 @@ import CreateTourForm from "./CreateTourForm";
 import React from "react";
 import { mount } from "enzyme";
 
-// TODO check to see if props are being passed properly
-
 describe("<CreateTourForm />", () => {
   const setup = ({ onCreateTour = jest.fn(), navigate = jest.fn() }) => {
     const staffUser = "1";
