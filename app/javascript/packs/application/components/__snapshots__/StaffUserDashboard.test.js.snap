@@ -25,6 +25,15 @@ exports[`<StaffUserDashboard /> render 1`] = `
     <h3>
       Penn Museum
     </h3>
+    <ToursList>
+      <div>
+        <ul>
+          <li>
+            Tour 1!
+          </li>
+        </ul>
+      </div>
+    </ToursList>
     <CreateTourForm
       culturalCenter={1}
       navigate={[Function]}
