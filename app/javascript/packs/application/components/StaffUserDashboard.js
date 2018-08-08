@@ -27,4 +27,6 @@ class StaffUserDashboard extends Component {
   }
 }
 
+// TODO: add proptypes
+
 export default StaffUserDashboard;
