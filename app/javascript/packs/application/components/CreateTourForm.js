@@ -20,6 +20,7 @@ class CreateTourForm extends Component {
 
     if (result.ok) {
       this.props.navigate("/");
+      this.setState({ title: "" });
     } else {
       console.error(result.data.error);
     }
