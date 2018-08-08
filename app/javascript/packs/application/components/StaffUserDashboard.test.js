@@ -8,8 +8,11 @@ describe("<StaffUserDashboard />", () => {
     const currentStaffUser = {
       username: "username123",
       id: 1,
-      cultural_center: { name: "Penn Museum", id: 1 },
-      tours: [
+      cultural_center: { name: "Penn Museum", id: 1 }
+    };
+    const tours = {
+      isFetching: false,
+      data: [
         { id: 1, title: "Tour 1" },
         { id: 2, title: "Tour 2" },
         { id: 3, title: "Tour 3" }
@@ -19,6 +22,7 @@ describe("<StaffUserDashboard />", () => {
       <StaffUserDashboard
         onCreateTour={onCreateTour}
         currentStaffUser={currentStaffUser}
+        tours={tours}
       />
     );
     expect(component).toMatchSnapshot();

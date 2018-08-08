@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<TourInfo /> render 1`] = `
-<TourInfo>
-  <div>
-    <h4 />
-  </div>
-</TourInfo>
-`;

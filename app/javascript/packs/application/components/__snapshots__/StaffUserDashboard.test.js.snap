@@ -9,7 +9,13 @@ exports[`<StaffUserDashboard /> render 1`] = `
         "name": "Penn Museum",
       },
       "id": 1,
-      "tours": Array [
+      "username": "username123",
+    }
+  }
+  onCreateTour={[MockFunction]}
+  tours={
+    Object {
+      "data": Array [
         Object {
           "id": 1,
           "title": "Tour 1",
@@ -23,10 +29,9 @@ exports[`<StaffUserDashboard /> render 1`] = `
           "title": "Tour 3",
         },
       ],
-      "username": "username123",
+      "isFetching": false,
     }
   }
-  onCreateTour={[MockFunction]}
 >
   <div>
     <h1>
@@ -41,53 +46,41 @@ exports[`<StaffUserDashboard /> render 1`] = `
     </h3>
     <ToursList
       tours={
-        Array [
-          Object {
-            "id": 1,
-            "title": "Tour 1",
-          },
-          Object {
-            "id": 2,
-            "title": "Tour 2",
-          },
-          Object {
-            "id": 3,
-            "title": "Tour 3",
-          },
-        ]
+        Object {
+          "data": Array [
+            Object {
+              "id": 1,
+              "title": "Tour 1",
+            },
+            Object {
+              "id": 2,
+              "title": "Tour 2",
+            },
+            Object {
+              "id": 3,
+              "title": "Tour 3",
+            },
+          ],
+          "isFetching": false,
+        }
       }
     >
       <div>
-        <TourInfo
+        <h4
           key="1"
-          title="Tour 1"
         >
-          <div>
-            <h4>
-              Tour 1
-            </h4>
-          </div>
-        </TourInfo>
-        <TourInfo
+          Tour 1
+        </h4>
+        <h4
           key="2"
-          title="Tour 2"
         >
-          <div>
-            <h4>
-              Tour 2
-            </h4>
-          </div>
-        </TourInfo>
-        <TourInfo
+          Tour 2
+        </h4>
+        <h4
           key="3"
-          title="Tour 3"
         >
-          <div>
-            <h4>
-              Tour 3
-            </h4>
-          </div>
-        </TourInfo>
+          Tour 3
+        </h4>
       </div>
     </ToursList>
     <CreateTourForm
