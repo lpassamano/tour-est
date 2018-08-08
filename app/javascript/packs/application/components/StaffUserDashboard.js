@@ -9,21 +9,18 @@ class StaffUserDashboard extends Component {
     if (!ok) {
       throw new Error("Not Authenticated!");
     }
+
+    this.props.listTours();
   }
 
   render() {
-    const {
-      username,
-      id,
-      cultural_center,
-      tours
-    } = this.props.currentStaffUser;
+    const { username, id, cultural_center } = this.props.currentStaffUser;
     return (
       <div>
         <h1>Staff Dashboard</h1>
         <h3>Current user: {username}</h3>
         <h3>{cultural_center.name}</h3>
-        <ToursList tours={tours} />
+        <ToursList tours={this.props.tours} />
         <CreateTourForm
           onCreateTour={this.props.onCreateTour}
           staffUserId={id}

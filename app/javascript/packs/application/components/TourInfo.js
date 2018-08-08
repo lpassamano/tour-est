@@ -11,5 +11,6 @@ class TourInfo extends Component {
 }
 
 //TODO: add proptypes
+// add back into tourlist component
 
 export default TourInfo;

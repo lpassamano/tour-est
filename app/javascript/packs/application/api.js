@@ -41,10 +41,15 @@ const createTour = async attributes => {
   return api.post("/tours", attributes);
 };
 
+const listTours = () => {
+  return api.get("/tours");
+};
+
 export default {
   createStaffUser,
   login,
   getStaffUser,
   authenticateStaffUser,
-  createTour
+  createTour,
+  listTours
 };

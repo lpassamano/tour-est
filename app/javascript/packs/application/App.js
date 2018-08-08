@@ -8,7 +8,11 @@ import api from "./api";
 
 class App extends Component {
   state = {
-    currentStaffUser: null
+    currentStaffUser: null,
+    tours: {
+      data: null,
+      isFetching: false
+    }
   };
 
   authenticateStaffUser = async () => {
@@ -46,11 +50,21 @@ class App extends Component {
     const tourResult = await api.createTour(attributes);
 
     if (tourResult.ok) {
-      // triggers re-render of staff user dashboard
-      // with full list of all tours created by currentStaffUser
+      this.setState(({ tours }) => ({
+        tours: {
+          ...tours,
+          data: [...tours.data, tourResult.data]
+        }
+      }));
     }
 
     return tourResult;
+  };
+
+  listTours = async () => {
+    this.setState({ tours: { isFetching: true, data: null } });
+    const tourList = await api.listTours();
+    this.setState({ tours: { isFetching: false, data: tourList.data } });
   };
 
   render() {
@@ -68,6 +82,8 @@ class App extends Component {
               path="/"
               onAuthenticate={this.authenticateStaffUser}
               currentStaffUser={this.state.currentStaffUser}
+              tours={this.state.tours}
+              listTours={this.listTours}
               onCreateTour={this.registerTour}
             />
           ) : (
