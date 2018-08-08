@@ -3,9 +3,7 @@
 exports[`<TourInfo /> render 1`] = `
 <TourInfo>
   <div>
-    <h4>
-      nodejs
-    </h4>
+    <h4 />
   </div>
 </TourInfo>
 `;

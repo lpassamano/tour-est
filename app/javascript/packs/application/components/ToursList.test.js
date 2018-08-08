@@ -4,7 +4,12 @@ import { mount } from "enzyme";
 
 describe("<ToursList />", () => {
   test("render", () => {
-    const component = mount(<ToursList />);
+    const tours = [
+      { id: 1, title: "Tour 1" },
+      { id: 2, title: "Tour 2" },
+      { id: 3, title: "Tour 3" }
+    ];
+    const component = mount(<ToursList tours={tours} />);
     expect(component).toMatchSnapshot();
   });
 });

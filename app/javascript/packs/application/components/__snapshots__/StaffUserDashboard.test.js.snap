@@ -9,6 +9,20 @@ exports[`<StaffUserDashboard /> render 1`] = `
         "name": "Penn Museum",
       },
       "id": 1,
+      "tours": Array [
+        Object {
+          "id": 1,
+          "title": "Tour 1",
+        },
+        Object {
+          "id": 2,
+          "title": "Tour 2",
+        },
+        Object {
+          "id": 3,
+          "title": "Tour 3",
+        },
+      ],
       "username": "username123",
     }
   }
@@ -25,13 +39,55 @@ exports[`<StaffUserDashboard /> render 1`] = `
     <h3>
       Penn Museum
     </h3>
-    <ToursList>
+    <ToursList
+      tours={
+        Array [
+          Object {
+            "id": 1,
+            "title": "Tour 1",
+          },
+          Object {
+            "id": 2,
+            "title": "Tour 2",
+          },
+          Object {
+            "id": 3,
+            "title": "Tour 3",
+          },
+        ]
+      }
+    >
       <div>
-        <ul>
-          <li>
-            Tour 1!
-          </li>
-        </ul>
+        <TourInfo
+          key="1"
+          title="Tour 1"
+        >
+          <div>
+            <h4>
+              Tour 1
+            </h4>
+          </div>
+        </TourInfo>
+        <TourInfo
+          key="2"
+          title="Tour 2"
+        >
+          <div>
+            <h4>
+              Tour 2
+            </h4>
+          </div>
+        </TourInfo>
+        <TourInfo
+          key="3"
+          title="Tour 3"
+        >
+          <div>
+            <h4>
+              Tour 3
+            </h4>
+          </div>
+        </TourInfo>
       </div>
     </ToursList>
     <CreateTourForm

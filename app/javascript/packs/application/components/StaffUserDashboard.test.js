@@ -8,7 +8,12 @@ describe("<StaffUserDashboard />", () => {
     const currentStaffUser = {
       username: "username123",
       id: 1,
-      cultural_center: { name: "Penn Museum", id: 1 }
+      cultural_center: { name: "Penn Museum", id: 1 },
+      tours: [
+        { id: 1, title: "Tour 1" },
+        { id: 2, title: "Tour 2" },
+        { id: 3, title: "Tour 3" }
+      ]
     };
     const component = mount(
       <StaffUserDashboard
