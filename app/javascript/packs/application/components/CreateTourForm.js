@@ -13,8 +13,8 @@ class CreateTourForm extends Component {
     const result = await this.props.onCreateTour({
       tour: {
         title: this.state.title,
-        staff_user_id: this.props.staffUser,
-        cultural_center_id: this.props.culturalCenter
+        staff_user_id: this.props.staffUserId,
+        cultural_center_id: this.props.culturalCenterId
       }
     });
 
@@ -50,8 +50,8 @@ class CreateTourForm extends Component {
 CreateTourForm.propTypes = {
   navigate: PropTypes.func.isRequired,
   onCreateTour: PropTypes.func.isRequired,
-  staffUser: PropTypes.number.isRequired,
-  culturalCenter: PropTypes.number.isRequired
+  staffUserId: PropTypes.number.isRequired,
+  culturalCenterId: PropTypes.number.isRequired
 };
 
 export default CreateTourForm;

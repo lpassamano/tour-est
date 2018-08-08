@@ -18,8 +18,8 @@ class StaffUserDashboard extends Component {
         <h3>{cultural_center.name}</h3>
         <CreateTourForm
           onCreateTour={this.props.onCreateTour}
-          staffUser={id}
-          culturalCenter={cultural_center.id}
+          staffUserId={id}
+          culturalCenterId={cultural_center.id}
         />
       </div>
     );

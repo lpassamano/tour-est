@@ -4,14 +4,14 @@ import { mount } from "enzyme";
 
 describe("<CreateTourForm />", () => {
   const setup = ({ onCreateTour = jest.fn(), navigate = jest.fn() }) => {
-    const staffUser = 1;
-    const culturalCenter = 1;
+    const staffUserId = 1;
+    const culturalCenterId = 1;
     const component = mount(
       <CreateTourForm
         onCreateTour={onCreateTour}
         navigate={navigate}
-        staffUser={staffUser}
-        culturalCenter={culturalCenter}
+        staffUserId={staffUserId}
+        culturalCenterId={culturalCenterId}
       />
     );
     return component;
