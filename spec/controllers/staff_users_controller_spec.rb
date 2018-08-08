@@ -28,7 +28,7 @@ RSpec.describe StaffUsersController, type: :controller do
   end
 
   context "New Account Authentication" do
-    def create_staff_user(username = "newuser12345", cultural_center = "MoMA")
+    def create_staff_user(username, cultural_center)
       post :create, params: {
         user: {
           username: username,
@@ -42,7 +42,7 @@ RSpec.describe StaffUsersController, type: :controller do
     end
 
     it 'creates a staff user when provided valid username, password, and cultural center' do
-      create_staff_user
+      create_staff_user("newuser12345", "MoMA")
 
       user = StaffUser.all.last
       cultural_center = user.cultural_center
@@ -63,8 +63,8 @@ RSpec.describe StaffUsersController, type: :controller do
     end
 
     it 'if the cultural center already exists, the new user is associated with it' do
-      create_staff_user("user")
-      create_staff_user("user2")
+      create_staff_user("user", "MoMA")
+      create_staff_user("user2", "MoMA")
       user = StaffUser.find_by(username: "user")
       user2 = StaffUser.find_by(username: "user2")
 
