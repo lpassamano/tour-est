@@ -3,7 +3,6 @@ class ToursController < ApplicationController
     @tour = Tour.new(tour_params)
 
     if @tour.save
-      # template
       render :show
     else
       render json: @tour.errors, status: 422
