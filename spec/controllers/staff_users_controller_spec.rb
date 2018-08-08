@@ -44,7 +44,7 @@ RSpec.describe StaffUsersController, type: :controller do
     it 'creates a staff user when provided valid username, password, and cultural center' do
       create_staff_user("newuser12345", "MoMA")
 
-      user = StaffUser.all.last
+      user = StaffUser.last
       cultural_center = user.cultural_center
 
       expect(response.status).to eq(200)
@@ -55,7 +55,7 @@ RSpec.describe StaffUsersController, type: :controller do
 
     it 'new staff user is associated with the given cultural center' do
       create_staff_user("user123", "Met Museum")
-      user = StaffUser.all.last
+      user = StaffUser.last
       cultural_center = user.cultural_center
 
       expect(cultural_center.name).to eq("Met Museum")
@@ -74,7 +74,7 @@ RSpec.describe StaffUsersController, type: :controller do
     it 'staff user and cultural center are not created if cultural center info is invalid' do
       create_staff_user("user", "")
       user = StaffUser.find_by(username: "user")
-      cultural_center = CulturalCenter.all.last
+      cultural_center = CulturalCenter.last
 
       expect(user).to eq(nil)
       expect(cultural_center).to eq(nil)
@@ -82,7 +82,7 @@ RSpec.describe StaffUsersController, type: :controller do
 
     it 'staff user and cultural center are not create if user info is invalid' do
       create_staff_user("", "Cultural Center")
-      user = StaffUser.all.last
+      user = StaffUser.last
       cultural_center = CulturalCenter.find_by(name: "Cultural Center")
 
       expect(user).to eq(nil)
