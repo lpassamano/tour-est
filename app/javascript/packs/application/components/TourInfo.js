@@ -4,7 +4,7 @@ class TourInfo extends Component {
   render() {
     return (
       <div>
-        <h4>{name}</h4>
+        <h4>{this.props.title}</h4>
       </div>
     );
   }
