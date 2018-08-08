@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
-class TourInfo extends Component {
+class ToursList extends Component {
   render() {
     return (
       <div>
-        <h4>{name}</h4>
+        <ul>
+          <li>Tour 1!</li>
+        </ul>
       </div>
     );
   }
@@ -12,4 +14,4 @@ class TourInfo extends Component {
 
 //TODO: add proptypes
 
-export default TourInfo;
+export default ToursList;

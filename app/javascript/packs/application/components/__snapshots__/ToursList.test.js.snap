@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ToursList /> render 1`] = `
+<ToursList>
+  <div>
+    <ul>
+      <li>
+        Tour 1!
+      </li>
+    </ul>
+  </div>
+</ToursList>
+`;
