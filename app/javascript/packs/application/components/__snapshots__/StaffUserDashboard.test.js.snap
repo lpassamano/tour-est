@@ -2,6 +2,16 @@
 
 exports[`<StaffUserDashboard /> render 1`] = `
 <StaffUserDashboard
+  currentStaffUser={
+    Object {
+      "cultural_center": Object {
+        "id": 1,
+        "name": "Penn Museum",
+      },
+      "id": 1,
+      "username": "username123",
+    }
+  }
   onCreateTour={[MockFunction]}
 >
   <div>
@@ -10,13 +20,16 @@ exports[`<StaffUserDashboard /> render 1`] = `
     </h1>
     <h3>
       Current user: 
+      username123
     </h3>
-    <h3 />
+    <h3>
+      Penn Museum
+    </h3>
     <CreateTourForm
-      culturalCenter=""
+      culturalCenter={1}
       navigate={[Function]}
       onCreateTour={[MockFunction]}
-      staffUser=""
+      staffUser={1}
     >
       <form
         onSubmit={[Function]}

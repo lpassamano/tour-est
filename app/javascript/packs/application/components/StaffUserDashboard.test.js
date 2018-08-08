@@ -5,7 +5,17 @@ import { mount } from "enzyme";
 describe("<StaffUserDashboard />", () => {
   test("render", () => {
     const onCreateTour = jest.fn();
-    const component = mount(<StaffUserDashboard onCreateTour={onCreateTour} />);
+    const currentStaffUser = {
+      username: "username123",
+      id: 1,
+      cultural_center: { name: "Penn Museum", id: 1 }
+    };
+    const component = mount(
+      <StaffUserDashboard
+        onCreateTour={onCreateTour}
+        currentStaffUser={currentStaffUser}
+      />
+    );
     expect(component).toMatchSnapshot();
   });
 });

@@ -4,21 +4,9 @@ import CreateTourForm from "./CreateTourForm";
 class StaffUserDashboard extends Component {
   async componentDidMount() {
     const { ok, data } = await this.props.onAuthenticate();
+
     if (!ok) {
       throw new Error("Not Authenticated!");
-<<<<<<< HEAD
-=======
-    } else {
-      this.setState({
-        username: this.props.currentStaffUser.username,
-        id: this.props.currentStaffUser.id,
-        cultural_center: {
-          name: this.props.currentStaffUser.cultural_center.name,
-          // not recieving cc id in the props!!
-          id: this.props.currentStaffUser.cultural_center.id
-        }
-      });
->>>>>>> Add snapshot test
     }
   }
 
