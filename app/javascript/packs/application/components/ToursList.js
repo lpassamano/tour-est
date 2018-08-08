@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import TourInfo from "./TourInfo";
 
 class ToursList extends Component {
   render() {
@@ -10,9 +9,7 @@ class ToursList extends Component {
 
     return (
       <div>
-        {this.props.tours.data.map(tour => (
-          <TourInfo key={tour.id} title={tour.title} />
-        ))}
+        {this.props.tours.data.map(tour => <h4 key={tour.id}>{tour.title}</h4>)}
       </div>
     );
   }
