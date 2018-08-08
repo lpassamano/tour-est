@@ -1,6 +1,5 @@
 module Authentication
   extend ActiveSupport::Concern
-
   included do
     helper_method :current_staff_user
   end
