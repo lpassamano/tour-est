@@ -26,8 +26,20 @@ RSpec.describe ToursController, type: :controller do
     end
 
     it 'creates a tour associated with the current user and their cultural center when provided valid data' do
+<<<<<<< HEAD
       post :create, params: valid_params
       tour = Tour.find(json['tour']['id'])
+=======
+      post :create, params: {
+        tour: {
+          title: "Awesome Tour",
+          staff_user_id: user.id,
+          cultural_center_id: user.cultural_center.id
+        },
+        format: :json
+      }
+      tour = Tour.all.last
+>>>>>>> Fixed spec file so it expects a json response
 
       expect(response.status).to eq(200)
       expect(tour.title).to eq("Awesome Tour")
@@ -36,14 +48,40 @@ RSpec.describe ToursController, type: :controller do
     end
 
     it 'does not create a tour when provided invalid data' do
+<<<<<<< HEAD
       expect { post :create, params: invalid_params }.to_not change(Tour, :count)
+=======
+      expect {
+        post :create, params: {
+          tour: {
+            title: "",
+            staff_user_id: user.id,
+            cultural_center_id: user.cultural_center.id
+          },
+          format: :json
+        }
+      }.to_not change(Tour, :count)
+>>>>>>> Fixed spec file so it expects a json response
       expect(response.status).to eq(422)
     end
   end
 
   context "User not authenticated" do
     it 'tour can only be created if a staff user is logged in' do
+<<<<<<< HEAD
       expect { post :create, params: valid_params }.to_not change(Tour, :count)
+=======
+      expect {
+        post :create, params: {
+          tour: {
+            title: "Awesome Tour",
+            staff_user_id: user.id,
+            cultural_center_id: user.cultural_center.id
+          },
+          format: :json
+        }
+      }.to_not change(Tour, :count)
+>>>>>>> Fixed spec file so it expects a json response
       expect(response.status).to eq(401)
     end
   end
