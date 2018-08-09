@@ -17,6 +17,8 @@ RSpec.describe ToursController, type: :controller do
     valid_params.deep_merge(tour: { title: "" })
   end
 
+  let :json { JSON.parse(response.body) }
+
   context "User authenticated" do
     before do
       authenticate_staff_user(user)
@@ -24,7 +26,7 @@ RSpec.describe ToursController, type: :controller do
 
     it 'creates a tour associated with the current user and their cultural center when provided valid data' do
       post :create, params: valid_params
-      tour = Tour.all.last
+      tour = Tour.find(json['tour']['id'])
 
       expect(response.status).to eq(200)
       expect(tour.title).to eq("Awesome Tour")
