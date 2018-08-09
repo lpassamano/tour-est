@@ -84,10 +84,10 @@ exports[`<StaffUserDashboard /> render 1`] = `
       </div>
     </ToursList>
     <CreateTourForm
-      culturalCenter={1}
+      culturalCenterId={1}
       navigate={[Function]}
       onCreateTour={[MockFunction]}
-      staffUser={1}
+      staffUserId={1}
     >
       <form
         onSubmit={[Function]}
