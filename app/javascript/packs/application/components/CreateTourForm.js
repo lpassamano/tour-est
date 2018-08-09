@@ -10,16 +10,17 @@ class CreateTourForm extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
+    const { id, cultural_center } = this.props.currentStaffUser;
     const result = await this.props.onCreateTour({
       tour: {
         title: this.state.title,
-        staff_user_id: this.props.staffUserId,
-        cultural_center_id: this.props.culturalCenterId
+        staff_user_id: id,
+        cultural_center_id: cultural_center.id
       }
     });
 
     if (result.ok) {
-      this.props.navigate("/");
+      this.props.navigate("/admin");
       this.setState({ title: "" });
     } else {
       console.error(result.data.error);
@@ -50,8 +51,12 @@ class CreateTourForm extends Component {
 CreateTourForm.propTypes = {
   navigate: PropTypes.func.isRequired,
   onCreateTour: PropTypes.func.isRequired,
-  staffUserId: PropTypes.number.isRequired,
-  culturalCenterId: PropTypes.number.isRequired
+  currentStaffUser: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    cultural_center: PropTypes.shape({
+      id: PropTypes.number.isRequired
+    }).isRequired
+  })
 };
 
 export default CreateTourForm;
