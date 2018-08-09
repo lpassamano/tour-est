@@ -2,10 +2,16 @@
 
 exports[`<CreateTourForm /> render 1`] = `
 <CreateTourForm
-  culturalCenterId={1}
+  currentStaffUser={
+    Object {
+      "cultural_center": Object {
+        "id": 1,
+      },
+      "id": 1,
+    }
+  }
   navigate={[MockFunction]}
   onCreateTour={[MockFunction]}
-  staffUserId={1}
 >
   <form
     onSubmit={[Function]}

@@ -17,7 +17,7 @@ describe("<LoginForm />", () => {
   test("onSubmit - when submit is clicked the current values of username and password are submitted", done => {
     const onLogin = jest.fn();
     const navigate = to => {
-      expect(to).toEqual("/");
+      expect(to).toEqual("/admin");
       done();
     };
     onLogin.mockResolvedValue({ ok: true });
