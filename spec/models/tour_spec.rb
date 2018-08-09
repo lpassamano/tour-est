@@ -11,13 +11,10 @@ RSpec.describe Tour, type: :model do
   context "Create Tour" do
     let(:user) { create :staff_user }
 
-    it 'tour is not created if no title is given' do
-      params = {
-        title: "",
-        staff_user_id: user.id,
-        cultural_center_id: user.cultural_center.id
-      }
-      expect { Tour.create(params) }.to_not change(Tour, :count)
+    it 'is invalid when the title is blank' do
+      tour = build :tour, title: ""
+      expect(tour).not_to be_valid
+      expect(tour.errors[:title]).to include("can't be blank")
     end
 
     it 'tour is not created if it is not associated with a user' do
