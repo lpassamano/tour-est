@@ -37,7 +37,7 @@ RSpec.describe StaffUsersController, type: :controller do
 
     it 'creates a staff user when provided valid username, password, and cultural center' do
       create_staff_user("newuser12345", "MoMA")
-      user = StaffUser.last
+      user = StaffUser.find(json['user']['id'])
       cultural_center = user.cultural_center
 
       expect(response.status).to eq(200)
@@ -47,21 +47,17 @@ RSpec.describe StaffUsersController, type: :controller do
     end
 
     it 'staff user and cultural center are not created if cultural center info is invalid' do
-      create_staff_user("user", "")
-      user = StaffUser.find_by(username: "user")
-      cultural_center = CulturalCenter.last
-
-      expect(user).to eq(nil)
-      expect(cultural_center).to eq(nil)
+      expect { create_staff_user("user", "") }.to_not change(StaffUser, :count)
+      expect(response.status).to eq(422)
+      expect { create_staff_user("user", "") }.to_not change(CulturalCenter, :count)
+      expect(response.status).to eq(422)
     end
 
     it 'staff user and cultural center are not created if user info is invalid' do
-      create_staff_user("", "Cultural Center")
-      user = StaffUser.last
-      cultural_center = CulturalCenter.find_by(name: "Cultural Center")
-
-      expect(user).to eq(nil)
-      expect(cultural_center).to eq(nil)
+      expect { create_staff_user("", "Cultural Center") }.to_not change(StaffUser, :count)
+      expect(response.status).to eq(422)
+      expect { create_staff_user("", "Cultural Center") }.to_not change(CulturalCenter, :count)
+      expect(response.status).to eq(422)
     end
 
     it 'returns an error message when the password and confirmation do not match' do
@@ -70,7 +66,7 @@ RSpec.describe StaffUsersController, type: :controller do
         user: {
           username: user.username,
           password: "bananafeet",
-          password_confirmation: ""
+          password_confirmation: "wrongpassword"
         },
         cultural_center: {
           name: user.cultural_center.name
