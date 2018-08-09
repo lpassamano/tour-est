@@ -18,7 +18,7 @@ RSpec.describe ToursController, type: :controller do
   end
 
   context "User authenticated" do
-    before(:each) do
+    before do
       authenticate_staff_user(user)
     end
 
