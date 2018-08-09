@@ -9,7 +9,8 @@ RSpec.describe ToursController, type: :controller do
         title: "Awesome Tour",
         staff_user_id: user.id,
         cultural_center_id: user.cultural_center.id
-      }
+      },
+      format: :json
     }
   end
 
