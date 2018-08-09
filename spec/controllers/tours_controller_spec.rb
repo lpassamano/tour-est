@@ -27,7 +27,7 @@ RSpec.describe ToursController, type: :controller do
 
     it 'creates a tour associated with the current user and their cultural center when provided valid data' do
       post :create, params: valid_params
-      tour = Tour.find(json['tour']['id'])
+      tour = Tour.find(json['id'])
 
       expect(response.status).to eq(200)
       expect(tour.title).to eq("Awesome Tour")

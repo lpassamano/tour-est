@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require 'shellwords'
+require_relative '../config/environment'
+
+user_id, *args = ARGV
+
+user = StaffUser.find(user_id)
+token = Token.encode(user)
+
+headers = ["-H", %(Authorization: Token token="#{token}")]
+
+puts "curl #{Shellwords.join(headers + args)}"
+exec 'curl', *headers, *args
+
+# format for request:
+# bin/curl-as <user_id> "<url>"

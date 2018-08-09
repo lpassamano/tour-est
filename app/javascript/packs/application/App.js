@@ -6,10 +6,20 @@ import CreateAccountForm from "./components/CreateAccountForm";
 import StaffUserDashboard from "./components/StaffUserDashboard";
 import api from "./api";
 
+const INITIAL_STATE = {
+  currentStaffUser: null,
+  tours: {
+    data: null,
+    isFetching: false
+  }
+};
+
 class App extends Component {
-  state = {
-    currentStaffUser: null
-  };
+  state = INITIAL_STATE;
+
+  componentDidMount() {
+    this.authenticateStaffUser();
+  }
 
   authenticateStaffUser = async () => {
     const result = await api.authenticateStaffUser();
@@ -31,6 +41,13 @@ class App extends Component {
     return result;
   };
 
+  logoutStaffUser = event => {
+    event.preventDefault();
+    api.removeAuthToken();
+
+    this.setState(INITIAL_STATE);
+  };
+
   registerStaffUser = async attributes => {
     const userResult = await api.createStaffUser(attributes);
     const { username, password } = attributes.user;
@@ -46,11 +63,21 @@ class App extends Component {
     const tourResult = await api.createTour(attributes);
 
     if (tourResult.ok) {
-      // triggers re-render of staff user dashboard
-      // with full list of all tours created by currentStaffUser
+      this.setState(({ tours }) => ({
+        tours: {
+          ...tours,
+          data: [...tours.data, tourResult.data]
+        }
+      }));
     }
 
     return tourResult;
+  };
+
+  listTours = async () => {
+    this.setState({ tours: { isFetching: true, data: null } });
+    const tourList = await api.listTours();
+    this.setState({ tours: { isFetching: false, data: tourList.data } });
   };
 
   render() {
@@ -60,6 +87,9 @@ class App extends Component {
         <nav>
           <Link to="/">Sign In</Link>{" "}
           <Link to="/create-account">Create Account</Link>
+          <a href="#" onClick={this.logoutStaffUser}>
+            Log Out
+          </a>
         </nav>
 
         <Router>
@@ -68,6 +98,8 @@ class App extends Component {
               path="/"
               onAuthenticate={this.authenticateStaffUser}
               currentStaffUser={this.state.currentStaffUser}
+              tours={this.state.tours}
+              listTours={this.listTours}
               onCreateTour={this.registerTour}
             />
           ) : (

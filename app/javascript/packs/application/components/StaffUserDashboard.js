@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 import CreateTourForm from "./CreateTourForm";
+import ToursList from "./ToursList";
 
 class StaffUserDashboard extends Component {
   async componentDidMount() {
-    const { ok, data } = await this.props.onAuthenticate();
-    if (!ok) {
+    if (this.props.currentStaffUser === null) {
       throw new Error("Not Authenticated!");
     }
+
+    this.props.listTours();
   }
 
   render() {
-    const { username, cultural_center, id } = this.props.currentStaffUser;
+    const { username, id, cultural_center } = this.props.currentStaffUser;
     return (
       <div>
         <h1>Staff Dashboard</h1>
         <h3>Current user: {username}</h3>
         <h3>{cultural_center.name}</h3>
+        <ToursList tours={this.props.tours} />
         <CreateTourForm
           onCreateTour={this.props.onCreateTour}
           staffUserId={id}
@@ -25,5 +28,7 @@ class StaffUserDashboard extends Component {
     );
   }
 }
+
+// TODO: add proptypes
 
 export default StaffUserDashboard;
