@@ -7,13 +7,21 @@ import StaffUserDashboard from "./components/StaffUserDashboard";
 import api from "./api";
 
 class App extends Component {
-  state = {
-    currentStaffUser: null,
-    tours: {
-      data: null,
-      isFetching: false
-    }
-  };
+  constructor() {
+    super();
+
+    this.state = {
+      currentStaffUser: null,
+      tours: {
+        data: null,
+        isFetching: false
+      }
+    };
+  }
+
+  componentDidMount() {
+    this.authenticateStaffUser();
+  }
 
   authenticateStaffUser = async () => {
     const result = await api.authenticateStaffUser();

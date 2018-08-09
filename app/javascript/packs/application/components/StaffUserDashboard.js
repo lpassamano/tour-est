@@ -4,9 +4,7 @@ import ToursList from "./ToursList";
 
 class StaffUserDashboard extends Component {
   async componentDidMount() {
-    const { ok, data } = await this.props.onAuthenticate();
-
-    if (!ok) {
+    if (this.props.currentStaffUser === null) {
       throw new Error("Not Authenticated!");
     }
 
