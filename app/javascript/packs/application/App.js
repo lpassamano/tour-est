@@ -6,18 +6,16 @@ import CreateAccountForm from "./components/CreateAccountForm";
 import StaffUserDashboard from "./components/StaffUserDashboard";
 import api from "./api";
 
-class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      currentStaffUser: null,
-      tours: {
-        data: null,
-        isFetching: false
-      }
-    };
+const INITIAL_STATE = {
+  currentStaffUser: null,
+  tours: {
+    data: null,
+    isFetching: false
   }
+};
+
+class App extends Component {
+  state = INITIAL_STATE;
 
   componentDidMount() {
     this.authenticateStaffUser();
@@ -41,6 +39,13 @@ class App extends Component {
     }
 
     return result;
+  };
+
+  logoutStaffUser = event => {
+    event.preventDefault();
+    api.removeAuthToken();
+
+    this.setState(INITIAL_STATE);
   };
 
   registerStaffUser = async attributes => {
@@ -82,6 +87,9 @@ class App extends Component {
         <nav>
           <Link to="/">Sign In</Link>{" "}
           <Link to="/create-account">Create Account</Link>
+          <a href="#" onClick={this.logoutStaffUser}>
+            Log Out
+          </a>
         </nav>
 
         <Router>

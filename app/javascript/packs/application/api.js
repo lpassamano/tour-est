@@ -36,6 +36,10 @@ const setAuthToken = token => {
   window.localStorage.setItem("token", token);
 };
 
+const removeAuthToken = () => {
+  window.localStorage.removeItem("token");
+};
+
 const createTour = async attributes => {
   // only allowed to do if currentStaffUser
   return api.post("/tours", attributes);
@@ -50,6 +54,7 @@ export default {
   login,
   getStaffUser,
   authenticateStaffUser,
+  removeAuthToken,
   createTour,
   listTours
 };
