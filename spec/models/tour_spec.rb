@@ -5,7 +5,7 @@ RSpec.describe Tour, type: :model do
     tour = create :tour
     tour2 = create :tour
 
-    expect(tour.title).to_not eq(tour2.title)
+    expect(tour).to_not eq(tour2)
   end
 
   context "Create Tour" do
