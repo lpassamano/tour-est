@@ -12,3 +12,6 @@ headers = ["-H", %(Authorization: Token token="#{token}")]
 
 puts "curl #{Shellwords.join(headers + args)}"
 exec 'curl', *headers, *args
+
+# format for request:
+# bin/curl-as <user_id> "<url>"
