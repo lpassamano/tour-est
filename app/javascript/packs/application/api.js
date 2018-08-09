@@ -36,9 +36,15 @@ const setAuthToken = token => {
   window.localStorage.setItem("token", token);
 };
 
+const createTour = async attributes => {
+  // only allowed to do if currentStaffUser
+  return api.post("/tours", attributes);
+};
+
 export default {
   createStaffUser,
   login,
   getStaffUser,
-  authenticateStaffUser
+  authenticateStaffUser,
+  createTour
 };

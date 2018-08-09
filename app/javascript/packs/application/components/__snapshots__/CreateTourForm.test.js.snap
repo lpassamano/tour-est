@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CreateTourForm /> render 1`] = `
+<CreateTourForm
+  culturalCenterId={1}
+  navigate={[MockFunction]}
+  onCreateTour={[MockFunction]}
+  staffUserId={1}
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      id="title"
+      name="title"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      type="submit"
+    >
+      Create Tour
+    </button>
+  </form>
+</CreateTourForm>
+`;

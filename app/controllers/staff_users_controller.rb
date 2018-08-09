@@ -1,5 +1,5 @@
 class StaffUsersController < ApplicationController
-  before_action :authenticate_staff_user, only: [:show]
+  skip_before_action :authenticate_staff_user, only: [:create]
 
   def index
     @staff_users = StaffUser.all
@@ -21,18 +21,6 @@ class StaffUsersController < ApplicationController
   end
 
   private
-
-  def current_staff_user
-    @current_user ||= authenticate_staff_user
-  end
-
-  helper_method :current_staff_user
-
-  def authenticate_staff_user
-    authenticate_or_request_with_http_token do |token, _options|
-      Token.decode(token)
-    end
-  end
 
   def staff_user_params
     params.require(:user).permit(:username, :password, :password_confirmation)

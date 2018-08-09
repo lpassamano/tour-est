@@ -25,7 +25,7 @@ class App extends Component {
     const result = await api.login(username, password);
 
     if (result.ok) {
-      this.setState({ currentStaffUser: result.data });
+      return this.authenticateStaffUser();
     }
 
     return result;
@@ -40,6 +40,17 @@ class App extends Component {
     }
 
     return userResult;
+  };
+
+  registerTour = async attributes => {
+    const tourResult = await api.createTour(attributes);
+
+    if (tourResult.ok) {
+      // triggers re-render of staff user dashboard
+      // with full list of all tours created by currentStaffUser
+    }
+
+    return tourResult;
   };
 
   render() {
@@ -57,6 +68,7 @@ class App extends Component {
               path="/"
               onAuthenticate={this.authenticateStaffUser}
               currentStaffUser={this.state.currentStaffUser}
+              onCreateTour={this.registerTour}
             />
           ) : (
             <LoginForm path="/" onLogin={this.loginStaffUser} />
