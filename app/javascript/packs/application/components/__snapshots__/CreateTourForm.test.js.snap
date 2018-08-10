@@ -45,8 +45,8 @@ exports[`<CreateTourForm /> render 1`] = `
       value=""
     />
     <input
-      id="topic"
-      name="topic"
+      id="description"
+      name="description"
       onChange={[Function]}
       type="text"
       value=""

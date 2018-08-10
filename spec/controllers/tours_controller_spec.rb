@@ -12,7 +12,7 @@ RSpec.describe ToursController, type: :controller do
         starting_point: "Greek and Roman Gallery 3",
         directions: "Go past the welcome desk and into the hallway to the right",
         estimated_time: "2 hours",
-        topic: "This tour focues on sculpture made during the Greek and Roman Empires"
+        description: "This tour focues on sculpture made during the Greek and Roman Empires"
       },
       format: :json
     }
@@ -40,7 +40,7 @@ RSpec.describe ToursController, type: :controller do
       expect(tour.starting_point).to eq("Greek and Roman Gallery 3")
       expect(tour.directions).to eq("Go past the welcome desk and into the hallway to the right")
       expect(tour.estimated_time).to eq("2 hours")
-      expect(tour.topic).to eq("This tour focues on sculpture made during the Greek and Roman Empires")
+      expect(tour.description).to eq("This tour focues on sculpture made during the Greek and Roman Empires")
     end
 
     it 'does not create a tour when provided invalid data' do

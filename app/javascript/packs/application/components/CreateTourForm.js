@@ -9,7 +9,7 @@ class CreateTourForm extends Component {
     starting_point: "",
     directions: "",
     estimated_time: "",
-    topic: ""
+    description: ""
   };
 
   handleSubmit = async event => {
@@ -20,7 +20,7 @@ class CreateTourForm extends Component {
       starting_point,
       directions,
       estimated_time,
-      topic
+      description
     } = this.state;
     const result = await this.props.onCreateTour({
       tour: {
@@ -30,7 +30,7 @@ class CreateTourForm extends Component {
         starting_point: starting_point,
         directions: directions,
         estimated_time: estimated_time,
-        topic: topic
+        description: description
       }
     });
 
@@ -80,10 +80,10 @@ class CreateTourForm extends Component {
           onChange={this.handleChange}
         />
         <input
-          name="topic"
+          name="description"
           type="text"
-          id="topic"
-          value={this.state.topic}
+          id="description"
+          value={this.state.description}
           onChange={this.handleChange}
         />
         <button type="submit">Create Tour</button>

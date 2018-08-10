@@ -38,9 +38,9 @@ describe("<CreateTourForm />", () => {
     const estimatedTimeEvent = {
       target: { name: "estimated_time", value: "2 hours" }
     };
-    const topicEvent = {
+    const descriptionEvent = {
       target: {
-        name: "topic",
+        name: "description",
         value:
           "This tour focues on sculpture made during the Greek and Roman Empires"
       }
@@ -54,7 +54,7 @@ describe("<CreateTourForm />", () => {
     component
       .find("input#estimated_time")
       .simulate("change", estimatedTimeEvent);
-    component.find("input#topic").simulate("change", topicEvent);
+    component.find("input#description").simulate("change", descriptionEvent);
     component.find("form").simulate("submit", { preventDefault: () => null });
 
     expect(onCreateTour).toHaveBeenCalledWith({
@@ -66,7 +66,7 @@ describe("<CreateTourForm />", () => {
         directions:
           "Go past the welcome desk and into the hallway to the right",
         estimated_time: "2 hours",
-        topic:
+        description:
           "This tour focues on sculpture made during the Greek and Roman Empires"
       }
     });

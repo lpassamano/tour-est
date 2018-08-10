@@ -1,1 +1,1 @@
-json.extract! tour, :title, :id, :starting_point, :directions, :estimated_time, :topic
+json.extract! tour, :title, :id, :starting_point, :directions, :estimated_time, :description
