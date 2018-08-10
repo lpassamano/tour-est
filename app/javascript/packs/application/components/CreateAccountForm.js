@@ -30,7 +30,7 @@ class CreateAccountForm extends Component {
     });
 
     if (result.ok) {
-      this.props.navigate("/");
+      this.props.navigate("/admin");
     } else {
       console.error(result.data.error);
     }
