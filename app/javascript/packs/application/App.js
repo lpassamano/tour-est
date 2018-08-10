@@ -1,23 +1,22 @@
 import React, { Component } from "react";
-import { Router, Link } from "@reach/router";
+import { Router, Link, navigate } from "@reach/router";
 
 import LoginForm from "./components/LoginForm";
 import CreateAccountForm from "./components/CreateAccountForm";
 import StaffUserDashboard from "./components/StaffUserDashboard";
+import CreateTourForm from "./components/CreateTourForm";
 import api from "./api";
 
-class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      currentStaffUser: null,
-      tours: {
-        data: null,
-        isFetching: false
-      }
-    };
+const INITIAL_STATE = {
+  currentStaffUser: null,
+  tours: {
+    data: null,
+    isFetching: false
   }
+};
+
+class App extends Component {
+  state = INITIAL_STATE;
 
   componentDidMount() {
     this.authenticateStaffUser();
@@ -41,6 +40,13 @@ class App extends Component {
     }
 
     return result;
+  };
+
+  logoutStaffUser = event => {
+    event.preventDefault();
+    api.removeAuthToken();
+
+    this.setState(INITIAL_STATE, () => navigate("/login"));
   };
 
   registerStaffUser = async attributes => {
@@ -79,29 +85,44 @@ class App extends Component {
     return (
       <div>
         <h1>Tour-est</h1>
-        <nav>
-          <Link to="/">Sign In</Link>{" "}
-          <Link to="/create-account">Create Account</Link>
-        </nav>
+        {this.state.currentStaffUser ? (
+          <nav>
+            <Link to="/admin">Home</Link>
+            <Link to="/tours/new">Create Tour</Link>
+            <a href="#" onClick={this.logoutStaffUser}>
+              Log Out
+            </a>
+          </nav>
+        ) : (
+          <nav>
+            <Link to="/login">Sign In</Link>
+            <Link to="/sign-up">Create Account</Link>
+          </nav>
+        )}
 
-        <Router>
-          {this.state.currentStaffUser ? (
+        {this.state.currentStaffUser ? (
+          <Router>
             <StaffUserDashboard
-              path="/"
-              onAuthenticate={this.authenticateStaffUser}
+              path="/admin"
               currentStaffUser={this.state.currentStaffUser}
               tours={this.state.tours}
               listTours={this.listTours}
-              onCreateTour={this.registerTour}
             />
-          ) : (
-            <LoginForm path="/" onLogin={this.loginStaffUser} />
-          )}
-          <CreateAccountForm
-            path="/create-account"
-            onCreateUser={this.registerStaffUser}
-          />
-        </Router>
+            <CreateTourForm
+              path="/tours/new"
+              onCreateTour={this.registerTour}
+              currentStaffUser={this.state.currentStaffUser}
+            />
+          </Router>
+        ) : (
+          <Router>
+            <LoginForm path="/login" onLogin={this.loginStaffUser} />
+            <CreateAccountForm
+              path="/sign-up"
+              onCreateUser={this.registerStaffUser}
+            />
+          </Router>
+        )}
       </div>
     );
   }

@@ -83,29 +83,6 @@ exports[`<StaffUserDashboard /> render 1`] = `
         </h4>
       </div>
     </ToursList>
-    <CreateTourForm
-      culturalCenterId={1}
-      navigate={[Function]}
-      onCreateTour={[MockFunction]}
-      staffUserId={1}
-    >
-      <form
-        onSubmit={[Function]}
-      >
-        <input
-          id="title"
-          name="title"
-          onChange={[Function]}
-          type="text"
-          value=""
-        />
-        <button
-          type="submit"
-        >
-          Create Tour
-        </button>
-      </form>
-    </CreateTourForm>
   </div>
 </StaffUserDashboard>
 `;

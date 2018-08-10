@@ -4,14 +4,12 @@ import { mount } from "enzyme";
 
 describe("<CreateTourForm />", () => {
   const setup = ({ onCreateTour = jest.fn(), navigate = jest.fn() }) => {
-    const staffUserId = 1;
-    const culturalCenterId = 1;
+    const currentStaffUser = { id: 1, cultural_center: { id: 1 } };
     const component = mount(
       <CreateTourForm
         onCreateTour={onCreateTour}
         navigate={navigate}
-        staffUserId={staffUserId}
-        culturalCenterId={culturalCenterId}
+        currentStaffUser={currentStaffUser}
       />
     );
     return component;
@@ -21,7 +19,7 @@ describe("<CreateTourForm />", () => {
     const onCreateTour = jest.fn();
     onCreateTour.mockResolvedValue({ ok: true });
     const navigate = to => {
-      expect(to).toEqual("/");
+      expect(to).toEqual("/admin");
       done();
     };
     const component = setup({ onCreateTour, navigate });

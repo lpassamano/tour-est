@@ -23,7 +23,7 @@ describe("<CreateAccountForm />", () => {
   test("onSubmit - when submit is clicked the current values of username, password, and cultural center are submitted", done => {
     const onCreateUser = jest.fn();
     const navigate = to => {
-      expect(to).toEqual("/");
+      expect(to).toEqual("/admin");
       done();
     };
     onCreateUser.mockResolvedValue({ ok: true });
