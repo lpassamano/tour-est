@@ -5,17 +5,32 @@ import PropTypes from "prop-types";
 class CreateTourForm extends Component {
   static defaultProps = { navigate };
   state = {
-    title: ""
+    title: "",
+    starting_point: "",
+    directions: "",
+    estimated_time: "",
+    topic: ""
   };
 
   handleSubmit = async event => {
     event.preventDefault();
     const { id, cultural_center } = this.props.currentStaffUser;
+    const {
+      title,
+      starting_point,
+      directions,
+      estimated_time,
+      topic
+    } = this.state;
     const result = await this.props.onCreateTour({
       tour: {
         title: this.state.title,
         staff_user_id: id,
-        cultural_center_id: cultural_center.id
+        cultural_center_id: cultural_center.id,
+        starting_point: starting_point,
+        directions: directions,
+        estimated_time: estimated_time,
+        topic: topic
       }
     });
 
@@ -33,6 +48,7 @@ class CreateTourForm extends Component {
   };
 
   render() {
+    // TODO: mark title field as required
     return (
       <form onSubmit={this.handleSubmit}>
         <input
@@ -40,6 +56,34 @@ class CreateTourForm extends Component {
           type="text"
           id="title"
           value={this.state.title}
+          onChange={this.handleChange}
+        />
+        <input
+          name="starting_point"
+          type="text"
+          id="starting_point"
+          value={this.state.starting_point}
+          onChange={this.handleChange}
+        />
+        <input
+          name="directions"
+          type="text"
+          id="directions"
+          value={this.state.directions}
+          onChange={this.handleChange}
+        />
+        <input
+          name="estimated_time"
+          type="text"
+          id="estimated_time"
+          value={this.state.estimated_time}
+          onChange={this.handleChange}
+        />
+        <input
+          name="topic"
+          type="text"
+          id="topic"
+          value={this.state.topic}
           onChange={this.handleChange}
         />
         <button type="submit">Create Tour</button>

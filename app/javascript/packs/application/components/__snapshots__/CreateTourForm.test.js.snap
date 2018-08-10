@@ -23,6 +23,34 @@ exports[`<CreateTourForm /> render 1`] = `
       type="text"
       value=""
     />
+    <input
+      id="starting_point"
+      name="starting_point"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <input
+      id="directions"
+      name="directions"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <input
+      id="estimated_time"
+      name="estimated_time"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <input
+      id="topic"
+      name="topic"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
     <button
       type="submit"
     >

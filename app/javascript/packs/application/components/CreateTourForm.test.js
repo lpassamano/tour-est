@@ -15,7 +15,7 @@ describe("<CreateTourForm />", () => {
     return component;
   };
 
-  test("onSubmit - when create button is clicked the current value of title is submitted", done => {
+  test("onSubmit - when create button is clicked the current value of form fields are submitted", done => {
     const onCreateTour = jest.fn();
     onCreateTour.mockResolvedValue({ ok: true });
     const navigate = to => {
@@ -23,14 +23,51 @@ describe("<CreateTourForm />", () => {
       done();
     };
     const component = setup({ onCreateTour, navigate });
-    const event = { target: { name: "title", value: "Best Tour Ever!" } };
-    component.find("input#title").simulate("change", event);
+    const titleEvent = {
+      target: { name: "title", value: "Greco-Roman Sculpture" }
+    };
+    const startingPointEvent = {
+      target: { name: "starting_point", value: "Greek and Roman Gallery 3" }
+    };
+    const directionsEvent = {
+      target: {
+        name: "directions",
+        value: "Go past the welcome desk and into the hallway to the right"
+      }
+    };
+    const estimatedTimeEvent = {
+      target: { name: "estimated_time", value: "2 hours" }
+    };
+    const topicEvent = {
+      target: {
+        name: "topic",
+        value:
+          "This tour focues on sculpture made during the Greek and Roman Empires"
+      }
+    };
+
+    component.find("input#title").simulate("change", titleEvent);
+    component
+      .find("input#starting_point")
+      .simulate("change", startingPointEvent);
+    component.find("input#directions").simulate("change", directionsEvent);
+    component
+      .find("input#estimated_time")
+      .simulate("change", estimatedTimeEvent);
+    component.find("input#topic").simulate("change", topicEvent);
     component.find("form").simulate("submit", { preventDefault: () => null });
+
     expect(onCreateTour).toHaveBeenCalledWith({
       tour: {
-        title: "Best Tour Ever!",
+        title: "Greco-Roman Sculpture",
         staff_user_id: 1,
-        cultural_center_id: 1
+        cultural_center_id: 1,
+        starting_point: "Greek and Roman Gallery 3",
+        directions:
+          "Go past the welcome desk and into the hallway to the right",
+        estimated_time: "2 hours",
+        topic:
+          "This tour focues on sculpture made during the Greek and Roman Empires"
       }
     });
   });
