@@ -2,21 +2,17 @@ import React, { Component } from "react";
 
 class Tour extends Component {
   render() {
-    const {
-      title,
-      starting_point,
-      directions,
-      estimated_time,
-      description
-    } = this.props.tour;
+    if (!this.props.tour) {
+      return <p>loading... please wait!</p>;
+    }
 
     return (
       <div>
-        <h2>{title}</h2>
-        <p>{estimated_time}</p>
-        <p>description</p>
-        <p>starting_point</p>
-        <p>directions</p>
+        <h2>{this.props.tour.title}</h2>
+        <p>{this.props.tour.estimated_time}</p>
+        <p>{this.props.tour.description}</p>
+        <p>{this.props.tour.starting_point}</p>
+        <p>{this.props.tour.directions}</p>
       </div>
     );
   }

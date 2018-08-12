@@ -1,8 +1,8 @@
-import Tour from "./Tour";
+import TourContainer from "./TourContainer";
 import React from "react";
 import { mount } from "enzyme";
 
-describe("<Tour />", () => {
+describe("<TourContainer />", () => {
   test("render", () => {
     const tour = {
       title: "Philly Tour",
@@ -11,7 +11,8 @@ describe("<Tour />", () => {
       starting_point: "City Hall",
       directions: "Meet at the West entrance"
     };
-    const component = mount(<Tour tour={tour} />);
+    const showTour = jest.fn();
+    const component = mount(<TourContainer tour={tour} showTour={showTour} />);
     expect(component).toMatchSnapshot();
   });
 });
