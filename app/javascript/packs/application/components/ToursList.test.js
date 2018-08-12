@@ -12,7 +12,6 @@ describe("<ToursList />", () => {
         { id: 3, title: "Tour 3" }
       ]
     };
-    console.log(tours);
     const component = mount(<ToursList tours={tours} />);
     expect(component).toMatchSnapshot();
   });

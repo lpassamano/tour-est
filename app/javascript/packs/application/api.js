@@ -49,6 +49,10 @@ const listTours = () => {
   return api.get("/tours");
 };
 
+const getTour = tourId => {
+  return api.get(`/tours/${tourId}`);
+};
+
 export default {
   createStaffUser,
   login,
@@ -56,5 +60,6 @@ export default {
   authenticateStaffUser,
   removeAuthToken,
   createTour,
-  listTours
+  listTours,
+  getTour
 };

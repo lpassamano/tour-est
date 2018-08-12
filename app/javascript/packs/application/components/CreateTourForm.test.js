@@ -18,8 +18,9 @@ describe("<CreateTourForm />", () => {
   test("onSubmit - when create button is clicked the current value of form fields are submitted", done => {
     const onCreateTour = jest.fn();
     onCreateTour.mockResolvedValue({ ok: true });
+    //HALP!!!
     const navigate = to => {
-      expect(to).toEqual("/admin");
+      expect(to).toEqual("/tours/1");
       done();
     };
     const component = setup({ onCreateTour, navigate });

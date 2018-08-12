@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tour /> render 1`] = `
+<Tour
+  tour={
+    Object {
+      "description": "Walking tour of Philly's architecture and public art",
+      "directions": "Meet at the West entrance",
+      "estimated_time": "2 hours",
+      "starting_point": "City Hall",
+      "title": "Philly Tour",
+    }
+  }
+>
+  <div>
+    <h2>
+      Philly Tour
+    </h2>
+    <p>
+      2 hours
+    </p>
+    <p>
+      Walking tour of Philly's architecture and public art
+    </p>
+    <p>
+      City Hall
+    </p>
+    <p>
+      Meet at the West entrance
+    </p>
+  </div>
+</Tour>
+`;
