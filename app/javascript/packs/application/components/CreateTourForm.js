@@ -50,6 +50,18 @@ class CreateTourForm extends Component {
     this.setState({ [name]: value });
   };
 
+  handlePointChange = (point, index) => {
+    if (this.state.points[index]) {
+      this.setState({
+        points: Object.assign([...this.state.points], { [index]: point })
+      });
+    } else {
+      this.setState({
+        points: [...this.state.points, point]
+      });
+    }
+  };
+
   onAddPoint = event => {
     event.preventDefault();
     this.setState({
@@ -62,7 +74,13 @@ class CreateTourForm extends Component {
     let points = [];
 
     for (var i = 0; i < this.state.numPoints; i += 1) {
-      points.push(<AddPointForm key={i} />);
+      points.push(
+        <AddPointForm
+          key={i}
+          index={i}
+          handlePointChange={this.handlePointChange}
+        />
+      );
     }
 
     return (
