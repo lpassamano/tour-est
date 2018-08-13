@@ -51,7 +51,7 @@ class CreateTourForm extends Component {
     // TODO: mark title field as required
     return (
       <form onSubmit={this.handleSubmit}>
-        <label for="title">Title: </label>
+        <label htmlFor="title">Title: </label>
         <input
           name="title"
           type="text"
@@ -60,7 +60,7 @@ class CreateTourForm extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <label for="starting_point">Starting Point: </label>
+        <label htmlFor="starting_point">Starting Point: </label>
         <input
           name="starting_point"
           type="text"
@@ -69,7 +69,7 @@ class CreateTourForm extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <label for="directions">Directions: </label>
+        <label htmlFor="directions">Directions: </label>
         <input
           name="directions"
           type="text"
@@ -78,7 +78,7 @@ class CreateTourForm extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <label for="estimated_time">Estimated Time: </label>
+        <label htmlFor="estimated_time">Estimated Time: </label>
         <input
           name="estimated_time"
           type="text"
@@ -87,7 +87,7 @@ class CreateTourForm extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <label for="description">Description: </label>
+        <label htmlFor="description">Description: </label>
         <input
           name="description"
           type="text"
