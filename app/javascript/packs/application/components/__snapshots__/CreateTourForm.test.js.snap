@@ -16,6 +16,11 @@ exports[`<CreateTourForm /> render 1`] = `
   <form
     onSubmit={[Function]}
   >
+    <label
+      for="title"
+    >
+      Title: 
+    </label>
     <input
       id="title"
       name="title"
@@ -23,6 +28,12 @@ exports[`<CreateTourForm /> render 1`] = `
       type="text"
       value=""
     />
+    <br />
+    <label
+      for="starting_point"
+    >
+      Starting Point: 
+    </label>
     <input
       id="starting_point"
       name="starting_point"
@@ -30,6 +41,12 @@ exports[`<CreateTourForm /> render 1`] = `
       type="text"
       value=""
     />
+    <br />
+    <label
+      for="directions"
+    >
+      Directions: 
+    </label>
     <input
       id="directions"
       name="directions"
@@ -37,6 +54,12 @@ exports[`<CreateTourForm /> render 1`] = `
       type="text"
       value=""
     />
+    <br />
+    <label
+      for="estimated_time"
+    >
+      Estimated Time: 
+    </label>
     <input
       id="estimated_time"
       name="estimated_time"
@@ -44,6 +67,12 @@ exports[`<CreateTourForm /> render 1`] = `
       type="text"
       value=""
     />
+    <br />
+    <label
+      for="description"
+    >
+      Description: 
+    </label>
     <input
       id="description"
       name="description"
@@ -51,6 +80,7 @@ exports[`<CreateTourForm /> render 1`] = `
       type="text"
       value=""
     />
+    <br />
     <button
       type="submit"
     >
