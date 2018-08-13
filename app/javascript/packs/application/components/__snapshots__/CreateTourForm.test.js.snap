@@ -7,7 +7,7 @@ exports[`<CreateTourForm /> render 1`] = `
   <label
     htmlFor="title"
   >
-    Title: 
+    Title:
   </label>
   <input
     id="title"
@@ -20,7 +20,7 @@ exports[`<CreateTourForm /> render 1`] = `
   <label
     htmlFor="starting_point"
   >
-    Starting Point: 
+    Starting Point:
   </label>
   <input
     id="starting_point"
@@ -33,7 +33,7 @@ exports[`<CreateTourForm /> render 1`] = `
   <label
     htmlFor="directions"
   >
-    Directions: 
+    Directions:
   </label>
   <input
     id="directions"
@@ -46,7 +46,7 @@ exports[`<CreateTourForm /> render 1`] = `
   <label
     htmlFor="estimated_time"
   >
-    Estimated Time: 
+    Estimated Time:
   </label>
   <input
     id="estimated_time"
@@ -59,7 +59,7 @@ exports[`<CreateTourForm /> render 1`] = `
   <label
     htmlFor="description"
   >
-    Description: 
+    Description:
   </label>
   <input
     id="description"
