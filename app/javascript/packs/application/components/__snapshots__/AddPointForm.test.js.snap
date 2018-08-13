@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddPointForm /> render 1`] = `
+<div>
+  <p>
+    Upload Image (WIP)
+  </p>
+  <label
+    htmlFor="caption"
+  >
+    Caption: 
+  </label>
+  <textarea
+    id="caption"
+    name="caption"
+    type="text"
+  />
+</div>
+`;
