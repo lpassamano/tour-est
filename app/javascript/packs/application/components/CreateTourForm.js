@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
+import AddPointForm from "./AddPointForm";
 
 class CreateTourForm extends Component {
   static defaultProps = { navigate };
@@ -9,7 +10,9 @@ class CreateTourForm extends Component {
     starting_point: "",
     directions: "",
     estimated_time: "",
-    description: ""
+    description: "",
+    numPoints: 0,
+    points: []
   };
 
   handleSubmit = async event => {
@@ -47,8 +50,21 @@ class CreateTourForm extends Component {
     this.setState({ [name]: value });
   };
 
+  onAddPoint = event => {
+    event.preventDefault();
+    this.setState({
+      numPoints: this.state.numPoints + 1
+    });
+  };
+
   render() {
     // TODO: mark title field as required
+    let points = [];
+
+    for (var i = 0; i < this.state.numPoints; i += 1) {
+      points.push(<AddPointForm key={i} />);
+    }
+
     return (
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="title">Title: </label>
@@ -95,6 +111,11 @@ class CreateTourForm extends Component {
           value={this.state.description}
           onChange={this.handleChange}
         />
+        <br />
+        <div id="points">{points}</div>
+        <a href="#" onClick={this.onAddPoint}>
+          Add Point to Tour
+        </a>
         <br />
         <button type="submit">Create Tour</button>
       </form>

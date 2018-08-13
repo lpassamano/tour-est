@@ -81,6 +81,16 @@ exports[`<CreateTourForm /> render 1`] = `
       value=""
     />
     <br />
+    <div
+      id="points"
+    />
+    <a
+      href="#"
+      onClick={[Function]}
+    >
+      Add Point to Tour
+    </a>
+    <br />
     <button
       type="submit"
     >
