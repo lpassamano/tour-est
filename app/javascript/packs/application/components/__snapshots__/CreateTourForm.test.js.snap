@@ -1,25 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CreateTourForm /> render 1`] = `
-<CreateTourForm
-  currentStaffUser={
-    Object {
-      "cultural_center": Object {
-        "id": 1,
-      },
-      "id": 1,
-    }
-  }
-  navigate={[MockFunction]}
-  onCreateTour={[MockFunction]}
+<form
+  onSubmit={[Function]}
 >
-  <form
-    onSubmit={[Function]}
+  <input
+    id="title"
+    name="title"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <input
+    id="starting_point"
+    name="starting_point"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <input
+    id="directions"
+    name="directions"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <input
+    id="estimated_time"
+    name="estimated_time"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <input
+    id="description"
+    name="description"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <button
+    type="submit"
   >
     <label
       htmlFor="title"
     >
-      Title: 
+      Title:
     </label>
     <input
       id="title"
@@ -32,7 +58,7 @@ exports[`<CreateTourForm /> render 1`] = `
     <label
       htmlFor="starting_point"
     >
-      Starting Point: 
+      Starting Point:
     </label>
     <input
       id="starting_point"
@@ -45,7 +71,7 @@ exports[`<CreateTourForm /> render 1`] = `
     <label
       htmlFor="directions"
     >
-      Directions: 
+      Directions:
     </label>
     <input
       id="directions"
@@ -58,7 +84,7 @@ exports[`<CreateTourForm /> render 1`] = `
     <label
       htmlFor="estimated_time"
     >
-      Estimated Time: 
+      Estimated Time:
     </label>
     <input
       id="estimated_time"
@@ -71,7 +97,7 @@ exports[`<CreateTourForm /> render 1`] = `
     <label
       htmlFor="description"
     >
-      Description: 
+      Description:
     </label>
     <input
       id="description"

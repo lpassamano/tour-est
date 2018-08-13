@@ -1,11 +1,11 @@
 import CreateTourForm from "./CreateTourForm";
 import React from "react";
-import { mount } from "enzyme";
+import { shallow } from "enzyme";
 
 describe("<CreateTourForm />", () => {
   const setup = ({ onCreateTour = jest.fn(), navigate = jest.fn() }) => {
     const currentStaffUser = { id: 1, cultural_center: { id: 1 } };
-    const component = mount(
+    const component = shallow(
       <CreateTourForm
         onCreateTour={onCreateTour}
         navigate={navigate}
@@ -17,8 +17,7 @@ describe("<CreateTourForm />", () => {
 
   test("onSubmit - when create button is clicked the current value of form fields are submitted", done => {
     const onCreateTour = jest.fn();
-    onCreateTour.mockResolvedValue({ ok: true });
-    //HALP!!!
+    onCreateTour.mockResolvedValue({ ok: true, data: { id: 1 } });
     const navigate = to => {
       expect(to).toEqual("/tours/1");
       done();
