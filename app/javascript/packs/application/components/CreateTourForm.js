@@ -16,6 +16,8 @@ class CreateTourForm extends Component {
   };
 
   handleSubmit = async event => {
+    // TODO: make it so points are submitted w/ other tour info
+    // new point created for each added by user!
     event.preventDefault();
     const { id, cultural_center } = this.props.currentStaffUser;
     const {
@@ -23,17 +25,19 @@ class CreateTourForm extends Component {
       starting_point,
       directions,
       estimated_time,
-      description
+      description,
+      points
     } = this.state;
     const result = await this.props.onCreateTour({
       tour: {
-        title: this.state.title,
+        title: title,
         staff_user_id: id,
         cultural_center_id: cultural_center.id,
         starting_point: starting_point,
         directions: directions,
         estimated_time: estimated_time,
-        description: description
+        description: description,
+        points: points
       }
     });
 

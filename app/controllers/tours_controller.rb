@@ -24,9 +24,11 @@ class ToursController < ApplicationController
       :title,
       :staff_user_id,
       :cultural_center_id,
-      :starting_point, :directions,
+      :starting_point,
+      :directions,
       :estimated_time,
-      :description
+      :description,
+      :points
     )
   end
 end
