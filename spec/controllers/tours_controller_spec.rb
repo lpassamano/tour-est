@@ -12,7 +12,10 @@ RSpec.describe ToursController, type: :controller do
         starting_point: "Greek and Roman Gallery 3",
         directions: "Go past the welcome desk and into the hallway to the right",
         estimated_time: "2 hours",
-        description: "This tour focues on sculpture made during the Greek and Roman Empires"
+        description: "This tour focues on sculpture made during the Greek and Roman Empires",
+        points_attributes: [
+          { caption: "Corinthian Column" }
+        ]
       },
       format: :json
     }
@@ -22,7 +25,7 @@ RSpec.describe ToursController, type: :controller do
     valid_params.deep_merge(tour: { title: "" })
   end
 
-  let :json { JSON.parse(response.body) }
+  let(:json) { JSON.parse(response.body) }
 
   context "User authenticated" do
     before do
@@ -41,6 +44,14 @@ RSpec.describe ToursController, type: :controller do
       expect(tour.directions).to eq("Go past the welcome desk and into the hallway to the right")
       expect(tour.estimated_time).to eq("2 hours")
       expect(tour.description).to eq("This tour focues on sculpture made during the Greek and Roman Empires")
+      expect(tour.points.count).to eq(1)
+      expect(tour.points.first.caption).to eq("Corinthian Column")
+    end
+
+    it 'does not create a point if given invalid point data' do
+      params = valid_params.deep_merge(tour: { points_attributes: [{ caption: "" }] })
+      expect { post :create, params: params }.to_not change(Point, :count)
+      expect(response.status).to eq(200)
     end
 
     it 'does not create a tour when provided invalid data' do
