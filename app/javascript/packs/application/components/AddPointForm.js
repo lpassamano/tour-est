@@ -1,20 +1,9 @@
 import React, { Component } from "react";
-
-// const AddPointForm = props => (
-//   <div>
-//     <p>Upload Image (WIP)</p>
-//     <label htmlFor="caption">Caption: </label>
-//     <textarea
-//       name="caption"
-//       id="caption"
-//       type="text"
-//       onChange={props.onChange}
-//     />
-//   </div>
-// );
+import { navigate } from "@reach/router";
 
 class AddPointForm extends Component {
   // TODO: add additional point fields
+  // change to initial state and have it reset to inital state after point is created
   state = {
     caption: ""
   };
@@ -22,16 +11,28 @@ class AddPointForm extends Component {
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-    this.props.handlePointChange(this.state, this.props.index);
+  };
+
+  handleSubmit = async event => {
+    event.preventDefault();
+    const { caption } = this.state;
+    const result = await this.props.onCreatePoint({
+      point: {
+        caption: caption
+      }
+    });
+
+    if (result.ok) {
+      this.setState({ caption: "" });
+      this.props.onHide();
+    } else {
+      console.error(result.data.error);
+    }
   };
 
   render() {
-    // return form fields only for a point
-    // div w/
-    // state is stored here and passed to parent component?
-    // which means handleChange also needs to happen there??
     return (
-      <div id={this.props.index}>
+      <form onSubmit={this.handleSubmit}>
         <p>Upload Image (WIP)</p>
         <label htmlFor="caption">Caption: </label>
         <textarea
@@ -41,7 +42,16 @@ class AddPointForm extends Component {
           value={this.state.caption}
           onChange={this.handleChange}
         />
-      </div>
+        <button type="submit" id="save">
+          Save
+        </button>
+        <button type="button" onClick={this.props.onHide}>
+          Cancel
+        </button>
+        <button type="button" id="save_and_add" onClick={this.handleSubmit}>
+          Save and add another point
+        </button>
+      </form>
     );
   }
 }

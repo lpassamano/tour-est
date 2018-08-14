@@ -53,6 +53,11 @@ const getTour = tourId => {
   return api.get(`/tours/${tourId}`);
 };
 
+const createPoint = async (tourId, attributes) => {
+  // where should this post to?
+  return api.post(`/tours/${tourId}/points`, attributes);
+};
+
 export default {
   createStaffUser,
   login,
@@ -61,5 +66,6 @@ export default {
   removeAuthToken,
   createTour,
   listTours,
-  getTour
+  getTour,
+  createPoint
 };

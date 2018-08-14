@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 class Tour extends Component {
+  // make stateless component
+
   render() {
     if (!this.props.tour) {
       return <p>loading... please wait!</p>;

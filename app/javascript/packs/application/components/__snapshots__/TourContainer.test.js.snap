@@ -11,7 +11,31 @@ exports[`<TourContainer /> render 1`] = `
         "starting_point": "City Hall",
         "title": "Philly Tour",
       }
-    }
-  />
-</div>
+    >
+      <div>
+        <h2>
+          Philly Tour
+        </h2>
+        <p>
+          2 hours
+        </p>
+        <p>
+          Walking tour of Philly's architecture and public art
+        </p>
+        <p>
+          City Hall
+        </p>
+        <p>
+          Meet at the West entrance
+        </p>
+      </div>
+    </Tour>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Add Point to Tour
+    </button>
+  </div>
+</TourContainer>
 `;

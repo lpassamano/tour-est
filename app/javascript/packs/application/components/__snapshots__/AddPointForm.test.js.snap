@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AddPointForm /> render 1`] = `
-<div>
+<form
+  onSubmit={[Function]}
+>
   <p>
     Upload Image (WIP)
   </p>
@@ -17,5 +19,23 @@ exports[`<AddPointForm /> render 1`] = `
     type="text"
     value=""
   />
-</div>
+  <button
+    id="save"
+    type="submit"
+  >
+    Save
+  </button>
+  <button
+    type="button"
+  >
+    Cancel
+  </button>
+  <button
+    id="save_and_add"
+    onClick={[Function]}
+    type="button"
+  >
+    Save and add another point
+  </button>
+</form>
 `;

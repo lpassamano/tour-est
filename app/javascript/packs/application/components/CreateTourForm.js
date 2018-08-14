@@ -5,14 +5,13 @@ import AddPointForm from "./AddPointForm";
 
 class CreateTourForm extends Component {
   static defaultProps = { navigate };
+  // change this to initial state and have it reset to initial state aftertour has been added
   state = {
     title: "",
     starting_point: "",
     directions: "",
     estimated_time: "",
-    description: "",
-    numPoints: 0,
-    points_attributes: []
+    description: ""
   };
 
   handleSubmit = async event => {
@@ -23,19 +22,18 @@ class CreateTourForm extends Component {
       starting_point,
       directions,
       estimated_time,
-      description,
-      points_attributes
+      description
     } = this.state;
     const result = await this.props.onCreateTour({
       tour: {
         title: title,
+        // todo: should be on contoller to assign user
         staff_user_id: id,
         cultural_center_id: cultural_center.id,
         starting_point: starting_point,
         directions: directions,
         estimated_time: estimated_time,
-        description: description,
-        points_attributes: points_attributes
+        description: description
       }
     });
 
@@ -52,40 +50,8 @@ class CreateTourForm extends Component {
     this.setState({ [name]: value });
   };
 
-  handlePointChange = (point, index) => {
-    if (this.state.points_attributes[index]) {
-      this.setState({
-        points_attributes: Object.assign([...this.state.points_attributes], {
-          [index]: point
-        })
-      });
-    } else {
-      this.setState({
-        points_attributes: [...this.state.points_attributes, point]
-      });
-    }
-  };
-
-  onAddPoint = event => {
-    event.preventDefault();
-    this.setState({
-      numPoints: this.state.numPoints + 1
-    });
-  };
-
   render() {
     // TODO: mark title field as required
-    let points = [];
-
-    for (var i = 0; i < this.state.numPoints; i += 1) {
-      points.push(
-        <AddPointForm
-          key={i}
-          index={i}
-          handlePointChange={this.handlePointChange}
-        />
-      );
-    }
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -133,11 +99,6 @@ class CreateTourForm extends Component {
           value={this.state.description}
           onChange={this.handleChange}
         />
-        <br />
-        <div id="points">{points}</div>
-        <a href="#" onClick={this.onAddPoint}>
-          Add Point to Tour
-        </a>
         <br />
         <button type="submit">Create Tour</button>
       </form>

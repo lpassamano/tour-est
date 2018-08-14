@@ -81,6 +81,12 @@ class App extends Component {
     this.setState({ tourView: { data: tour.data } });
   };
 
+  registerPoint = async attributes => {
+    const tourId = this.state.tourView.data.id;
+    const pointResult = await api.createPoint(tourId, attributes);
+    return pointResult;
+  };
+
   render() {
     return (
       <div>
@@ -116,7 +122,8 @@ class App extends Component {
             <TourContainer
               path="/tours/:tourId"
               tour={this.state.tourView.data}
-              getTour={this.getTour}
+              showTour={this.showTour}
+              onCreatePoint={this.registerPoint}
             />
           </Router>
         ) : (
