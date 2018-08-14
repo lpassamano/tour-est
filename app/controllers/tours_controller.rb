@@ -27,7 +27,8 @@ class ToursController < ApplicationController
       :starting_point,
       :directions,
       :estimated_time,
-      :description
+      :description,
+      :points
     )
   end
 end
