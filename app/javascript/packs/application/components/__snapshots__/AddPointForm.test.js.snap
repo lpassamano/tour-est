@@ -15,6 +15,7 @@ exports[`<AddPointForm /> render 1`] = `
     name="caption"
     onChange={[Function]}
     type="text"
+    value=""
   />
 </div>
 `;

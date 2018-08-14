@@ -14,6 +14,7 @@ import React, { Component } from "react";
 // );
 
 class AddPointForm extends Component {
+  // TODO: add additional point fields
   state = {
     caption: ""
   };
@@ -37,6 +38,7 @@ class AddPointForm extends Component {
           name="caption"
           id="caption"
           type="text"
+          value={this.state.caption}
           onChange={this.handleChange}
         />
       </div>
