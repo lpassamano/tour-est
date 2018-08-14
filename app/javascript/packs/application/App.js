@@ -66,16 +66,6 @@ class App extends Component {
 
   registerTour = async attributes => {
     const tourResult = await api.createTour(attributes);
-
-    if (tourResult.ok) {
-      this.setState(({ tours }) => ({
-        tours: {
-          ...tours,
-          data: [...tours.data, tourResult.data]
-        }
-      }));
-    }
-
     return tourResult;
   };
 
@@ -85,7 +75,8 @@ class App extends Component {
     this.setState({ tours: { isFetching: false, data: tourList.data } });
   };
 
-  getTour = async tourId => {
+  showTour = async tourId => {
+    // TODO: update getTour so it gets point info too?
     const tour = await api.getTour(tourId);
     this.setState({ tourView: { data: tour.data } });
   };
