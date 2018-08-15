@@ -64,8 +64,7 @@ describe("<CreateTourForm />", () => {
 
   test("handleChange - when text is typed into the title field the state is updated", () => {
     const component = setup({});
-    const event = { target: { name: "title", value: "Best Tour Ever!" } };
-    component.find("input#title").simulate("change", event);
+    fillIn(component.find("input#title"), "Best Tour Ever!");
     expect(component.state("title")).toEqual("Best Tour Ever!");
   });
 
