@@ -20,6 +20,14 @@ class ToursController < ApplicationController
   private
 
   def tour_params
-    params.require(:tour).permit(:title, :staff_user_id, :cultural_center_id)
+    params.require(:tour).permit(
+      :title,
+      :staff_user_id,
+      :cultural_center_id,
+      :starting_point,
+      :directions,
+      :estimated_time,
+      :description
+    )
   end
 end

@@ -5,17 +5,32 @@ import PropTypes from "prop-types";
 class CreateTourForm extends Component {
   static defaultProps = { navigate };
   state = {
-    title: ""
+    title: "",
+    starting_point: "",
+    directions: "",
+    estimated_time: "",
+    description: ""
   };
 
   handleSubmit = async event => {
     event.preventDefault();
     const { id, cultural_center } = this.props.currentStaffUser;
+    const {
+      title,
+      starting_point,
+      directions,
+      estimated_time,
+      description
+    } = this.state;
     const result = await this.props.onCreateTour({
       tour: {
         title: this.state.title,
         staff_user_id: id,
-        cultural_center_id: cultural_center.id
+        cultural_center_id: cultural_center.id,
+        starting_point: starting_point,
+        directions: directions,
+        estimated_time: estimated_time,
+        description: description
       }
     });
 
@@ -33,8 +48,10 @@ class CreateTourForm extends Component {
   };
 
   render() {
+    // TODO: mark title field as required
     return (
       <form onSubmit={this.handleSubmit}>
+        <label htmlFor="title">Title: </label>
         <input
           name="title"
           type="text"
@@ -42,6 +59,43 @@ class CreateTourForm extends Component {
           value={this.state.title}
           onChange={this.handleChange}
         />
+        <br />
+        <label htmlFor="starting_point">Starting Point: </label>
+        <input
+          name="starting_point"
+          type="text"
+          id="starting_point"
+          value={this.state.starting_point}
+          onChange={this.handleChange}
+        />
+        <br />
+        <label htmlFor="directions">Directions: </label>
+        <input
+          name="directions"
+          type="text"
+          id="directions"
+          value={this.state.directions}
+          onChange={this.handleChange}
+        />
+        <br />
+        <label htmlFor="estimated_time">Estimated Time: </label>
+        <input
+          name="estimated_time"
+          type="text"
+          id="estimated_time"
+          value={this.state.estimated_time}
+          onChange={this.handleChange}
+        />
+        <br />
+        <label htmlFor="description">Description: </label>
+        <input
+          name="description"
+          type="text"
+          id="description"
+          value={this.state.description}
+          onChange={this.handleChange}
+        />
+        <br />
         <button type="submit">Create Tour</button>
       </form>
     );

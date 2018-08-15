@@ -15,7 +15,17 @@ describe("<CreateTourForm />", () => {
     return component;
   };
 
-  test("onSubmit - when create button is clicked the current value of title is submitted", done => {
+  const fillIn = (input, value) => {
+    input.simulate("change", {
+      target: { value, name: input.prop("name") }
+    });
+  };
+
+  const submit = form => {
+    form.simulate("submit", { preventDefault: () => null });
+  };
+
+  test("onSubmit - when create button is clicked the current value of form fields are submitted", done => {
     const onCreateTour = jest.fn();
     onCreateTour.mockResolvedValue({ ok: true });
     const navigate = to => {
@@ -23,22 +33,38 @@ describe("<CreateTourForm />", () => {
       done();
     };
     const component = setup({ onCreateTour, navigate });
-    const event = { target: { name: "title", value: "Best Tour Ever!" } };
-    component.find("input#title").simulate("change", event);
-    component.find("form").simulate("submit", { preventDefault: () => null });
+
+    fillIn(component.find("input#title"), "Greco-Roman Sculpture");
+    fillIn(component.find("input#starting_point"), "Greek and Roman Gallery 3");
+    fillIn(
+      component.find("input#directions"),
+      "Go past the welcome desk and into the hallway to the right"
+    );
+    fillIn(component.find("input#estimated_time"), "2 hours");
+    fillIn(
+      component.find("input#description"),
+      "This tour focues on sculpture made during the Greek and Roman Empires"
+    );
+    submit(component.find("form"));
+
     expect(onCreateTour).toHaveBeenCalledWith({
       tour: {
-        title: "Best Tour Ever!",
+        title: "Greco-Roman Sculpture",
         staff_user_id: 1,
-        cultural_center_id: 1
+        cultural_center_id: 1,
+        starting_point: "Greek and Roman Gallery 3",
+        directions:
+          "Go past the welcome desk and into the hallway to the right",
+        estimated_time: "2 hours",
+        description:
+          "This tour focues on sculpture made during the Greek and Roman Empires"
       }
     });
   });
 
   test("handleChange - when text is typed into the title field the state is updated", () => {
     const component = setup({});
-    const event = { target: { name: "title", value: "Best Tour Ever!" } };
-    component.find("input#title").simulate("change", event);
+    fillIn(component.find("input#title"), "Best Tour Ever!");
     expect(component.state("title")).toEqual("Best Tour Ever!");
   });
 
