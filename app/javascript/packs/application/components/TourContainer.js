@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Tour from "./Tour";
 
 class TourContainer extends Component {
-  async componentDidMount() {
+  componentDidMount() {
     this.props.showTour(this.props.tourId);
   }
 
