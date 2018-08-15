@@ -15,6 +15,12 @@ describe("<CreateTourForm />", () => {
     return component;
   };
 
+  const fillIn = (input, value) => {
+    input.simulate("change", {
+      target: { value, name: input.prop("name") }
+    });
+  };
+
   test("onSubmit - when create button is clicked the current value of form fields are submitted", done => {
     const onCreateTour = jest.fn();
     onCreateTour.mockResolvedValue({ ok: true });
@@ -23,38 +29,18 @@ describe("<CreateTourForm />", () => {
       done();
     };
     const component = setup({ onCreateTour, navigate });
-    const titleEvent = {
-      target: { name: "title", value: "Greco-Roman Sculpture" }
-    };
-    const startingPointEvent = {
-      target: { name: "starting_point", value: "Greek and Roman Gallery 3" }
-    };
-    const directionsEvent = {
-      target: {
-        name: "directions",
-        value: "Go past the welcome desk and into the hallway to the right"
-      }
-    };
-    const estimatedTimeEvent = {
-      target: { name: "estimated_time", value: "2 hours" }
-    };
-    const descriptionEvent = {
-      target: {
-        name: "description",
-        value:
-          "This tour focues on sculpture made during the Greek and Roman Empires"
-      }
-    };
 
-    component.find("input#title").simulate("change", titleEvent);
-    component
-      .find("input#starting_point")
-      .simulate("change", startingPointEvent);
-    component.find("input#directions").simulate("change", directionsEvent);
-    component
-      .find("input#estimated_time")
-      .simulate("change", estimatedTimeEvent);
-    component.find("input#description").simulate("change", descriptionEvent);
+    fillIn(component.find("input#title"), "Greco-Roman Sculpture");
+    fillIn(component.find("input#starting_point"), "Greek and Roman Gallery 3");
+    fillIn(
+      component.find("input#directions"),
+      "Go past the welcome desk and into the hallway to the right"
+    );
+    fillIn(component.find("input#estimated_time"), "2 hours");
+    fillIn(
+      component.find("input#description"),
+      "This tour focues on sculpture made during the Greek and Roman Empires"
+    );
     component.find("form").simulate("submit", { preventDefault: () => null });
 
     expect(onCreateTour).toHaveBeenCalledWith({
