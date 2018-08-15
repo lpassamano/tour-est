@@ -21,6 +21,10 @@ describe("<CreateTourForm />", () => {
     });
   };
 
+  const submit = form => {
+    form.simulate("submit", { preventDefault: () => null });
+  };
+
   test("onSubmit - when create button is clicked the current value of form fields are submitted", done => {
     const onCreateTour = jest.fn();
     onCreateTour.mockResolvedValue({ ok: true });
@@ -41,7 +45,7 @@ describe("<CreateTourForm />", () => {
       component.find("input#description"),
       "This tour focues on sculpture made during the Greek and Roman Empires"
     );
-    component.find("form").simulate("submit", { preventDefault: () => null });
+    submit(component.find("form"));
 
     expect(onCreateTour).toHaveBeenCalledWith({
       tour: {
