@@ -58,6 +58,10 @@ const createPoint = async (tourId, attributes) => {
   return api.post(`/tours/${tourId}/points`, attributes);
 };
 
+const listPoints = tourId => {
+  return api.get(`/tours/${tourId}/points`);
+};
+
 export default {
   createStaffUser,
   login,
@@ -67,5 +71,6 @@ export default {
   createTour,
   listTours,
   getTour,
-  createPoint
+  createPoint,
+  listPoints
 };

@@ -10,6 +10,10 @@ class PointsController < ApplicationController
     end
   end
 
+  def index
+    @points = Tour.find(params[:tour_id]).points
+  end
+
   private
 
   def point_params

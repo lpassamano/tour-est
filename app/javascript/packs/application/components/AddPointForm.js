@@ -24,7 +24,7 @@ class AddPointForm extends Component {
 
     if (result.ok) {
       this.setState({ caption: "" });
-      this.props.onHide();
+      this.props.onHide(); // only if save clicked
     } else {
       console.error(result.data.error);
     }

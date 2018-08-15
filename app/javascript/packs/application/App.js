@@ -14,8 +14,13 @@ const INITIAL_STATE = {
     data: null,
     isFetching: false
   },
-  tourView: {
-    data: null
+  tour: {
+    data: null,
+    isFetching: false
+  },
+  points: {
+    data: null,
+    isFetching: false
   }
 };
 
@@ -53,6 +58,7 @@ class App extends Component {
     this.setState(INITIAL_STATE, () => navigate("/login"));
   };
 
+  // todo: make fns here consistent w/ api names and propnames
   registerStaffUser = async attributes => {
     const userResult = await api.createStaffUser(attributes);
     const { username, password } = attributes.user;
@@ -66,6 +72,7 @@ class App extends Component {
 
   registerTour = async attributes => {
     const tourResult = await api.createTour(attributes);
+    // should update state
     return tourResult;
   };
 
@@ -77,14 +84,22 @@ class App extends Component {
 
   showTour = async tourId => {
     // TODO: update getTour so it gets point info too?
+    this.setState({ tour: { isFetching: true, data: null } });
     const tour = await api.getTour(tourId);
-    this.setState({ tourView: { data: tour.data } });
+    this.setState({ tour: { isFetching: false, data: tour.data } });
   };
 
   registerPoint = async attributes => {
-    const tourId = this.state.tourView.data.id;
+    const tourId = this.state.tour.data.id;
     const pointResult = await api.createPoint(tourId, attributes);
+    // should update state
     return pointResult;
+  };
+
+  listPoints = async tourId => {
+    this.setState({ points: { isFetching: true, data: null } });
+    const pointList = await api.listPoints(tourId);
+    this.setState({ points: { isFetching: false, data: pointList.data } });
   };
 
   render() {
@@ -121,9 +136,11 @@ class App extends Component {
             />
             <TourContainer
               path="/tours/:tourId"
-              tour={this.state.tourView.data}
+              tour={this.state.tour}
+              points={this.state.points}
               showTour={this.showTour}
               onCreatePoint={this.registerPoint}
+              listPoints={this.listPoints}
             />
           </Router>
         ) : (
