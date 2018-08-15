@@ -122,8 +122,6 @@ class App extends Component {
             <StaffUserDashboard
               path="/admin"
               currentStaffUser={this.state.currentStaffUser}
-              tours={this.state.tours}
-              listTours={this.listTours}
             />
             <CreateTourForm
               path="/tours/new"

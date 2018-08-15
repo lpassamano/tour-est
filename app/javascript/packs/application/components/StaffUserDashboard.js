@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import CreateTourForm from "./CreateTourForm";
 import ToursList from "./ToursList";
+import { connect } from "react-redux";
+import { listTours } from "../redux/tours";
 
 class StaffUserDashboard extends Component {
   componentDidMount() {
@@ -20,4 +22,15 @@ class StaffUserDashboard extends Component {
   }
 }
 
-export default StaffUserDashboard;
+// TODO: add proptypes
+const mapStateToProps = state => ({
+  tours: state.tours
+});
+
+const mapDispatchToProps = { listTours };
+const enhance = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default enhance(StaffUserDashboard);
