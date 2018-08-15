@@ -24,11 +24,7 @@ class App extends Component {
 
   authenticateStaffUser = async () => {
     const result = await api.authenticateStaffUser();
-
-    if (result.ok) {
-      this.setState({ currentStaffUser: result.data });
-    }
-
+    this.setState({ currentStaffUser: result.data });
     return result;
   };
 
