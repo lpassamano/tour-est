@@ -11,10 +11,8 @@ describe("<TourContainer />", () => {
       starting_point: "City Hall",
       directions: "Meet at the West entrance"
     };
-    const showTour = jest.fn();
-    const component = shallow(
-      <TourContainer tour={tour} showTour={showTour} />
-    );
+    const getTour = jest.fn();
+    const component = shallow(<TourContainer tour={tour} getTour={getTour} />);
     expect(component).toMatchSnapshot();
   });
 });

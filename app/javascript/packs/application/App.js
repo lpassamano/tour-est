@@ -85,7 +85,7 @@ class App extends Component {
     this.setState({ tours: { isFetching: false, data: tourList.data } });
   };
 
-  showTour = async tourId => {
+  getTour = async tourId => {
     const tour = await api.getTour(tourId);
     this.setState({ tourView: { data: tour.data } });
   };
@@ -125,7 +125,7 @@ class App extends Component {
             <TourContainer
               path="/tours/:tourId"
               tour={this.state.tourView.data}
-              showTour={this.showTour}
+              getTour={this.getTour}
             />
           </Router>
         ) : (

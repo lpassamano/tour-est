@@ -3,7 +3,7 @@ import Tour from "./Tour";
 
 class TourContainer extends Component {
   componentDidMount() {
-    this.props.showTour(this.props.tourId);
+    this.props.getTour(this.props.tourId);
   }
 
   render() {
