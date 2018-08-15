@@ -1,6 +1,6 @@
 import TourContainer from "./TourContainer";
 import React from "react";
-import { mount } from "enzyme";
+import { shallow } from "enzyme";
 
 describe("<TourContainer />", () => {
   test("render", () => {
@@ -12,7 +12,9 @@ describe("<TourContainer />", () => {
       directions: "Meet at the West entrance"
     };
     const showTour = jest.fn();
-    const component = mount(<TourContainer tour={tour} showTour={showTour} />);
+    const component = shallow(
+      <TourContainer tour={tour} showTour={showTour} />
+    );
     expect(component).toMatchSnapshot();
   });
 });
