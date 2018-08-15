@@ -7,8 +7,7 @@ exports[`<CreateTourForm /> render 1`] = `
   <label
     htmlFor="title"
   >
-<<<<<<< HEAD
-    Title:
+    Title: 
   </label>
   <input
     id="title"
@@ -21,7 +20,7 @@ exports[`<CreateTourForm /> render 1`] = `
   <label
     htmlFor="starting_point"
   >
-    Starting Point:
+    Starting Point: 
   </label>
   <input
     id="starting_point"
@@ -34,7 +33,7 @@ exports[`<CreateTourForm /> render 1`] = `
   <label
     htmlFor="directions"
   >
-    Directions:
+    Directions: 
   </label>
   <input
     id="directions"
@@ -47,7 +46,7 @@ exports[`<CreateTourForm /> render 1`] = `
   <label
     htmlFor="estimated_time"
   >
-    Estimated Time:
+    Estimated Time: 
   </label>
   <input
     id="estimated_time"
@@ -60,7 +59,7 @@ exports[`<CreateTourForm /> render 1`] = `
   <label
     htmlFor="description"
   >
-    Description:
+    Description: 
   </label>
   <input
     id="description"
@@ -76,78 +75,4 @@ exports[`<CreateTourForm /> render 1`] = `
     Create Tour
   </button>
 </form>
-=======
-    <label
-      htmlFor="title"
-    >
-      Title: 
-    </label>
-    <input
-      id="title"
-      name="title"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-    <br />
-    <label
-      htmlFor="starting_point"
-    >
-      Starting Point: 
-    </label>
-    <input
-      id="starting_point"
-      name="starting_point"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-    <br />
-    <label
-      htmlFor="directions"
-    >
-      Directions: 
-    </label>
-    <input
-      id="directions"
-      name="directions"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-    <br />
-    <label
-      htmlFor="estimated_time"
-    >
-      Estimated Time: 
-    </label>
-    <input
-      id="estimated_time"
-      name="estimated_time"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-    <br />
-    <label
-      htmlFor="description"
-    >
-      Description: 
-    </label>
-    <input
-      id="description"
-      name="description"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-    <br />
-    <button
-      type="submit"
-    >
-      Create Tour
-    </button>
-  </form>
-</CreateTourForm>
->>>>>>> Change add point form to no longer be nested inside create tour form
 `;
