@@ -5,6 +5,7 @@ import LoginForm from "./components/LoginForm";
 import CreateAccountForm from "./components/CreateAccountForm";
 import StaffUserDashboard from "./components/StaffUserDashboard";
 import CreateTourForm from "./components/CreateTourForm";
+import TourContainer from "./components/TourContainer";
 import api from "./api";
 
 const INITIAL_STATE = {
@@ -12,6 +13,9 @@ const INITIAL_STATE = {
   tours: {
     data: null,
     isFetching: false
+  },
+  tourView: {
+    data: null
   }
 };
 
@@ -81,6 +85,11 @@ class App extends Component {
     this.setState({ tours: { isFetching: false, data: tourList.data } });
   };
 
+  getTour = async tourId => {
+    const tour = await api.getTour(tourId);
+    this.setState({ tourView: { data: tour.data } });
+  };
+
   render() {
     return (
       <div>
@@ -112,6 +121,11 @@ class App extends Component {
               path="/tours/new"
               onCreateTour={this.registerTour}
               currentStaffUser={this.state.currentStaffUser}
+            />
+            <TourContainer
+              path="/tours/:tourId"
+              tour={this.state.tourView.data}
+              getTour={this.getTour}
             />
           </Router>
         ) : (

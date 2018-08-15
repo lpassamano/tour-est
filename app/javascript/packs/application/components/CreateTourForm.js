@@ -35,7 +35,7 @@ class CreateTourForm extends Component {
     });
 
     if (result.ok) {
-      this.props.navigate("/admin");
+      this.props.navigate(`/tours/${result.data.id}`);
       this.setState({ title: "" });
     } else {
       console.error(result.data.error);

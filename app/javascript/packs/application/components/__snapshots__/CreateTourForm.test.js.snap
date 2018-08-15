@@ -1,91 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CreateTourForm /> render 1`] = `
-<CreateTourForm
-  currentStaffUser={
-    Object {
-      "cultural_center": Object {
-        "id": 1,
-      },
-      "id": 1,
-    }
-  }
-  navigate={[MockFunction]}
-  onCreateTour={[MockFunction]}
+<form
+  onSubmit={[Function]}
 >
-  <form
-    onSubmit={[Function]}
+  <label
+    htmlFor="title"
   >
-    <label
-      htmlFor="title"
-    >
-      Title: 
-    </label>
-    <input
-      id="title"
-      name="title"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-    <br />
-    <label
-      htmlFor="starting_point"
-    >
-      Starting Point: 
-    </label>
-    <input
-      id="starting_point"
-      name="starting_point"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-    <br />
-    <label
-      htmlFor="directions"
-    >
-      Directions: 
-    </label>
-    <input
-      id="directions"
-      name="directions"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-    <br />
-    <label
-      htmlFor="estimated_time"
-    >
-      Estimated Time: 
-    </label>
-    <input
-      id="estimated_time"
-      name="estimated_time"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-    <br />
-    <label
-      htmlFor="description"
-    >
-      Description: 
-    </label>
-    <input
-      id="description"
-      name="description"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-    <br />
-    <button
-      type="submit"
-    >
-      Create Tour
-    </button>
-  </form>
-</CreateTourForm>
+    Title: 
+  </label>
+  <input
+    id="title"
+    name="title"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <br />
+  <label
+    htmlFor="starting_point"
+  >
+    Starting Point: 
+  </label>
+  <input
+    id="starting_point"
+    name="starting_point"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <br />
+  <label
+    htmlFor="directions"
+  >
+    Directions: 
+  </label>
+  <input
+    id="directions"
+    name="directions"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <br />
+  <label
+    htmlFor="estimated_time"
+  >
+    Estimated Time: 
+  </label>
+  <input
+    id="estimated_time"
+    name="estimated_time"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <br />
+  <label
+    htmlFor="description"
+  >
+    Description: 
+  </label>
+  <input
+    id="description"
+    name="description"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <br />
+  <button
+    type="submit"
+  >
+    Create Tour
+  </button>
+</form>
 `;
