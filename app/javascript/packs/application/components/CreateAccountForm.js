@@ -44,6 +44,7 @@ class CreateAccountForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <label htmlFor="username">Username: </label>
         <input
           name="username"
           type="text"
@@ -51,6 +52,8 @@ class CreateAccountForm extends Component {
           value={this.state.username}
           onChange={this.handleChange}
         />
+        <br />
+        <label htmlFor="password">Password: </label>
         <input
           name="password"
           type="password"
@@ -58,6 +61,8 @@ class CreateAccountForm extends Component {
           value={this.state.password}
           onChange={this.handleChange}
         />
+        <br />
+        <label htmlFor="password_confirmation">Confirm Password: </label>
         <input
           name="password_confirmation"
           type="password"
@@ -65,6 +70,8 @@ class CreateAccountForm extends Component {
           value={this.state.password_confirmation}
           onChange={this.handleChange}
         />
+        <br />
+        <label htmlFor="cultural_center">Organization: </label>
         <input
           name="cultural_center"
           type="text"
@@ -72,6 +79,7 @@ class CreateAccountForm extends Component {
           value={this.state.cultural_center}
           onChange={this.handleChange}
         />
+        <br />
         <button type="submit">Log In</button>
       </form>
     );

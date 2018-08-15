@@ -8,6 +8,11 @@ exports[`<CreateAccountForm /> render 1`] = `
   <form
     onSubmit={[Function]}
   >
+    <label
+      htmlFor="username"
+    >
+      Username: 
+    </label>
     <input
       id="username"
       name="username"
@@ -15,6 +20,12 @@ exports[`<CreateAccountForm /> render 1`] = `
       type="text"
       value="leigh"
     />
+    <br />
+    <label
+      htmlFor="password"
+    >
+      Password: 
+    </label>
     <input
       id="password"
       name="password"
@@ -22,6 +33,12 @@ exports[`<CreateAccountForm /> render 1`] = `
       type="password"
       value="12345abcde"
     />
+    <br />
+    <label
+      htmlFor="password_confirmation"
+    >
+      Confirm Password: 
+    </label>
     <input
       id="password_confirmation"
       name="password_confirmation"
@@ -29,6 +46,12 @@ exports[`<CreateAccountForm /> render 1`] = `
       type="password"
       value="12345abcde"
     />
+    <br />
+    <label
+      htmlFor="cultural_center"
+    >
+      Organization: 
+    </label>
     <input
       id="cultural_center"
       name="cultural_center"
@@ -36,6 +59,7 @@ exports[`<CreateAccountForm /> render 1`] = `
       type="text"
       value="Met Museum"
     />
+    <br />
     <button
       type="submit"
     >

@@ -28,6 +28,7 @@ class LoginForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <label htmlFor="username">Username: </label>
         <input
           name="username"
           type="text"
@@ -35,6 +36,8 @@ class LoginForm extends Component {
           value={this.state.username}
           onChange={this.handleChange}
         />
+        <br />
+        <label htmlFor="password">Password: </label>
         <input
           name="password"
           type="password"
@@ -42,6 +45,7 @@ class LoginForm extends Component {
           value={this.state.password}
           onChange={this.handleChange}
         />
+        <br />
         <button type="submit">Log In</button>
       </form>
     );

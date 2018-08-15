@@ -8,6 +8,11 @@ exports[`<LoginForm /> render 1`] = `
   <form
     onSubmit={[Function]}
   >
+    <label
+      htmlFor="username"
+    >
+      Username: 
+    </label>
     <input
       id="username"
       name="username"
@@ -15,6 +20,12 @@ exports[`<LoginForm /> render 1`] = `
       type="text"
       value="leigh"
     />
+    <br />
+    <label
+      htmlFor="password"
+    >
+      Password: 
+    </label>
     <input
       id="password"
       name="password"
@@ -22,6 +33,7 @@ exports[`<LoginForm /> render 1`] = `
       type="password"
       value="123abc"
     />
+    <br />
     <button
       type="submit"
     >
