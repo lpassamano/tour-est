@@ -19,9 +19,7 @@ class App extends Component {
   state = INITIAL_STATE;
 
   componentDidMount() {
-    if (this.state.currentStaffUser) {
-      this.authenticateStaffUser();
-    }
+    this.authenticateStaffUser();
   }
 
   authenticateStaffUser = async () => {
