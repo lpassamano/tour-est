@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import * as tourActions from "../redux/tours/actions";
+import * as tourSelectors from "../redux/tours/selectors";
 import AddPointForm from "./AddPointForm";
 
 class CreateTourForm extends Component {
@@ -113,4 +116,11 @@ CreateTourForm.propTypes = {
   })
 };
 
-export default CreateTourForm;
+const mapStateToProps = state => ({});
+const mapDispatchToProps = { onCreateTour: tourActions.createTour };
+const enhance = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default enhance(CreateTourForm);
