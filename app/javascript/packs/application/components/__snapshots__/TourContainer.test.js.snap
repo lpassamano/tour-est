@@ -2,7 +2,7 @@
 
 exports[`<TourContainer /> render 1`] = `
 <div>
-  <Tour />
+  <Connect(Tour) />
   <PointsList />
   <button
     onClick={[Function]}

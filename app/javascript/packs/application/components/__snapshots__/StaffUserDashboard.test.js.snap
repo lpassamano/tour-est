@@ -12,26 +12,6 @@ exports[`<StaffUserDashboard /> render 1`] = `
   <h3>
     Penn Museum
   </h3>
-  <ToursList
-    tours={
-      Object {
-        "data": Array [
-          Object {
-            "id": 1,
-            "title": "Tour 1",
-          },
-          Object {
-            "id": 2,
-            "title": "Tour 2",
-          },
-          Object {
-            "id": 3,
-            "title": "Tour 3",
-          },
-        ],
-        "isFetching": false,
-      }
-    }
-  />
+  <Connect(ToursList) />
 </div>
 `;

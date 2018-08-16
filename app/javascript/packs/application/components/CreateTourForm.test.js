@@ -1,4 +1,4 @@
-import CreateTourForm from "./CreateTourForm";
+import { CreateTourForm } from "./CreateTourForm";
 import React from "react";
 import { shallow } from "enzyme";
 

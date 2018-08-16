@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import * as tourActions from "../redux/tours/actions";
 import * as tourSelectors from "../redux/tours/selectors";
 
-class ToursList extends Component {
+export class ToursList extends Component {
   componentDidMount() {
     this.props.listTours();
   }
