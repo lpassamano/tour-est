@@ -5,13 +5,13 @@ import PointsList from "./PointsList";
 import { connect } from "react-redux";
 import { listPoints } from "../redux/points";
 
-class TourContainer extends Component {
+export class TourContainer extends Component {
   state = {
     isShowingPointForm: false
   };
 
   componentDidMount() {
-    this.props.showTour(this.props.tourId);
+    this.props.getTour(this.props.tourId);
     this.props.listPoints(this.props.tourId);
   }
 
@@ -43,6 +43,8 @@ class TourContainer extends Component {
     );
   }
 }
+
+// todo: add prop types
 
 const mapStateToProps = state => ({
   points: state.points

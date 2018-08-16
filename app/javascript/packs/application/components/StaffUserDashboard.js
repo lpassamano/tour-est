@@ -4,7 +4,7 @@ import ToursList from "./ToursList";
 import { connect } from "react-redux";
 import { listTours } from "../redux/tours";
 
-class StaffUserDashboard extends Component {
+export class StaffUserDashboard extends Component {
   componentDidMount() {
     this.props.listTours();
   }
@@ -28,6 +28,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = { listTours };
+
 const enhance = connect(
   mapStateToProps,
   mapDispatchToProps
