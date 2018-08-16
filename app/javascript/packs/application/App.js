@@ -10,10 +10,6 @@ import api from "./api";
 
 const INITIAL_STATE = {
   currentStaffUser: null,
-  tours: {
-    data: null,
-    isFetching: false
-  },
   tour: {
     data: null,
     isFetching: false
@@ -71,13 +67,11 @@ class App extends Component {
 
   registerTour = async attributes => {
     const tourResult = await api.createTour(attributes);
+    
+    if (tourResult.ok) {
+      this.setState({ tour: { isFetching: false, data: tourResult.data } });
+    }
     return tourResult;
-  };
-
-  listTours = async () => {
-    this.setState({ tours: { isFetching: true, data: null } });
-    const tourList = await api.listTours();
-    this.setState({ tours: { isFetching: false, data: tourList.data } });
   };
 
   showTour = async tourId => {
