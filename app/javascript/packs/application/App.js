@@ -13,10 +13,6 @@ const INITIAL_STATE = {
   tour: {
     data: null,
     isFetching: false
-  },
-  points: {
-    data: null,
-    isFetching: false
   }
 };
 
@@ -86,12 +82,6 @@ class App extends Component {
     return pointResult;
   };
 
-  listPoints = async tourId => {
-    this.setState({ points: { isFetching: true, data: null } });
-    const pointList = await api.listPoints(tourId);
-    this.setState({ points: { isFetching: false, data: pointList.data } });
-  };
-
   render() {
     return (
       <div>
@@ -125,10 +115,8 @@ class App extends Component {
             <TourContainer
               path="/tours/:tourId"
               tour={this.state.tour}
-              points={this.state.points}
               showTour={this.showTour}
               onCreatePoint={this.registerPoint}
-              listPoints={this.listPoints}
             />
           </Router>
         ) : (
