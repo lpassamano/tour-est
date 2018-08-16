@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Tour from "./Tour";
 import AddPointForm from "./AddPointForm";
 import PointsList from "./PointsList";
+import { connect } from "react-redux";
+import { listPoints } from "../redux/points";
 
 class TourContainer extends Component {
   state = {
@@ -42,4 +44,15 @@ class TourContainer extends Component {
   }
 }
 
-export default TourContainer;
+const mapStateToProps = state => ({
+  points: state.points
+});
+
+const mapDispatchToProps = { listPoints };
+
+const enhance = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default enhance(TourContainer);
