@@ -1,8 +1,8 @@
 import React from "react";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { listTours } from "./tours";
-import api from "../api";
+import { listTours } from "./actions";
+import api from "../../api";
 
 describe("listTours()", () => {
   it("works", async () => {
