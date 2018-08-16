@@ -9,11 +9,11 @@ import TourContainer from "./components/TourContainer";
 import api from "./api";
 
 const INITIAL_STATE = {
-  currentStaffUser: null,
-  tour: {
-    data: null,
-    isFetching: false
-  }
+  currentStaffUser: null
+  // tour: {
+  //   data: null,
+  //   isFetching: false
+  // }
 };
 
 class App extends Component {
@@ -61,21 +61,6 @@ class App extends Component {
     return userResult;
   };
 
-  registerTour = async attributes => {
-    const tourResult = await api.createTour(attributes);
-    
-    if (tourResult.ok) {
-      this.setState({ tour: { isFetching: false, data: tourResult.data } });
-    }
-    return tourResult;
-  };
-
-  showTour = async tourId => {
-    this.setState({ tour: { isFetching: true, data: null } });
-    const tour = await api.getTour(tourId);
-    this.setState({ tour: { isFetching: false, data: tour.data } });
-  };
-
   registerPoint = async attributes => {
     const tourId = this.state.tour.data.id;
     const pointResult = await api.createPoint(tourId, attributes);
@@ -109,13 +94,10 @@ class App extends Component {
             />
             <CreateTourForm
               path="/tours/new"
-              onCreateTour={this.registerTour}
               currentStaffUser={this.state.currentStaffUser}
             />
             <TourContainer
               path="/tours/:tourId"
-              tour={this.state.tour}
-              showTour={this.showTour}
               onCreatePoint={this.registerPoint}
             />
           </Router>
