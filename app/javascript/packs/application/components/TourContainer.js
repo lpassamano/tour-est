@@ -9,7 +9,6 @@ class TourContainer extends Component {
   };
 
   componentDidMount() {
-    console.log("tour id", this.props.tourId);
     this.props.showTour(this.props.tourId);
     this.props.listPoints(this.props.tourId);
   }
@@ -25,7 +24,7 @@ class TourContainer extends Component {
   render() {
     return (
       <div>
-        <Tour tour={this.props.tour} />
+        <Tour tour={this.props.tour.data} />
         <PointsList points={this.props.points} />
         {this.state.isShowingPointForm ? (
           <AddPointForm
