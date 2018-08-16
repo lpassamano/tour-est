@@ -1,6 +1,6 @@
-import StaffUserDashboard from "./StaffUserDashboard";
+import { StaffUserDashboard } from "./StaffUserDashboard";
 import React from "react";
-import { mount } from "enzyme";
+import { shallow } from "enzyme";
 
 describe("<StaffUserDashboard />", () => {
   test("render", () => {
@@ -18,11 +18,13 @@ describe("<StaffUserDashboard />", () => {
         { id: 3, title: "Tour 3" }
       ]
     };
-    const component = mount(
+    const listTours = jest.fn();
+    const component = shallow(
       <StaffUserDashboard
         onCreateTour={onCreateTour}
         currentStaffUser={currentStaffUser}
         tours={tours}
+        listTours={listTours}
       />
     );
     expect(component).toMatchSnapshot();

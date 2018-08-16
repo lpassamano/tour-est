@@ -1,4 +1,4 @@
-import TourContainer from "./TourContainer";
+import { TourContainer } from "./TourContainer";
 import React from "react";
 import { shallow } from "enzyme";
 
