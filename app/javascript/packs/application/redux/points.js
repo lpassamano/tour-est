@@ -34,16 +34,3 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
-
-// registerPoint = async attributes => {
-//   const tourId = this.state.tour.data.id;
-//   const pointResult = await api.createPoint(tourId, attributes);
-//   // should update state
-//   return pointResult;
-// };
-//
-// listPoints = async tourId => {
-//   this.setState({ points: { isFetching: true, data: null } });
-//   const pointList = await api.listPoints(tourId);
-//   this.setState({ points: { isFetching: false, data: pointList.data } });
-// };
