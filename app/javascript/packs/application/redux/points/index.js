@@ -1,4 +1,4 @@
-import api from "../api";
+import api from "../../api";
 
 export const CREATE_POINT = "CREATE_POINT";
 export const LIST_POINTS = "LIST_POINTS";
