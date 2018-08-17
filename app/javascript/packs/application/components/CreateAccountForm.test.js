@@ -49,9 +49,6 @@ describe("<CreateAccountForm />", () => {
   });
 
   test("render", () => {
-    // creates a snapshot of the HTML that is rendered and if it changes the tests will fail
-    // update the snapshot yarn test -u
-    // google jest snapshot for more info
     const component = setup({});
     expect(component).toMatchSnapshot();
   });

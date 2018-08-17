@@ -2,7 +2,7 @@ import PointsList from "./PointsList";
 import React from "react";
 
 describe("<PointsList />", () => {
-  test("yo", () => {
+  test("placeholder test", () => {
     expect(true).toEqual(true);
   });
 });

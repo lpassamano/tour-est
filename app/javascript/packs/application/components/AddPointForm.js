@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { navigate } from "@reach/router";
 
 class AddPointForm extends Component {
-  // TODO: add additional point fields
-  // change to initial state and have it reset to inital state after point is created
   state = {
     caption: ""
   };
@@ -24,7 +22,7 @@ class AddPointForm extends Component {
 
     if (result.ok) {
       this.setState({ caption: "" });
-      this.props.onHide(); // only if save clicked
+      this.props.onHide();
     } else {
       console.error(result.data.error);
     }

@@ -5,7 +5,6 @@ import AddPointForm from "./AddPointForm";
 
 class CreateTourForm extends Component {
   static defaultProps = { navigate };
-  // change this to initial state and have it reset to initial state aftertour has been added
   state = {
     title: "",
     starting_point: "",
@@ -27,7 +26,6 @@ class CreateTourForm extends Component {
     const result = await this.props.onCreateTour({
       tour: {
         title: title,
-        // todo: should be on contoller to assign user
         staff_user_id: id,
         cultural_center_id: cultural_center.id,
         starting_point: starting_point,
@@ -51,8 +49,6 @@ class CreateTourForm extends Component {
   };
 
   render() {
-    // TODO: mark title field as required
-
     return (
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="title">Title: </label>

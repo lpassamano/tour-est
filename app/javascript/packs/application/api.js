@@ -41,7 +41,6 @@ const removeAuthToken = () => {
 };
 
 const createTour = async attributes => {
-  // only allowed to do if currentStaffUser
   return api.post("/tours", attributes);
 };
 
@@ -54,7 +53,6 @@ const getTour = tourId => {
 };
 
 const createPoint = async (tourId, attributes) => {
-  // where should this post to?
   return api.post(`/tours/${tourId}/points`, attributes);
 };
 

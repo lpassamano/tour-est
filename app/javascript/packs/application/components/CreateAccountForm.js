@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
 
-// TODO
-// see if any other fields are necessary for the form!
-// 2. add in note about password requirements (10 characters min)
-// 3. add in field for password errors
-
 class CreateAccountForm extends Component {
   static defaultProps = { navigate };
   state = {

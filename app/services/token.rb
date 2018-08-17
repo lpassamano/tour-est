@@ -11,7 +11,7 @@ module Token
 
   def decode(token)
     jwt = JWT.decode(token, secret)[0]
-    # use fetch so if id doesn't exit then it would return nil, will now raise an error instead
+    # use fetch so if ID doesn't exist it will raise an error
     StaffUser.find(jwt.fetch("id"))
   rescue JWT::DecodeError, ActiveRecord::RecordNotFound
     raise InvalidError, "Not authenticated"

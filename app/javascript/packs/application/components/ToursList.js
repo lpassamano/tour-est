@@ -15,8 +15,4 @@ class ToursList extends Component {
   }
 }
 
-//TODO: add proptypes
-// stateless component
-// add tourinfo back in here
-
 export default ToursList;

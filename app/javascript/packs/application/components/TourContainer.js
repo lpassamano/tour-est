@@ -8,8 +8,6 @@ class TourContainer extends Component {
     isShowingPointForm: false
   };
 
-  // TODO: make sure this is rendering JSON for point partials!!! and that api call is working
-
   async componentDidMount() {
     console.log("tour id", this.props.tourId);
     this.props.showTour(this.props.tourId);
@@ -25,9 +23,6 @@ class TourContainer extends Component {
   };
 
   render() {
-    // add in point views here
-    // add in option to edit tour info here
-    // add in option to edit points here
     return (
       <div>
         <Tour tour={this.props.tour} />
