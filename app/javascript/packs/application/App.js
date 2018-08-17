@@ -10,10 +10,6 @@ import api from "./api";
 
 const INITIAL_STATE = {
   currentStaffUser: null
-  // tour: {
-  //   data: null,
-  //   isFetching: false
-  // }
 };
 
 class App extends Component {
@@ -61,12 +57,6 @@ class App extends Component {
     return userResult;
   };
 
-  registerPoint = async attributes => {
-    const tourId = this.state.tour.data.id;
-    const pointResult = await api.createPoint(tourId, attributes);
-    return pointResult;
-  };
-
   render() {
     return (
       <div>
@@ -96,10 +86,7 @@ class App extends Component {
               path="/tours/new"
               currentStaffUser={this.state.currentStaffUser}
             />
-            <TourContainer
-              path="/tours/:tourId"
-              onCreatePoint={this.registerPoint}
-            />
+            <TourContainer path="/tours/:tourId" />
           </Router>
         ) : (
           <Router>
