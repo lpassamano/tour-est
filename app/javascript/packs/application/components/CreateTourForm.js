@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import * as tourActions from "../redux/tours/actions";
 import * as tourSelectors from "../redux/tours/selectors";
-import AddPointForm from "./AddPointForm";
 
 export class CreateTourForm extends Component {
   static defaultProps = { navigate };
