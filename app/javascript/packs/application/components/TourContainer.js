@@ -32,6 +32,7 @@ export class TourContainer extends Component {
             onHide={this.hidePointForm}
             onShow={this.showPointForm}
             onCreatePoint={this.props.onCreatePoint}
+            tourId={this.props.tourId}
           />
         ) : (
           <button type="button" onClick={this.showPointForm}>
