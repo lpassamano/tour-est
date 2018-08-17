@@ -60,4 +60,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 const mapDispatchToProps = { onCreatePoint: createPoint };
 
-export default AddPointForm;
+const enhance = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default enhance(AddPointForm);
