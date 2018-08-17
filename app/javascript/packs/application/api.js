@@ -9,7 +9,7 @@ const api = create({
   }
 });
 
-const createStaffUser = async attributes => {
+const createStaffUser = attributes => {
   return api.post("/staff_users", attributes);
 };
 
@@ -40,7 +40,7 @@ const removeAuthToken = () => {
   window.localStorage.removeItem("token");
 };
 
-const createTour = async attributes => {
+const createTour = attributes => {
   return api.post("/tours", attributes);
 };
 
@@ -52,7 +52,7 @@ const getTour = tourId => {
   return api.get(`/tours/${tourId}`);
 };
 
-const createPoint = async (tourId, attributes) => {
+const createPoint = (tourId, attributes) => {
   return api.post(`/tours/${tourId}/points`, attributes);
 };
 

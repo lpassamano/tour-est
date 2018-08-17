@@ -3,7 +3,7 @@ import CreateTourForm from "./CreateTourForm";
 import ToursList from "./ToursList";
 
 class StaffUserDashboard extends Component {
-  async componentDidMount() {
+  componentDidMount() {
     this.props.listTours();
   }
 

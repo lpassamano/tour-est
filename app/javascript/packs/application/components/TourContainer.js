@@ -8,7 +8,7 @@ class TourContainer extends Component {
     isShowingPointForm: false
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     console.log("tour id", this.props.tourId);
     this.props.showTour(this.props.tourId);
     this.props.listPoints(this.props.tourId);
