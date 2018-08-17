@@ -1,4 +1,4 @@
-import AddPointForm from "./AddPointForm";
+import { AddPointForm } from "./AddPointForm";
 import React from "react";
 import { shallow } from "enzyme";
 

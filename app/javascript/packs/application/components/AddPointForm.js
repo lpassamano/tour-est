@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import { connect } from "react-redux";
-import { createPoint } from "../redux/points";
+import * as pointActions from "../redux/points/actions";
+import * as pointSelectors from "../redux/points/selectors";
 
-class AddPointForm extends Component {
+export class AddPointForm extends Component {
   state = {
     caption: ""
   };
@@ -58,7 +59,7 @@ const mapStateToProps = (state, ownProps) => ({
   tourId: ownProps.tourId,
   onHide: ownProps.onHide
 });
-const mapDispatchToProps = { onCreatePoint: createPoint };
+const mapDispatchToProps = { onCreatePoint: pointActions.createPoint };
 
 const enhance = connect(
   mapStateToProps,

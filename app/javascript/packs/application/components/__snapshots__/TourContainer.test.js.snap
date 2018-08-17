@@ -3,7 +3,7 @@
 exports[`<TourContainer /> render 1`] = `
 <div>
   <Connect(Tour) />
-  <PointsList />
+  <Connect(PointsList) />
   <button
     onClick={[Function]}
     type="button"

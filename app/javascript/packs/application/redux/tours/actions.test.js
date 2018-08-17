@@ -40,18 +40,18 @@ describe("listTours()", () => {
 describe("createTour()", () => {
   it("calls the correct dispatch and returns data when successful", async () => {
     const dispatch = jest.fn();
-    const tour = { title: "New Tour!" };
+    const tour = { id: 1, title: "New Tour!" };
 
     jest.spyOn(api, "createTour").mockResolvedValue({
       ok: true,
-      data: [tour]
+      data: tour
     });
 
     await createTour()(dispatch);
 
     expect(dispatch).toHaveBeenCalledWith({
       type: "CREATE_TOUR_SUCCESS",
-      data: tour
+      data: { [tour.id]: tour }
     });
   });
 
@@ -77,7 +77,7 @@ describe("getTour()", () => {
 
     jest.spyOn(api, "getTour").mockResolvedValue({
       ok: true,
-      data: [tour]
+      data: tour
     });
 
     await getTour()(dispatch);

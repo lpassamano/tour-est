@@ -2,17 +2,11 @@ import React, { Component } from "react";
 import Tour from "./Tour";
 import AddPointForm from "./AddPointForm";
 import PointsList from "./PointsList";
-import { connect } from "react-redux";
-import { listPoints } from "../redux/points";
 
 export class TourContainer extends Component {
   state = {
     isShowingPointForm: false
   };
-
-  componentDidMount() {
-    this.props.listPoints(this.props.tourId);
-  }
 
   showPointForm = () => {
     this.setState({ isShowingPointForm: true });
@@ -26,7 +20,7 @@ export class TourContainer extends Component {
     return (
       <div>
         <Tour tourId={this.props.tourId} />
-        <PointsList points={this.props.points} />
+        <PointsList tourId={this.props.tourId} />
         {this.state.isShowingPointForm ? (
           <AddPointForm
             onHide={this.hidePointForm}
@@ -44,15 +38,4 @@ export class TourContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  points: state.points
-});
-
-const mapDispatchToProps = { listPoints };
-
-const enhance = connect(
-  mapStateToProps,
-  mapDispatchToProps
-);
-
-export default enhance(TourContainer);
+export default TourContainer;

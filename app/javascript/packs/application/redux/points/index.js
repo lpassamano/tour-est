@@ -9,7 +9,7 @@ import {
 
 export const INITIAL_STATE = {
   isFetching: false,
-  data: null
+  data: {}
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {

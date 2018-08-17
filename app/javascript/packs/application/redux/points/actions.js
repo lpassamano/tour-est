@@ -11,9 +11,9 @@ export const GET_POINT = "GET_POINT";
 
 export const createPoint = (tourId, attributes) => async dispatch => {
   dispatch({ type: CREATE_POINT });
-  const result = await api.createPoint(tourId, attributes);
+  const response = await api.createPoint(tourId, attributes);
 
-  if (result.ok) {
+  if (response.ok) {
     dispatch({
       type: CREATE_POINT_SUCCESS,
       data: { [response.data.id]: response.data }
