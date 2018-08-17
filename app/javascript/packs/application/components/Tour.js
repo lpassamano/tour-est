@@ -10,7 +10,6 @@ export class Tour extends Component {
 
   render() {
     const { isFetching, tour } = this.props;
-    console.log("tour", tour);
     if (isFetching || !tour) {
       return <p>loading... please wait!</p>;
     }

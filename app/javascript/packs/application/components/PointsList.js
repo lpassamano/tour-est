@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 class PointsList extends Component {
   render() {
-    console.log(this.props.points);
     const { isFetching, data } = this.props.points;
     if (isFetching) {
       return <p>loading... please wait!</p>;
