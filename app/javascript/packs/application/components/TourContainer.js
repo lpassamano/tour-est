@@ -43,8 +43,6 @@ export class TourContainer extends Component {
   }
 }
 
-// todo: add prop types
-
 const mapStateToProps = state => ({
   points: state.points
 });
