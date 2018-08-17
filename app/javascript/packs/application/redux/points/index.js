@@ -1,4 +1,5 @@
 import api from "../../api";
+import { keyBy } from "lodash";
 
 export const CREATE_POINT = "CREATE_POINT";
 export const LIST_POINTS = "LIST_POINTS";
@@ -11,7 +12,7 @@ export const listPoints = tourId => async dispatch => {
   const response = await api.listPoints(tourId);
 
   if (response.ok) {
-    dispatch({ type: LIST_POINTS_SUCCESS, data: response.data });
+    dispatch({ type: LIST_POINTS_SUCCESS, data: keyBy(response.data, "id") });
   } else {
     dispatch({ type: LIST_POINTS_ERROR });
   }
