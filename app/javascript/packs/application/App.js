@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Router, Link, navigate } from "@reach/router";
+import { connect } from "react-redux";
 
 import LoginForm from "./components/LoginForm";
 import CreateAccountForm from "./components/CreateAccountForm";
@@ -7,43 +8,28 @@ import StaffUserDashboard from "./components/StaffUserDashboard";
 import CreateTourForm from "./components/CreateTourForm";
 import TourContainer from "./components/TourContainer";
 import api from "./api";
-
-const INITIAL_STATE = {
-  currentStaffUser: null
-};
+import * as staffUserActions from "./redux/staffUser/actions";
+import * as staffUserSelectors from "./redux/staffUser/selectors";
 
 class App extends Component {
-  state = INITIAL_STATE;
-
   componentDidMount() {
-    this.authenticateStaffUser();
+    this.props.authenticateStaffUser();
   }
-
-  authenticateStaffUser = async () => {
-    const result = await api.authenticateStaffUser();
-
-    if (result.ok) {
-      this.setState({ currentStaffUser: result.data });
-    }
-
-    return result;
-  };
 
   loginStaffUser = async (username, password) => {
     const result = await api.login(username, password);
 
     if (result.ok) {
-      return this.authenticateStaffUser();
+      return this.props.authenticateStaffUser();
     }
 
     return result;
   };
 
-  logoutStaffUser = event => {
+  handleLogout = event => {
     event.preventDefault();
-    api.removeAuthToken();
-
-    this.setState(INITIAL_STATE, () => navigate("/login"));
+    this.props.logoutStaffUser();
+    navigate("/login");
   };
 
   registerStaffUser = async attributes => {
@@ -61,11 +47,11 @@ class App extends Component {
     return (
       <div>
         <h1>Tour-est</h1>
-        {this.state.currentStaffUser ? (
+        {this.props.currentStaffUser.id ? (
           <nav>
             <Link to="/admin">Home</Link>
             <Link to="/tours/new">Create Tour</Link>
-            <a href="#" onClick={this.logoutStaffUser}>
+            <a href="#" onClick={this.handleLogout}>
               Log Out
             </a>
           </nav>
@@ -76,15 +62,15 @@ class App extends Component {
           </nav>
         )}
 
-        {this.state.currentStaffUser ? (
+        {this.props.currentStaffUser.id ? (
           <Router>
             <StaffUserDashboard
               path="/admin"
-              currentStaffUser={this.state.currentStaffUser}
+              currentStaffUser={this.props.currentStaffUser}
             />
             <CreateTourForm
               path="/tours/new"
-              currentStaffUser={this.state.currentStaffUser}
+              currentStaffUser={this.props.currentStaffUser}
             />
             <TourContainer path="/tours/:tourId" />
           </Router>
@@ -102,4 +88,18 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  currentStaffUser: staffUserSelectors.getStaffUser(state)
+});
+
+const mapDispatchToProps = {
+  authenticateStaffUser: staffUserActions.authenticateStaffUser,
+  logoutStaffUser: staffUserActions.logoutStaffUser
+};
+
+const enhance = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default enhance(App);
