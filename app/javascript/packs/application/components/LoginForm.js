@@ -6,18 +6,15 @@ class LoginForm extends Component {
   static defaultProps = { navigate };
   state = { username: "", password: "" };
 
-  handleSubmit = async event => {
+  handleSubmit = event => {
     event.preventDefault();
-    const result = await this.props.onLogin(
-      this.state.username,
-      this.state.password
-    );
+    this.props.onLogin(this.state.username, this.state.password);
 
-    if (result.ok) {
-      this.props.navigate("/admin");
-    } else {
-      console.error(result.data.error);
-    }
+    // if (result.ok) {
+    //   this.props.navigate("/admin");
+    // } else {
+    //   console.error(result.data.error);
+    // }
   };
 
   handleChange = event => {

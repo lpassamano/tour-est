@@ -11,9 +11,9 @@ class CreateAccountForm extends Component {
     cultural_center: ""
   };
 
-  handleSubmit = async event => {
+  handleSubmit = event => {
     event.preventDefault();
-    const result = await this.props.onCreateUser({
+    this.props.onCreateUser({
       user: {
         username: this.state.username,
         password: this.state.password,
@@ -23,12 +23,6 @@ class CreateAccountForm extends Component {
         name: this.state.cultural_center
       }
     });
-
-    if (result.ok) {
-      this.props.navigate("/admin");
-    } else {
-      console.error(result.data.error);
-    }
   };
 
   handleChange = event => {

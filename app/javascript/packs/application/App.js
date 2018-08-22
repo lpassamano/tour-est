@@ -16,38 +16,33 @@ class App extends Component {
     this.props.authenticateStaffUser();
   }
 
-  loginStaffUser = async (username, password) => {
-    const result = await api.login(username, password);
+  componentDidUpdate(prevProps) {
+    const wasLoggedIn = !!prevProps.currentStaffUser;
+    const isLoggedIn = !!this.props.currentStaffUser;
 
-    if (result.ok) {
-      return this.props.authenticateStaffUser();
+    if (wasLoggedIn === isLoggedIn) {
+      return;
     }
 
-    return result;
-  };
+    if (isLoggedIn) {
+      return navigate("/admin");
+    }
+
+    if (wasLoggedIn) {
+      return navigate("/login");
+    }
+  }
 
   handleLogout = event => {
     event.preventDefault();
     this.props.logoutStaffUser();
-    navigate("/login");
-  };
-
-  registerStaffUser = async attributes => {
-    const userResult = await api.createStaffUser(attributes);
-    const { username, password } = attributes.user;
-
-    if (userResult.ok) {
-      return this.loginStaffUser(username, password);
-    }
-
-    return userResult;
   };
 
   render() {
     return (
       <div>
         <h1>Tour-est</h1>
-        {this.props.currentStaffUser.id ? (
+        {this.props.currentStaffUser ? (
           <nav>
             <Link to="/admin">Home</Link>
             <Link to="/tours/new">Create Tour</Link>
@@ -62,7 +57,7 @@ class App extends Component {
           </nav>
         )}
 
-        {this.props.currentStaffUser.id ? (
+        {this.props.currentStaffUser ? (
           <Router>
             <StaffUserDashboard
               path="/admin"
@@ -76,10 +71,10 @@ class App extends Component {
           </Router>
         ) : (
           <Router>
-            <LoginForm path="/login" onLogin={this.loginStaffUser} />
+            <LoginForm path="/login" onLogin={this.props.loginStaffUser} />
             <CreateAccountForm
               path="/sign-up"
-              onCreateUser={this.registerStaffUser}
+              onCreateUser={this.props.createStaffUser}
             />
           </Router>
         )}
@@ -93,6 +88,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
+  createStaffUser: staffUserActions.createStaffUser,
+  loginStaffUser: staffUserActions.loginStaffUser,
   authenticateStaffUser: staffUserActions.authenticateStaffUser,
   logoutStaffUser: staffUserActions.logoutStaffUser
 };

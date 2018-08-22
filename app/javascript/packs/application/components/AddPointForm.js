@@ -14,10 +14,10 @@ export class AddPointForm extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = async event => {
+  handleSubmit = event => {
     event.preventDefault();
     const { caption } = this.state;
-    const result = await this.props.onCreatePoint(this.props.tourId, {
+    const result = this.props.onCreatePoint(this.props.tourId, {
       point: { caption: caption }
     });
 
