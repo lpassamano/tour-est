@@ -1,11 +1,17 @@
 import { create } from "apisauce";
 
+const getCSRFToken = () => {
+  if (typeof jest !== "undefined") {
+    return;
+  }
+
+  return document.querySelector("[name=csrf-token]").getAttribute("content");
+};
+
 const api = create({
   baseURL: "/",
   headers: {
-    "x-csrf-token": document
-      .querySelector("[name=csrf-token]")
-      .getAttribute("content")
+    "x-csrf-token": getCSRFToken()
   }
 });
 

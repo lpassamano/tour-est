@@ -1,18 +1,18 @@
-import ToursList from "./ToursList";
+import { ToursList } from "./ToursList";
 import React from "react";
-import { mount } from "enzyme";
+import { shallow } from "enzyme";
 
 describe("<ToursList />", () => {
   test("render", () => {
-    const tours = {
-      isFetching: false,
-      data: [
-        { id: 1, title: "Tour 1" },
-        { id: 2, title: "Tour 2" },
-        { id: 3, title: "Tour 3" }
-      ]
-    };
-    const component = mount(<ToursList tours={tours} />);
+    const tours = [
+      { id: 1, title: "Tour 1" },
+      { id: 2, title: "Tour 2" },
+      { id: 3, title: "Tour 3" }
+    ];
+    const listTours = jest.fn();
+    const component = shallow(
+      <ToursList tours={tours} listTours={listTours} />
+    );
     expect(component).toMatchSnapshot();
   });
 });

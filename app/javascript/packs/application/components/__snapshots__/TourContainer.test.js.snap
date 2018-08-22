@@ -2,18 +2,8 @@
 
 exports[`<TourContainer /> render 1`] = `
 <div>
-  <Tour
-    tour={
-      Object {
-        "description": "Walking tour of Philly's architecture and public art",
-        "directions": "Meet at the West entrance",
-        "estimated_time": "2 hours",
-        "starting_point": "City Hall",
-        "title": "Philly Tour",
-      }
-    }
-  />
-  <PointsList />
+  <Connect(Tour) />
+  <Connect(PointsList) />
   <button
     onClick={[Function]}
     type="button"

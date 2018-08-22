@@ -1,21 +1,41 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as tourActions from "../redux/tours/actions";
+import * as tourSelectors from "../redux/tours/selectors";
 
-class Tour extends Component {
+export class Tour extends Component {
+  componentDidMount() {
+    this.props.getTour(this.props.tourId);
+  }
+
   render() {
-    if (!this.props.tour) {
+    const { isFetching, tour } = this.props;
+    if (isFetching || !tour) {
       return <p>loading... please wait!</p>;
     }
 
     return (
       <div>
-        <h2>{this.props.tour.title}</h2>
-        <p>{this.props.tour.estimated_time}</p>
-        <p>{this.props.tour.description}</p>
-        <p>{this.props.tour.starting_point}</p>
-        <p>{this.props.tour.directions}</p>
+        <h2>{tour.title}</h2>
+        <p>{tour.estimated_time}</p>
+        <p>{tour.description}</p>
+        <p>{tour.starting_point}</p>
+        <p>{tour.directions}</p>
       </div>
     );
   }
 }
 
-export default Tour;
+const mapStateToProps = (state, ownProps) => ({
+  tour: tourSelectors.getTour(state, ownProps.tourId),
+  isFetching: tourSelectors.isFetching(state)
+});
+
+const mapDispatchToProps = { getTour: tourActions.getTour };
+
+const enhance = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default enhance(Tour);

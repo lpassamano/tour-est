@@ -1,18 +1,34 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as tourActions from "../redux/tours/actions";
+import * as tourSelectors from "../redux/tours/selectors";
 
-class ToursList extends Component {
+export class ToursList extends Component {
+  componentDidMount() {
+    this.props.listTours();
+  }
+
   render() {
-    const { isFetching, data } = this.props.tours;
-    if (isFetching || !data) {
+    const { isFetching, tours } = this.props;
+
+    if (isFetching) {
       return <p>loading.... please wait!</p>;
     }
 
-    return (
-      <div>
-        {this.props.tours.data.map(tour => <h4 key={tour.id}>{tour.title}</h4>)}
-      </div>
-    );
+    return <div>{tours.map(tour => <h4 key={tour.id}>{tour.title}</h4>)}</div>;
   }
 }
 
-export default ToursList;
+const mapStateToProps = state => ({
+  tours: tourSelectors.getTours(state),
+  isFetching: tourSelectors.isFetching(state)
+});
+
+const mapDispatchToProps = { listTours: tourActions.listTours };
+
+const enhance = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default enhance(ToursList);

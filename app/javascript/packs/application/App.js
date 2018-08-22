@@ -9,19 +9,11 @@ import TourContainer from "./components/TourContainer";
 import api from "./api";
 
 const INITIAL_STATE = {
-  currentStaffUser: null,
-  tours: {
-    data: null,
-    isFetching: false
-  },
-  tour: {
-    data: null,
-    isFetching: false
-  },
-  points: {
-    data: null,
-    isFetching: false
-  }
+  currentStaffUser: null
+  // tour: {
+  //   data: null,
+  //   isFetching: false
+  // }
 };
 
 class App extends Component {
@@ -69,33 +61,10 @@ class App extends Component {
     return userResult;
   };
 
-  registerTour = async attributes => {
-    const tourResult = await api.createTour(attributes);
-    return tourResult;
-  };
-
-  listTours = async () => {
-    this.setState({ tours: { isFetching: true, data: null } });
-    const tourList = await api.listTours();
-    this.setState({ tours: { isFetching: false, data: tourList.data } });
-  };
-
-  showTour = async tourId => {
-    this.setState({ tour: { isFetching: true, data: null } });
-    const tour = await api.getTour(tourId);
-    this.setState({ tour: { isFetching: false, data: tour.data } });
-  };
-
   registerPoint = async attributes => {
     const tourId = this.state.tour.data.id;
     const pointResult = await api.createPoint(tourId, attributes);
     return pointResult;
-  };
-
-  listPoints = async tourId => {
-    this.setState({ points: { isFetching: true, data: null } });
-    const pointList = await api.listPoints(tourId);
-    this.setState({ points: { isFetching: false, data: pointList.data } });
   };
 
   render() {
@@ -122,21 +91,14 @@ class App extends Component {
             <StaffUserDashboard
               path="/admin"
               currentStaffUser={this.state.currentStaffUser}
-              tours={this.state.tours}
-              listTours={this.listTours}
             />
             <CreateTourForm
               path="/tours/new"
-              onCreateTour={this.registerTour}
               currentStaffUser={this.state.currentStaffUser}
             />
             <TourContainer
               path="/tours/:tourId"
-              tour={this.state.tour}
-              points={this.state.points}
-              showTour={this.showTour}
               onCreatePoint={this.registerPoint}
-              listPoints={this.listPoints}
             />
           </Router>
         ) : (

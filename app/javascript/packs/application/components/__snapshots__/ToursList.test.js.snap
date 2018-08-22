@@ -1,43 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ToursList /> render 1`] = `
-<ToursList
-  tours={
-    Object {
-      "data": Array [
-        Object {
-          "id": 1,
-          "title": "Tour 1",
-        },
-        Object {
-          "id": 2,
-          "title": "Tour 2",
-        },
-        Object {
-          "id": 3,
-          "title": "Tour 3",
-        },
-      ],
-      "isFetching": false,
-    }
-  }
->
-  <div>
-    <h4
-      key="1"
-    >
-      Tour 1
-    </h4>
-    <h4
-      key="2"
-    >
-      Tour 2
-    </h4>
-    <h4
-      key="3"
-    >
-      Tour 3
-    </h4>
-  </div>
-</ToursList>
+<div>
+  <h4
+    key="1"
+  >
+    Tour 1
+  </h4>
+  <h4
+    key="2"
+  >
+    Tour 2
+  </h4>
+  <h4
+    key="3"
+  >
+    Tour 3
+  </h4>
+</div>
 `;

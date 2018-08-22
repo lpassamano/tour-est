@@ -1,88 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<StaffUserDashboard /> render 1`] = `
-<StaffUserDashboard
-  currentStaffUser={
-    Object {
-      "cultural_center": Object {
-        "id": 1,
-        "name": "Penn Museum",
-      },
-      "id": 1,
-      "username": "username123",
-    }
-  }
-  onCreateTour={[MockFunction]}
-  tours={
-    Object {
-      "data": Array [
-        Object {
-          "id": 1,
-          "title": "Tour 1",
-        },
-        Object {
-          "id": 2,
-          "title": "Tour 2",
-        },
-        Object {
-          "id": 3,
-          "title": "Tour 3",
-        },
-      ],
-      "isFetching": false,
-    }
-  }
->
-  <div>
-    <h1>
-      Staff Dashboard
-    </h1>
-    <h3>
-      Current user: 
-      username123
-    </h3>
-    <h3>
-      Penn Museum
-    </h3>
-    <ToursList
-      tours={
-        Object {
-          "data": Array [
-            Object {
-              "id": 1,
-              "title": "Tour 1",
-            },
-            Object {
-              "id": 2,
-              "title": "Tour 2",
-            },
-            Object {
-              "id": 3,
-              "title": "Tour 3",
-            },
-          ],
-          "isFetching": false,
-        }
-      }
-    >
-      <div>
-        <h4
-          key="1"
-        >
-          Tour 1
-        </h4>
-        <h4
-          key="2"
-        >
-          Tour 2
-        </h4>
-        <h4
-          key="3"
-        >
-          Tour 3
-        </h4>
-      </div>
-    </ToursList>
-  </div>
-</StaffUserDashboard>
+<div>
+  <h1>
+    Staff Dashboard
+  </h1>
+  <h3>
+    Current user: 
+    username123
+  </h3>
+  <h3>
+    Penn Museum
+  </h3>
+  <Connect(ToursList) />
+</div>
 `;

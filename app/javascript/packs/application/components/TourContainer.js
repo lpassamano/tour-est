@@ -3,16 +3,10 @@ import Tour from "./Tour";
 import AddPointForm from "./AddPointForm";
 import PointsList from "./PointsList";
 
-class TourContainer extends Component {
+export class TourContainer extends Component {
   state = {
     isShowingPointForm: false
   };
-
-  componentDidMount() {
-    console.log("tour id", this.props.tourId);
-    this.props.showTour(this.props.tourId);
-    this.props.listPoints(this.props.tourId);
-  }
 
   showPointForm = () => {
     this.setState({ isShowingPointForm: true });
@@ -25,13 +19,14 @@ class TourContainer extends Component {
   render() {
     return (
       <div>
-        <Tour tour={this.props.tour} />
-        <PointsList points={this.props.points} />
+        <Tour tourId={this.props.tourId} />
+        <PointsList tourId={this.props.tourId} />
         {this.state.isShowingPointForm ? (
           <AddPointForm
             onHide={this.hidePointForm}
             onShow={this.showPointForm}
             onCreatePoint={this.props.onCreatePoint}
+            tourId={this.props.tourId}
           />
         ) : (
           <button type="button" onClick={this.showPointForm}>
