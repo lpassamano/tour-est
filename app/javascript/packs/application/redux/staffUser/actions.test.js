@@ -1,8 +1,84 @@
 import React from "react";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { authenticateStaffUser, logoutStaffUser } from "./actions";
+import {
+  createStaffUser,
+  loginStaffUser,
+  authenticateStaffUser,
+  logoutStaffUser
+} from "./actions";
 import api from "../../api";
+
+describe("createStaffUser()", () => {
+  const data = {
+    user: {
+      username: "user12345",
+      password: "bananafeet",
+      password_confirmation: "bananafeet"
+    },
+    cultural_center: {
+      name: "MoMA"
+    }
+  };
+
+  it("calls the correct dispatch and returns data when successful", async () => {
+    const dispatch = jest.fn();
+    jest.spyOn(api, "createStaffUser").mockResolvedValue({
+      ok: true,
+      data: data
+    });
+
+    await createStaffUser(data)(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "CREATE_STAFF_USER_SUCCESS"
+    });
+  });
+
+  it("calls the correct dispatach when unsuccessful", async () => {
+    const dispatch = jest.fn();
+    jest.spyOn(api, "createStaffUser").mockResolvedValue({
+      ok: false
+    });
+
+    await createStaffUser(data)(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "CREATE_STAFF_USER_ERROR"
+    });
+  });
+});
+
+describe("loginStaffUser()", () => {
+  const username = "user12345";
+  const password = "bananafeet";
+
+  it("calls the correct dispatch and returns data when successful", async () => {
+    const dispatch = jest.fn();
+    jest.spyOn(api, "login").mockResolvedValue({
+      ok: true
+    });
+
+    await loginStaffUser(username, password)(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "LOG_IN_STAFF_USER_SUCCESS"
+    });
+  });
+
+  it("calls the correct dispatach when unsuccessful", async () => {
+    const dispatch = jest.fn();
+    jest.spyOn(api, "login").mockResolvedValue({
+      ok: false
+    });
+
+    await loginStaffUser(username, password)(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "LOG_IN_STAFF_USER_ERROR"
+    });
+  });
+});
 
 describe("authenticateStaffUser()", () => {
   it("calls the correct dispatch and returns data when successful", async () => {
@@ -44,7 +120,6 @@ describe("authenticateStaffUser()", () => {
 describe("logoutStaffUser()", () => {
   it("calls the correct dispatch and returns the correct state", () => {
     const dispatch = jest.fn();
-    const data = { isFetching: false, data: {} };
 
     jest.spyOn(api, "removeAuthToken").mockResolvedValue({
       ok: true
@@ -53,8 +128,7 @@ describe("logoutStaffUser()", () => {
     logoutStaffUser()(dispatch);
 
     expect(dispatch).toHaveBeenCalledWith({
-      type: "LOG_OUT_STAFF_USER",
-      data: data
+      type: "LOG_OUT_STAFF_USER"
     });
   });
 });
