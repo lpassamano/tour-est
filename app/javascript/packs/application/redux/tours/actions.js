@@ -1,5 +1,6 @@
 import api from "../../api";
 import { keyBy } from "lodash";
+import { navigate } from "@reach/router";
 
 export const CREATE_TOUR = "CREATE_TOUR";
 export const CREATE_TOUR_SUCCESS = "CREATE_TOUR_SUCCESS";
@@ -20,11 +21,10 @@ export const createTour = attributes => async dispatch => {
       type: CREATE_TOUR_SUCCESS,
       data: { [response.data.id]: response.data }
     });
+    navigate(`/tours/${response.data.id}`);
   } else {
     dispatch({ type: CREATE_TOUR_ERROR });
   }
-
-  return response;
 };
 
 export const listTours = () => async dispatch => {

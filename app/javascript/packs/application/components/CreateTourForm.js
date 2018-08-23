@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import * as tourActions from "../redux/tours/actions";
 import * as tourSelectors from "../redux/tours/selectors";
 
 export class CreateTourForm extends Component {
-  static defaultProps = { navigate };
   state = {
     title: "",
     starting_point: "",
@@ -15,7 +13,7 @@ export class CreateTourForm extends Component {
     description: ""
   };
 
-  handleSubmit = async event => {
+  handleSubmit = event => {
     event.preventDefault();
     const { id, cultural_center } = this.props.currentStaffUser;
     const {
@@ -25,7 +23,7 @@ export class CreateTourForm extends Component {
       estimated_time,
       description
     } = this.state;
-    const result = await this.props.onCreateTour({
+    const result = this.props.onCreateTour({
       tour: {
         title: title,
         staff_user_id: id,
@@ -36,13 +34,6 @@ export class CreateTourForm extends Component {
         description: description
       }
     });
-
-    if (result.ok) {
-      this.props.navigate(`/tours/${result.data.id}`);
-      this.setState({ title: "" });
-    } else {
-      console.error(result.data.error);
-    }
   };
 
   handleChange = event => {
@@ -105,7 +96,6 @@ export class CreateTourForm extends Component {
 }
 
 CreateTourForm.propTypes = {
-  navigate: PropTypes.func.isRequired,
   onCreateTour: PropTypes.func.isRequired,
   currentStaffUser: PropTypes.shape({
     id: PropTypes.number.isRequired,
