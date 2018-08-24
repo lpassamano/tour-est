@@ -21,9 +21,18 @@ export const createTour = attributes => async dispatch => {
       type: CREATE_TOUR_SUCCESS,
       data: { [response.data.id]: response.data }
     });
-    navigate(`/tours/${response.data.id}`);
   } else {
     dispatch({ type: CREATE_TOUR_ERROR });
+  }
+
+  return response;
+};
+
+export const createTourAndNavigate = attributes => async dispatch => {
+  const response = await dispatch(createTour(attributes));
+
+  if (response.ok) {
+    navigate(`/tours/${response.data.id}`);
   }
 };
 

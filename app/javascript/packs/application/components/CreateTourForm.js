@@ -23,7 +23,7 @@ export class CreateTourForm extends Component {
       estimated_time,
       description
     } = this.state;
-    const result = this.props.onCreateTour({
+    this.props.onCreateTour({
       tour: {
         title: title,
         staff_user_id: id,
@@ -106,7 +106,7 @@ CreateTourForm.propTypes = {
 };
 
 const mapStateToProps = state => ({});
-const mapDispatchToProps = { onCreateTour: tourActions.createTour };
+const mapDispatchToProps = { onCreateTour: tourActions.createTourAndNavigate };
 const enhance = connect(
   mapStateToProps,
   mapDispatchToProps
