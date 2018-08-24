@@ -17,16 +17,15 @@ export class AddPointForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { caption } = this.state;
-    const result = this.props.onCreatePoint(this.props.tourId, {
+    this.props.onCreatePoint(this.props.tourId, {
       point: { caption: caption }
     });
-
-    if (result.ok) {
-      this.setState({ caption: "" });
-      this.props.onHide();
-    } else {
-      console.error(result.data.error);
-    }
+    // if (result.ok) {
+    //   this.setState({ caption: "" });
+    //   this.props.onHide();
+    // } else {
+    //   console.error(result.error);
+    // }
   };
 
   render() {
@@ -41,13 +40,11 @@ export class AddPointForm extends Component {
           value={this.state.caption}
           onChange={this.handleChange}
         />
-        <button type="submit" id="save">
-          Save
-        </button>
+        <button type="submit">Save</button>
         <button type="button" onClick={this.props.onHide}>
           Cancel
         </button>
-        <button type="button" id="save_and_add" onClick={this.handleSubmit}>
+        <button type="button" onClick={this.handleSubmit}>
           Save and add another point
         </button>
       </form>

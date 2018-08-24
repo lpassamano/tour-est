@@ -11,7 +11,7 @@ import api from "./api";
 import * as staffUserActions from "./redux/staffUser/actions";
 import * as staffUserSelectors from "./redux/staffUser/selectors";
 
-class App extends Component {
+export class App extends Component {
   componentDidMount() {
     this.props.authenticateStaffUser();
   }

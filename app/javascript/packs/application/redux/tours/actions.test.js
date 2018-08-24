@@ -3,6 +3,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { listTours, createTour, getTour } from "./actions";
 import api from "../../api";
+import { navigate } from "@reach/router";
 
 describe("listTours()", () => {
   it("calls the correct dispatch and returns data when successful", async () => {
@@ -53,6 +54,7 @@ describe("createTour()", () => {
       type: "CREATE_TOUR_SUCCESS",
       data: { [tour.id]: tour }
     });
+    expect(navigate).toHaveBeenCalledWith(`/tours/${tour.id}`);
   });
 
   it("calls the correct dispatach when unsuccessful", async () => {

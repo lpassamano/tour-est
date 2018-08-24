@@ -105,10 +105,9 @@ CreateTourForm.propTypes = {
   })
 };
 
-const mapStateToProps = state => ({});
-const mapDispatchToProps = { onCreateTour: tourActions.createTourAndNavigate };
+const mapDispatchToProps = { onCreateTour: tourActions.createTour };
 const enhance = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 );
 
