@@ -1,20 +1,12 @@
 import React, { Component } from "react";
-import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
 
 class LoginForm extends Component {
-  static defaultProps = { navigate };
   state = { username: "", password: "" };
 
   handleSubmit = event => {
     event.preventDefault();
     this.props.onLogin(this.state.username, this.state.password);
-
-    // if (result.ok) {
-    //   this.props.navigate("/admin");
-    // } else {
-    //   console.error(result.data.error);
-    // }
   };
 
   handleChange = event => {
@@ -50,7 +42,6 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-  navigate: PropTypes.func.isRequired,
   onLogin: PropTypes.func.isRequired
 };
 
