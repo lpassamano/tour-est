@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import * as pointActions from "../redux/points/actions";
 import * as pointSelectors from "../redux/points/selectors";
 
@@ -51,6 +52,12 @@ export class AddPointForm extends Component {
     );
   }
 }
+
+AddPointForm.propTypes = {
+  tourId: PropTypes.string.isRequired,
+  onHide: PropTypes.func.isRequired,
+  onCreatePoint: PropTypes.func.isRequired
+};
 
 const mapStateToProps = (state, ownProps) => ({
   tourId: ownProps.tourId,
