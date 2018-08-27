@@ -1,6 +1,8 @@
 class ToursController < ApplicationController
   def create
     @tour = Tour.new(tour_params)
+    @tour.staff_user = current_staff_user
+    @tour.cultural_center = current_staff_user.cultural_center
 
     if @tour.save
       render :show
@@ -22,8 +24,6 @@ class ToursController < ApplicationController
   def tour_params
     params.require(:tour).permit(
       :title,
-      :staff_user_id,
-      :cultural_center_id,
       :starting_point,
       :directions,
       :estimated_time,

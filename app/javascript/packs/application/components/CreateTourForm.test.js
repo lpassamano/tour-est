@@ -4,13 +4,7 @@ import { shallow } from "enzyme";
 
 describe("<CreateTourForm />", () => {
   const setup = ({ onCreateTour = jest.fn() }) => {
-    const currentStaffUser = { id: 1, cultural_center: { id: 1 } };
-    const component = shallow(
-      <CreateTourForm
-        onCreateTour={onCreateTour}
-        currentStaffUser={currentStaffUser}
-      />
-    );
+    const component = shallow(<CreateTourForm onCreateTour={onCreateTour} />);
     return component;
   };
 
@@ -48,8 +42,6 @@ describe("<CreateTourForm />", () => {
     expect(onCreateTour).toHaveBeenCalledWith({
       tour: {
         title: "Greco-Roman Sculpture",
-        staff_user_id: 1,
-        cultural_center_id: 1,
         starting_point: "Greek and Roman Gallery 3",
         directions:
           "Go past the welcome desk and into the hallway to the right",

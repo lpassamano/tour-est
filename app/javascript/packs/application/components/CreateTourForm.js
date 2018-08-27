@@ -15,7 +15,6 @@ export class CreateTourForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { id, cultural_center } = this.props.currentStaffUser;
     const {
       title,
       starting_point,
@@ -26,8 +25,6 @@ export class CreateTourForm extends Component {
     this.props.onCreateTour({
       tour: {
         title: title,
-        staff_user_id: id,
-        cultural_center_id: cultural_center.id,
         starting_point: starting_point,
         directions: directions,
         estimated_time: estimated_time,
@@ -91,13 +88,7 @@ export class CreateTourForm extends Component {
 }
 
 CreateTourForm.propTypes = {
-  onCreateTour: PropTypes.func.isRequired,
-  currentStaffUser: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    cultural_center: PropTypes.shape({
-      id: PropTypes.number.isRequired
-    }).isRequired
-  })
+  onCreateTour: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = { onCreateTour: tourActions.createTour };
