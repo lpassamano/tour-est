@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import CreateTourForm from "./CreateTourForm";
 import ToursList from "./ToursList";
 
@@ -15,5 +16,16 @@ export class StaffUserDashboard extends Component {
     );
   }
 }
+
+StaffUserDashboard.propTypes = {
+  currentStaffUser: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    username: PropTypes.string.isRequired,
+    cultural_center: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired
+};
 
 export default StaffUserDashboard;
