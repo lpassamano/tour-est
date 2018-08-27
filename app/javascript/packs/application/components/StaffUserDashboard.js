@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
 import CreateTourForm from "./CreateTourForm";
 import ToursList from "./ToursList";
+import * as staffUserSelectors from "../redux/staffUser/selectors";
 
 export class StaffUserDashboard extends Component {
   render() {
@@ -28,4 +31,10 @@ StaffUserDashboard.propTypes = {
   }).isRequired
 };
 
-export default StaffUserDashboard;
+const mapStateToProps = state => ({
+  currentStaffUser: staffUserSelectors.getStaffUser(state)
+});
+
+const enhance = connect(mapStateToProps);
+
+export default enhance(StaffUserDashboard);

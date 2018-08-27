@@ -60,14 +60,8 @@ export class App extends Component {
 
         {this.props.currentStaffUser ? (
           <Router>
-            <StaffUserDashboard
-              path="/admin"
-              currentStaffUser={this.props.currentStaffUser}
-            />
-            <CreateTourForm
-              path="/tours/new"
-              currentStaffUser={this.props.currentStaffUser}
-            />
+            <StaffUserDashboard path="/admin" />
+            <CreateTourForm path="/tours/new" />
             <TourContainer path="/tours/:tourId" />
           </Router>
         ) : (

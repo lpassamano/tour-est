@@ -39,7 +39,7 @@ export class TourContainer extends Component {
 }
 
 TourContainer.propTypes = {
-  tourId: PropTypes.string.isRequired
+  tourId: PropTypes.string
 };
 
 export default TourContainer;
