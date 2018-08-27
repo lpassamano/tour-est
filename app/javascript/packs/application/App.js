@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Router, Link, navigate } from "@reach/router";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import LoginForm from "./components/LoginForm";
 import CreateAccountForm from "./components/CreateAccountForm";
@@ -82,6 +83,21 @@ export class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  currentStaffUser: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    username: PropTypes.string.isRequired,
+    cultural_center: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired
+    }).isRequired
+  }),
+  createStaffUser: PropTypes.func.isRequired,
+  loginStaffUser: PropTypes.func.isRequired,
+  authenticateStaffUser: PropTypes.func.isRequired,
+  logoutStaffUser: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   currentStaffUser: staffUserSelectors.getStaffUser(state)
