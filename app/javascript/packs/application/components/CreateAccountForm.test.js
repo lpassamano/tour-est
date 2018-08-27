@@ -3,10 +3,8 @@ import { shallow, mount } from "enzyme";
 import React from "react";
 
 describe("<CreateAccountForm />", () => {
-  const setup = ({ onCreateUser = jest.fn(), navigate = jest.fn() }) => {
-    const component = mount(
-      <CreateAccountForm onCreateUser={onCreateUser} navigate={navigate} />
-    );
+  const setup = ({ onCreateUser = jest.fn() }) => {
+    const component = mount(<CreateAccountForm onCreateUser={onCreateUser} />);
     const event1 = { target: { name: "username", value: "leigh" } };
     const event2 = { target: { name: "password", value: "12345abcde" } };
     const event3 = {
@@ -20,14 +18,11 @@ describe("<CreateAccountForm />", () => {
     return component;
   };
 
-  test("onSubmit - when submit is clicked the current values of username, password, and cultural center are submitted", done => {
+  test("onSubmit - when submit is clicked the current values of username, password, and cultural center are submitted", () => {
     const onCreateUser = jest.fn();
-    const navigate = to => {
-      expect(to).toEqual("/admin");
-      done();
-    };
     onCreateUser.mockResolvedValue({ ok: true });
-    const component = setup({ onCreateUser, navigate });
+    const component = setup({ onCreateUser });
+
     component.find("form").simulate("submit", { preventDefault: () => null });
     expect(onCreateUser).toHaveBeenCalledWith({
       user: {

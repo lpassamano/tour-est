@@ -18,11 +18,15 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case LIST_POINTS:
       return { ...state, isFetching: true };
     case CREATE_POINT_SUCCESS:
-    case LIST_POINTS_SUCCESS:
       return {
         ...state,
         isFetching: false,
         data: { ...state.data, ...action.data }
+      };
+    case LIST_POINTS_SUCCESS:
+      return {
+        isFetching: false,
+        data: action.data
       };
     case CREATE_POINT_ERROR:
     case LIST_POINTS_ERROR:

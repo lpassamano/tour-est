@@ -3,12 +3,11 @@ import React from "react";
 import { shallow } from "enzyme";
 
 describe("<CreateTourForm />", () => {
-  const setup = ({ onCreateTour = jest.fn(), navigate = jest.fn() }) => {
+  const setup = ({ onCreateTour = jest.fn() }) => {
     const currentStaffUser = { id: 1, cultural_center: { id: 1 } };
     const component = shallow(
       <CreateTourForm
         onCreateTour={onCreateTour}
-        navigate={navigate}
         currentStaffUser={currentStaffUser}
       />
     );
@@ -25,14 +24,10 @@ describe("<CreateTourForm />", () => {
     form.simulate("submit", { preventDefault: () => null });
   };
 
-  test("onSubmit - when create button is clicked the current value of form fields are submitted", done => {
+  test("onSubmit - when create button is clicked the current value of form fields are submitted", () => {
     const onCreateTour = jest.fn();
     onCreateTour.mockResolvedValue({ ok: true, data: { id: 1 } });
-    const navigate = to => {
-      expect(to).toEqual("/tours/1");
-      done();
-    };
-    const component = setup({ onCreateTour, navigate });
+    const component = setup({ onCreateTour });
 
     fillIn(component.find("input#title"), "Greco-Roman Sculpture");
     fillIn(component.find("input#starting_point"), "Greek and Roman Gallery 3");

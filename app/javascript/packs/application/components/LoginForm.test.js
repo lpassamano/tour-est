@@ -1,12 +1,10 @@
 import LoginForm from "./LoginForm";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import React from "react";
 
 describe("<LoginForm />", () => {
-  const setup = ({ onLogin = jest.fn(), navigate = jest.fn() }) => {
-    const component = mount(
-      <LoginForm onLogin={onLogin} navigate={navigate} />
-    );
+  const setup = ({ onLogin = jest.fn() }) => {
+    const component = shallow(<LoginForm onLogin={onLogin} />);
     const event1 = { target: { name: "username", value: "leigh" } };
     const event2 = { target: { name: "password", value: "123abc" } };
     component.find("input#username").simulate("change", event1);
@@ -14,14 +12,11 @@ describe("<LoginForm />", () => {
     return component;
   };
 
-  test("onSubmit - when submit is clicked the current values of username and password are submitted", done => {
+  test("onSubmit - when submit is clicked the current values of username and password are submitted", () => {
     const onLogin = jest.fn();
-    const navigate = to => {
-      expect(to).toEqual("/admin");
-      done();
-    };
+
     onLogin.mockResolvedValue({ ok: true });
-    const component = setup({ onLogin, navigate });
+    const component = setup({ onLogin });
     component.find("form").simulate("submit", { preventDefault: () => null });
     expect(onLogin).toHaveBeenCalledWith("leigh", "123abc");
   });

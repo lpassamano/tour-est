@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> render 1`] = `
+<div>
+  <h1>
+    Tour-est
+  </h1>
+  <nav>
+    <[object Object]
+      to="/admin"
+    >
+      Home
+    </[object Object]>
+    <[object Object]
+      to="/tours/new"
+    >
+      Create Tour
+    </[object Object]>
+    <a
+      href="#"
+      onClick={[Function]}
+    >
+      Log Out
+    </a>
+  </nav>
+  <Router>
+    <StaffUserDashboard
+      currentStaffUser={
+        Object {
+          "cultural_center": Object {
+            "id": 1,
+            "name": "MoMA",
+          },
+          "id": 1,
+          "username": "username123",
+        }
+      }
+      path="/admin"
+    />
+    <Connect(CreateTourForm)
+      currentStaffUser={
+        Object {
+          "cultural_center": Object {
+            "id": 1,
+            "name": "MoMA",
+          },
+          "id": 1,
+          "username": "username123",
+        }
+      }
+      path="/tours/new"
+    />
+    <TourContainer
+      path="/tours/:tourId"
+    />
+  </Router>
+</div>
+`;

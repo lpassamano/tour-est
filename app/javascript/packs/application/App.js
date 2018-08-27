@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Router, Link, navigate } from "@reach/router";
+import { connect } from "react-redux";
 
 import LoginForm from "./components/LoginForm";
 import CreateAccountForm from "./components/CreateAccountForm";
@@ -7,75 +8,45 @@ import StaffUserDashboard from "./components/StaffUserDashboard";
 import CreateTourForm from "./components/CreateTourForm";
 import TourContainer from "./components/TourContainer";
 import api from "./api";
+import * as staffUserActions from "./redux/staffUser/actions";
+import * as staffUserSelectors from "./redux/staffUser/selectors";
 
-const INITIAL_STATE = {
-  currentStaffUser: null
-  // tour: {
-  //   data: null,
-  //   isFetching: false
-  // }
-};
-
-class App extends Component {
-  state = INITIAL_STATE;
-
+export class App extends Component {
   componentDidMount() {
-    this.authenticateStaffUser();
+    this.props.authenticateStaffUser();
   }
 
-  authenticateStaffUser = async () => {
-    const result = await api.authenticateStaffUser();
+  componentDidUpdate(prevProps) {
+    const wasLoggedIn = !!prevProps.currentStaffUser;
+    const isLoggedIn = !!this.props.currentStaffUser;
 
-    if (result.ok) {
-      this.setState({ currentStaffUser: result.data });
+    if (wasLoggedIn === isLoggedIn) {
+      return;
     }
 
-    return result;
-  };
-
-  loginStaffUser = async (username, password) => {
-    const result = await api.login(username, password);
-
-    if (result.ok) {
-      return this.authenticateStaffUser();
+    if (isLoggedIn) {
+      return navigate("/admin");
     }
 
-    return result;
-  };
+    if (wasLoggedIn) {
+      return navigate("/login");
+    }
+  }
 
-  logoutStaffUser = event => {
+  handleLogout = event => {
     event.preventDefault();
-    api.removeAuthToken();
-
-    this.setState(INITIAL_STATE, () => navigate("/login"));
-  };
-
-  registerStaffUser = async attributes => {
-    const userResult = await api.createStaffUser(attributes);
-    const { username, password } = attributes.user;
-
-    if (userResult.ok) {
-      return this.loginStaffUser(username, password);
-    }
-
-    return userResult;
-  };
-
-  registerPoint = async attributes => {
-    const tourId = this.state.tour.data.id;
-    const pointResult = await api.createPoint(tourId, attributes);
-    return pointResult;
+    this.props.logoutStaffUser();
   };
 
   render() {
     return (
       <div>
         <h1>Tour-est</h1>
-        {this.state.currentStaffUser ? (
+        {this.props.currentStaffUser ? (
           <nav>
             <Link to="/admin">Home</Link>
             <Link to="/tours/new">Create Tour</Link>
-            <a href="#" onClick={this.logoutStaffUser}>
+            <a href="#" onClick={this.handleLogout}>
               Log Out
             </a>
           </nav>
@@ -86,27 +57,24 @@ class App extends Component {
           </nav>
         )}
 
-        {this.state.currentStaffUser ? (
+        {this.props.currentStaffUser ? (
           <Router>
             <StaffUserDashboard
               path="/admin"
-              currentStaffUser={this.state.currentStaffUser}
+              currentStaffUser={this.props.currentStaffUser}
             />
             <CreateTourForm
               path="/tours/new"
-              currentStaffUser={this.state.currentStaffUser}
+              currentStaffUser={this.props.currentStaffUser}
             />
-            <TourContainer
-              path="/tours/:tourId"
-              onCreatePoint={this.registerPoint}
-            />
+            <TourContainer path="/tours/:tourId" />
           </Router>
         ) : (
           <Router>
-            <LoginForm path="/login" onLogin={this.loginStaffUser} />
+            <LoginForm path="/login" onLogin={this.props.loginStaffUser} />
             <CreateAccountForm
               path="/sign-up"
-              onCreateUser={this.registerStaffUser}
+              onCreateUser={this.props.createStaffUser}
             />
           </Router>
         )}
@@ -115,4 +83,20 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  currentStaffUser: staffUserSelectors.getStaffUser(state)
+});
+
+const mapDispatchToProps = {
+  createStaffUser: staffUserActions.createStaffUser,
+  loginStaffUser: staffUserActions.loginStaffUser,
+  authenticateStaffUser: staffUserActions.authenticateStaffUser,
+  logoutStaffUser: staffUserActions.logoutStaffUser
+};
+
+const enhance = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default enhance(App);
