@@ -35,7 +35,7 @@ describe("createStaffUser()", () => {
     });
   });
 
-  it("calls the correct dispatach when unsuccessful", async () => {
+  it("calls the correct dispatch when unsuccessful", async () => {
     const dispatch = jest.fn();
     jest.spyOn(api, "createStaffUser").mockResolvedValue({
       ok: false
@@ -66,7 +66,7 @@ describe("loginStaffUser()", () => {
     });
   });
 
-  it("calls the correct dispatach when unsuccessful", async () => {
+  it("calls the correct dispatch when unsuccessful", async () => {
     const dispatch = jest.fn();
     jest.spyOn(api, "login").mockResolvedValue({
       ok: false
@@ -102,7 +102,7 @@ describe("authenticateStaffUser()", () => {
     });
   });
 
-  it("calls the correct dispatach when unsuccessful", async () => {
+  it("calls the correct dispatch when unsuccessful", async () => {
     const dispatch = jest.fn();
 
     jest.spyOn(api, "authenticateStaffUser").mockResolvedValue({

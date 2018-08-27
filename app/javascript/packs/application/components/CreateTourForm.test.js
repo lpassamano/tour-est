@@ -29,15 +29,18 @@ describe("<CreateTourForm />", () => {
     onCreateTour.mockResolvedValue({ ok: true, data: { id: 1 } });
     const component = setup({ onCreateTour });
 
-    fillIn(component.find("input#title"), "Greco-Roman Sculpture");
-    fillIn(component.find("input#starting_point"), "Greek and Roman Gallery 3");
+    fillIn(component.find('[name="title"]'), "Greco-Roman Sculpture");
     fillIn(
-      component.find("input#directions"),
+      component.find('[name="starting_point"]'),
+      "Greek and Roman Gallery 3"
+    );
+    fillIn(
+      component.find('[name="directions"]'),
       "Go past the welcome desk and into the hallway to the right"
     );
-    fillIn(component.find("input#estimated_time"), "2 hours");
+    fillIn(component.find('[name="estimated_time"]'), "2 hours");
     fillIn(
-      component.find("input#description"),
+      component.find('[name="description"]'),
       "This tour focues on sculpture made during the Greek and Roman Empires"
     );
     submit(component.find("form"));
@@ -59,7 +62,7 @@ describe("<CreateTourForm />", () => {
 
   test("handleChange - when text is typed into the title field the state is updated", () => {
     const component = setup({});
-    fillIn(component.find("input#title"), "Best Tour Ever!");
+    fillIn(component.find('[name="title"]'), "Best Tour Ever!");
     expect(component.state("title")).toEqual("Best Tour Ever!");
   });
 

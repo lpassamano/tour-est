@@ -22,7 +22,7 @@ describe("listPoints()", () => {
     });
   });
 
-  it("calls the correct dispatach when unsuccessful", async () => {
+  it("calls the correct dispatch when unsuccessful", async () => {
     const dispatch = jest.fn();
 
     jest.spyOn(api, "listPoints").mockResolvedValue({
@@ -55,7 +55,7 @@ describe("createPoint()", () => {
     });
   });
 
-  it("calls the correct dispatach when unsuccessful", async () => {
+  it("calls the correct dispatch when unsuccessful", async () => {
     const dispatch = jest.fn();
 
     jest.spyOn(api, "createPoint").mockResolvedValue({

@@ -13,7 +13,6 @@ exports[`<AddPointForm /> render 1`] = `
     Caption: 
   </label>
   <textarea
-    id="caption"
     name="caption"
     onChange={[Function]}
     type="text"

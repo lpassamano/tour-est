@@ -11,10 +11,10 @@ describe("<CreateAccountForm />", () => {
       target: { name: "password_confirmation", value: "12345abcde" }
     };
     const event4 = { target: { name: "cultural_center", value: "Met Museum" } };
-    component.find("input#username").simulate("change", event1);
-    component.find("input#password").simulate("change", event2);
-    component.find("input#password_confirmation").simulate("change", event3);
-    component.find("input#cultural_center").simulate("change", event4);
+    component.find('[name="username"]').simulate("change", event1);
+    component.find('[name="password"]').simulate("change", event2);
+    component.find('[name="password_confirmation"]').simulate("change", event3);
+    component.find('[name="cultural_center"]').simulate("change", event4);
     return component;
   };
 

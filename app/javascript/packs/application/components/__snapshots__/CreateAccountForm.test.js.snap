@@ -13,7 +13,6 @@ exports[`<CreateAccountForm /> render 1`] = `
       Username: 
     </label>
     <input
-      id="username"
       name="username"
       onChange={[Function]}
       type="text"
@@ -26,7 +25,6 @@ exports[`<CreateAccountForm /> render 1`] = `
       Password: 
     </label>
     <input
-      id="password"
       name="password"
       onChange={[Function]}
       type="password"
@@ -39,7 +37,6 @@ exports[`<CreateAccountForm /> render 1`] = `
       Confirm Password: 
     </label>
     <input
-      id="password_confirmation"
       name="password_confirmation"
       onChange={[Function]}
       type="password"
@@ -52,7 +49,6 @@ exports[`<CreateAccountForm /> render 1`] = `
       Organization: 
     </label>
     <input
-      id="cultural_center"
       name="cultural_center"
       onChange={[Function]}
       type="text"

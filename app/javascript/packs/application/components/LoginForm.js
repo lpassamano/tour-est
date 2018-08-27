@@ -24,7 +24,6 @@ export class LoginForm extends Component {
         <input
           name="username"
           type="text"
-          id="username"
           value={this.state.username}
           onChange={this.handleChange}
         />
@@ -33,7 +32,6 @@ export class LoginForm extends Component {
         <input
           name="password"
           type="password"
-          id="password"
           value={this.state.password}
           onChange={this.handleChange}
         />

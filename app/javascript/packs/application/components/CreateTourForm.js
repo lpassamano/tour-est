@@ -48,7 +48,6 @@ export class CreateTourForm extends Component {
         <input
           name="title"
           type="text"
-          id="title"
           value={this.state.title}
           onChange={this.handleChange}
         />
@@ -57,7 +56,6 @@ export class CreateTourForm extends Component {
         <input
           name="starting_point"
           type="text"
-          id="starting_point"
           value={this.state.starting_point}
           onChange={this.handleChange}
         />
@@ -66,7 +64,6 @@ export class CreateTourForm extends Component {
         <input
           name="directions"
           type="text"
-          id="directions"
           value={this.state.directions}
           onChange={this.handleChange}
         />
@@ -75,7 +72,6 @@ export class CreateTourForm extends Component {
         <input
           name="estimated_time"
           type="text"
-          id="estimated_time"
           value={this.state.estimated_time}
           onChange={this.handleChange}
         />
@@ -84,7 +80,6 @@ export class CreateTourForm extends Component {
         <input
           name="description"
           type="text"
-          id="description"
           value={this.state.description}
           onChange={this.handleChange}
         />

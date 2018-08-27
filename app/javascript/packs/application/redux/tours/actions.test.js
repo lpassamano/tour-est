@@ -23,7 +23,7 @@ describe("listTours()", () => {
     });
   });
 
-  it("calls the correct dispatach when unsuccessful", async () => {
+  it("calls the correct dispatch when unsuccessful", async () => {
     const dispatch = jest.fn();
 
     jest.spyOn(api, "listTours").mockResolvedValue({
@@ -57,7 +57,7 @@ describe("createTour()", () => {
     expect(navigate).toHaveBeenCalledWith(`/tours/${tour.id}`);
   });
 
-  it("calls the correct dispatach when unsuccessful", async () => {
+  it("calls the correct dispatch when unsuccessful", async () => {
     const dispatch = jest.fn();
 
     jest.spyOn(api, "createTour").mockResolvedValue({
@@ -90,7 +90,7 @@ describe("getTour()", () => {
     });
   });
 
-  it("calls the correct dispatach when unsuccessful", async () => {
+  it("calls the correct dispatch when unsuccessful", async () => {
     const dispatch = jest.fn();
 
     jest.spyOn(api, "getTour").mockResolvedValue({

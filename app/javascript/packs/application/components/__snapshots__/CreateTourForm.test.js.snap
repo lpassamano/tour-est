@@ -10,7 +10,6 @@ exports[`<CreateTourForm /> render 1`] = `
     Title: 
   </label>
   <input
-    id="title"
     name="title"
     onChange={[Function]}
     type="text"
@@ -23,7 +22,6 @@ exports[`<CreateTourForm /> render 1`] = `
     Starting Point: 
   </label>
   <input
-    id="starting_point"
     name="starting_point"
     onChange={[Function]}
     type="text"
@@ -36,7 +34,6 @@ exports[`<CreateTourForm /> render 1`] = `
     Directions: 
   </label>
   <input
-    id="directions"
     name="directions"
     onChange={[Function]}
     type="text"
@@ -49,7 +46,6 @@ exports[`<CreateTourForm /> render 1`] = `
     Estimated Time: 
   </label>
   <input
-    id="estimated_time"
     name="estimated_time"
     onChange={[Function]}
     type="text"
@@ -62,7 +58,6 @@ exports[`<CreateTourForm /> render 1`] = `
     Description: 
   </label>
   <input
-    id="description"
     name="description"
     onChange={[Function]}
     type="text"

@@ -36,7 +36,6 @@ export class AddPointForm extends Component {
         <label htmlFor="caption">Caption: </label>
         <textarea
           name="caption"
-          id="caption"
           type="text"
           value={this.state.caption}
           onChange={this.handleChange}

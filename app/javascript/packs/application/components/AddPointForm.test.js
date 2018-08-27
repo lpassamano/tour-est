@@ -25,7 +25,7 @@ describe("<AddPointForm />", () => {
   test("handleChange - when text is typed into the fields the state is updated", () => {
     const component = setup();
     const event = { target: { name: "caption", value: "Nike of Samothrace" } };
-    component.find("textarea#caption").simulate("change", event);
+    component.find('[name="caption"]').simulate("change", event);
     expect(component.state("caption")).toEqual("Nike of Samothrace");
   });
 });

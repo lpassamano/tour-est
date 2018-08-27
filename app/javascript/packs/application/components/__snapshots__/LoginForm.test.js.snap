@@ -10,7 +10,6 @@ exports[`<LoginForm /> render 1`] = `
     Username: 
   </label>
   <input
-    id="username"
     name="username"
     onChange={[Function]}
     type="text"
@@ -23,7 +22,6 @@ exports[`<LoginForm /> render 1`] = `
     Password: 
   </label>
   <input
-    id="password"
     name="password"
     onChange={[Function]}
     type="password"

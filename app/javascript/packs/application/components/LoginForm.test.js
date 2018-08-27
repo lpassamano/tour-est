@@ -7,8 +7,8 @@ describe("<LoginForm />", () => {
     const component = shallow(<LoginForm onLogin={onLogin} />);
     const event1 = { target: { name: "username", value: "leigh" } };
     const event2 = { target: { name: "password", value: "123abc" } };
-    component.find("input#username").simulate("change", event1);
-    component.find("input#password").simulate("change", event2);
+    component.find('[name="username"]').simulate("change", event1);
+    component.find('[name="password"]').simulate("change", event2);
     return component;
   };
 
