@@ -5,8 +5,7 @@ import { connect } from "react-redux";
 
 import * as staffUserActions from "../redux/staffUser/actions";
 
-class CreateAccountForm extends Component {
-  static defaultProps = { navigate };
+export class CreateAccountForm extends Component {
   state = {
     username: "",
     password: "",
@@ -79,7 +78,6 @@ class CreateAccountForm extends Component {
 }
 
 CreateAccountForm.propTypes = {
-  navigate: PropTypes.func.isRequired,
   onCreateUser: PropTypes.func.isRequired
 };
 
