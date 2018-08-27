@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import * as pointActions from "../redux/points/actions";
 import * as pointSelectors from "../redux/points/selectors";
 
-class PointsList extends Component {
+export class PointsList extends Component {
   componentDidMount() {
     this.props.listPoints(this.props.tourId);
   }
@@ -23,6 +24,13 @@ class PointsList extends Component {
     );
   }
 }
+
+PointsList.propTypes = {
+  points: PropTypes.array.isRequired,
+  tourId: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  listPoints: PropTypes.func.isRequired
+};
 
 const mapStateToProps = (state, ownProps) => ({
   points: pointSelectors.getPoints(state),

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Router, Link, navigate } from "@reach/router";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import LoginForm from "./components/LoginForm";
 import CreateAccountForm from "./components/CreateAccountForm";
@@ -59,23 +60,14 @@ export class App extends Component {
 
         {this.props.currentStaffUser ? (
           <Router>
-            <StaffUserDashboard
-              path="/admin"
-              currentStaffUser={this.props.currentStaffUser}
-            />
-            <CreateTourForm
-              path="/tours/new"
-              currentStaffUser={this.props.currentStaffUser}
-            />
+            <StaffUserDashboard path="/admin" />
+            <CreateTourForm path="/tours/new" />
             <TourContainer path="/tours/:tourId" />
           </Router>
         ) : (
           <Router>
-            <LoginForm path="/login" onLogin={this.props.loginStaffUser} />
-            <CreateAccountForm
-              path="/sign-up"
-              onCreateUser={this.props.createStaffUser}
-            />
+            <LoginForm path="/login" />
+            <CreateAccountForm path="/sign-up" />
           </Router>
         )}
       </div>
@@ -83,13 +75,24 @@ export class App extends Component {
   }
 }
 
+App.propTypes = {
+  currentStaffUser: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    username: PropTypes.string.isRequired,
+    cultural_center: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired
+    }).isRequired
+  }),
+  authenticateStaffUser: PropTypes.func.isRequired,
+  logoutStaffUser: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state => ({
   currentStaffUser: staffUserSelectors.getStaffUser(state)
 });
 
 const mapDispatchToProps = {
-  createStaffUser: staffUserActions.createStaffUser,
-  loginStaffUser: staffUserActions.loginStaffUser,
   authenticateStaffUser: staffUserActions.authenticateStaffUser,
   logoutStaffUser: staffUserActions.logoutStaffUser
 };

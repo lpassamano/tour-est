@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-class CreateAccountForm extends Component {
-  static defaultProps = { navigate };
+import * as staffUserActions from "../redux/staffUser/actions";
+
+export class CreateAccountForm extends Component {
   state = {
     username: "",
     password: "",
@@ -76,8 +78,16 @@ class CreateAccountForm extends Component {
 }
 
 CreateAccountForm.propTypes = {
-  navigate: PropTypes.func.isRequired,
   onCreateUser: PropTypes.func.isRequired
 };
 
-export default CreateAccountForm;
+const mapDispatchToProps = {
+  onCreateUser: staffUserActions.createStaffUser
+};
+
+const enhance = connect(
+  null,
+  mapDispatchToProps
+);
+
+export default enhance(CreateAccountForm);

@@ -24,30 +24,10 @@ exports[`<App /> render 1`] = `
     </a>
   </nav>
   <Router>
-    <StaffUserDashboard
-      currentStaffUser={
-        Object {
-          "cultural_center": Object {
-            "id": 1,
-            "name": "MoMA",
-          },
-          "id": 1,
-          "username": "username123",
-        }
-      }
+    <Connect(StaffUserDashboard)
       path="/admin"
     />
     <Connect(CreateTourForm)
-      currentStaffUser={
-        Object {
-          "cultural_center": Object {
-            "id": 1,
-            "name": "MoMA",
-          },
-          "id": 1,
-          "username": "username123",
-        }
-      }
       path="/tours/new"
     />
     <TourContainer

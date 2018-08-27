@@ -1,4 +1,4 @@
-import LoginForm from "./LoginForm";
+import { LoginForm } from "./LoginForm";
 import { shallow } from "enzyme";
 import React from "react";
 

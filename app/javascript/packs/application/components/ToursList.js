@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import * as tourActions from "../redux/tours/actions";
 import * as tourSelectors from "../redux/tours/selectors";
 
@@ -18,6 +19,12 @@ export class ToursList extends Component {
     return <div>{tours.map(tour => <h4 key={tour.id}>{tour.title}</h4>)}</div>;
   }
 }
+
+ToursList.propTypes = {
+  tours: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  listTours: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   tours: tourSelectors.getTours(state),
