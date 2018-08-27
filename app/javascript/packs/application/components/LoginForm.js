@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
+import * as staffUserActions from "../redux/staffUser/actions";
 
 class LoginForm extends Component {
   state = { username: "", password: "" };
@@ -45,4 +48,13 @@ LoginForm.propTypes = {
   onLogin: PropTypes.func.isRequired
 };
 
-export default LoginForm;
+const mapDispatchToProps = {
+  onLogin: staffUserActions.loginStaffUser
+};
+
+const enhance = connect(
+  null,
+  mapDispatchToProps
+);
+
+export default enhance(LoginForm);

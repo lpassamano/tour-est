@@ -72,7 +72,7 @@ export class App extends Component {
           </Router>
         ) : (
           <Router>
-            <LoginForm path="/login" onLogin={this.props.loginStaffUser} />
+            <LoginForm path="/login" />
             <CreateAccountForm
               path="/sign-up"
               onCreateUser={this.props.createStaffUser}
@@ -94,7 +94,6 @@ App.propTypes = {
     }).isRequired
   }),
   createStaffUser: PropTypes.func.isRequired,
-  loginStaffUser: PropTypes.func.isRequired,
   authenticateStaffUser: PropTypes.func.isRequired,
   logoutStaffUser: PropTypes.func.isRequired
 };
@@ -105,7 +104,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   createStaffUser: staffUserActions.createStaffUser,
-  loginStaffUser: staffUserActions.loginStaffUser,
   authenticateStaffUser: staffUserActions.authenticateStaffUser,
   logoutStaffUser: staffUserActions.logoutStaffUser
 };
