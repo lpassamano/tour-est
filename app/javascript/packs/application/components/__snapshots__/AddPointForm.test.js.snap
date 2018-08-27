@@ -20,7 +20,6 @@ exports[`<AddPointForm /> render 1`] = `
     value=""
   />
   <button
-    id="save"
     type="submit"
   >
     Save
@@ -31,7 +30,6 @@ exports[`<AddPointForm /> render 1`] = `
     Cancel
   </button>
   <button
-    id="save_and_add"
     onClick={[Function]}
     type="button"
   >
