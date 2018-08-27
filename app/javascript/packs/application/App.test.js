@@ -4,8 +4,6 @@ import { shallow } from "enzyme";
 
 describe("<App />", () => {
   test("render", () => {
-    const createStaffUser = jest.fn();
-    const loginStaffUser = jest.fn();
     const authenticateStaffUser = jest.fn();
     const logoutStaffUser = jest.fn();
     const currentStaffUser = {
@@ -16,8 +14,6 @@ describe("<App />", () => {
 
     const component = shallow(
       <App
-        createStaffUser={createStaffUser}
-        loginStaffUser={loginStaffUser}
         authenticateStaffUser={authenticateStaffUser}
         logoutStaffUser={logoutStaffUser}
         currentStaffUser={currentStaffUser}

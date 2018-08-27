@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import * as staffUserActions from "../redux/staffUser/actions";
 
-class LoginForm extends Component {
+export class LoginForm extends Component {
   state = { username: "", password: "" };
 
   handleSubmit = event => {

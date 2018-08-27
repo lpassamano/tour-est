@@ -25,6 +25,7 @@ exports[`<AddPointForm /> render 1`] = `
     Save
   </button>
   <button
+    onClick={[MockFunction]}
     type="button"
   >
     Cancel

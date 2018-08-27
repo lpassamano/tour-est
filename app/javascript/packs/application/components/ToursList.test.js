@@ -10,8 +10,9 @@ describe("<ToursList />", () => {
       { id: 3, title: "Tour 3" }
     ];
     const listTours = jest.fn();
+    const isFetching = false;
     const component = shallow(
-      <ToursList tours={tours} listTours={listTours} />
+      <ToursList tours={tours} listTours={listTours} isFetching={isFetching} />
     );
     expect(component).toMatchSnapshot();
   });
