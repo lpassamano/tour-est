@@ -28,7 +28,7 @@ class PointsList extends Component {
 PointsList.propTypes = {
   points: PropTypes.array.isRequired,
   tourId: PropTypes.string.isRequired,
-  isFetching: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool.isRequired,
   listPoints: PropTypes.func.isRequired
 };
 
