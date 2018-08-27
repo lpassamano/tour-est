@@ -21,12 +21,12 @@ export class AddPointForm extends Component {
     this.props.onCreatePoint(this.props.tourId, {
       point: { caption: caption }
     });
-    // if (result.ok) {
-    //   this.setState({ caption: "" });
-    //   this.props.onHide();
-    // } else {
-    //   console.error(result.error);
-    // }
+
+    if (event.target.type === "button") {
+      return this.setState({ caption: "" });
+    }
+
+    this.props.onHide();
   };
 
   render() {
