@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Tour from "./Tour";
 import AddPointForm from "./AddPointForm";
 import PointsList from "./PointsList";
@@ -36,5 +37,9 @@ export class TourContainer extends Component {
     );
   }
 }
+
+TourContainer.propTypes = {
+  tourId: PropTypes.string.isRequired
+};
 
 export default TourContainer;
