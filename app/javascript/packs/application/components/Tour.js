@@ -31,10 +31,10 @@ Tour.propTypes = {
   tour: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    starting_point: PropTypes.string.isRequired,
-    directions: PropTypes.string.isRequired,
-    estimated_time: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
+    starting_point: PropTypes.string,
+    directions: PropTypes.string,
+    estimated_time: PropTypes.string,
+    description: PropTypes.string
   }),
   isFetching: PropTypes.bool.isRequired,
   getTour: PropTypes.func.isRequired
