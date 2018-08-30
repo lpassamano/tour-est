@@ -6,11 +6,13 @@ import * as pointActions from "../redux/points/actions";
 import * as pointSelectors from "../redux/points/selectors";
 import ImageInput from "./ImageInput";
 
+const INITIAL_STATE = {
+  caption: "",
+  image: null
+};
+
 export class AddPointForm extends Component {
-  state = {
-    caption: "",
-    image: null
-  };
+  state = INITIAL_STATE;
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -23,13 +25,13 @@ export class AddPointForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { caption } = this.state;
+
     this.props.onCreatePoint(this.props.tourId, {
-      point: { caption: caption }
+      point: this.state
     });
 
     if (event.target.type === "button") {
-      return this.setState({ caption: "" });
+      return this.setState(INITIAL_STATE);
     }
 
     this.props.onHide();

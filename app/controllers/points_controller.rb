@@ -18,7 +18,8 @@ class PointsController < ApplicationController
 
   def point_params
     params.require(:point).permit(
-      :caption
+      :caption,
+      :image
     )
   end
 end
