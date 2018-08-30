@@ -4,15 +4,21 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import * as pointActions from "../redux/points/actions";
 import * as pointSelectors from "../redux/points/selectors";
+import ImageInput from "./ImageInput";
 
 export class AddPointForm extends Component {
   state = {
-    caption: ""
+    caption: "",
+    image: null
   };
 
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  };
+
+  handleChangeImage = image => {
+    this.setState({ image });
   };
 
   handleSubmit = event => {
@@ -32,7 +38,12 @@ export class AddPointForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <p>Upload Image (WIP)</p>
+        <label htmlFor="image">Upload Image</label>
+        <ImageInput
+          name="image"
+          onChange={this.handleChangeImage}
+          value={this.state.image}
+        />
         <label htmlFor="caption">Caption: </label>
         <textarea
           name="caption"
