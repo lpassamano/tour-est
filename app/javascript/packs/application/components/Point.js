@@ -16,7 +16,7 @@ export default class Point extends Component {
 Point.propTypes = {
   point: PropTypes.shape({
     caption: PropTypes.string.isRequired,
-    image: PropTypes.object
+    image: PropTypes.string
   }).isRequired
 };
 
