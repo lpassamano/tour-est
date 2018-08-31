@@ -19,5 +19,3 @@ Point.propTypes = {
     image: PropTypes.string
   }).isRequired
 };
-
-// create get point method? to get all of the point data for the point passed down by props?
