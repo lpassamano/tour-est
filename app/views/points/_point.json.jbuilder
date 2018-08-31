@@ -1,4 +1,7 @@
 json.extract! point, :id, :caption
-json.image do
-  rails_blob_path(point.image) if point.image.attached?
+
+if point.image.attached?
+  json.image rails_blob_path(point.image)
+else
+  json.image nil
 end

@@ -1,4 +1,5 @@
 import { create } from "apisauce";
+import toFormData from "object-to-formdata";
 
 export const getCSRFToken = () => {
   const meta = document.querySelector("[name=csrf-token]");
@@ -56,7 +57,7 @@ const getTour = tourId => {
 };
 
 const createPoint = (tourId, attributes) => {
-  return api.post(`/tours/${tourId}/points`, attributes);
+  return api.post(`/tours/${tourId}/points`, toFormData(attributes));
 };
 
 const listPoints = tourId => {
