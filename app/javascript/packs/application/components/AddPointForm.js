@@ -7,7 +7,11 @@ import * as pointSelectors from "../redux/points/selectors";
 import ImageInput from "./ImageInput";
 
 const INITIAL_STATE = {
+  title: "",
   caption: "",
+  description: "",
+  location: "",
+  directions: "",
   image: null
 };
 
@@ -46,6 +50,14 @@ export class AddPointForm extends Component {
           onChange={this.handleChangeImage}
           value={this.state.image}
         />
+        <label htmlFor="title">Title: </label>
+        <input
+          name="title"
+          type="text"
+          value={this.state.title}
+          onChange={this.handleChange}
+        />
+        <br />
         <label htmlFor="caption">Caption: </label>
         <textarea
           name="caption"
@@ -53,12 +65,38 @@ export class AddPointForm extends Component {
           value={this.state.caption}
           onChange={this.handleChange}
         />
+        <br />
+        <label htmlFor="description">Description: </label>
+        <textarea
+          name="description"
+          type="text"
+          value={this.state.description}
+          onChange={this.handleChange}
+        />
+        <br />
+        <label htmlFor="location">Location: </label>
+        <input
+          name="location"
+          type="text"
+          value={this.state.location}
+          onChange={this.handleChange}
+        />
+        <br />
+        <label htmlFor="directions">Directions: </label>
+        <textarea
+          name="directions"
+          type="text"
+          value={this.state.directions}
+          onChange={this.handleChange}
+        />
+        <br />
         <button type="submit">Save</button>
+        <button type="button" onClick={this.handleSubmit}>
+          Save and add another
+        </button>
+        <br />
         <button type="button" onClick={this.props.onHide}>
           Cancel
-        </button>
-        <button type="button" onClick={this.handleSubmit}>
-          Save and add another point
         </button>
       </form>
     );

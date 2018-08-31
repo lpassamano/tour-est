@@ -19,7 +19,11 @@ class PointsController < ApplicationController
 
   def point_params
     params.require(:point).permit(
+      :title,
       :caption,
+      :description,
+      :location,
+      :directions,
       :image
     )
   end
