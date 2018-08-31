@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import Point from "./Point";
 import * as pointActions from "../redux/points/actions";
 import * as pointSelectors from "../redux/points/selectors";
 
@@ -20,7 +21,7 @@ export class PointsList extends Component {
     }
 
     return (
-      <div>{points.map(point => <h4 key={point.id}>{point.caption}</h4>)}</div>
+      <div>{points.map(point => <Point point={point} key={point.id} />)}</div>
     );
   }
 }
