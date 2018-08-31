@@ -24,5 +24,6 @@ RSpec.describe PointsController, type: :controller do
 
     point = Point.find(json['id'])
     expect(point.image).to be_attached
+    expect(json['image']).not_to be_nil
   end
 end

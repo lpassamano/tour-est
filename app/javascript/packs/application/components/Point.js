@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 
 export default class Point extends Component {
   render() {
-    const { id, caption, image, image_url } = this.props.point;
-    console.log(image);
+    const { id, caption, image } = this.props.point;
     return (
       <div key={id}>
         <img src={image} alt="" />
