@@ -13,7 +13,7 @@ RSpec.describe PointsController, type: :controller do
 
   let :params do
     {
-      caption: "Melancholia by Durer",
+      title: "Melancholia by Durer",
       image: fixture_file_upload("melancholia.jpeg")
     }
   end
@@ -26,4 +26,6 @@ RSpec.describe PointsController, type: :controller do
     expect(point.image).to be_attached
     expect(json['image']).not_to be_nil
   end
+
+
 end
