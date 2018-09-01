@@ -4,9 +4,16 @@ exports[`<AddPointForm /> render 1`] = `
 <form
   onSubmit={[Function]}
 >
-  <p>
-    Upload Image (WIP)
-  </p>
+  <label
+    htmlFor="image"
+  >
+    Upload Image
+  </label>
+  <ImageInput
+    name="image"
+    onChange={[Function]}
+    value={null}
+  />
   <label
     htmlFor="caption"
   >

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-export default class Point extends Component {
+export class Point extends Component {
   render() {
     const { id, caption, image } = this.props.point;
     return (
       <div key={id}>
-        <img src={image} alt="" />
+        <img src={image} alt="" width="150px" />
         <h4>{caption}</h4>
       </div>
     );
@@ -20,4 +20,4 @@ Point.propTypes = {
   }).isRequired
 };
 
-// create get point method? to get all of the point data for the point passed down by props?
+export default Point;
