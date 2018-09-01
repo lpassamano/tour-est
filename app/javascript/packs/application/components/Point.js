@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-export default class Point extends Component {
+export class Point extends Component {
   render() {
     const { id, title, image } = this.props.point;
     return (
       <div key={id}>
-        <img src={image} alt="" />
+        <img src={image} alt="" width="150px" />
         <h4>{title}</h4>
       </div>
     );
@@ -23,3 +23,5 @@ Point.propTypes = {
     image: PropTypes.string
   }).isRequired
 };
+
+export default Point;
