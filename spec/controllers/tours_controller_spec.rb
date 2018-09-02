@@ -47,6 +47,26 @@ RSpec.describe ToursController, type: :controller do
       expect { post :create, params: invalid_params }.to_not change(Tour, :count)
       expect(response.status).to eq(422)
     end
+
+    it 'updates a tour when provided valid data' do
+      post :create, params: valid_params
+      new_params = valid_params.deep_merge(tour: { title: "New Title", id: json['id']}, id: json['id'])
+      patch :update, params: new_params
+      tour = Tour.find(json['id'])
+
+      expect(response.status).to eq(200)
+      expect(tour.title).to eq("New Title")
+    end
+
+    it 'does not update a tour when provided invalid data' do
+      post :create, params: valid_params
+      new_params = valid_params.deep_merge(tour: { title: "", id: json['id']}, id: json['id'])
+      patch :update, params: new_params
+      tour = Tour.find(json['id'])
+
+      expect(response.status).to eq(422)
+      expect(tour.title).to eq(valid_params[:tour][:title])
+    end
   end
 
   context "User not authenticated" do

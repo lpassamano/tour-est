@@ -5,6 +5,9 @@ import { navigate } from "@reach/router";
 export const CREATE_TOUR = "CREATE_TOUR";
 export const CREATE_TOUR_SUCCESS = "CREATE_TOUR_SUCCESS";
 export const CREATE_TOUR_ERROR = "CREATE_TOUR_ERROR";
+export const UPDATE_TOUR = "UPDATE_TOUR";
+export const UPDATE_TOUR_SUCCESS = "UPDATE_TOUR_SUCCESS";
+export const UPDATE_TOUR_ERROR = "UPDATE_TOUR_ERROR";
 export const LIST_TOURS = "LIST_TOURS";
 export const LIST_TOURS_SUCCESS = "LIST_TOURS_SUCCESS";
 export const LIST_TOURS_ERROR = "LIST_TOURS_ERROR";
@@ -24,6 +27,21 @@ export const createTour = attributes => async dispatch => {
     navigate(`/tours/${response.data.id}`);
   } else {
     dispatch({ type: CREATE_TOUR_ERROR });
+  }
+};
+
+export const updateTour = attributes => async dispatch => {
+  dispatch({ type: UPDATE_TOUR });
+  const response = await api.updateTour(attributes);
+
+  if (response.ok) {
+    dispatch({
+      type: UPDATE_TOUR_SUCCESS,
+      data: { [response.data.id]: response.data }
+    });
+    navigate(`/tours/${response.data.id}`);
+  } else {
+    dispatch({ type: UPDATE_TOUR_ERROR });
   }
 };
 
