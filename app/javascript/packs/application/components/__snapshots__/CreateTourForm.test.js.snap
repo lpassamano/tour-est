@@ -4,66 +4,18 @@ exports[`<CreateTourForm /> render 1`] = `
 <form
   onSubmit={[Function]}
 >
-  <label
-    htmlFor="title"
-  >
-    Title: 
-  </label>
-  <input
-    name="title"
+  <TourFormFields
     onChange={[Function]}
-    type="text"
-    value=""
+    tour={
+      Object {
+        "description": "",
+        "directions": "",
+        "estimated_time": "",
+        "starting_point": "",
+        "title": "",
+      }
+    }
   />
-  <br />
-  <label
-    htmlFor="starting_point"
-  >
-    Starting Point: 
-  </label>
-  <input
-    name="starting_point"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <br />
-  <label
-    htmlFor="directions"
-  >
-    Directions: 
-  </label>
-  <input
-    name="directions"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <br />
-  <label
-    htmlFor="estimated_time"
-  >
-    Estimated Time: 
-  </label>
-  <input
-    name="estimated_time"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <br />
-  <label
-    htmlFor="description"
-  >
-    Description: 
-  </label>
-  <input
-    name="description"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <br />
   <button
     type="submit"
   >

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import TourFormFields from "./TourFormFields";
 import * as tourActions from "../redux/tours/actions";
 import * as tourSelectors from "../redux/tours/selectors";
 
@@ -41,46 +42,7 @@ export class CreateTourForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="title">Title: </label>
-        <input
-          name="title"
-          type="text"
-          value={this.state.title}
-          onChange={this.handleChange}
-        />
-        <br />
-        <label htmlFor="starting_point">Starting Point: </label>
-        <input
-          name="starting_point"
-          type="text"
-          value={this.state.starting_point}
-          onChange={this.handleChange}
-        />
-        <br />
-        <label htmlFor="directions">Directions: </label>
-        <input
-          name="directions"
-          type="text"
-          value={this.state.directions}
-          onChange={this.handleChange}
-        />
-        <br />
-        <label htmlFor="estimated_time">Estimated Time: </label>
-        <input
-          name="estimated_time"
-          type="text"
-          value={this.state.estimated_time}
-          onChange={this.handleChange}
-        />
-        <br />
-        <label htmlFor="description">Description: </label>
-        <input
-          name="description"
-          type="text"
-          value={this.state.description}
-          onChange={this.handleChange}
-        />
-        <br />
+        <TourFormFields onChange={this.handleChange} tour={this.state} />
         <button type="submit">Create Tour</button>
       </form>
     );
