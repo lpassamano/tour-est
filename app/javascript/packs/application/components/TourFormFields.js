@@ -21,6 +21,7 @@ export class TourFormFields extends Component {
         <input
           name="title"
           type="text"
+          defaultValue={title}
           value={this.props.title}
           onChange={this.handleChange}
         />
@@ -29,6 +30,7 @@ export class TourFormFields extends Component {
         <input
           name="starting_point"
           type="text"
+          defaultValue={starting_point}
           value={this.props.starting_point}
           onChange={this.handleChange}
         />
@@ -37,6 +39,7 @@ export class TourFormFields extends Component {
         <input
           name="directions"
           type="text"
+          defaultValue={directions}
           value={this.props.directions}
           onChange={this.handleChange}
         />
@@ -45,6 +48,7 @@ export class TourFormFields extends Component {
         <input
           name="estimated_time"
           type="text"
+          defaultValue={estimated_time}
           value={this.props.estimated_time}
           onChange={this.handleChange}
         />
@@ -53,6 +57,7 @@ export class TourFormFields extends Component {
         <input
           name="description"
           type="text"
+          defaultValue={description}
           value={this.props.description}
           onChange={this.handleChange}
         />

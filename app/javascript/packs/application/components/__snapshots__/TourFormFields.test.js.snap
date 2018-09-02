@@ -8,6 +8,7 @@ exports[`<TourFormFields /> render 1`] = `
     Title: 
   </label>
   <input
+    defaultValue="Awesome Tour"
     name="title"
     onChange={[Function]}
     type="text"

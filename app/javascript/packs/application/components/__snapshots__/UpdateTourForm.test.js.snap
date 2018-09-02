@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UpdateTour Form/> render 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <TourFormFields
+    onChange={[Function]}
+    tour={
+      Object {
+        "id": 1,
+        "title": "Tour 1",
+      }
+    }
+  />
+  <button
+    type="submit"
+  >
+    Update Tour
+  </button>
+</form>
+`;

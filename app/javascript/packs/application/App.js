@@ -7,6 +7,7 @@ import LoginForm from "./components/LoginForm";
 import CreateAccountForm from "./components/CreateAccountForm";
 import StaffUserDashboard from "./components/StaffUserDashboard";
 import CreateTourForm from "./components/CreateTourForm";
+import UpdateTourForm from "./components/UpdateTourForm";
 import TourContainer from "./components/TourContainer";
 import api from "./api";
 import * as staffUserActions from "./redux/staffUser/actions";
@@ -62,6 +63,7 @@ export class App extends Component {
           <Router>
             <StaffUserDashboard path="/admin" />
             <CreateTourForm path="/tours/new" />
+            <UpdateTourForm path="/tours/:tourId/edit" />
             <TourContainer path="/tours/:tourId" />
           </Router>
         ) : (
