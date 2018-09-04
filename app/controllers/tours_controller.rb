@@ -30,6 +30,11 @@ class ToursController < ApplicationController
     @tour = current_staff_user.tours.find(params[:id])
   end
 
+  def destroy
+    Tour.find(params[:id]).destroy
+    render :index
+  end
+
   private
 
   def tour_params

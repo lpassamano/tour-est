@@ -67,6 +67,15 @@ RSpec.describe ToursController, type: :controller do
       expect(response.status).to eq(422)
       expect(tour.title).to eq(valid_params[:tour][:title])
     end
+
+    it 'deletes a tour when provided a tour id' do
+      post :create, params: valid_params
+      new_params = valid_params.deep_merge(tour: { title: "", id: json['id']}, id: json['id'])
+      delete :destroy, params: new_params
+
+      expect(response.status).to eq(200)
+      expect(Tour.count).to eq(0)
+    end
   end
 
   context "User not authenticated" do
