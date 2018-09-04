@@ -19,7 +19,7 @@ Point.propTypes = {
     caption: PropTypes.string,
     description: PropTypes.string,
     location: PropTypes.string,
-    directins: PropTypes.string,
+    directions: PropTypes.string,
     image: PropTypes.string
   }).isRequired
 };
