@@ -1,7 +1,11 @@
 class PointsController < ApplicationController
   def create
     tour = Tour.find(params[:tour_id])
-    @point = tour.points.build(point_params)
+    params = point_params
+
+    params.delete("image") if point_params["image"] == ""
+
+    @point = tour.points.build(params)
 
     if @point.save
       render :show
