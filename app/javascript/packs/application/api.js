@@ -60,6 +60,10 @@ const getTour = tourId => {
   return api.get(`/tours/${tourId}`);
 };
 
+const deleteTour = tourId => {
+  return api.delete(`/tours/${tourId}`);
+};
+
 const createPoint = (tourId, attributes) => {
   return api.post(`/tours/${tourId}/points`, toFormData(attributes));
 };
@@ -78,6 +82,7 @@ export default {
   updateTour,
   listTours,
   getTour,
+  deleteTour,
   createPoint,
   listPoints
 };
