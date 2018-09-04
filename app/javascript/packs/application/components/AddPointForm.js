@@ -4,26 +4,34 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import * as pointActions from "../redux/points/actions";
 import * as pointSelectors from "../redux/points/selectors";
+import ImageInput from "./ImageInput";
+
+const INITIAL_STATE = {
+  caption: "",
+  image: undefined
+};
 
 export class AddPointForm extends Component {
-  state = {
-    caption: ""
-  };
+  state = INITIAL_STATE;
 
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
+  handleChangeImage = image => {
+    this.setState({ image });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
-    const { caption } = this.state;
+
     this.props.onCreatePoint(this.props.tourId, {
-      point: { caption: caption }
+      point: this.state
     });
 
     if (event.target.type === "button") {
-      return this.setState({ caption: "" });
+      return this.setState(INITIAL_STATE);
     }
 
     this.props.onHide();
@@ -32,7 +40,12 @@ export class AddPointForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <p>Upload Image (WIP)</p>
+        <label htmlFor="image">Upload Image</label>
+        <ImageInput
+          name="image"
+          onChange={this.handleChangeImage}
+          value={this.state.image}
+        />
         <label htmlFor="caption">Caption: </label>
         <textarea
           name="caption"
