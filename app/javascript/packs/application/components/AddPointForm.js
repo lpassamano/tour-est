@@ -8,7 +8,7 @@ import ImageInput from "./ImageInput";
 
 const INITIAL_STATE = {
   caption: "",
-  image: null
+  image: undefined
 };
 
 export class AddPointForm extends Component {
