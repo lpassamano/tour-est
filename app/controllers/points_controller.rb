@@ -12,7 +12,7 @@ class PointsController < ApplicationController
 
   def index
     tour = Tour.find(params[:tour_id])
-    @points = tour.points.includes(:image_blob).includes(:image_attachment)
+    @points = tour.points.includes(:image_blob, :image_attachment)
   end
 
   private
