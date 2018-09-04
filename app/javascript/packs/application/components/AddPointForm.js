@@ -12,7 +12,7 @@ const INITIAL_STATE = {
   description: "",
   location: "",
   directions: "",
-  image: null
+  image: undefined
 };
 
 export class AddPointForm extends Component {
