@@ -2,19 +2,17 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 export class TourFormFields extends Component {
-  state = {
-    title: "",
-    starting_point: "",
-    directions: "",
-    estimated_time: "",
-    description: ""
-  };
-
-  componentDidMount = () => {
-    if (this.props.initialValues) {
-      this.setState(this.props.initialValues);
-    }
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      starting_point: "",
+      directions: "",
+      estimated_time: "",
+      description: "",
+      ...this.props.initialValues
+    };
+  }
 
   handleSubmit = event => {
     event.preventDefault();
@@ -86,13 +84,16 @@ export class TourFormFields extends Component {
 TourFormFields.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   initialValues: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     starting_point: PropTypes.string,
     directions: PropTypes.string,
     estimated_time: PropTypes.string,
     description: PropTypes.string
   })
+};
+
+TourFormFields.defaultProps = {
+  initialValues: {}
 };
 
 export default TourFormFields;
