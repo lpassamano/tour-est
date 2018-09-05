@@ -3,7 +3,7 @@ import React from "react";
 import { shallow } from "enzyme";
 
 describe("<TourFormFields />", () => {
-  const setup = ({ onSubmit = jest.fn() }, initialValues = { title: "" }) => {
+  const setup = ({ onSubmit = jest.fn() }, initialValues) => {
     const component = shallow(
       <TourFormFields onSubmit={onSubmit} initialValues={initialValues} />
     );
@@ -42,7 +42,7 @@ describe("<TourFormFields />", () => {
     });
   });
 
-  test("Update Tour - when initialValues is passed as a prop the state is updated", () => {
+  test("when initialValues is passed as a prop the state is updated", () => {
     const initialValues = {
       id: 1,
       title: "Your Tour",
@@ -53,6 +53,18 @@ describe("<TourFormFields />", () => {
     };
     const component = setup({}, initialValues);
     expect(component.state()).toEqual(initialValues);
+  });
+
+  test("when no initialValues are passed as a prop the state is blank", () => {
+    const component = setup({});
+    const initialState = {
+      title: "",
+      description: "",
+      directions: "",
+      estimated_time: "",
+      starting_point: ""
+    };
+    expect(component.state()).toEqual(initialState);
   });
 
   test("render", () => {
