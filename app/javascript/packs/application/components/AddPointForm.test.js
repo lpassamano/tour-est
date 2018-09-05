@@ -48,8 +48,12 @@ describe("<AddPointForm />", () => {
 
     expect(onCreatePoint).toHaveBeenCalledWith("1", {
       point: {
+        title: "",
         caption: "Nike of Samothrace",
-        image: undefined
+        image: undefined,
+        description: "",
+        directions: "",
+        location: ""
       }
     });
   });

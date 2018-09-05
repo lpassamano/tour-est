@@ -12,7 +12,6 @@ exports[`<AddPointForm /> render 1`] = `
   <ImageInput
     name="image"
     onChange={[Function]}
-    value={null}
   />
   <label
     htmlFor="title"

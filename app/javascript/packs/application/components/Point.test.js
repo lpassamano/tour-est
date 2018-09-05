@@ -6,7 +6,7 @@ describe("<Point />", () => {
   const setup = () => {
     const point = {
       point: {
-        caption: "First point"
+        title: "First point"
       }
     };
     const component = shallow(<Point point={point} />);
