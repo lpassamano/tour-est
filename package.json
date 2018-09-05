@@ -11,6 +11,7 @@
     "apisauce": "^0.15.2",
     "babel-polyfill": "^6.26.0",
     "babel-preset-react": "^6.24.1",
+    "foundation-sites": "^6.5.0-rc.2",
     "husky": "^1.0.0-rc.13",
     "lodash": "^4.17.10",
     "object-to-formdata": "^1.5.2",
