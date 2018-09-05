@@ -67,7 +67,7 @@ exports[`<TourFormFields /> render 1`] = `
   <button
     type="submit"
   >
-    Create Tour
+    Save Tour
   </button>
 </form>
 `;

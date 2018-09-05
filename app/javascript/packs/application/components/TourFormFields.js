@@ -10,6 +10,12 @@ export class TourFormFields extends Component {
     description: ""
   };
 
+  componentDidMount = () => {
+    if (this.props.initialValues) {
+      this.setState(this.props.initialValues);
+    }
+  };
+
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSubmit(this.state);
@@ -71,14 +77,22 @@ export class TourFormFields extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <button type="submit">Create Tour</button>
+        <button type="submit">Save Tour</button>
       </form>
     );
   }
 }
 
 TourFormFields.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  initialValues: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    starting_point: PropTypes.string,
+    directions: PropTypes.string,
+    estimated_time: PropTypes.string,
+    description: PropTypes.string
+  })
 };
 
 export default TourFormFields;

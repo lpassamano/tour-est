@@ -3,10 +3,9 @@ import React from "react";
 import { shallow } from "enzyme";
 
 describe("<TourFormFields />", () => {
-  const setup = ({ onSubmit = jest.fn() }) => {
-    const tour = { title: "Awesome Tour" };
+  const setup = ({ onSubmit = jest.fn() }, initialValues = { title: "" }) => {
     const component = shallow(
-      <TourFormFields onSubmit={onSubmit} tour={tour} />
+      <TourFormFields onSubmit={onSubmit} initialValues={initialValues} />
     );
     return component;
   };
@@ -23,7 +22,6 @@ describe("<TourFormFields />", () => {
 
   test("handleChange - when text is typed into the title field onChange is called", () => {
     const component = setup({});
-    console.log(component.props.onSubmitu);
     fillIn(component.find('[name="title"]'), "Best Tour Ever!");
     expect(component.state("title")).toEqual("Best Tour Ever!");
   });
@@ -42,6 +40,19 @@ describe("<TourFormFields />", () => {
       estimated_time: "",
       starting_point: ""
     });
+  });
+
+  test("Update Tour - when initialValues is passed as a prop the state is updated", () => {
+    const initialValues = {
+      id: 1,
+      title: "Your Tour",
+      description: "a tour",
+      directions: "go to the place and make a left",
+      estimated_time: "1 hr",
+      starting_point: "the place"
+    };
+    const component = setup({}, initialValues);
+    expect(component.state()).toEqual(initialValues);
   });
 
   test("render", () => {
