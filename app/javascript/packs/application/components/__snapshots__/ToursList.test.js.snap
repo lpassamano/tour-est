@@ -5,17 +5,29 @@ exports[`<ToursList /> render 1`] = `
   <h4
     key="1"
   >
-    Tour 1
+    <[object Object]
+      to="/tours/1"
+    >
+      Tour 1
+    </[object Object]>
   </h4>
   <h4
     key="2"
   >
-    Tour 2
+    <[object Object]
+      to="/tours/2"
+    >
+      Tour 2
+    </[object Object]>
   </h4>
   <h4
     key="3"
   >
-    Tour 3
+    <[object Object]
+      to="/tours/3"
+    >
+      Tour 3
+    </[object Object]>
   </h4>
 </div>
 `;

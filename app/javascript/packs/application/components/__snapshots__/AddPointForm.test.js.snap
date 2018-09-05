@@ -15,9 +15,21 @@ exports[`<AddPointForm /> render 1`] = `
     value={null}
   />
   <label
+    htmlFor="title"
+  >
+    Title:
+  </label>
+  <input
+    name="title"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <br />
+  <label
     htmlFor="caption"
   >
-    Caption: 
+    Caption:
   </label>
   <textarea
     name="caption"
@@ -25,22 +37,60 @@ exports[`<AddPointForm /> render 1`] = `
     type="text"
     value=""
   />
+  <br />
+  <label
+    htmlFor="description"
+  >
+    Description:
+  </label>
+  <textarea
+    name="description"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <br />
+  <label
+    htmlFor="location"
+  >
+    Location:
+  </label>
+  <input
+    name="location"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <br />
+  <label
+    htmlFor="directions"
+  >
+    Directions:
+  </label>
+  <textarea
+    name="directions"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <br />
   <button
     type="submit"
   >
     Save
   </button>
   <button
+    onClick={[Function]}
+    type="button"
+  >
+    Save and add another
+  </button>
+  <br />
+  <button
     onClick={[MockFunction]}
     type="button"
   >
     Cancel
-  </button>
-  <button
-    onClick={[Function]}
-    type="button"
-  >
-    Save and add another point
   </button>
 </form>
 `;
