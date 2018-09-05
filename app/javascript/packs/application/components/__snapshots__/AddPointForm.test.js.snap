@@ -16,7 +16,7 @@ exports[`<AddPointForm /> render 1`] = `
   <label
     htmlFor="title"
   >
-    Title:
+    Title: 
   </label>
   <input
     name="title"
@@ -28,7 +28,7 @@ exports[`<AddPointForm /> render 1`] = `
   <label
     htmlFor="caption"
   >
-    Caption:
+    Caption: 
   </label>
   <textarea
     name="caption"
@@ -40,7 +40,7 @@ exports[`<AddPointForm /> render 1`] = `
   <label
     htmlFor="description"
   >
-    Description:
+    Description: 
   </label>
   <textarea
     name="description"
@@ -52,7 +52,7 @@ exports[`<AddPointForm /> render 1`] = `
   <label
     htmlFor="location"
   >
-    Location:
+    Location: 
   </label>
   <input
     name="location"
@@ -64,7 +64,7 @@ exports[`<AddPointForm /> render 1`] = `
   <label
     htmlFor="directions"
   >
-    Directions:
+    Directions: 
   </label>
   <textarea
     name="directions"

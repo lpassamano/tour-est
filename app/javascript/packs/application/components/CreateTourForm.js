@@ -6,46 +6,12 @@ import * as tourActions from "../redux/tours/actions";
 import * as tourSelectors from "../redux/tours/selectors";
 
 export class CreateTourForm extends Component {
-  state = {
-    title: "",
-    starting_point: "",
-    directions: "",
-    estimated_time: "",
-    description: ""
-  };
-
-  handleSubmit = event => {
-    event.preventDefault();
-    const {
-      title,
-      starting_point,
-      directions,
-      estimated_time,
-      description
-    } = this.state;
-    this.props.onCreateTour({
-      tour: {
-        title: title,
-        starting_point: starting_point,
-        directions: directions,
-        estimated_time: estimated_time,
-        description: description
-      }
-    });
-  };
-
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+  handleSubmit = attributes => {
+    this.props.onCreateTour({ tour: attributes });
   };
 
   render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <TourFormFields onChange={this.handleChange} tour={this.state} />
-        <button type="submit">Create Tour</button>
-      </form>
-    );
+    return <TourFormFields onSubmit={this.handleSubmit} />;
   }
 }
 

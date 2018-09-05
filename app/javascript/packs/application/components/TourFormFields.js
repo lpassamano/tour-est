@@ -2,8 +2,22 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 export class TourFormFields extends Component {
+  state = {
+    title: "",
+    starting_point: "",
+    directions: "",
+    estimated_time: "",
+    description: ""
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.onSubmit(this.state);
+  };
+
   handleChange = event => {
-    this.props.onChange(event);
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   };
 
   render() {
@@ -13,16 +27,15 @@ export class TourFormFields extends Component {
       directions,
       estimated_time,
       description
-    } = this.props.tour;
+    } = this.state;
 
     return (
-      <div>
+      <form onSubmit={this.handleSubmit}>
         <label htmlFor="title">Title: </label>
         <input
           name="title"
           type="text"
-          defaultValue={title}
-          value={this.props.title}
+          value={title}
           onChange={this.handleChange}
         />
         <br />
@@ -30,8 +43,7 @@ export class TourFormFields extends Component {
         <input
           name="starting_point"
           type="text"
-          defaultValue={starting_point}
-          value={this.props.starting_point}
+          value={starting_point}
           onChange={this.handleChange}
         />
         <br />
@@ -39,8 +51,7 @@ export class TourFormFields extends Component {
         <input
           name="directions"
           type="text"
-          defaultValue={directions}
-          value={this.props.directions}
+          value={directions}
           onChange={this.handleChange}
         />
         <br />
@@ -48,8 +59,7 @@ export class TourFormFields extends Component {
         <input
           name="estimated_time"
           type="text"
-          defaultValue={estimated_time}
-          value={this.props.estimated_time}
+          value={estimated_time}
           onChange={this.handleChange}
         />
         <br />
@@ -57,24 +67,18 @@ export class TourFormFields extends Component {
         <input
           name="description"
           type="text"
-          defaultValue={description}
-          value={this.props.description}
+          value={description}
           onChange={this.handleChange}
         />
-      </div>
+        <br />
+        <button type="submit">Create Tour</button>
+      </form>
     );
   }
 }
 
 TourFormFields.propTypes = {
-  tour: PropTypes.shape({
-    title: PropTypes.string,
-    starting_point: PropTypes.string,
-    directions: PropTypes.string,
-    estimated_time: PropTypes.string,
-    description: PropTypes.string
-  }).isRequired,
-  onChange: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default TourFormFields;

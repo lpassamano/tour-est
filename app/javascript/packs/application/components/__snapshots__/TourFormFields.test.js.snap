@@ -1,17 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<TourFormFields /> render 1`] = `
-<div>
+<form
+  onSubmit={[Function]}
+>
   <label
     htmlFor="title"
   >
     Title: 
   </label>
   <input
-    defaultValue="Awesome Tour"
     name="title"
     onChange={[Function]}
     type="text"
+    value=""
   />
   <br />
   <label
@@ -23,6 +25,7 @@ exports[`<TourFormFields /> render 1`] = `
     name="starting_point"
     onChange={[Function]}
     type="text"
+    value=""
   />
   <br />
   <label
@@ -34,6 +37,7 @@ exports[`<TourFormFields /> render 1`] = `
     name="directions"
     onChange={[Function]}
     type="text"
+    value=""
   />
   <br />
   <label
@@ -45,6 +49,7 @@ exports[`<TourFormFields /> render 1`] = `
     name="estimated_time"
     onChange={[Function]}
     type="text"
+    value=""
   />
   <br />
   <label
@@ -56,6 +61,13 @@ exports[`<TourFormFields /> render 1`] = `
     name="description"
     onChange={[Function]}
     type="text"
+    value=""
   />
-</div>
+  <br />
+  <button
+    type="submit"
+  >
+    Create Tour
+  </button>
+</form>
 `;
