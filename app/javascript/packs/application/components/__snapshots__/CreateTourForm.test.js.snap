@@ -1,73 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CreateTourForm /> render 1`] = `
-<form
+<TourFormFields
+  initialValues={Object {}}
   onSubmit={[Function]}
->
-  <label
-    htmlFor="title"
-  >
-    Title: 
-  </label>
-  <input
-    name="title"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <br />
-  <label
-    htmlFor="starting_point"
-  >
-    Starting Point: 
-  </label>
-  <input
-    name="starting_point"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <br />
-  <label
-    htmlFor="directions"
-  >
-    Directions: 
-  </label>
-  <input
-    name="directions"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <br />
-  <label
-    htmlFor="estimated_time"
-  >
-    Estimated Time: 
-  </label>
-  <input
-    name="estimated_time"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <br />
-  <label
-    htmlFor="description"
-  >
-    Description: 
-  </label>
-  <input
-    name="description"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <br />
-  <button
-    type="submit"
-  >
-    Create Tour
-  </button>
-</form>
+/>
 `;

@@ -1,7 +1,7 @@
 import React from "react";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { listTours, createTour, getTour } from "./actions";
+import { listTours, createTour, updateTour, getTour } from "./actions";
 import api from "../../api";
 import { navigate } from "@reach/router";
 
@@ -68,6 +68,40 @@ describe("createTour()", () => {
 
     expect(dispatch).toHaveBeenCalledWith({
       type: "CREATE_TOUR_ERROR"
+    });
+  });
+});
+
+describe("updateTour()", () => {
+  it("calls the correct dispatch and returns data when successful", async () => {
+    const dispatch = jest.fn();
+    const tour = { id: 1, title: "New Tour!" };
+
+    jest.spyOn(api, "updateTour").mockResolvedValue({
+      ok: true,
+      data: tour
+    });
+
+    await updateTour()(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "UPDATE_TOUR_SUCCESS",
+      data: { [tour.id]: tour }
+    });
+    expect(navigate).toHaveBeenCalledWith(`/tours/${tour.id}`);
+  });
+
+  it("calls the correct dispatch when unsuccessful", async () => {
+    const dispatch = jest.fn();
+
+    jest.spyOn(api, "updateTour").mockResolvedValue({
+      ok: false
+    });
+
+    await updateTour()(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "UPDATE_TOUR_ERROR"
     });
   });
 });

@@ -11,6 +11,17 @@ class ToursController < ApplicationController
     end
   end
 
+  def update
+    @tour = Tour.find(params[:id])
+    @tour.update(tour_params)
+
+    if @tour.save
+      render :show
+    else
+      render json: @tour.errors, status: 422
+    end
+  end
+
   def index
     @tours = current_staff_user.tours
   end

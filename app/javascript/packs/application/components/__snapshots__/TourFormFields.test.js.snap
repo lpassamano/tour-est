@@ -1,18 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AddPointForm /> render 1`] = `
+exports[`<TourFormFields /> render 1`] = `
 <form
   onSubmit={[Function]}
 >
-  <label
-    htmlFor="image"
-  >
-    Upload Image
-  </label>
-  <ImageInput
-    name="image"
-    onChange={[Function]}
-  />
   <label
     htmlFor="title"
   >
@@ -26,36 +17,12 @@ exports[`<AddPointForm /> render 1`] = `
   />
   <br />
   <label
-    htmlFor="caption"
+    htmlFor="starting_point"
   >
-    Caption: 
-  </label>
-  <textarea
-    name="caption"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <br />
-  <label
-    htmlFor="description"
-  >
-    Description: 
-  </label>
-  <textarea
-    name="description"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <br />
-  <label
-    htmlFor="location"
-  >
-    Location: 
+    Starting Point: 
   </label>
   <input
-    name="location"
+    name="starting_point"
     onChange={[Function]}
     type="text"
     value=""
@@ -66,8 +33,32 @@ exports[`<AddPointForm /> render 1`] = `
   >
     Directions: 
   </label>
-  <textarea
+  <input
     name="directions"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <br />
+  <label
+    htmlFor="estimated_time"
+  >
+    Estimated Time: 
+  </label>
+  <input
+    name="estimated_time"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <br />
+  <label
+    htmlFor="description"
+  >
+    Description: 
+  </label>
+  <input
+    name="description"
     onChange={[Function]}
     type="text"
     value=""
@@ -76,20 +67,7 @@ exports[`<AddPointForm /> render 1`] = `
   <button
     type="submit"
   >
-    Save
-  </button>
-  <button
-    onClick={[Function]}
-    type="button"
-  >
-    Save and add another
-  </button>
-  <br />
-  <button
-    onClick={[MockFunction]}
-    type="button"
-  >
-    Cancel
+    Save Tour
   </button>
 </form>
 `;

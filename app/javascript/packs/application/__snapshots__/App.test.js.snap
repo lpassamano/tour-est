@@ -30,6 +30,9 @@ exports[`<App /> render 1`] = `
     <Connect(CreateTourForm)
       path="/tours/new"
     />
+    <Connect(UpdateTourForm)
+      path="/tours/:tourId/edit"
+    />
     <TourContainer
       path="/tours/:tourId"
     />

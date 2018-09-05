@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UpdateTour Form/> render 1`] = `
+<TourFormFields
+  initialValues={
+    Object {
+      "id": 1,
+      "title": "Tour 1",
+    }
+  }
+  onSubmit={[Function]}
+/>
+`;

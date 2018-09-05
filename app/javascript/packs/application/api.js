@@ -48,6 +48,10 @@ const createTour = attributes => {
   return api.post("/tours", attributes);
 };
 
+const updateTour = attributes => {
+  return api.patch(`/tours/${attributes.tour.id}`, attributes);
+};
+
 const listTours = () => {
   return api.get("/tours");
 };
@@ -71,6 +75,7 @@ export default {
   authenticateStaffUser,
   removeAuthToken,
   createTour,
+  updateTour,
   listTours,
   getTour,
   createPoint,
