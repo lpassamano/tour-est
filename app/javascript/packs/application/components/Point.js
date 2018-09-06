@@ -6,7 +6,7 @@ export class Point extends Component {
     const { id, title, image } = this.props.point;
     return (
       <div key={id}>
-        <img src={image} alt="" width="150px" />
+        {image ? <img src={image} alt="" width="150px" /> : null}
         <h4>{title}</h4>
       </div>
     );
