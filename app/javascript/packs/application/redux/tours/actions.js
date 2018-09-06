@@ -81,7 +81,7 @@ export const deleteTour = tourId => async dispatch => {
   const response = await api.deleteTour(tourId);
 
   if (response.ok) {
-    dispatch({ type: DELETE_TOUR_SUCCESS });
+    dispatch({ type: DELETE_TOUR_SUCCESS, tourId });
     listTours();
     navigate("/admin");
   } else {

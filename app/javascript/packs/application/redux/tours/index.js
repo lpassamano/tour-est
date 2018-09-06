@@ -1,3 +1,5 @@
+import { omit } from "lodash";
+
 import {
   CREATE_TOUR,
   CREATE_TOUR_SUCCESS,
@@ -28,15 +30,19 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case LIST_TOURS:
     case GET_TOUR:
     case DELETE_TOUR:
-      return { ...state, isFetching: true };
     case CREATE_TOUR_SUCCESS:
     case UPDATE_TOUR_SUCCESS:
     case GET_TOUR_SUCCESS:
-    case DELETE_TOUR_SUCCESS:
       return {
         ...state,
         isFetching: false,
         data: { ...state.data, ...action.data }
+      };
+    case DELETE_TOUR_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        data: omit(state.data, action.tourId)
       };
     case LIST_TOURS_SUCCESS:
       return {

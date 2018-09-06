@@ -73,7 +73,7 @@ RSpec.describe ToursController, type: :controller do
       new_params = valid_params.deep_merge(tour: { title: "", id: json['id']}, id: json['id'])
       delete :destroy, params: new_params
 
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(204)
       expect(Tour.count).to eq(0)
     end
   end
