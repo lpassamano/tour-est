@@ -32,7 +32,7 @@ class ToursController < ApplicationController
 
   def destroy
     Tour.find(params[:id]).destroy
-    render :index
+    head :no_content
   end
 
   private
