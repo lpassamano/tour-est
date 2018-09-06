@@ -59,3 +59,11 @@
 
 // Component Stylesheets
 @import "../components/Navigation";
+
+a + a {
+  margin-left: 15px;
+}
+
+.button + .button {
+  margin-left: 15px;
+}

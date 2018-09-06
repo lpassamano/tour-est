@@ -38,18 +38,23 @@ export class TourContainer extends Component {
         ) : (
           <div>
             <Link to={`/tours/${this.props.tourId}/edit`}>Edit Tour</Link>
-            <br />
             <Link to="#" onClick={this.handleDeleteTour}>
               Delete Tour
             </Link>
             <br />
-            <button type="button" onClick={this.showPointForm}>
+            <button
+              className="button hollow"
+              type="button"
+              onClick={this.showPointForm}
+            >
               Add Point to Tour
             </button>
-            <h3>Points on tour</h3>
-            <PointsList tourId={this.props.tourId} />
           </div>
         )}
+        <div>
+          <h3>Points on Tour</h3>
+          <PointsList tourId={this.props.tourId} />
+        </div>
       </div>
     );
   }
