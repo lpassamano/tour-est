@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "@reach/router";
+import { connect } from "react-redux";
 import Tour from "./Tour";
 import AddPointForm from "./AddPointForm";
 import PointsList from "./PointsList";
+import * as tourActions from "../redux/tours/actions";
 
 export class TourContainer extends Component {
   state = {
@@ -17,6 +20,11 @@ export class TourContainer extends Component {
     this.setState({ isShowingPointForm: false });
   };
 
+  handleDeleteTour = event => {
+    event.preventDefault();
+    this.props.deleteTour(this.props.tourId);
+  };
+
   render() {
     return (
       <div>
@@ -29,6 +37,12 @@ export class TourContainer extends Component {
           />
         ) : (
           <div>
+            <Link to={`/tours/${this.props.tourId}/edit`}>Edit Tour</Link>
+            <br />
+            <Link to="#" onClick={this.handleDeleteTour}>
+              Delete Tour
+            </Link>
+            <br />
             <button type="button" onClick={this.showPointForm}>
               Add Point to Tour
             </button>
@@ -42,7 +56,17 @@ export class TourContainer extends Component {
 }
 
 TourContainer.propTypes = {
-  tourId: PropTypes.string
+  tourId: PropTypes.string,
+  deleteTour: PropTypes.func.isRequired
 };
 
-export default TourContainer;
+const mapDispatchToProps = {
+  deleteTour: tourActions.deleteTour
+};
+
+const enhance = connect(
+  null,
+  mapDispatchToProps
+);
+
+export default enhance(TourContainer);
