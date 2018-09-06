@@ -4,9 +4,9 @@ import { Link } from "@reach/router";
 const Navigation = ({ currentStaffUser, onLogout }) => (
   <nav className="top-bar topbar-responsive">
     <div className="top-bar-title">
-      <a className="topbar-responsive-logo" href="#">
+      <Link to="/admin" className="topbar-responsive-logo">
         <strong>tour-est</strong>
-      </a>
+      </Link>
     </div>
     <div id="topbar-responsive" className="topbar-responsive-links">
       <div className="top-bar-right">
