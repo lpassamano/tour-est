@@ -5,11 +5,6 @@ exports[`<TourContainer /> render 1`] = `
   <Connect(Tour)
     tourId="1"
   />
-  <[object Object]
-    to="edit"
-  >
-    Edit Tour
-  </[object Object]>
   <Connect(PointsList)
     tourId="1"
   />

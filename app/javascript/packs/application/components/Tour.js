@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "@reach/router";
 import * as tourActions from "../redux/tours/actions";
 import * as tourSelectors from "../redux/tours/selectors";
 
@@ -8,6 +9,11 @@ export class Tour extends Component {
   componentDidMount() {
     this.props.getTour(this.props.tourId);
   }
+
+  handleDeleteTour = event => {
+    event.preventDefault();
+    this.props.deleteTour(this.props.tourId);
+  };
 
   render() {
     const { isFetching, tour } = this.props;
@@ -22,6 +28,10 @@ export class Tour extends Component {
         <p>{tour.description}</p>
         <p>{tour.starting_point}</p>
         <p>{tour.directions}</p>
+        <Link to={"edit"}>Edit Tour</Link>
+        <a href="#" onClick={this.handleDeleteTour}>
+          Delete Tour
+        </a>
       </div>
     );
   }
@@ -36,8 +46,7 @@ Tour.propTypes = {
     estimated_time: PropTypes.string,
     description: PropTypes.string
   }),
-  isFetching: PropTypes.bool.isRequired,
-  getTour: PropTypes.func.isRequired
+  isFetching: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -45,7 +54,10 @@ const mapStateToProps = (state, ownProps) => ({
   isFetching: tourSelectors.isFetching(state)
 });
 
-const mapDispatchToProps = { getTour: tourActions.getTour };
+const mapDispatchToProps = {
+  getTour: tourActions.getTour,
+  deleteTour: tourActions.deleteTour
+};
 
 const enhance = connect(
   mapStateToProps,

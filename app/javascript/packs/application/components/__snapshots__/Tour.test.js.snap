@@ -17,5 +17,16 @@ exports[`<Tour /> render 1`] = `
   <p>
     Meet at the West entrance
   </p>
+  <[object Object]
+    to="edit"
+  >
+    Edit Tour
+  </[object Object]>
+  <a
+    href="#"
+    onClick={[Function]}
+  >
+    Delete Tour
+  </a>
 </div>
 `;

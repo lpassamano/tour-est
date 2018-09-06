@@ -12,6 +12,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-react": "^6.24.1",
     "husky": "^1.0.0-rc.13",
+    "lodash": "^4.17.10",
     "object-to-formdata": "^1.5.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",

@@ -1,7 +1,13 @@
 import React from "react";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { listTours, createTour, updateTour, getTour } from "./actions";
+import {
+  listTours,
+  createTour,
+  updateTour,
+  getTour,
+  deleteTour
+} from "./actions";
 import api from "../../api";
 import { navigate } from "@reach/router";
 
@@ -135,6 +141,34 @@ describe("getTour()", () => {
 
     expect(dispatch).toHaveBeenCalledWith({
       type: "GET_TOUR_ERROR"
+    });
+  });
+});
+
+describe("deleteTour()", () => {
+  it("calls the correct dispatch and returns data when successful.", async () => {
+    const dispatch = jest.fn();
+    jest.spyOn(api, "deleteTour").mockResolvedValue({
+      ok: true
+    });
+
+    await deleteTour()(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "DELETE_TOUR_SUCCESS"
+    });
+  });
+
+  it("calls the correct dispatch when unsuccessful", async () => {
+    const dispatch = jest.fn();
+    jest.spyOn(api, "deleteTour").mockResolvedValue({
+      ok: false
+    });
+
+    await deleteTour()(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "DELETE_TOUR_ERROR"
     });
   });
 });

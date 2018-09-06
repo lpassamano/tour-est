@@ -1,3 +1,5 @@
+import { omit } from "lodash";
+
 import {
   CREATE_TOUR,
   CREATE_TOUR_SUCCESS,
@@ -10,7 +12,10 @@ import {
   LIST_TOURS_ERROR,
   GET_TOUR,
   GET_TOUR_SUCCESS,
-  GET_TOUR_ERROR
+  GET_TOUR_ERROR,
+  DELETE_TOUR,
+  DELETE_TOUR_SUCCESS,
+  DELETE_TOUR_ERROR
 } from "./actions";
 
 export const INITIAL_STATE = {
@@ -24,20 +29,31 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case UPDATE_TOUR:
     case LIST_TOURS:
     case GET_TOUR:
-      return { ...state, isFetching: true };
+    case DELETE_TOUR:
     case CREATE_TOUR_SUCCESS:
     case UPDATE_TOUR_SUCCESS:
-    case LIST_TOURS_SUCCESS:
     case GET_TOUR_SUCCESS:
       return {
         ...state,
         isFetching: false,
         data: { ...state.data, ...action.data }
       };
+    case DELETE_TOUR_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        data: omit(state.data, action.tourId)
+      };
+    case LIST_TOURS_SUCCESS:
+      return {
+        isFetching: false,
+        data: action.data
+      };
     case CREATE_TOUR_ERROR:
     case UPDATE_TOUR_ERROR:
     case LIST_TOURS_ERROR:
     case GET_TOUR_ERROR:
+    case DELETE_TOUR_ERROR:
       return { ...state, isFetching: false };
     default:
       return state;

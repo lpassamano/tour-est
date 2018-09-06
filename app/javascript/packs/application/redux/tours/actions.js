@@ -14,6 +14,9 @@ export const LIST_TOURS_ERROR = "LIST_TOURS_ERROR";
 export const GET_TOUR = "GET_TOUR";
 export const GET_TOUR_SUCCESS = "GET_TOUR_SUCCESS";
 export const GET_TOUR_ERROR = "GET_TOUR_ERROR";
+export const DELETE_TOUR = "DELETE_TOUR";
+export const DELETE_TOUR_SUCCESS = "DELETE_TOUR_SUCCESS";
+export const DELETE_TOUR_ERROR = "DELETE_TOUR_ERROR";
 
 export const createTour = attributes => async dispatch => {
   dispatch({ type: CREATE_TOUR });
@@ -70,5 +73,18 @@ export const getTour = tourId => async dispatch => {
     });
   } else {
     dispatch({ type: GET_TOUR_ERROR });
+  }
+};
+
+export const deleteTour = tourId => async dispatch => {
+  dispatch({ type: DELETE_TOUR });
+  const response = await api.deleteTour(tourId);
+
+  if (response.ok) {
+    dispatch({ type: DELETE_TOUR_SUCCESS, tourId });
+    listTours();
+    navigate("/admin");
+  } else {
+    dispatch({ type: DELETE_TOUR_ERROR });
   }
 };
