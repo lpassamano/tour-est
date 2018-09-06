@@ -52,7 +52,7 @@ export class TourFormFields extends Component {
         />
         <br />
         <label htmlFor="directions">Directions: </label>
-        <input
+        <textarea
           name="directions"
           type="text"
           value={directions}
@@ -68,7 +68,7 @@ export class TourFormFields extends Component {
         />
         <br />
         <label htmlFor="description">Description: </label>
-        <input
+        <textarea
           name="description"
           type="text"
           value={description}

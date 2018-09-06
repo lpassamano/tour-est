@@ -17,18 +17,28 @@ export class Tour extends Component {
 
   render() {
     const { isFetching, tour } = this.props;
+
     if (isFetching || !tour) {
       return <p>loading... please wait!</p>;
     }
 
+    const {
+      title,
+      description,
+      estimated_time,
+      starting_point,
+      directions
+    } = tour;
+
     return (
       <div>
-        <h2>{tour.title}</h2>
-        <p>{tour.estimated_time}</p>
-        <p>{tour.description}</p>
-        <p>{tour.starting_point}</p>
-        <p>{tour.directions}</p>
+        <h2>{title}</h2>
+        {description ? <p>{description}</p> : null}
+        {estimated_time ? <p>Estimated time: {estimated_time}</p> : null}
+        {starting_point ? <p>Start here: {starting_point}</p> : null}
+        {directions ? <p>How to get there: {directions}</p> : null}
         <Link to={"edit"}>Edit Tour</Link>
+        <br />
         <a href="#" onClick={this.handleDeleteTour}>
           Delete Tour
         </a>

@@ -21,7 +21,6 @@ export class TourContainer extends Component {
     return (
       <div>
         <Tour tourId={this.props.tourId} />
-        <PointsList tourId={this.props.tourId} />
         {this.state.isShowingPointForm ? (
           <AddPointForm
             onHide={this.hidePointForm}
@@ -29,9 +28,13 @@ export class TourContainer extends Component {
             tourId={this.props.tourId}
           />
         ) : (
-          <button type="button" onClick={this.showPointForm}>
-            Add Point to Tour
-          </button>
+          <div>
+            <button type="button" onClick={this.showPointForm}>
+              Add Point to Tour
+            </button>
+            <h3>Points on tour</h3>
+            <PointsList tourId={this.props.tourId} />
+          </div>
         )}
       </div>
     );

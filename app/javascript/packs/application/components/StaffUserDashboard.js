@@ -11,9 +11,7 @@ export class StaffUserDashboard extends Component {
     const { username, id, cultural_center } = this.props.currentStaffUser;
     return (
       <div>
-        <h1>Staff Dashboard</h1>
-        <h3>Current user: {username}</h3>
-        <h3>{cultural_center.name}</h3>
+        <h1>Tours for {cultural_center.name}</h1>
         <ToursList />
       </div>
     );
