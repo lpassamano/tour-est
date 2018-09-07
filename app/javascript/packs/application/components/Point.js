@@ -4,19 +4,27 @@ import { MediaObject, MediaObjectSection, Thumbnail } from "react-foundation";
 
 export class Point extends Component {
   render() {
-    const { id, title, image } = this.props.point;
+    const { id, title, image, caption, description } = this.props.point;
     return (
       <div key={id} className="media-object-basics-example">
-        <MediaObject>
-          {image ? (
+        <h4>{title}</h4>
+        {image ? (
+          <MediaObject stackForSmall>
             <MediaObjectSection>
               <Thumbnail src={image} alt=" " width="150" />
             </MediaObjectSection>
-          ) : null}
-          <MediaObjectSection isMain>
-            <h4>{title}</h4>
-          </MediaObjectSection>
-        </MediaObject>
+            <MediaObjectSection isMain>
+              {caption && <p>{caption}</p>}
+              {description && <p>{description}</p>}
+            </MediaObjectSection>
+          </MediaObject>
+        ) : (
+          <div>
+            {caption && <p>{caption}</p>}
+            {description && <p>{description}</p>}
+          </div>
+        )}
+        <hr />
       </div>
     );
   }
