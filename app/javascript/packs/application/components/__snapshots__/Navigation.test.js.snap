@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navigation /> render 1`] = `
+<nav
+  className="top-bar topbar-responsive"
+>
+  <div
+    className="top-bar-title"
+  >
+    <[object Object]
+      className="topbar-responsive-logo"
+      id="tour-est"
+      to="/admin"
+    >
+      <strong>
+        tour-est
+      </strong>
+    </[object Object]>
+  </div>
+  <div
+    className="topbar-responsive-links"
+    id="topbar-responsive"
+  >
+    <div
+      className="top-bar-right"
+    >
+      <ul
+        className="menu simple vertical medium-horizontal"
+      >
+        <li>
+          <a
+            href="#"
+            onClick={[MockFunction]}
+          >
+            Log Out
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
