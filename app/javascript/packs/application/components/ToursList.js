@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "@reach/router";
 import PropTypes from "prop-types";
+import { MediaObject, MediaObjectSection, Thumbnail } from "react-foundation";
 import * as tourActions from "../redux/tours/actions";
 import * as tourSelectors from "../redux/tours/selectors";
 
@@ -14,10 +15,31 @@ export class ToursList extends Component {
     const { isFetching, tours } = this.props;
 
     const tourLink = tour => {
+      console.log(tour);
       return (
-        <h4 key={tour.id}>
-          <Link to={`/tours/${tour.id}`}>{tour.title}</Link>
-        </h4>
+        <div key={tour.id} className="media-object-basics-example">
+          {tour.image ? (
+            <MediaObject stackForSmall>
+              <MediaObjectSection>
+                <Thumbnail src={tour.image} alt=" " width="150" />
+              </MediaObjectSection>
+              <MediaObjectSection isMain>
+                <h4 key={tour.id}>
+                  <Link to={`/tours/${tour.id}`}>{tour.title}</Link>
+                </h4>
+                {tour.description && <p>{tour.description}</p>}
+              </MediaObjectSection>
+            </MediaObject>
+          ) : (
+            <div>
+              <h4 key={tour.id}>
+                <Link to={`/tours/${tour.id}`}>{tour.title}</Link>
+              </h4>
+              {tour.description && <p>{tour.description}</p>}
+            </div>
+          )}
+          <hr />
+        </div>
       );
     };
 

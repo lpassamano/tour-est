@@ -2,32 +2,56 @@
 
 exports[`<ToursList /> render 1`] = `
 <div>
-  <h4
+  <div
+    className="media-object-basics-example"
     key="1"
   >
-    <[object Object]
-      to="/tours/1"
-    >
-      Tour 1
-    </[object Object]>
-  </h4>
-  <h4
+    <div>
+      <h4
+        key="1"
+      >
+        <[object Object]
+          to="/tours/1"
+        >
+          Tour 1
+        </[object Object]>
+      </h4>
+    </div>
+    <hr />
+  </div>
+  <div
+    className="media-object-basics-example"
     key="2"
   >
-    <[object Object]
-      to="/tours/2"
-    >
-      Tour 2
-    </[object Object]>
-  </h4>
-  <h4
+    <div>
+      <h4
+        key="2"
+      >
+        <[object Object]
+          to="/tours/2"
+        >
+          Tour 2
+        </[object Object]>
+      </h4>
+    </div>
+    <hr />
+  </div>
+  <div
+    className="media-object-basics-example"
     key="3"
   >
-    <[object Object]
-      to="/tours/3"
-    >
-      Tour 3
-    </[object Object]>
-  </h4>
+    <div>
+      <h4
+        key="3"
+      >
+        <[object Object]
+          to="/tours/3"
+        >
+          Tour 3
+        </[object Object]>
+      </h4>
+    </div>
+    <hr />
+  </div>
 </div>
 `;
