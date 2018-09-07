@@ -45,20 +45,20 @@ export class TourFormFields extends Component {
         />
         <br />
         <label htmlFor="starting_point">Starting Point: </label>
-        <p>Tell your visitors where they should go to begin the tour</p>
         <input
           name="starting_point"
           type="text"
           value={starting_point}
+          placeholder="Tell your visitors where they should go to begin the tour."
           onChange={this.handleChange}
         />
         <br />
         <label htmlFor="directions">Directions: </label>
-        <p>Let visitors know how to get to the starting point of the tour.</p>
         <textarea
           name="directions"
           type="text"
           value={directions}
+          placeholder="Let visitors know how to get to the starting point of the tour."
           onChange={this.handleChange}
         />
         <br />
