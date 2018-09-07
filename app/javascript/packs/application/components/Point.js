@@ -10,7 +10,7 @@ export class Point extends Component {
         <MediaObject>
           {image ? (
             <MediaObjectSection>
-              <Thumbnail src={image} alt=" " />
+              <Thumbnail src={image} alt=" " width="150" />
             </MediaObjectSection>
           ) : null}
           <MediaObjectSection isMain>
