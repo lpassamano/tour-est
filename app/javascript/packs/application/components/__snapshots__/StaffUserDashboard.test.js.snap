@@ -3,15 +3,15 @@
 exports[`<StaffUserDashboard /> render 1`] = `
 <div>
   <h1>
-    Staff Dashboard
-  </h1>
-  <h3>
-    Current user: 
-    username123
-  </h3>
-  <h3>
+    Tours for 
     Penn Museum
-  </h3>
+  </h1>
   <Connect(ToursList) />
+  <[object Object]
+    className="button hollow"
+    to="/tours/new"
+  >
+    Create New Tour
+  </[object Object]>
 </div>
 `;

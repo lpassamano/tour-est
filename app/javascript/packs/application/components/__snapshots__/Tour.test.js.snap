@@ -6,27 +6,19 @@ exports[`<Tour /> render 1`] = `
     Philly Tour
   </h2>
   <p>
-    2 hours
-  </p>
-  <p>
     Walking tour of Philly's architecture and public art
   </p>
   <p>
+    Estimated time: 
+    2 hours
+  </p>
+  <p>
+    Start here: 
     City Hall
   </p>
   <p>
+    How to get there: 
     Meet at the West entrance
   </p>
-  <[object Object]
-    to="edit"
-  >
-    Edit Tour
-  </[object Object]>
-  <a
-    href="#"
-    onClick={[Function]}
-  >
-    Delete Tour
-  </a>
 </div>
 `;
