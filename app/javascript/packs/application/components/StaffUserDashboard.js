@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "@reach/router";
 import { connect } from "react-redux";
 
 import CreateTourForm from "./CreateTourForm";
@@ -13,6 +14,13 @@ export class StaffUserDashboard extends Component {
       <div>
         <h1>Tours for {cultural_center.name}</h1>
         <ToursList />
+        <Link
+          to="/tours/new"
+          className="button hollow"
+          onClick={this.showPointForm}
+        >
+          Create New Tour
+        </Link>
       </div>
     );
   }
