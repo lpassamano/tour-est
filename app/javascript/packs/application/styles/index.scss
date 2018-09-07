@@ -1,4 +1,5 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css);
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 @import "settings";
 @import "~foundation-sites/scss/foundation";
@@ -68,4 +69,9 @@ a + a {
 
 .button + .button {
   margin-left: 15px;
+}
+
+#tour-est {
+  font-family: 'Lato', sans-serif;
+  font-size: $global-font-size * 2.5;
 }
