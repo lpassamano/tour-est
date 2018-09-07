@@ -50,14 +50,14 @@ export class App extends Component {
         />
 
         {this.props.currentStaffUser ? (
-          <Router>
+          <Router style={{ padding: 30 }}>
             <StaffUserDashboard path="/admin" />
             <CreateTourForm path="/tours/new" />
             <UpdateTourForm path="/tours/:tourId/edit" />
             <TourContainer path="/tours/:tourId" />
           </Router>
         ) : (
-          <Router>
+          <Router style={{ padding: 30 }}>
             <LoginForm path="/login" />
             <CreateAccountForm path="/sign-up" />
           </Router>

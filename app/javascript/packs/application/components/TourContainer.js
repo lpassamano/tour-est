@@ -37,9 +37,11 @@ export class TourContainer extends Component {
           />
         ) : (
           <div>
-            <Link to={`/tours/${this.props.tourId}/edit`}>Edit Tour</Link>
+            <Link to={`/tours/${this.props.tourId}/edit`}>
+              <i className="fi-pencil" /> Edit
+            </Link>
             <Link to="#" onClick={this.handleDeleteTour}>
-              Delete Tour
+              <i className="fi-trash" /> Delete
             </Link>
             <br />
             <button
