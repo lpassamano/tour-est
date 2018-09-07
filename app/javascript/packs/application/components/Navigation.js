@@ -13,12 +13,6 @@ const Navigation = ({ currentStaffUser, onLogout }) => (
         {currentStaffUser ? (
           <ul className="menu simple vertical medium-horizontal">
             <li>
-              <Link to="/admin">Home</Link>
-            </li>
-            <li>
-              <Link to="/tours/new">Create Tour</Link>
-            </li>
-            <li>
               <a href="#" onClick={onLogout}>
                 Log Out
               </a>
@@ -27,7 +21,7 @@ const Navigation = ({ currentStaffUser, onLogout }) => (
         ) : (
           <ul className="menu simple vertical medium-horizontal">
             <li>
-              <Link to="/login">Sign In</Link>
+              <Link to="/login">Log In</Link>
             </li>
             <li>
               <Link to="/sign-up">Create Account</Link>
