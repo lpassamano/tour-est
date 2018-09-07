@@ -28,35 +28,37 @@ export class TourContainer extends Component {
   render() {
     return (
       <div>
-        <Tour tourId={this.props.tourId} />
-        {this.state.isShowingPointForm ? (
+        <div className="tour-details">
+          <Tour tourId={this.props.tourId} />
+          {!this.state.isShowingPointForm && (
+            <div>
+              <Link to={`/tours/${this.props.tourId}/edit`}>
+                <i className="fi-pencil" /> Edit
+              </Link>
+              <Link to="#" onClick={this.handleDeleteTour}>
+                <i className="fi-trash" /> Delete
+              </Link>
+              <br />
+            </div>
+          )}
+        </div>
+        <h3 className="point-header">Points on Tour</h3>
+        <PointsList tourId={this.props.tourId} />
+        {!this.state.isShowingPointForm ? (
+          <button
+            className="button hollow"
+            type="button"
+            onClick={this.showPointForm}
+          >
+            Add Point
+          </button>
+        ) : (
           <AddPointForm
             onHide={this.hidePointForm}
             onShow={this.showPointForm}
             tourId={this.props.tourId}
           />
-        ) : (
-          <div>
-            <Link to={`/tours/${this.props.tourId}/edit`}>
-              <i className="fi-pencil" /> Edit
-            </Link>
-            <Link to="#" onClick={this.handleDeleteTour}>
-              <i className="fi-trash" /> Delete
-            </Link>
-            <br />
-            <button
-              className="button hollow"
-              type="button"
-              onClick={this.showPointForm}
-            >
-              Add Point to Tour
-            </button>
-          </div>
         )}
-        <div>
-          <h3>Points on Tour</h3>
-          <PointsList tourId={this.props.tourId} />
-        </div>
       </div>
     );
   }
