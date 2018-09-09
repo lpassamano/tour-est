@@ -13,7 +13,13 @@ const INITIAL_STATE = {
 };
 
 export class PointFormFields extends Component {
-  state = INITIAL_STATE;
+  constructor(props) {
+    super(props);
+    this.state = {
+      ...INITIAL_STATE,
+      ...this.props.initialValues
+    };
+  }
 
   handleSubmit = event => {
     event.preventDefault();
@@ -99,7 +105,19 @@ export class PointFormFields extends Component {
 
 PointFormFields.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  onHide: PropTypes.func.isRequired
+  onHide: PropTypes.func.isRequired,
+  initialValues: PropTypes.shape({
+    title: PropTypes.string,
+    caption: PropTypes.string,
+    description: PropTypes.string,
+    location: PropTypes.string,
+    directions: PropTypes.string,
+    image: PropTypes.string
+  })
+};
+
+PointFormFields.defaultProps = {
+  initialValues: {}
 };
 
 export default PointFormFields;

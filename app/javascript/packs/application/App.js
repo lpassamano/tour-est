@@ -10,6 +10,7 @@ import StaffUserDashboard from "./components/StaffUserDashboard";
 import CreateTourForm from "./components/CreateTourForm";
 import UpdateTourForm from "./components/UpdateTourForm";
 import TourContainer from "./components/TourContainer";
+import UpdatePointForm from "./components/UpdatePointForm";
 import api from "./api";
 import * as staffUserActions from "./redux/staffUser/actions";
 import * as staffUserSelectors from "./redux/staffUser/selectors";
@@ -54,7 +55,9 @@ export class App extends Component {
             <StaffUserDashboard path="/admin" />
             <CreateTourForm path="/tours/new" />
             <UpdateTourForm path="/tours/:tourId/edit" />
-            <TourContainer path="/tours/:tourId" />
+            <TourContainer path="/tours/:tourId">
+              <UpdatePointForm path="/points/:pointId/edit" />
+            </TourContainer>
           </Router>
         ) : (
           <Router className="container">
