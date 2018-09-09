@@ -15,7 +15,6 @@ export class ToursList extends Component {
     const { isFetching, tours } = this.props;
 
     const tourLink = tour => {
-      console.log(tour);
       return (
         <div key={tour.id} className="media-object-basics-example">
           {tour.image ? (
