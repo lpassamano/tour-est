@@ -9,7 +9,8 @@ const INITIAL_STATE = {
   description: "",
   location: "",
   directions: "",
-  image: undefined
+  image: undefined,
+  imageEdited: false
 };
 
 export class PointFormFields extends Component {
@@ -38,7 +39,10 @@ export class PointFormFields extends Component {
   };
 
   handleChangeImage = image => {
-    this.setState({ image });
+    this.setState({
+      image: image,
+      imageEdited: true
+    });
   };
 
   render() {
