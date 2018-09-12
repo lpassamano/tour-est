@@ -5,11 +5,12 @@ import { shallow } from "enzyme";
 describe("<Point />", () => {
   const setup = () => {
     const point = {
-      point: {
-        title: "First point"
-      }
+      title: "First point"
     };
-    const component = shallow(<Point point={point} />);
+    const deletePoint = jest.fn();
+    const component = shallow(
+      <Point point={point} deletePoint={deletePoint} />
+    );
     return component;
   };
 

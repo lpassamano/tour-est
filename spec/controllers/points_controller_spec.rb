@@ -100,4 +100,13 @@ RSpec.describe PointsController, type: :controller do
     expect(response.status).to eq(200)
     expect(original_image_path).to eq(rails_blob_path(point.image))
   end
+
+  it "deletes a point when provided a valid tour id and point id" do
+    post :create, params: { tour_id: tour.id, point: valid_params, format: :json }
+    original_points_count = tour.points.count
+    delete :destroy, params: { tour_id: tour.id, id: json['id'] }
+
+    expect(response.status).to eq(204)
+    expect(tour.points.count).to eq(original_points_count - 1)
+  end
 end

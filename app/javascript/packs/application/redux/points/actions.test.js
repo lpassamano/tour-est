@@ -1,7 +1,7 @@
 import React from "react";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { listPoints, createPoint, updatePoint } from "./actions";
+import { listPoints, createPoint, updatePoint, deletePoint } from "./actions";
 import api from "../../api";
 
 describe("listPoints()", () => {
@@ -99,6 +99,34 @@ describe("updatePoint()", () => {
 
     expect(dispatch).toHaveBeenCalledWith({
       type: "UPDATE_POINT_ERROR"
+    });
+  });
+});
+
+describe("deleteTour()", () => {
+  it("calls the correct dispatch and returns data when successful", async () => {
+    const dispatch = jest.fn();
+    jest.spyOn(api, "deletePoint").mockResolvedValue({
+      ok: true
+    });
+
+    await deletePoint()(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "DELETE_POINT_SUCCESS"
+    });
+  });
+
+  it("calls the correct dispatch when unsuccessful", async () => {
+    const dispatch = jest.fn();
+    jest.spyOn(api, "deletePoint").mockResolvedValue({
+      ok: false
+    });
+
+    await deletePoint()(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "DELETE_POINT_ERROR"
     });
   });
 });

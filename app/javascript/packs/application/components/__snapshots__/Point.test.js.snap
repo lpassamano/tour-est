@@ -5,7 +5,9 @@ exports[`<Point /> render 1`] = `
   <div
     className="media-object-basics-example"
   >
-    <h4 />
+    <h4>
+      First point
+    </h4>
     <div />
     <[object Object]
       onClick={[Function]}
