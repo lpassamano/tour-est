@@ -2,6 +2,7 @@
 
 exports[`<AddPointForm /> render 1`] = `
 <PointFormFields
+  initialValues={Object {}}
   onHide={[MockFunction]}
   onSubmit={[Function]}
 />

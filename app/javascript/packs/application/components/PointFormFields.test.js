@@ -41,7 +41,8 @@ describe("<PointFormFields />", () => {
       image: undefined,
       description: "",
       directions: "",
-      location: ""
+      location: "",
+      imageEdited: false
     });
   });
 
