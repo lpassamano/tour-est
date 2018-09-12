@@ -31,6 +31,11 @@ class PointsController < ApplicationController
     @points = tour.points.includes(:image_blob, :image_attachment)
   end
 
+  def destroy
+    Point.find(params[:id]).destroy
+    head :no_content
+  end
+
   private
 
   def point_params

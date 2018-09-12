@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { MediaObject, MediaObjectSection, Thumbnail } from "react-foundation";
 import { Link } from "@reach/router";
+import { connect } from "react-redux";
 import UpdatePointForm from "./UpdatePointForm";
+import * as pointActions from "../redux/points/actions";
 
 export class Point extends Component {
   state = {
@@ -19,7 +21,7 @@ export class Point extends Component {
 
   handleDeletePoint = event => {
     event.preventDefault();
-    this.props.deletePoint(this.props.point.id);
+    this.props.deletePoint(this.props.tourId, this.props.point.id);
   };
 
   render() {
@@ -73,7 +75,17 @@ Point.propTypes = {
     location: PropTypes.string,
     directions: PropTypes.string,
     image: PropTypes.string
-  }).isRequired
+  }).isRequired,
+  deletePoint: PropTypes.func.isRequired
 };
 
-export default Point;
+const mapDispatchToProps = {
+  deletePoint: pointActions.deletePoint
+};
+
+const enhance = connect(
+  null,
+  mapDispatchToProps
+);
+
+export default enhance(Point);
