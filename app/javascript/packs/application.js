@@ -7,12 +7,8 @@ import App from "./application/App";
 import store from "./application/redux";
 
 // Requirements for foundation
-import $ from "jquery";
 import "foundation-sites";
 import "./application/styles/index.scss";
-
-// Kick off foundation
-$(document).foundation();
 
 document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(
