@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Point /> render 1`] = `
-<div>
-  <img
-    alt=""
-    width="150px"
-  />
+<div
+  className="media-object-basics-example"
+>
   <h4 />
+  <div />
+  <hr />
 </div>
 `;

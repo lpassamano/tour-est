@@ -3,6 +3,7 @@ import { Router, Link, navigate } from "@reach/router";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
+import Navigation from "./components/Navigation";
 import LoginForm from "./components/LoginForm";
 import CreateAccountForm from "./components/CreateAccountForm";
 import StaffUserDashboard from "./components/StaffUserDashboard";
@@ -43,31 +44,20 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <h1>Tour-est</h1>
-        {this.props.currentStaffUser ? (
-          <nav>
-            <Link to="/admin">Home</Link>
-            <Link to="/tours/new">Create Tour</Link>
-            <a href="#" onClick={this.handleLogout}>
-              Log Out
-            </a>
-          </nav>
-        ) : (
-          <nav>
-            <Link to="/login">Sign In</Link>
-            <Link to="/sign-up">Create Account</Link>
-          </nav>
-        )}
+        <Navigation
+          currentStaffUser={this.props.currentStaffUser}
+          onLogout={this.handleLogout}
+        />
 
         {this.props.currentStaffUser ? (
-          <Router>
+          <Router className="container">
             <StaffUserDashboard path="/admin" />
             <CreateTourForm path="/tours/new" />
             <UpdateTourForm path="/tours/:tourId/edit" />
             <TourContainer path="/tours/:tourId" />
           </Router>
         ) : (
-          <Router>
+          <Router className="container">
             <LoginForm path="/login" />
             <CreateAccountForm path="/sign-up" />
           </Router>

@@ -6,6 +6,10 @@ import { Provider } from "react-redux";
 import App from "./application/App";
 import store from "./application/redux";
 
+// Requirements for foundation
+import "foundation-sites";
+import "./application/styles/index.scss";
+
 document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(
     <Provider store={store}>

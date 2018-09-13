@@ -73,23 +73,24 @@ exports[`<AddPointForm /> render 1`] = `
     value=""
   />
   <br />
-  <button
+  <Button
     type="submit"
   >
     Save
-  </button>
-  <button
+  </Button>
+  <Button
     onClick={[Function]}
     type="button"
   >
     Save and add another
-  </button>
+  </Button>
   <br />
-  <button
+  <Button
+    className="hollow"
     onClick={[MockFunction]}
     type="button"
   >
     Cancel
-  </button>
+  </Button>
 </form>
 `;

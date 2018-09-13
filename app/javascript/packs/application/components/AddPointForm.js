@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import { connect } from "react-redux";
+import { Button } from "react-foundation";
 import PropTypes from "prop-types";
 import * as pointActions from "../redux/points/actions";
 import * as pointSelectors from "../redux/points/selectors";
@@ -90,14 +91,14 @@ export class AddPointForm extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <button type="submit">Save</button>
-        <button type="button" onClick={this.handleSubmit}>
+        <Button type="submit">Save</Button>
+        <Button type="button" onClick={this.handleSubmit}>
           Save and add another
-        </button>
+        </Button>
         <br />
-        <button type="button" onClick={this.props.onHide}>
+        <Button className="hollow" type="button" onClick={this.props.onHide}>
           Cancel
-        </button>
+        </Button>
       </form>
     );
   }

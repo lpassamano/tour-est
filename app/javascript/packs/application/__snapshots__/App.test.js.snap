@@ -2,28 +2,22 @@
 
 exports[`<App /> render 1`] = `
 <div>
-  <h1>
-    Tour-est
-  </h1>
-  <nav>
-    <[object Object]
-      to="/admin"
-    >
-      Home
-    </[object Object]>
-    <[object Object]
-      to="/tours/new"
-    >
-      Create Tour
-    </[object Object]>
-    <a
-      href="#"
-      onClick={[Function]}
-    >
-      Log Out
-    </a>
-  </nav>
-  <Router>
+  <Navigation
+    currentStaffUser={
+      Object {
+        "cultural_center": Object {
+          "id": 1,
+          "name": "MoMA",
+        },
+        "id": 1,
+        "username": "username123",
+      }
+    }
+    onLogout={[Function]}
+  />
+  <Router
+    className="container"
+  >
     <Connect(StaffUserDashboard)
       path="/admin"
     />
@@ -33,7 +27,7 @@ exports[`<App /> render 1`] = `
     <Connect(UpdateTourForm)
       path="/tours/:tourId/edit"
     />
-    <TourContainer
+    <Connect(TourContainer)
       path="/tours/:tourId"
     />
   </Router>

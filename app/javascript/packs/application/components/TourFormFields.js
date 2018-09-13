@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Button } from "react-foundation";
 
 export class TourFormFields extends Component {
   constructor(props) {
@@ -48,14 +49,16 @@ export class TourFormFields extends Component {
           name="starting_point"
           type="text"
           value={starting_point}
+          placeholder="Tell your visitors where they should go to begin the tour."
           onChange={this.handleChange}
         />
         <br />
         <label htmlFor="directions">Directions: </label>
-        <input
+        <textarea
           name="directions"
           type="text"
           value={directions}
+          placeholder="Let visitors know how to get to the starting point of the tour."
           onChange={this.handleChange}
         />
         <br />
@@ -68,14 +71,14 @@ export class TourFormFields extends Component {
         />
         <br />
         <label htmlFor="description">Description: </label>
-        <input
+        <textarea
           name="description"
           type="text"
           value={description}
           onChange={this.handleChange}
         />
         <br />
-        <button type="submit">Save Tour</button>
+        <Button type="submit">Save</Button>
       </form>
     );
   }

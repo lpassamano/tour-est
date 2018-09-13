@@ -2,17 +2,47 @@
 
 exports[`<TourContainer /> render 1`] = `
 <div>
-  <Connect(Tour)
-    tourId="1"
-  />
+  <div
+    className="tour-details"
+  >
+    <Connect(Tour)
+      tourId="1"
+    />
+    <div>
+      <[object Object]
+        to="/tours/1/edit"
+      >
+        <i
+          className="fi-pencil"
+        />
+         Edit
+      </[object Object]>
+      <[object Object]
+        onClick={[Function]}
+        to="#"
+      >
+        <i
+          className="fi-trash"
+        />
+         Delete
+      </[object Object]>
+      <br />
+    </div>
+  </div>
+  <h3
+    className="point-header"
+  >
+    Points on Tour
+  </h3>
   <Connect(PointsList)
     tourId="1"
   />
   <button
+    className="button hollow"
     onClick={[Function]}
     type="button"
   >
-    Add Point to Tour
+    Add Point
   </button>
 </div>
 `;

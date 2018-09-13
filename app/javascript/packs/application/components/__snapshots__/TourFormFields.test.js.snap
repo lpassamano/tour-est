@@ -24,6 +24,7 @@ exports[`<TourFormFields /> render 1`] = `
   <input
     name="starting_point"
     onChange={[Function]}
+    placeholder="Tell your visitors where they should go to begin the tour."
     type="text"
     value=""
   />
@@ -33,9 +34,10 @@ exports[`<TourFormFields /> render 1`] = `
   >
     Directions: 
   </label>
-  <input
+  <textarea
     name="directions"
     onChange={[Function]}
+    placeholder="Let visitors know how to get to the starting point of the tour."
     type="text"
     value=""
   />
@@ -57,17 +59,17 @@ exports[`<TourFormFields /> render 1`] = `
   >
     Description: 
   </label>
-  <input
+  <textarea
     name="description"
     onChange={[Function]}
     type="text"
     value=""
   />
   <br />
-  <button
+  <Button
     type="submit"
   >
-    Save Tour
-  </button>
+    Save
+  </Button>
 </form>
 `;

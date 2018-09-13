@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Link } from "@reach/router";
 import * as tourActions from "../redux/tours/actions";
 import * as tourSelectors from "../redux/tours/selectors";
 
@@ -10,28 +9,28 @@ export class Tour extends Component {
     this.props.getTour(this.props.tourId);
   }
 
-  handleDeleteTour = event => {
-    event.preventDefault();
-    this.props.deleteTour(this.props.tourId);
-  };
-
   render() {
     const { isFetching, tour } = this.props;
+
     if (isFetching || !tour) {
       return <p>loading... please wait!</p>;
     }
 
+    const {
+      title,
+      description,
+      estimated_time,
+      starting_point,
+      directions
+    } = tour;
+
     return (
       <div>
-        <h2>{tour.title}</h2>
-        <p>{tour.estimated_time}</p>
-        <p>{tour.description}</p>
-        <p>{tour.starting_point}</p>
-        <p>{tour.directions}</p>
-        <Link to={"edit"}>Edit Tour</Link>
-        <a href="#" onClick={this.handleDeleteTour}>
-          Delete Tour
-        </a>
+        <h2>{title}</h2>
+        {description && <p>{description}</p>}
+        {estimated_time && <p>Estimated time: {estimated_time}</p>}
+        {starting_point && <p>Start here: {starting_point}</p>}
+        {directions && <p>How to get there: {directions}</p>}
       </div>
     );
   }
@@ -46,7 +45,8 @@ Tour.propTypes = {
     estimated_time: PropTypes.string,
     description: PropTypes.string
   }),
-  isFetching: PropTypes.bool.isRequired
+  isFetching: PropTypes.bool.isRequired,
+  getTour: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -55,8 +55,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = {
-  getTour: tourActions.getTour,
-  deleteTour: tourActions.deleteTour
+  getTour: tourActions.getTour
 };
 
 const enhance = connect(
