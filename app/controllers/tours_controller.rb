@@ -23,7 +23,9 @@ class ToursController < ApplicationController
   end
 
   def index
-    @tours = current_staff_user.tours
+    @tours = current_staff_user.tours.includes(
+      points: [:image_blob, :image_attachment]
+    )
   end
 
   def show
