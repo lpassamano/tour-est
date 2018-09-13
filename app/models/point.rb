@@ -6,6 +6,6 @@ class Point < ApplicationRecord
 
   def image=(value)
     image.purge
-    image.attach(value)
+    image.attach(value) if value != ""
   end
 end

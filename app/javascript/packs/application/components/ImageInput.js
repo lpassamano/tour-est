@@ -45,7 +45,11 @@ export class ImageInput extends Component {
       <Dropzone name={name} onDrop={this.handleChange} {...config}>
         {preview && <img src={preview} />}
 
-        <p>Drag and drop your image here.</p>
+        {value ? (
+          <p>Drag and drop here to change your image.</p>
+        ) : (
+          <p>Drag and drop your image here.</p>
+        )}
       </Dropzone>
     );
   }
