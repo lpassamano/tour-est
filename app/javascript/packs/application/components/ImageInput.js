@@ -32,7 +32,7 @@ const config = {
   className: "dropzone"
 };
 
-export default class ImageInput extends Component {
+export class ImageInput extends Component {
   handleChange = ([image]) => {
     this.props.onChange(image);
   };
@@ -59,3 +59,5 @@ ImageInput.propTypes = {
     PropTypes.shape({ preview: PropTypes.string })
   ])
 };
+
+export default ImageInput;

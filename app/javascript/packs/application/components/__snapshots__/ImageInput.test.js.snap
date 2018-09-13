@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ImageInput /> render 1`] = `
+<t
+  activeStyle={
+    Object {
+      "alignItems": "center",
+      "background": "#fff6cd",
+      "border": "1px dashed #98a1a8",
+      "cursor": "grabbing",
+      "display": "flex",
+      "flexDirection": "column",
+      "justifyContent": "center",
+      "padding": "2rem",
+    }
+  }
+  className="dropzone"
+  disableClick={false}
+  disablePreview={false}
+  disabled={false}
+  getDataTransferItems={[Function]}
+  inputProps={Object {}}
+  maxSize={Infinity}
+  minSize={0}
+  multiple={true}
+  name="image"
+  onDrop={[Function]}
+  preventDropOnDocument={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "border": "1px dashed #98a1a8",
+      "cursor": "pointer",
+      "display": "flex",
+      "flexDirection": "column",
+      "justifyContent": "center",
+      "padding": "2rem",
+    }
+  }
+>
+  <p>
+    Drag and drop your image here.
+  </p>
+</t>
+`;
