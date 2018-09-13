@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Button } from "react-foundation";
+import { omit } from "lodash";
 import ImageInput from "./ImageInput";
 
 const INITIAL_STATE = {
@@ -24,7 +25,12 @@ export class PointFormFields extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit(this.state);
+
+    if (this.state.imageEdited) {
+      this.props.onSubmit(omit(this.state, "imageEdited"));
+    } else {
+      this.props.onSubmit(omit(this.state, ["image", "imageEdited"]));
+    }
 
     if (event.target.type === "button") {
       return this.setState(INITIAL_STATE);

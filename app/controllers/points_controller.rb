@@ -12,14 +12,8 @@ class PointsController < ApplicationController
 
   def update
     @point = Point.find(params[:id])
-    @point.attributes = point_params.except(:image)
 
-    if params[:imageEdited] == "true"
-      @point.image.purge
-      @point.image.attach(point_params[:image])
-    end
-
-    if @point.save
+    if @point.update(point_params)
       render :show
     else
       render json: @point.errors, status: 422

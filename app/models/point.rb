@@ -3,4 +3,9 @@ class Point < ApplicationRecord
 
   belongs_to :tour
   has_one_attached :image
+
+  def image=(value)
+    image.purge
+    image.attach(value)
+  end
 end
