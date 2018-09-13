@@ -42,7 +42,7 @@ RSpec.describe PointsController, type: :controller do
 
   it 'updates a point when provided valid data' do
     post :create, params: { tour_id: tour.id, point: valid_params, format: :json }
-    new_params = { title: "Not Melancholia", imageEdited: false, id: json['id'] }
+    new_params = { title: "Not Melancholia", id: json['id'] }
     patch :update, params: { tour_id: tour.id, id: json['id'], point: new_params, format: :json }
     point = Point.find(json['id'])
 

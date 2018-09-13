@@ -28,21 +28,65 @@ describe("<PointFormFields />", () => {
     expect(component.state("title")).toEqual("Nike of Samothrace");
   });
 
-  test("onSubmit - when button is clicked the current state is submitted", () => {
+  test("handleChangeImage - when a new image is uploaded handleChangeImage is called", () => {
+    const component = setup({});
+    component.find('[name="image"]').simulate("change", {
+      preview: "blob:http://localhost:300/a3b6c1fa-93b9",
+      name: "nike.jpeg",
+      size: 197764,
+      type: "image/jpeg"
+    });
+
+    expect(component.state("imageEdited")).toEqual(true);
+    expect(component.state("image")).toEqual({
+      preview: "blob:http://localhost:300/a3b6c1fa-93b9",
+      name: "nike.jpeg",
+      size: 197764,
+      type: "image/jpeg"
+    });
+  });
+
+  test("onSubmit - when button is clicked the current state is submitted without an image", () => {
     const onSubmit = jest.fn();
     onSubmit.mockResolvedValue({ ok: true, data: { id: 1 } });
     const component = setup({ onSubmit });
-    fillIn(component.find('[name="caption"]'), "Nike of Samothrace");
+    fillIn(component.find('[name="title"]'), "Nike of Samothrace");
     submit(component.find("form"));
 
     expect(onSubmit).toHaveBeenCalledWith({
-      title: "",
-      caption: "Nike of Samothrace",
-      image: undefined,
+      title: "Nike of Samothrace",
+      caption: "",
+      description: "",
+      directions: "",
+      location: ""
+    });
+  });
+
+  test("onSubmit - when button is clicked the current state is submitted with an image", () => {
+    const onSubmit = jest.fn();
+    onSubmit.mockResolvedValue({ ok: true, data: { id: 1 } });
+    const component = setup({ onSubmit });
+    fillIn(component.find('[name="title"]'), "Nike of Samothrace");
+    component.find('[name="image"]').simulate("change", {
+      preview: "blob:http://localhost:300/a3b6c1fa-93b9",
+      name: "nike.jpeg",
+      size: 197764,
+      type: "image/jpeg"
+    });
+    submit(component.find("form"));
+
+    expect(onSubmit).toHaveBeenCalledWith({
+      title: "Nike of Samothrace",
+      caption: "",
       description: "",
       directions: "",
       location: "",
-      imageEdited: false
+      image: {
+        preview: "blob:http://localhost:300/a3b6c1fa-93b9",
+        name: "nike.jpeg",
+        size: 197764,
+        type: "image/jpeg"
+      }
     });
   });
 
