@@ -46,6 +46,32 @@ describe("<PointFormFields />", () => {
     });
   });
 
+  test("handleDeleteImage - when image is deleted handleDeleteImage is called", () => {
+    const onHide = jest.fn();
+    const onSubmit = jest.fn();
+    const values = {
+      title: "Nike of Samothrace",
+      caption: "",
+      description: "",
+      directions: "",
+      location: "",
+      image: "blob:http://localhost:300/a3b6c1fa-93b9"
+    };
+    const component = shallow(
+      <PointFormFields
+        onSubmit={onSubmit}
+        onHide={onHide}
+        initialValues={values}
+      />
+    );
+    component
+      .find("#delete-image")
+      .simulate("click", { preventDefault: () => {} });
+
+    expect(component.state("imageEdited")).toEqual(true);
+    expect(component.state("image")).toEqual(undefined);
+  });
+
   test("onSubmit - when button is clicked the current state is submitted without an image", () => {
     const onSubmit = jest.fn();
     onSubmit.mockResolvedValue({ ok: true, data: { id: 1 } });
@@ -91,7 +117,23 @@ describe("<PointFormFields />", () => {
   });
 
   test("render", () => {
-    const component = setup({});
+    const onHide = jest.fn();
+    const onSubmit = jest.fn();
+    const values = {
+      title: "Nike of Samothrace",
+      caption: "",
+      description: "",
+      directions: "",
+      location: "",
+      image: "blob:http://localhost:300/a3b6c1fa-93b9"
+    };
+    const component = shallow(
+      <PointFormFields
+        onSubmit={onSubmit}
+        onHide={onHide}
+        initialValues={values}
+      />
+    );
     expect(component).toMatchSnapshot();
   });
 });
