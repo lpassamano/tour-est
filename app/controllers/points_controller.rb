@@ -10,15 +10,31 @@ class PointsController < ApplicationController
     end
   end
 
+  def update
+    @point = Point.find(params[:id])
+
+    if @point.update(point_params)
+      render :show
+    else
+      render json: @point.errors, status: 422
+    end
+  end
+
   def index
     tour = Tour.find(params[:tour_id])
     @points = tour.points.includes(:image_blob, :image_attachment)
+  end
+
+  def destroy
+    Point.find(params[:id]).destroy
+    head :no_content
   end
 
   private
 
   def point_params
     params.require(:point).permit(
+      :id,
       :title,
       :caption,
       :description,

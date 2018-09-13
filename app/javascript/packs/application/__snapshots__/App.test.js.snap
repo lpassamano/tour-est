@@ -29,7 +29,11 @@ exports[`<App /> render 1`] = `
     />
     <Connect(TourContainer)
       path="/tours/:tourId"
-    />
+    >
+      <Connect(UpdatePointForm)
+        path="/points/:pointId/edit"
+      />
+    </Connect(TourContainer)>
   </Router>
 </div>
 `;

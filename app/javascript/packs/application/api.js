@@ -68,8 +68,19 @@ const createPoint = (tourId, attributes) => {
   return api.post(`/tours/${tourId}/points`, toFormData(attributes));
 };
 
+const updatePoint = (tourId, attributes) => {
+  return api.patch(
+    `/tours/${tourId}/points/${attributes.point.id}`,
+    toFormData(attributes)
+  );
+};
+
 const listPoints = tourId => {
   return api.get(`/tours/${tourId}/points`);
+};
+
+const deletePoint = (tourId, pointId) => {
+  return api.delete(`/tours/${tourId}/points/${pointId}`);
 };
 
 export default {
@@ -84,5 +95,7 @@ export default {
   getTour,
   deleteTour,
   createPoint,
-  listPoints
+  updatePoint,
+  listPoints,
+  deletePoint
 };

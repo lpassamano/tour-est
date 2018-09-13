@@ -21,7 +21,11 @@ export class PointsList extends Component {
     }
 
     return (
-      <div>{points.map(point => <Point point={point} key={point.id} />)}</div>
+      <div>
+        {points.map(point => (
+          <Point point={point} key={point.id} tourId={this.props.tourId} />
+        ))}
+      </div>
     );
   }
 }

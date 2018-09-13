@@ -39,4 +39,74 @@ RSpec.describe PointsController, type: :controller do
     }.to_not change(Point, :count)
     expect(response.status).to eq(422)
   end
+
+  it 'updates a point when provided valid data' do
+    post :create, params: { tour_id: tour.id, point: valid_params, format: :json }
+    new_params = { title: "Not Melancholia", id: json['id'] }
+    patch :update, params: { tour_id: tour.id, id: json['id'], point: new_params, format: :json }
+    point = Point.find(json['id'])
+
+    expect(response.status).to eq(200)
+    expect(point.title).to eq("Not Melancholia")
+  end
+
+  it 'does not update a point when provided invalid data' do
+    post :create, params: { tour_id: tour.id, point: valid_params, format: :json }
+    new_params = { title: "", id: json['id'] }
+    patch :update, params: { tour_id: tour.id, id: json['id'], point: new_params, format: :json }
+    point = Point.find(json['id'])
+
+    expect(response.status).to eq(422)
+    expect(point.title).to eq(valid_params[:title])
+  end
+
+  it 'updates an image when a new image is attached' do
+    post :create, params: { tour_id: tour.id, point: valid_params, format: :json }
+    original_image_path = rails_blob_path(Point.find(json['id']).image)
+    new_params = {
+      title: "Mona Lisa",
+      image: fixture_file_upload("mona_lisa.jpg"),
+      id: json['id']
+    }
+    patch :update, params: {
+      tour_id: tour.id,
+      id: json['id'],
+      point: new_params,
+      imageEdited: "true",
+      format: :json
+    }
+    point = Point.find(json['id'])
+
+    expect(response.status).to eq(200)
+    expect(original_image_path).to_not eq(rails_blob_path(point.image))
+  end
+
+  it 'does not change the image when a new image is not attached' do
+    post :create, params: { tour_id: tour.id, point: valid_params, format: :json }
+    original_image_path = rails_blob_path(Point.find(json['id']).image)
+    new_params = {
+      title: "Not Melancholia",
+      id: json['id']
+    }
+    patch :update, params: {
+      tour_id: tour.id,
+      id: json['id'],
+      point: new_params,
+      imageEdited: "false",
+      format: :json
+    }
+    point = Point.find(json['id'])
+
+    expect(response.status).to eq(200)
+    expect(original_image_path).to eq(rails_blob_path(point.image))
+  end
+
+  it "deletes a point when provided a valid tour id and point id" do
+    post :create, params: { tour_id: tour.id, point: valid_params, format: :json }
+    original_points_count = tour.points.count
+    delete :destroy, params: { tour_id: tour.id, id: json['id'] }
+
+    expect(response.status).to eq(204)
+    expect(tour.points.count).to eq(original_points_count - 1)
+  end
 end

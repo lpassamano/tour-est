@@ -1,15 +1,14 @@
-import { Point } from "./Point";
+import { ImageInput } from "./ImageInput";
 import React from "react";
 import { shallow } from "enzyme";
 
-describe("<Point />", () => {
+describe("<ImageInput />", () => {
   const setup = () => {
-    const point = {
-      title: "First point"
-    };
-    const deletePoint = jest.fn();
+    const onChange = jest.fn();
+    const name = "image";
+    const value = undefined;
     const component = shallow(
-      <Point point={point} deletePoint={deletePoint} />
+      <ImageInput onChange={onChange} name={name} value={value} />
     );
     return component;
   };

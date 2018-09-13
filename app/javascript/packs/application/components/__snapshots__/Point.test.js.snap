@@ -1,11 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Point /> render 1`] = `
-<div
-  className="media-object-basics-example"
->
-  <h4 />
-  <div />
-  <hr />
+<div>
+  <div
+    className="media-object-basics-example"
+  >
+    <h4>
+      First point
+    </h4>
+    <div />
+    <[object Object]
+      onClick={[Function]}
+      to="#"
+    >
+      <i
+        className="fi-pencil"
+      />
+       Edit
+    </[object Object]>
+    <[object Object]
+      onClick={[Function]}
+      to="#"
+    >
+      <i
+        className="fi-trash"
+      />
+       Delete
+    </[object Object]>
+    <hr />
+  </div>
 </div>
 `;
