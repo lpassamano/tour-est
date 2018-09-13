@@ -5,7 +5,10 @@ import { shallow } from "enzyme";
 describe("<TourContainer />", () => {
   test("render", () => {
     const tourId = "1";
-    const component = shallow(<TourContainer tourId={tourId} />);
+    const deleteTour = jest.fn();
+    const component = shallow(
+      <TourContainer tourId={tourId} deleteTour={deleteTour} />
+    );
     expect(component).toMatchSnapshot();
   });
 });
