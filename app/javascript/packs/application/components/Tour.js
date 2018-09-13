@@ -27,10 +27,10 @@ export class Tour extends Component {
     return (
       <div>
         <h2>{title}</h2>
-        {description ? <p>{description}</p> : null}
-        {estimated_time ? <p>Estimated time: {estimated_time}</p> : null}
-        {starting_point ? <p>Start here: {starting_point}</p> : null}
-        {directions ? <p>How to get there: {directions}</p> : null}
+        {description && <p>{description}</p>}
+        {estimated_time && <p>Estimated time: {estimated_time}</p>}
+        {starting_point && <p>Start here: {starting_point}</p>}
+        {directions && <p>How to get there: {directions}</p>}
       </div>
     );
   }
