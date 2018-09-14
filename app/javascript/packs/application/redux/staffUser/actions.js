@@ -1,4 +1,3 @@
-import { navigate } from "@reach/router";
 import api from "../../api";
 
 export const CREATE_STAFF_USER = "CREATE_STAFF_USER";

@@ -10,7 +10,7 @@ exports[`<TourContainer /> render 1`] = `
     />
     <div>
       <[object Object]
-        to="/tours/1/edit"
+        to="/admin/tours/1/edit"
       >
         <i
           className="fi-pencil"

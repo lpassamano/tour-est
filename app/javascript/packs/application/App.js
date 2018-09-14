@@ -53,9 +53,9 @@ export class App extends Component {
         {this.props.currentStaffUser ? (
           <Router className="container">
             <StaffUserDashboard path="/admin" />
-            <CreateTourForm path="/tours/new" />
-            <UpdateTourForm path="/tours/:tourId/edit" />
-            <TourContainer path="/tours/:tourId">
+            <CreateTourForm path="/admin/tours/new" />
+            <UpdateTourForm path="/admin/tours/:tourId/edit" />
+            <TourContainer path="/admin/tours/:tourId">
               <UpdatePointForm path="/points/:pointId/edit" />
             </TourContainer>
           </Router>

@@ -60,7 +60,7 @@ describe("createTour()", () => {
       type: "CREATE_TOUR_SUCCESS",
       data: { [tour.id]: tour }
     });
-    expect(navigate).toHaveBeenCalledWith(`/tours/${tour.id}`);
+    expect(navigate).toHaveBeenCalledWith(`/admin/tours/${tour.id}`);
   });
 
   it("calls the correct dispatch when unsuccessful", async () => {
@@ -94,7 +94,7 @@ describe("updateTour()", () => {
       type: "UPDATE_TOUR_SUCCESS",
       data: { [tour.id]: tour }
     });
-    expect(navigate).toHaveBeenCalledWith(`/tours/${tour.id}`);
+    expect(navigate).toHaveBeenCalledWith(`/admin/tours/${tour.id}`);
   });
 
   it("calls the correct dispatch when unsuccessful", async () => {

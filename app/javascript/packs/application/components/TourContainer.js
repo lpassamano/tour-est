@@ -32,7 +32,7 @@ export class TourContainer extends Component {
           <Tour tourId={this.props.tourId} />
           {!this.state.isShowingPointForm && (
             <div>
-              <Link to={`/tours/${this.props.tourId}/edit`}>
+              <Link to={`/admin/tours/${this.props.tourId}/edit`}>
                 <i className="fi-pencil" /> Edit
               </Link>
               <Link to="#" onClick={this.handleDeleteTour}>
