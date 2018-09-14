@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import PointFormFields from "./PointFormFields";
-import * as pointActions from "../redux/points/actions";
-import * as pointSelectors from "../redux/points/selectors";
+import * as pointActions from "../../redux/points/actions";
+import * as pointSelectors from "../../redux/points/selectors";
 
 export class UpdatePointForm extends Component {
   handleSubmit = attributes => {

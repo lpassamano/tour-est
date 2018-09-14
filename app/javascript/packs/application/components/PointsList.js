@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Point from "./Point";
+import Point from "./admin/Point";
 import * as pointActions from "../redux/points/actions";
 import * as pointSelectors from "../redux/points/selectors";
 
@@ -14,10 +14,6 @@ export class PointsList extends Component {
     const { isFetching, points } = this.props;
     if (isFetching) {
       return <p>loading... please wait!</p>;
-    }
-
-    if (!points) {
-      return <p>Add points to your tour by clicking the button below!</p>;
     }
 
     return (

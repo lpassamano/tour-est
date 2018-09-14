@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import TourFormFields from "./TourFormFields";
-import * as tourActions from "../redux/tours/actions";
-import * as tourSelectors from "../redux/tours/selectors";
+import * as tourActions from "../../redux/tours/actions";
+import * as tourSelectors from "../../redux/tours/selectors";
 
 export class CreateTourForm extends Component {
   handleSubmit = attributes => {

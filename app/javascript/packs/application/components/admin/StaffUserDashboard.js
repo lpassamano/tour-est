@@ -4,8 +4,8 @@ import { Link } from "@reach/router";
 import { connect } from "react-redux";
 
 import CreateTourForm from "./CreateTourForm";
-import ToursList from "./ToursList";
-import * as staffUserSelectors from "../redux/staffUser/selectors";
+import ToursList from "../ToursList";
+import * as staffUserSelectors from "../../redux/staffUser/selectors";
 
 export class StaffUserDashboard extends Component {
   render() {

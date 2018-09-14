@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import { connect } from "react-redux";
-import Tour from "./Tour";
+import Tour from "../Tour";
 import AddPointForm from "./AddPointForm";
-import PointsList from "./PointsList";
-import * as tourActions from "../redux/tours/actions";
+import PointsList from "../PointsList";
+import * as tourActions from "../../redux/tours/actions";
 
 export class TourContainer extends Component {
   state = {
