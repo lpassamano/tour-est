@@ -1,4 +1,6 @@
 class ToursController < ApplicationController
+  skip_before_action :authenticate_staff_user!, only: [:index]
+
   def create
     @tour = Tour.new(tour_params)
     @tour.staff_user = current_staff_user
