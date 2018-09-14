@@ -69,7 +69,7 @@ describe("<PointFormFields />", () => {
       .simulate("click", { preventDefault: () => {} });
 
     expect(component.state("imageEdited")).toEqual(true);
-    expect(component.state("image")).toEqual(undefined);
+    expect(component.state("image")).toEqual("");
   });
 
   test("onSubmit - when button is clicked the current state is submitted without an image", () => {

@@ -55,7 +55,7 @@ export class PointFormFields extends Component {
   handleDeleteImage = event => {
     event.preventDefault();
     this.setState({
-      image: undefined,
+      image: "",
       imageEdited: true
     });
   };
