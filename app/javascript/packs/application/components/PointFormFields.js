@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Button } from "react-foundation";
 import { omit } from "lodash";
 import ImageInput from "./ImageInput";
+import { Link } from "@reach/router";
 
 const INITIAL_STATE = {
   title: "",
@@ -51,20 +52,41 @@ export class PointFormFields extends Component {
     });
   };
 
+  handleDeleteImage = event => {
+    event.preventDefault();
+    this.setState({
+      image: "",
+      imageEdited: true
+    });
+  };
+
   render() {
+    const {
+      title,
+      caption,
+      description,
+      location,
+      directions,
+      image
+    } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="image">Upload Image</label>
         <ImageInput
           name="image"
           onChange={this.handleChangeImage}
-          value={this.state.image}
+          value={image}
         />
+        {image && (
+          <Link to="#" onClick={this.handleDeleteImage} id="delete-image">
+            <i className="fi-trash" /> Remove Image
+          </Link>
+        )}
         <label htmlFor="title">Title: </label>
         <input
           name="title"
           type="text"
-          value={this.state.title}
+          value={title}
           onChange={this.handleChange}
         />
         <br />
@@ -72,7 +94,7 @@ export class PointFormFields extends Component {
         <textarea
           name="caption"
           type="text"
-          value={this.state.caption}
+          value={caption}
           onChange={this.handleChange}
         />
         <br />
@@ -80,7 +102,7 @@ export class PointFormFields extends Component {
         <textarea
           name="description"
           type="text"
-          value={this.state.description}
+          value={description}
           onChange={this.handleChange}
         />
         <br />
@@ -88,7 +110,7 @@ export class PointFormFields extends Component {
         <input
           name="location"
           type="text"
-          value={this.state.location}
+          value={location}
           onChange={this.handleChange}
         />
         <br />
@@ -96,7 +118,7 @@ export class PointFormFields extends Component {
         <textarea
           name="directions"
           type="text"
-          value={this.state.directions}
+          value={directions}
           onChange={this.handleChange}
         />
         <br />

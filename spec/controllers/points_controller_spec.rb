@@ -92,13 +92,29 @@ RSpec.describe PointsController, type: :controller do
       tour_id: tour.id,
       id: json['id'],
       point: new_params,
-      imageEdited: "false",
       format: :json
     }
     point = Point.find(json['id'])
 
     expect(response.status).to eq(200)
     expect(original_image_path).to eq(rails_blob_path(point.image))
+  end
+
+  it 'removes an image when the user deletes it' do
+    post :create, params: { tour_id: tour.id, point: valid_params, format: :json }
+    new_params = {
+      image: ""
+    }
+    patch :update, params: {
+      tour_id: tour.id,
+      id: json['id'],
+      point: new_params,
+      format: :json
+    }
+    point = Point.find(json['id'])
+
+    expect(response.status).to eq(200)
+    expect(point.image.attached?).to eq(false)
   end
 
   it "deletes a point when provided a valid tour id and point id" do

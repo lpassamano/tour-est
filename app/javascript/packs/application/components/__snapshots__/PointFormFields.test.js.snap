@@ -12,7 +12,18 @@ exports[`<PointFormFields /> render 1`] = `
   <ImageInput
     name="image"
     onChange={[Function]}
+    value="blob:http://localhost:300/a3b6c1fa-93b9"
   />
+  <[object Object]
+    id="delete-image"
+    onClick={[Function]}
+    to="#"
+  >
+    <i
+      className="fi-trash"
+    />
+     Remove Image
+  </[object Object]>
   <label
     htmlFor="title"
   >
@@ -22,7 +33,7 @@ exports[`<PointFormFields /> render 1`] = `
     name="title"
     onChange={[Function]}
     type="text"
-    value=""
+    value="Nike of Samothrace"
   />
   <br />
   <label

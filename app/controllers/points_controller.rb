@@ -13,7 +13,7 @@ class PointsController < ApplicationController
   def update
     @point = Point.find(params[:id])
 
-    if @point.update(point_params)
+    if @point.update(validated_params)
       render :show
     else
       render json: @point.errors, status: 422
@@ -42,5 +42,15 @@ class PointsController < ApplicationController
       :directions,
       :image
     )
+  end
+
+  def validated_params
+    validated_params = point_params
+
+    if validated_params.key?(:image) && validated_params[:image].blank?
+      validated_params[:image] = nil
+    end
+
+    return validated_params
   end
 end
