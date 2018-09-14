@@ -11,6 +11,7 @@ import CreateTourForm from "./components/admin/CreateTourForm";
 import UpdateTourForm from "./components/admin/UpdateTourForm";
 import TourContainer from "./components/admin/TourContainer";
 import UpdatePointForm from "./components/admin/UpdatePointForm";
+import ToursList from "./components/ToursList";
 import api from "./api";
 import * as staffUserActions from "./redux/staffUser/actions";
 import * as staffUserSelectors from "./redux/staffUser/selectors";
@@ -63,6 +64,7 @@ export class App extends Component {
           <Router className="container">
             <LoginForm path="/login" />
             <CreateAccountForm path="/sign-up" />
+            <ToursList path="/" />
           </Router>
         )}
       </div>

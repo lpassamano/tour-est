@@ -83,5 +83,10 @@ RSpec.describe ToursController, type: :controller do
       expect { post :create, params: valid_params }.to_not change(Tour, :count)
       expect(response.status).to eq(401)
     end
+
+    it 'tours can be listed when user is not logged in' do
+      get :index, format: :json
+      expect(response.status).to eq(200)
+    end
   end
 end
