@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TourContainer /> render 1`] = `
+<div>
+  <Connect(Tour)
+    tourId="1"
+  />
+  <h3
+    className="point-header"
+  >
+    Points on Tour
+  </h3>
+  <Connect(PointsList)
+    tourId="1"
+  />
+</div>
+`;
