@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "@reach/router";
 import * as pointActions from "../redux/points/actions";
 import * as pointSelectors from "../redux/points/selectors";
 
@@ -20,12 +21,16 @@ export class PointCards extends Component {
         {points.map(point => (
           <div className="point-card" key={point.id}>
             {point.image && (
-              <img className="point-card-image" src={point.image} alt=" " />
+              <Link to={`points/${point.id}`}>
+                <img className="point-card-image" src={point.image} alt=" " />
+              </Link>
             )}
-            <div className="point-card-info">
-              <h4 className="point-card-title">{point.title}</h4>
-              <p className="point-card-caption">{point.caption}</p>
-            </div>
+            <Link to={`points/${point.id}`}>
+              <div className="point-card-info">
+                <h4 className="point-card-title">{point.title}</h4>
+                <p className="point-card-caption">{point.caption}</p>
+              </div>
+            </Link>
           </div>
         ))}
       </div>

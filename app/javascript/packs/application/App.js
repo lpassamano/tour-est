@@ -13,6 +13,7 @@ import AdminTourContainer from "./components/admin/TourContainer";
 import UpdatePointForm from "./components/admin/UpdatePointForm";
 import ToursList from "./components/ToursList";
 import TourContainer from "./components/TourContainer";
+import PointDetails from "./components/PointDetails";
 import api from "./api";
 import * as staffUserActions from "./redux/staffUser/actions";
 import * as staffUserSelectors from "./redux/staffUser/selectors";
@@ -69,6 +70,7 @@ export class App extends Component {
             <CreateAccountForm path="/sign-up" />
             <ToursList path="/tours" default />
             <TourContainer path="/tours/:tourId" />
+            <PointDetails path="/tours/:tourId/points/:pointId" />
           </Router>
         )}
       </div>

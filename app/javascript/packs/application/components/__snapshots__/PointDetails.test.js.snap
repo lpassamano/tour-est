@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PointDetails /> render 1`] = `
+<div>
+  <div
+    className="media-object-basics-example"
+  >
+    <h4>
+      First point
+    </h4>
+    <div />
+    <hr />
+  </div>
+  )}
+</div>
+`;
