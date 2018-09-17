@@ -53,7 +53,9 @@ export class App extends Component {
 
         {this.props.currentStaffUser ? (
           <Router className="container">
-            <StaffUserDashboard path="/admin" />
+            <StaffUserDashboard path="/admin">
+              <ToursList path="/tours" />
+            </StaffUserDashboard>
             <CreateTourForm path="/admin/tours/new" />
             <UpdateTourForm path="/admin/tours/:tourId/edit" />
             <TourContainer path="/admin/tours/:tourId">
@@ -64,7 +66,7 @@ export class App extends Component {
           <Router className="container">
             <LoginForm path="/login" />
             <CreateAccountForm path="/sign-up" />
-            <ToursList path="/" />
+            <ToursList path="/tours" />
           </Router>
         )}
       </div>
