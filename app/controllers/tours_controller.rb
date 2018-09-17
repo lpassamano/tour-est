@@ -1,5 +1,5 @@
 class ToursController < ApplicationController
-  skip_before_action :authenticate_staff_user!, only: [:index]
+  skip_before_action :authenticate_staff_user!, only: [:index, :show]
 
   def create
     @tour = Tour.new(tour_params)
@@ -30,7 +30,7 @@ class ToursController < ApplicationController
   end
 
   def show
-    @tour = current_staff_user.tours.find(params[:id])
+    @tour = staff_user_signed_in? ? current_staff_user.tours.find(params[:id]) : Tour.find(params[:id])
   end
 
   def destroy
