@@ -31,6 +31,11 @@ const getStaffUser = () => {
 
 const authenticateStaffUser = () => {
   const token = window.localStorage.getItem("token");
+
+  if (!token) {
+    return Promise.resolve({ ok: false, data: null });
+  }
+
   api.setHeader("Authorization", `Token token="${token}"`);
   return getStaffUser();
 };
