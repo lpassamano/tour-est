@@ -25,12 +25,11 @@ class ToursController < ApplicationController
   end
 
   def index
-    @tours = staff_user_signed_in? ? current_staff_user.tours : Tour.all
-    @tours = @tours.includes(points: [:image_blob, :image_attachment])
+    @tours = tours_scope.includes(points: [:image_blob, :image_attachment])
   end
 
   def show
-    @tour = staff_user_signed_in? ? current_staff_user.tours.find(params[:id]) : Tour.find(params[:id])
+    @tour = tours_scope.includes(points: [:image_blob, :image_attachment]).find(params[:id])
   end
 
   def destroy
@@ -48,5 +47,13 @@ class ToursController < ApplicationController
       :estimated_time,
       :description
     )
+  end
+
+  def tours_scope
+    if staff_user_signed_in?
+      current_staff_user.tours
+    else
+      Tour.all
+    end
   end
 end
