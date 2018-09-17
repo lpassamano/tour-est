@@ -10,7 +10,7 @@ exports[`<Navigation /> render 1`] = `
     <[object Object]
       className="topbar-responsive-logo"
       id="tour-est"
-      to="/"
+      to="/admin"
     >
       <strong>
         tour-est

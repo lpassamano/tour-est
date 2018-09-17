@@ -11,7 +11,7 @@ exports[`<ToursList /> render 1`] = `
         key="1"
       >
         <[object Object]
-          to="/admin/tours/1"
+          to="tours/1"
         >
           Tour 1
         </[object Object]>
@@ -28,7 +28,7 @@ exports[`<ToursList /> render 1`] = `
         key="2"
       >
         <[object Object]
-          to="/admin/tours/2"
+          to="tours/2"
         >
           Tour 2
         </[object Object]>
@@ -45,7 +45,7 @@ exports[`<ToursList /> render 1`] = `
         key="3"
       >
         <[object Object]
-          to="/admin/tours/3"
+          to="tours/3"
         >
           Tour 3
         </[object Object]>
