@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Point from "./admin/Point";
-import * as pointActions from "../redux/points/actions";
-import * as pointSelectors from "../redux/points/selectors";
+import Point from "./Point";
+import * as pointActions from "../../redux/points/actions";
+import * as pointSelectors from "../../redux/points/selectors";
 
 export class PointsList extends Component {
   componentDidMount() {
