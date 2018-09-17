@@ -9,7 +9,7 @@ import CreateAccountForm from "./components/admin/CreateAccountForm";
 import StaffUserDashboard from "./components/admin/StaffUserDashboard";
 import CreateTourForm from "./components/admin/CreateTourForm";
 import UpdateTourForm from "./components/admin/UpdateTourForm";
-import TourContainer from "./components/admin/TourContainer";
+import TourContainer from "./components/TourContainer";
 import UpdatePointForm from "./components/admin/UpdatePointForm";
 import ToursList from "./components/ToursList";
 import api from "./api";
@@ -53,7 +53,7 @@ export class App extends Component {
 
         {this.props.currentStaffUser ? (
           <Router className="container">
-            <StaffUserDashboard path="/admin">
+            <StaffUserDashboard path="/admin" default>
               <ToursList path="/tours" />
             </StaffUserDashboard>
             <CreateTourForm path="/admin/tours/new" />
@@ -66,7 +66,7 @@ export class App extends Component {
           <Router className="container">
             <LoginForm path="/login" />
             <CreateAccountForm path="/sign-up" />
-            <ToursList path="/tours" />
+            <ToursList path="/tours" default />
           </Router>
         )}
       </div>
