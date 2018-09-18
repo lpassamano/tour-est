@@ -65,7 +65,7 @@ describe("<PointFormFields />", () => {
       />
     );
     component
-      .find("#delete-image")
+      .find('[data-test-id="delete-image"]')
       .simulate("click", { preventDefault: () => {} });
 
     expect(component.state("imageEdited")).toEqual(true);

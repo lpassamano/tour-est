@@ -15,7 +15,7 @@ exports[`<PointFormFields /> render 1`] = `
     value="blob:http://localhost:300/a3b6c1fa-93b9"
   />
   <[object Object]
-    id="delete-image"
+    data-test-id="delete-image"
     onClick={[Function]}
     to="#"
   >
