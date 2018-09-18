@@ -24,7 +24,7 @@ export class ToursList extends Component {
               </MediaObjectSection>
               <MediaObjectSection isMain>
                 <h4 key={tour.id}>
-                  <Link to={`/tours/${tour.id}`}>{tour.title}</Link>
+                  <Link to={`tours/${tour.id}`}>{tour.title}</Link>
                 </h4>
                 {tour.description && <p>{tour.description}</p>}
               </MediaObjectSection>
@@ -32,7 +32,7 @@ export class ToursList extends Component {
           ) : (
             <div>
               <h4 key={tour.id}>
-                <Link to={`/tours/${tour.id}`}>{tour.title}</Link>
+                <Link to={`tours/${tour.id}`}>{tour.title}</Link>
               </h4>
               {tour.description && <p>{tour.description}</p>}
             </div>

@@ -26,7 +26,7 @@ export class Tour extends Component {
 
     return (
       <div>
-        <h2>{title}</h2>
+        <h1>{title}</h1>
         {description && <p>{description}</p>}
         {estimated_time && <p>Estimated time: {estimated_time}</p>}
         {starting_point && <p>Start here: {starting_point}</p>}

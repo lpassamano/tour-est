@@ -4,7 +4,7 @@ import { MediaObject, MediaObjectSection, Thumbnail } from "react-foundation";
 import { Link } from "@reach/router";
 import { connect } from "react-redux";
 import UpdatePointForm from "./UpdatePointForm";
-import * as pointActions from "../redux/points/actions";
+import * as pointActions from "../../redux/points/actions";
 
 export class Point extends Component {
   state = {

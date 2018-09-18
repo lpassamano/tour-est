@@ -2,9 +2,9 @@
 
 exports[`<Tour /> render 1`] = `
 <div>
-  <h2>
+  <h1>
     Philly Tour
-  </h2>
+  </h1>
   <p>
     Walking tour of Philly's architecture and public art
   </p>

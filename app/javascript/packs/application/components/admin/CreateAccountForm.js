@@ -3,7 +3,7 @@ import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import * as staffUserActions from "../redux/staffUser/actions";
+import * as staffUserActions from "../../redux/staffUser/actions";
 
 export class CreateAccountForm extends Component {
   state = {

@@ -4,7 +4,11 @@ import { Link } from "@reach/router";
 const Navigation = ({ currentStaffUser, onLogout }) => (
   <nav className="top-bar topbar-responsive">
     <div className="top-bar-title">
-      <Link to="/admin" className="topbar-responsive-logo" id="tour-est">
+      <Link
+        to={currentStaffUser ? "/admin" : "/"}
+        className="topbar-responsive-logo"
+        id="tour-est"
+      >
         <strong>tour-est</strong>
       </Link>
     </div>

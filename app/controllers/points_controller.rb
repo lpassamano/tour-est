@@ -1,4 +1,6 @@
 class PointsController < ApplicationController
+  skip_before_action :authenticate_staff_user!, only: [:index]
+
   def create
     tour = Tour.find(params[:tour_id])
     @point = tour.points.build(point_params)

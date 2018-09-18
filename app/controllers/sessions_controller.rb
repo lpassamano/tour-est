@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate_staff_user, only: [:create]
+  skip_before_action :authenticate_staff_user!, only: [:create]
 
   def create
     username = params[:username]

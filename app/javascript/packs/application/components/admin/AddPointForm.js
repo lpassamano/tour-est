@@ -3,8 +3,8 @@ import { navigate } from "@reach/router";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import PointFormFields from "./PointFormFields";
-import * as pointActions from "../redux/points/actions";
-import * as pointSelectors from "../redux/points/selectors";
+import * as pointActions from "../../redux/points/actions";
+import * as pointSelectors from "../../redux/points/selectors";
 
 export class AddPointForm extends Component {
   handleSubmit = attributes => {

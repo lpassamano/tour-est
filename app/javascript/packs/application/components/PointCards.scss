@@ -1,0 +1,27 @@
+.point-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.point-card  {
+  width: 100%;
+  max-width: 350px;
+  margin: 1rem;
+  border: 1px solid lightGrey;
+  padding: 1rem;
+}
+
+.point-card-image {
+  display: block;
+  margin: 0 auto 1rem;
+  max-height: 300px;
+}
+
+.point-card-caption {
+  margin-bottom: 0px;
+}
+
+.point-card-title {
+  font-weight: 500;
+}

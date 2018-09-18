@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import * as staffUserActions from "../redux/staffUser/actions";
+import * as staffUserActions from "../../redux/staffUser/actions";
 
 export class LoginForm extends Component {
   state = { username: "", password: "" };

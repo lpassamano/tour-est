@@ -19,16 +19,21 @@ exports[`<App /> render 1`] = `
     className="container"
   >
     <Connect(StaffUserDashboard)
+      default={true}
       path="/admin"
-    />
+    >
+      <Connect(ToursList)
+        path="/tours"
+      />
+    </Connect(StaffUserDashboard)>
     <Connect(CreateTourForm)
-      path="/tours/new"
+      path="/admin/tours/new"
     />
     <Connect(UpdateTourForm)
-      path="/tours/:tourId/edit"
+      path="/admin/tours/:tourId/edit"
     />
     <Connect(TourContainer)
-      path="/tours/:tourId"
+      path="/admin/tours/:tourId"
     >
       <Connect(UpdatePointForm)
         path="/points/:pointId/edit"

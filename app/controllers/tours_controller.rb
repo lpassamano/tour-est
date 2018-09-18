@@ -1,4 +1,6 @@
 class ToursController < ApplicationController
+  skip_before_action :authenticate_staff_user!, only: [:index, :show]
+
   def create
     @tour = Tour.new(tour_params)
     @tour.staff_user = current_staff_user
@@ -23,13 +25,11 @@ class ToursController < ApplicationController
   end
 
   def index
-    @tours = current_staff_user.tours.includes(
-      points: [:image_blob, :image_attachment]
-    )
+    @tours = tours_scope.includes(points: [:image_blob, :image_attachment])
   end
 
   def show
-    @tour = current_staff_user.tours.find(params[:id])
+    @tour = tours_scope.includes(points: [:image_blob, :image_attachment]).find(params[:id])
   end
 
   def destroy
@@ -47,5 +47,13 @@ class ToursController < ApplicationController
       :estimated_time,
       :description
     )
+  end
+
+  def tours_scope
+    if staff_user_signed_in?
+      current_staff_user.tours
+    else
+      Tour.all
+    end
   end
 end

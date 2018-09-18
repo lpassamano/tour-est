@@ -4,13 +4,15 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import Navigation from "./components/Navigation";
-import LoginForm from "./components/LoginForm";
-import CreateAccountForm from "./components/CreateAccountForm";
-import StaffUserDashboard from "./components/StaffUserDashboard";
-import CreateTourForm from "./components/CreateTourForm";
-import UpdateTourForm from "./components/UpdateTourForm";
+import LoginForm from "./components/admin/LoginForm";
+import CreateAccountForm from "./components/admin/CreateAccountForm";
+import StaffUserDashboard from "./components/admin/StaffUserDashboard";
+import CreateTourForm from "./components/admin/CreateTourForm";
+import UpdateTourForm from "./components/admin/UpdateTourForm";
+import AdminTourContainer from "./components/admin/TourContainer";
+import UpdatePointForm from "./components/admin/UpdatePointForm";
+import ToursList from "./components/ToursList";
 import TourContainer from "./components/TourContainer";
-import UpdatePointForm from "./components/UpdatePointForm";
 import api from "./api";
 import * as staffUserActions from "./redux/staffUser/actions";
 import * as staffUserSelectors from "./redux/staffUser/selectors";
@@ -52,17 +54,21 @@ export class App extends Component {
 
         {this.props.currentStaffUser ? (
           <Router className="container">
-            <StaffUserDashboard path="/admin" />
-            <CreateTourForm path="/tours/new" />
-            <UpdateTourForm path="/tours/:tourId/edit" />
-            <TourContainer path="/tours/:tourId">
+            <StaffUserDashboard path="/admin" default>
+              <ToursList path="/tours" />
+            </StaffUserDashboard>
+            <CreateTourForm path="/admin/tours/new" />
+            <UpdateTourForm path="/admin/tours/:tourId/edit" />
+            <AdminTourContainer path="/admin/tours/:tourId">
               <UpdatePointForm path="/points/:pointId/edit" />
-            </TourContainer>
+            </AdminTourContainer>
           </Router>
         ) : (
           <Router className="container">
             <LoginForm path="/login" />
             <CreateAccountForm path="/sign-up" />
+            <ToursList path="/tours" default />
+            <TourContainer path="/tours/:tourId" />
           </Router>
         )}
       </div>

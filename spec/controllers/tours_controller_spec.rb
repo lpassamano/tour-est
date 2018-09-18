@@ -24,6 +24,8 @@ RSpec.describe ToursController, type: :controller do
 
   let(:json) { JSON.parse(response.body) }
 
+  let(:tour) { create :tour }
+
   context "User authenticated" do
     before do
       authenticate_staff_user(user)
@@ -82,6 +84,15 @@ RSpec.describe ToursController, type: :controller do
     it 'tour can only be created if a staff user is logged in' do
       expect { post :create, params: valid_params }.to_not change(Tour, :count)
       expect(response.status).to eq(401)
+    end
+
+    it 'tours can be listed when user is not logged in' do
+      get :index, format: :json
+      expect(response.status).to eq(200)
+    end
+
+    it 'tour can be shown when user is not logged in' do
+      get :show, params: { id: tour.id, format: :json }
     end
   end
 end

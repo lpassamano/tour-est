@@ -4,8 +4,8 @@ import { Link } from "@reach/router";
 import { connect } from "react-redux";
 
 import CreateTourForm from "./CreateTourForm";
-import ToursList from "./ToursList";
-import * as staffUserSelectors from "../redux/staffUser/selectors";
+import ToursList from "../ToursList";
+import * as staffUserSelectors from "../../redux/staffUser/selectors";
 
 export class StaffUserDashboard extends Component {
   render() {
@@ -15,7 +15,7 @@ export class StaffUserDashboard extends Component {
         <h1>Tours for {cultural_center.name}</h1>
         <ToursList />
         <Link
-          to="/tours/new"
+          to="/admin/tours/new"
           className="button hollow"
           onClick={this.showPointForm}
         >
