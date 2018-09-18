@@ -1,5 +1,5 @@
 class PointsController < ApplicationController
-  skip_before_action :authenticate_staff_user!, only: [:index]
+  skip_before_action :authenticate_staff_user!, only: [:index, :show]
 
   def create
     tour = Tour.find(params[:tour_id])
@@ -25,6 +25,10 @@ class PointsController < ApplicationController
   def index
     tour = Tour.find(params[:tour_id])
     @points = tour.points.includes(:image_blob, :image_attachment)
+  end
+
+  def show
+    @point = Point.find(params[:id])
   end
 
   def destroy
