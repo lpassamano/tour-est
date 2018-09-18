@@ -11,6 +11,9 @@ export const UPDATE_POINT_ERROR = "UPDATE_POINT_ERROR";
 export const LIST_POINTS = "LIST_POINTS";
 export const LIST_POINTS_SUCCESS = "LIST_POINTS_SUCCESS";
 export const LIST_POINTS_ERROR = "LIST_POINTS_ERROR";
+export const GET_POINT = "GET_POINT";
+export const GET_POINT_SUCCESS = "GET_POINT_SUCCESS";
+export const GET_POINT_ERROR = "GET_POINT_ERROR";
 export const DELETE_POINT = "DELETE_POINT";
 export const DELETE_POINT_SUCCESS = "DELETE_POINT_SUCCESS";
 export const DELETE_POINT_ERROR = "DELETE_POINT_ERROR";
@@ -52,6 +55,20 @@ export const listPoints = tourId => async dispatch => {
     dispatch({ type: LIST_POINTS_SUCCESS, data: keyBy(response.data, "id") });
   } else {
     dispatch({ type: LIST_POINTS_ERROR });
+  }
+};
+
+export const getPoint = (tourId, pointId) => async dispatch => {
+  dispatch({ type: GET_POINT });
+  const response = await api.getPoint(tourId, pointId);
+
+  if (response.ok) {
+    dispatch({
+      type: GET_POINT_SUCCESS,
+      data: { [response.data.id]: response.data }
+    });
+  } else {
+    dispatch({ type: GET_POINT_ERROR });
   }
 };
 

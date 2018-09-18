@@ -84,6 +84,10 @@ const listPoints = tourId => {
   return api.get(`/tours/${tourId}/points`);
 };
 
+const getPoint = (tourId, pointId) => {
+  return api.get(`/tours/${tourId}/points/${pointId}`);
+};
+
 const deletePoint = (tourId, pointId) => {
   return api.delete(`/tours/${tourId}/points/${pointId}`);
 };
@@ -102,5 +106,6 @@ export default {
   createPoint,
   updatePoint,
   listPoints,
+  getPoint,
   deletePoint
 };

@@ -7,7 +7,11 @@ describe("<PointDetails />", () => {
     const point = {
       title: "First point"
     };
-    const component = shallow(<PointDetails point={point} />);
+    const isFetching = false;
+    const getPoint = jest.fn();
+    const component = shallow(
+      <PointDetails point={point} getPoint={getPoint} isFetching={isFetching} />
+    );
     return component;
   };
 

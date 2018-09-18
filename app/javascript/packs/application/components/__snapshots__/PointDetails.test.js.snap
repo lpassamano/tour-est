@@ -11,6 +11,5 @@ exports[`<PointDetails /> render 1`] = `
     <div />
     <hr />
   </div>
-  )}
 </div>
 `;
