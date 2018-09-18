@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_31_193553) do
+ActiveRecord::Schema.define(version: 2018_09_18_175154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2018_08_31_193553) do
     t.string "title"
     t.string "location"
     t.text "directions"
+    t.integer "order_key", null: false
+    t.index ["tour_id", "order_key"], name: "index_points_on_tour_id_and_order_key", unique: true
     t.index ["tour_id"], name: "index_points_on_tour_id"
   end
 

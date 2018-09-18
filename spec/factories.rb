@@ -14,4 +14,10 @@ FactoryBot.define do
     staff_user
     cultural_center { staff_user.cultural_center }
   end
+
+  factory :point do
+    title { Faker::Lorem.word }
+    tour
+    order_key { tour.points.count }
+  end
 end

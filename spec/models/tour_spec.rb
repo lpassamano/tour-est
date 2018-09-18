@@ -8,6 +8,16 @@ RSpec.describe Tour, type: :model do
     expect(tour).to_not eq(tour2)
   end
 
+  it 'can update the order of its points to be consecutive' do
+    tour = create :tour
+    create :point, tour: tour, order_key: 0
+    create :point, tour: tour, order_key: 2
+    tour.reorder_points!
+
+    expect(tour.points.first.order_key).to eq(0)
+    expect(tour.points.last.order_key).to eq(1)
+  end
+
   context "Create Tour" do
     let(:user) { create :staff_user }
 
