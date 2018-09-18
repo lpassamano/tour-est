@@ -36,7 +36,9 @@ export class LoginForm extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <button type="submit">Log In</button>
+        <button type="submit" className="button hollow">
+          Log In
+        </button>
       </form>
     );
   }
