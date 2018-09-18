@@ -78,7 +78,11 @@ export class PointFormFields extends Component {
           value={image}
         />
         {image && (
-          <Link to="#" onClick={this.handleDeleteImage} id="delete-image">
+          <Link
+            to="#"
+            onClick={this.handleDeleteImage}
+            data-test-id="delete-image"
+          >
             <i className="fi-trash" /> Remove Image
           </Link>
         )}
