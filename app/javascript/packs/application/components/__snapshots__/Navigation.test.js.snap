@@ -7,9 +7,17 @@ exports[`<Navigation /> render 1`] = `
   <div
     className="top-bar-title"
   >
+    <span
+      className="show-for-small-only"
+    >
+      <button
+        className="menu-icon"
+        onClick={[Function]}
+        type="button"
+      />
+    </span>
     <[object Object]
-      className="topbar-responsive-logo"
-      id="tour-est"
+      className="topbar-responsive-logo tour-est"
       to="/admin"
     >
       <strong>
@@ -18,8 +26,7 @@ exports[`<Navigation /> render 1`] = `
     </[object Object]>
   </div>
   <div
-    className="topbar-responsive-links"
-    id="topbar-responsive"
+    className="topbar-responsive-links hide-for-small-only"
   >
     <div
       className="top-bar-right"
