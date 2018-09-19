@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
+import PropTypes from "prop-types";
 
 class Navigation extends Component {
   state = {
@@ -61,5 +62,17 @@ class Navigation extends Component {
     );
   }
 }
+
+Navigation.propTypes = {
+  currentStaffUser: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    username: PropTypes.string.isRequired,
+    cultural_center: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired
+    }).isRequired
+  }),
+  onLogout: PropTypes.func.isRequired
+};
 
 export default Navigation;
