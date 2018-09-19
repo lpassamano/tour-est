@@ -12,6 +12,14 @@ export const isFetching = state => {
 
 export const getNextPoint = (state, pointId) => {
   const points = getPoints(state);
-  const { order_key } = getPoint(state, pointId);
+  const point = getPoint(state, pointId);
+  const order_key = point && point.order_key;
   return points.find(point => point.order_key === order_key + 1);
+};
+
+export const getPreviousPoint = (state, pointId) => {
+  const points = getPoints(state);
+  const point = getPoint(state, pointId);
+  const order_key = point && point.order_key;
+  return points.find(point => point.order_key === order_key - 1);
 };
