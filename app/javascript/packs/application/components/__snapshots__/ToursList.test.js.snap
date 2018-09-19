@@ -8,6 +8,7 @@ exports[`<ToursList /> render 1`] = `
   >
     <div>
       <h4
+        className="tour-title"
         key="1"
       >
         <[object Object]
@@ -16,6 +17,11 @@ exports[`<ToursList /> render 1`] = `
           Tour 1
         </[object Object]>
       </h4>
+      <p
+        className="cc-name"
+      >
+        MoMA
+      </p>
     </div>
     <hr />
   </div>
@@ -25,6 +31,7 @@ exports[`<ToursList /> render 1`] = `
   >
     <div>
       <h4
+        className="tour-title"
         key="2"
       >
         <[object Object]
@@ -33,6 +40,11 @@ exports[`<ToursList /> render 1`] = `
           Tour 2
         </[object Object]>
       </h4>
+      <p
+        className="cc-name"
+      >
+        MoMA
+      </p>
     </div>
     <hr />
   </div>
@@ -42,6 +54,7 @@ exports[`<ToursList /> render 1`] = `
   >
     <div>
       <h4
+        className="tour-title"
         key="3"
       >
         <[object Object]
@@ -50,6 +63,11 @@ exports[`<ToursList /> render 1`] = `
           Tour 3
         </[object Object]>
       </h4>
+      <p
+        className="cc-name"
+      >
+        MoMA
+      </p>
     </div>
     <hr />
   </div>

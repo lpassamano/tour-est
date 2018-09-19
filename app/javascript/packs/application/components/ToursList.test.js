@@ -4,10 +4,11 @@ import { shallow } from "enzyme";
 
 describe("<ToursList />", () => {
   test("render", () => {
+    const culturalCenter = { name: "MoMA" };
     const tours = [
-      { id: 1, title: "Tour 1" },
-      { id: 2, title: "Tour 2" },
-      { id: 3, title: "Tour 3" }
+      { id: 1, title: "Tour 1", cultural_center: culturalCenter },
+      { id: 2, title: "Tour 2", cultural_center: culturalCenter },
+      { id: 3, title: "Tour 3", cultural_center: culturalCenter }
     ];
     const listTours = jest.fn();
     const isFetching = false;

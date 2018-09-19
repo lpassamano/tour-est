@@ -23,18 +23,20 @@ export class ToursList extends Component {
                 <Thumbnail src={tour.image} alt=" " width="150" />
               </MediaObjectSection>
               <MediaObjectSection isMain>
-                <h4 key={tour.id}>
+                <h4 className="tour-title" key={tour.id}>
                   <Link to={`tours/${tour.id}`}>{tour.title}</Link>
                 </h4>
                 {tour.description && <p>{tour.description}</p>}
+                <p className="cc-name">{tour.cultural_center.name}</p>
               </MediaObjectSection>
             </MediaObject>
           ) : (
             <div>
-              <h4 key={tour.id}>
+              <h4 className="tour-title" key={tour.id}>
                 <Link to={`tours/${tour.id}`}>{tour.title}</Link>
               </h4>
               {tour.description && <p>{tour.description}</p>}
+              <p className="cc-name">{tour.cultural_center.name}</p>
             </div>
           )}
           <hr />
