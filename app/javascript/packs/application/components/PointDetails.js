@@ -8,11 +8,11 @@ import * as pointSelectors from "../redux/points/selectors";
 
 export class PointDetails extends Component {
   componentDidMount() {
-    this.props.getPoint(this.props.tourId, this.props.pointId);
+    this.props.listPoints(this.props.tourId);
   }
 
   render() {
-    const { isFetching, point } = this.props;
+    const { isFetching, point, tourId, nextPoint } = this.props;
 
     if (isFetching || !point) {
       return <p>loading... please wait!</p>;
@@ -53,32 +53,41 @@ export class PointDetails extends Component {
             </div>
           )}
           <hr />
+          {nextPoint && (
+            <Link to={`/tours/${tourId}/points/${nextPoint.id}`}>
+              Next Point
+            </Link>
+          )}
         </div>
       </div>
     );
   }
 }
 
+const pointProps = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  caption: PropTypes.string,
+  description: PropTypes.string,
+  location: PropTypes.string,
+  directions: PropTypes.string,
+  image: PropTypes.string
+});
+
 PointDetails.propTypes = {
-  point: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    caption: PropTypes.string,
-    description: PropTypes.string,
-    location: PropTypes.string,
-    directions: PropTypes.string,
-    image: PropTypes.string
-  }),
+  point: pointProps,
   isFetching: PropTypes.bool.isRequired,
-  getPoint: PropTypes.func.isRequired
+  listPoints: PropTypes.func.isRequired,
+  nextPoint: pointProps
 };
 
 const mapStateToProps = (state, ownProps) => ({
   point: pointSelectors.getPoint(state, ownProps.pointId),
-  isFetching: pointSelectors.isFetching(state)
+  isFetching: pointSelectors.isFetching(state),
+  nextPoint: pointSelectors.getNextPoint(state, ownProps.pointId)
 });
 
 const mapDispatchToProps = {
-  getPoint: pointActions.getPoint
+  listPoints: pointActions.listPoints
 };
 
 const enhance = connect(
