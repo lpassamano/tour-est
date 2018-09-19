@@ -10,16 +10,17 @@ exports[`<PointDetails /> render 1`] = `
     </h4>
     <div />
     <hr />
+    <[object Object]
+      className="button expanded"
+      to="/tours/undefined"
+    >
+      Tour Over! 
+      <br />
+      Back to Tour Info
+    </[object Object]>
     <div
       className="button-group expanded"
-    >
-      <[object Object]
-        className="button hollow"
-        to="/tours/undefined"
-      >
-        Back to Tour Info
-      </[object Object]>
-    </div>
+    />
   </div>
 </div>
 `;

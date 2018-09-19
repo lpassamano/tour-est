@@ -9,11 +9,13 @@ describe("<PointDetails />", () => {
     };
     const isFetching = false;
     const listPoints = jest.fn();
+    const getPoint = jest.fn();
     const component = shallow(
       <PointDetails
         point={point}
         listPoints={listPoints}
         isFetching={isFetching}
+        getPoint={getPoint}
       />
     );
     return component;
