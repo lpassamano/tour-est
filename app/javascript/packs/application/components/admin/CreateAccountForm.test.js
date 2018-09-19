@@ -1,10 +1,12 @@
 import { CreateAccountForm } from "./CreateAccountForm";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import React from "react";
 
 describe("<CreateAccountForm />", () => {
   const setup = ({ onCreateUser = jest.fn() }) => {
-    const component = mount(<CreateAccountForm onCreateUser={onCreateUser} />);
+    const component = shallow(
+      <CreateAccountForm onCreateUser={onCreateUser} />
+    );
     const event1 = { target: { name: "username", value: "leigh" } };
     const event2 = { target: { name: "password", value: "12345abcde" } };
     const event3 = {

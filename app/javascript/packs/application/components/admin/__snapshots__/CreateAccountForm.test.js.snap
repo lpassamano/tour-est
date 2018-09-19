@@ -1,66 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CreateAccountForm /> render 1`] = `
-<CreateAccountForm
-  onCreateUser={[MockFunction]}
+<form
+  onSubmit={[Function]}
 >
-  <form
-    onSubmit={[Function]}
+  <label
+    htmlFor="username"
   >
-    <label
-      htmlFor="username"
-    >
-      Username: 
-    </label>
-    <input
-      name="username"
-      onChange={[Function]}
-      type="text"
-      value="leigh"
-    />
-    <br />
-    <label
-      htmlFor="password"
-    >
-      Password: 
-    </label>
-    <input
-      name="password"
-      onChange={[Function]}
-      type="password"
-      value="12345abcde"
-    />
-    <br />
-    <label
-      htmlFor="password_confirmation"
-    >
-      Confirm Password: 
-    </label>
-    <input
-      name="password_confirmation"
-      onChange={[Function]}
-      type="password"
-      value="12345abcde"
-    />
-    <br />
-    <label
-      htmlFor="cultural_center"
-    >
-      Organization: 
-    </label>
-    <input
-      name="cultural_center"
-      onChange={[Function]}
-      type="text"
-      value="Met Museum"
-    />
-    <br />
-    <button
-      className="button hollow"
-      type="submit"
-    >
-      Log In
-    </button>
-  </form>
-</CreateAccountForm>
+    Username: 
+  </label>
+  <input
+    name="username"
+    onChange={[Function]}
+    type="text"
+    value="leigh"
+  />
+  <br />
+  <label
+    htmlFor="password"
+  >
+    Password: 
+  </label>
+  <input
+    name="password"
+    onChange={[Function]}
+    type="password"
+    value="12345abcde"
+  />
+  <br />
+  <label
+    htmlFor="password_confirmation"
+  >
+    Confirm Password: 
+  </label>
+  <input
+    name="password_confirmation"
+    onChange={[Function]}
+    type="password"
+    value="12345abcde"
+  />
+  <br />
+  <label
+    htmlFor="cultural_center"
+  >
+    Organization: 
+  </label>
+  <input
+    name="cultural_center"
+    onChange={[Function]}
+    type="text"
+    value="Met Museum"
+  />
+  <br />
+  <button
+    className="button hollow"
+    type="submit"
+  >
+    Log In
+  </button>
+</form>
 `;
