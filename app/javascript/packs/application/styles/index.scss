@@ -63,23 +63,14 @@
 // Component Stylesheets
 @import "../components/Navigation";
 @import "../components/PointCards";
+@import "../components/ToursList";
+@import "../components/admin/TourContainer";
+@import "../App";
 
 a + a {
   margin-left: 15px;
 }
 
-h3.point-header {
-  padding-bottom: 16px;
-}
-
 .button + .button {
   margin-left: 15px;
-}
-
-.container {
-  padding: 30px;
-}
-
-.tour-details {
-  padding-bottom: 48px;
 }
