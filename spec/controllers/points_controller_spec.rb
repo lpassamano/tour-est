@@ -155,6 +155,13 @@ RSpec.describe PointsController, type: :controller do
       expect(response.status).to eq(204)
       expect(tour.points.count).to eq(original_points_count - 1)
     end
+
+    it "creates points with a unique order_key" do
+      point_1 = create :point, tour: tour
+      point_2 = create :point, tour: tour
+
+      expect(point_1.order_key).to_not eq(point_2.order_key)
+    end
   end
 
   context "User not authenticated" do

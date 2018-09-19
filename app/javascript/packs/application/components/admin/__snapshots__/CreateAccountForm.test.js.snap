@@ -56,6 +56,7 @@ exports[`<CreateAccountForm /> render 1`] = `
     />
     <br />
     <button
+      className="button hollow"
       type="submit"
     >
       Log In

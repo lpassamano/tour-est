@@ -28,7 +28,10 @@ class Navigation extends Component {
               onClick={this.handleToggle}
             />
           </span>
-          <Link to="/admin" className="topbar-responsive-logo tour-est">
+          <Link
+            to={currentStaffUser ? "/admin" : "/"}
+            className="topbar-responsive-logo tour-est"
+          >
             <strong>tour-est</strong>
           </Link>
         </div>

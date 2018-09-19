@@ -4,6 +4,7 @@ class PointsController < ApplicationController
   def create
     tour = Tour.find(params[:tour_id])
     @point = tour.points.build(point_params)
+    @point.order_key = tour.points.count
 
     if @point.save
       render :show
@@ -32,7 +33,13 @@ class PointsController < ApplicationController
   end
 
   def destroy
-    Point.find(params[:id]).destroy
+    point = Point.find(params[:id])
+
+    Point.transaction do
+      point.destroy!
+      point.tour.reorder_points!
+    end
+
     head :no_content
   end
 
