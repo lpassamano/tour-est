@@ -1,7 +1,13 @@
 import React from "react";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { getPoints, isFetching, getNextPoint } from "./selectors";
+import {
+  getPoints,
+  getPoint,
+  isFetching,
+  getNextPoint,
+  getPreviousPoint
+} from "./selectors";
 
 describe("point selectors", () => {
   const state = {
@@ -21,6 +27,10 @@ describe("point selectors", () => {
     ]);
   });
 
+  it("getPoint() takes the state and a point id and returns the point", () => {
+    expect(getPoint(state, 1)).toEqual(state.points.data["1"]);
+  });
+
   it("isFetching() takes the state and returns boolean value for isFetching", () => {
     expect(isFetching(state)).toEqual(false);
   });
@@ -31,5 +41,13 @@ describe("point selectors", () => {
 
   it("getNextPoint() returns undefined if there is no next point", () => {
     expect(getNextPoint(state, 3)).toEqual(undefined);
+  });
+
+  it("getPreviousPoint() takes the state and current point and returns the previous point", () => {
+    expect(getPreviousPoint(state, 3)).toEqual(state.points.data["1"]);
+  });
+
+  it("getPreviousPoint() returns undefined if there is no previous point", () => {
+    expect(getPreviousPoint(state, 1)).toEqual(undefined);
   });
 });
