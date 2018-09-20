@@ -1,3 +1,4 @@
+import { navigate } from "@reach/router";
 import api from "../../api";
 
 export const CREATE_STAFF_USER = "CREATE_STAFF_USER";
@@ -32,6 +33,7 @@ export const loginStaffUser = (username, password) => async dispatch => {
   if (response.ok) {
     dispatch({ type: LOG_IN_STAFF_USER_SUCCESS });
     dispatch(authenticateStaffUser());
+    navigate("/admin");
   } else {
     dispatch({ type: LOG_IN_STAFF_USER_ERROR });
   }
@@ -56,4 +58,5 @@ export const authenticateStaffUser = () => async dispatch => {
 export const logoutStaffUser = () => dispatch => {
   api.removeAuthToken();
   dispatch({ type: LOG_OUT_STAFF_USER });
+  navigate("/login");
 };

@@ -25,7 +25,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case AUTHENTICATE_STAFF_USER_SUCCESS:
       return { isFetching: false, data: action.data };
     case CREATE_STAFF_USER_ERROR:
-    case LOG_IN_STAFF_USER:
+    case LOG_IN_STAFF_USER_ERROR:
     case AUTHENTICATE_STAFF_USER_ERROR:
       return { ...state, isFetching: false };
     case LOG_OUT_STAFF_USER:
