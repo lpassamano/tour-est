@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe PointsController, type: :controller do
   let(:json) { JSON.parse(response.body) }
 
-  let(:tour) { create :tour }
-
   let(:user) { create :staff_user }
+
+  let(:tour) { create :tour, staff_user: user }
 
   let :valid_params do
     {

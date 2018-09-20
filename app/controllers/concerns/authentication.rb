@@ -22,4 +22,10 @@ module Authentication
       request_http_token_authentication
     end
   end
+
+  def authenticate_staff_user
+    if request.headers["Authorization"]
+      authenticate_staff_user!
+    end
+  end
 end
