@@ -1,5 +1,5 @@
 class StaffUsersController < ApplicationController
-  skip_before_action :authenticate_staff_user!, only: [:create]
+  before_action :authenticate_staff_user!, except: [:create]
 
   def index
     @staff_users = StaffUser.all

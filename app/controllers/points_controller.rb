@@ -1,8 +1,9 @@
 class PointsController < ApplicationController
-  skip_before_action :authenticate_staff_user!, only: [:index, :show]
+  before_action :authenticate_staff_user!, except: [:index, :show]
+  before_action :authenticate_staff_user, only: [:index, :show]
 
   def create
-    tour = Tour.find(params[:tour_id])
+    tour = current_staff_user.tours.find(params[:tour_id])
     @point = tour.points.build(point_params)
     @point.order_key = tour.points.count
 
@@ -14,7 +15,7 @@ class PointsController < ApplicationController
   end
 
   def update
-    @point = Point.find(params[:id])
+    @point = current_staff_user.tours.find(params[:tour_id]).points.find(params[:id])
 
     if @point.update(validated_params)
       render :show
@@ -33,7 +34,7 @@ class PointsController < ApplicationController
   end
 
   def destroy
-    point = Point.find(params[:id])
+    point = current_staff_user.tours.find(params[:tour_id]).points.find(params[:id])
 
     Point.transaction do
       point.destroy!
