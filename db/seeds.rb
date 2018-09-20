@@ -1,86 +1,84 @@
-cultural_centers = CulturalCenter.create([
+nonexistence, meowseum = CulturalCenter.create!([
   { name: "The Museum of Nonexistence"},
   { name: "Meowseum" }
 ])
 
-staff_users = StaffUser.create([
+leap, user123, penny_cat = StaffUser.create!([
   {
     username: "leap",
     password: "bananafeet",
     password_confirmation: "bananafeet",
-    cultural_center: cultural_centers[0]
+    cultural_center: nonexistence
   },
   {
     username: "user123",
     password: "bananafeet",
     password_confirmation: "bananafeet",
-    cultural_center: cultural_centers[0]
+    cultural_center: nonexistence
   },
   {
     username: "penny_cat",
     password: "bananafeet",
     password_confirmation: "bananafeet",
-    cultural_center: cultural_centers[1]
+    cultural_center: meowseum
   }
 ])
 
-leap = staff_users[0]
-user123 = staff_users[1]
-penny_cat = staff_users[2]
-
-tours_leap = Tour.create([
+awesome, _women = Tour.create!([
   {
     title: "Awesome Tour",
     starting_point: "Your imagination...",
     estimated_time: "1 hour",
     description: "All of the world's greatest art in one tour.",
     staff_user: leap,
-    cultural_center: cultural_centers[0]
+    cultural_center: nonexistence
   },
   {
     title: "Women Artists",
     description: "Great work by women artists",
     staff_user: leap,
-    cultural_center: cultural_centers[0]
+    cultural_center: nonexistence
   },
 
 ])
 
-awesome = tours_leap[0]
-women = tours_leap[1]
-
-cats = Tour.create(
+cats = Tour.create!(
   {
     title: "Cats in Art",
     staff_user: penny_cat,
-    cultural_center: cultural_centers[1]
+    cultural_center: meowseum
   }
 )
 
-stolen = Tour.create(
+stolen = Tour.create!(
   {
     title: "Stolen Artwork",
     estimated_time: "1 hour",
     description: "A look at some art that has been aquired through dubious means.",
     staff_user: user123,
-    cultural_center: cultural_centers[0]
+    cultural_center: nonexistence
   }
 )
 
-points = Point.create([
+Point.create!([
   {
     tour: awesome,
     title: "Melencholia",
     description: "Dürer's Melencolia I is one of three large prints of 1513 and 1514 known as his Meisterstiche (master engravings). The other two are Knight, Death, and the Devil (43.106.2) and Saint Jerome in His Study. The three are in no way a series, but they do correspond to the three kinds of virtue in medieval scholasticism--moral, theological, and intellectual--and they embody the complexity of Dürer's thought and that of his age.",
     caption: "Albrecht Dürer (German, 1471-1528)\n1514, Engraving",
     location: "Metropolitan Museum of Art",
+    image: {
+      io: Rails.root.join("spec", "fixtures", "melancholia.jpeg").open,
+      filename: 'melancholia.jpeg',
+      content_type: 'image/jpeg'
+    },
     order_key: 3
   },
   {
     tour: awesome,
     title: "Mona Lisa",
     description: "The title of the painting, which is known in English as Mona Lisa, comes from a description by Renaissance art historian Giorgio Vasari, who wrote 'Leonardo undertook to paint, for Francesco del Giocondo, the portrait of Mona Lisa, his wife.' Mona in Italian is a polite form of address originating as 'ma donna' – similar to 'Ma’am', 'Madam', or my lady' in English. This became 'madonna', and its contraction 'mona'.",
-    caption: "Leonardy da Vinci (Italian, 1452-1519)\n1503-06, Oil on poplar panel",
+    caption: "Leonard da Vinci (Italian, 1452-1519)\n1503-06, Oil on poplar panel",
     location: "Musée du Louvre",
     order_key: 1
   },
@@ -203,7 +201,6 @@ points = Point.create([
     tour: stolen,
     title: "Gold and lapis bowl from Ur",
     description: "The National Museum of Iraq was  looted during and after the 2003 Invasion of Iraq. Despite international efforts, only some of the stolen artifacts were returned. The looting is regarded as one of the worst acts of cultural vandalism in modern times, but much more of Iraq’s rich cultural history has been destroyed, damaged or  stolen in the years since.",
-    caption: "One of the artifacts stolen from the Iraq Museum that is still missing",
     order_key: 3
   },
   # {
