@@ -21,11 +21,10 @@ exports[`<App /> render 1`] = `
     <Connect(StaffUserDashboard)
       default={true}
       path="/admin"
-    >
-      <Connect(ToursList)
-        path="/tours"
-      />
-    </Connect(StaffUserDashboard)>
+    />
+    <Connect(ToursList)
+      path="/admin/tours"
+    />
     <Connect(CreateTourForm)
       path="/admin/tours/new"
     />
@@ -34,11 +33,10 @@ exports[`<App /> render 1`] = `
     />
     <Connect(TourContainer)
       path="/admin/tours/:tourId"
-    >
-      <Connect(UpdatePointForm)
-        path="/points/:pointId/edit"
-      />
-    </Connect(TourContainer)>
+    />
+    <Connect(UpdatePointForm)
+      path="/admin/tours/:tourId/points/:pointId/edit"
+    />
   </Router>
 </div>
 `;
