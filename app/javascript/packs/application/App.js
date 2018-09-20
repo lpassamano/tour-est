@@ -9,7 +9,7 @@ import CreateAccountForm from "./components/admin/CreateAccountForm";
 import StaffUserDashboard from "./components/admin/StaffUserDashboard";
 import CreateTourForm from "./components/admin/CreateTourForm";
 import UpdateTourForm from "./components/admin/UpdateTourForm";
-import AdminTourContainer from "./components/admin/TourContainer";
+import AdminTourContainer from "./components/admin/AdminTourContainer";
 import UpdatePointForm from "./components/admin/UpdatePointForm";
 import ToursList from "./components/ToursList";
 import TourContainer from "./components/TourContainer";
@@ -21,23 +21,6 @@ import * as staffUserSelectors from "./redux/staffUser/selectors";
 export class App extends Component {
   componentDidMount() {
     this.props.authenticateStaffUser();
-  }
-
-  componentDidUpdate(prevProps) {
-    const wasLoggedIn = !!prevProps.currentStaffUser;
-    const isLoggedIn = !!this.props.currentStaffUser;
-
-    if (wasLoggedIn === isLoggedIn) {
-      return;
-    }
-
-    if (isLoggedIn) {
-      return navigate("/admin");
-    }
-
-    if (wasLoggedIn) {
-      return navigate("/login");
-    }
   }
 
   handleLogout = event => {
@@ -55,14 +38,12 @@ export class App extends Component {
 
         {this.props.currentStaffUser ? (
           <Router className="container">
-            <StaffUserDashboard path="/admin" default>
-              <ToursList path="/tours" />
-            </StaffUserDashboard>
+            <StaffUserDashboard path="/admin" default />
+            <ToursList path="/admin/tours" />
             <CreateTourForm path="/admin/tours/new" />
             <UpdateTourForm path="/admin/tours/:tourId/edit" />
-            <AdminTourContainer path="/admin/tours/:tourId">
-              <UpdatePointForm path="/points/:pointId/edit" />
-            </AdminTourContainer>
+            <AdminTourContainer path="/admin/tours/:tourId" />
+            <UpdatePointForm path="/admin/tours/:tourId/points/:pointId/edit" />
           </Router>
         ) : (
           <Router className="container">
