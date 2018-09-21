@@ -18,6 +18,11 @@ import {
   DELETE_POINT_ERROR
 } from "./actions";
 
+import {
+  AUTHENTICATE_STAFF_USER_SUCCESS,
+  LOG_OUT_STAFF_USER
+} from "../staffUser/actions";
+
 export const INITIAL_STATE = {
   isFetching: false,
   data: {}
@@ -56,6 +61,9 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case GET_POINT_ERROR:
     case DELETE_POINT_ERROR:
       return { ...state, isFetching: false };
+    case AUTHENTICATE_STAFF_USER_SUCCESS:
+    case LOG_OUT_STAFF_USER:
+      return INITIAL_STATE;
     default:
       return state;
   }

@@ -25,12 +25,12 @@ class PointsController < ApplicationController
   end
 
   def index
-    tour = Tour.find(params[:tour_id])
-    @points = tour.points.includes(:image_blob, :image_attachment)
+    @points = points_scope.where(tour_id: params[:tour_id])
+                          .includes(:image_blob, :image_attachment)
   end
 
   def show
-    @point = Point.find(params[:id])
+    @point = points_scope.find(params[:id])
   end
 
   def destroy
@@ -66,5 +66,13 @@ class PointsController < ApplicationController
     end
 
     return validated_params
+  end
+
+  def points_scope
+    if staff_user_signed_in?
+      current_staff_user.points
+    else
+      Point.all
+    end
   end
 end

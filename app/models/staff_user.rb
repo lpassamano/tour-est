@@ -7,4 +7,5 @@ class StaffUser < ApplicationRecord
 
   belongs_to :cultural_center, autosave: true
   has_many :tours
+  has_many :points, through: :tours
 end

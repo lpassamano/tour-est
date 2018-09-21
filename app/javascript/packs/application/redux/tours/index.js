@@ -18,6 +18,11 @@ import {
   DELETE_TOUR_ERROR
 } from "./actions";
 
+import {
+  AUTHENTICATE_STAFF_USER_SUCCESS,
+  LOG_OUT_STAFF_USER
+} from "../staffUser/actions";
+
 export const INITIAL_STATE = {
   isFetching: false,
   data: {}
@@ -30,6 +35,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case LIST_TOURS:
     case GET_TOUR:
     case DELETE_TOUR:
+      return { ...state, isFetching: true };
     case CREATE_TOUR_SUCCESS:
     case UPDATE_TOUR_SUCCESS:
     case GET_TOUR_SUCCESS:
@@ -55,6 +61,9 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case GET_TOUR_ERROR:
     case DELETE_TOUR_ERROR:
       return { ...state, isFetching: false };
+    case AUTHENTICATE_STAFF_USER_SUCCESS:
+    case LOG_OUT_STAFF_USER:
+      return INITIAL_STATE;
     default:
       return state;
   }
