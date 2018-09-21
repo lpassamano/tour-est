@@ -15,7 +15,7 @@ export class StaffUserDashboard extends Component {
         <h1>Tours for {cultural_center.name}</h1>
         <ToursList />
         <Link
-          to="/admin/tours/new"
+          to="/tours/new"
           className="button hollow"
           onClick={this.showPointForm}
         >

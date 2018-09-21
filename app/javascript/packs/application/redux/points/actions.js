@@ -41,7 +41,7 @@ export const updatePoint = (tourId, attributes) => async dispatch => {
       type: UPDATE_POINT_SUCCESS,
       data: { [response.data.id]: response.data }
     });
-    navigate(`/admin/tours/${tourId}`);
+    navigate(`/tours/${tourId}`);
   } else {
     dispatch({ type: UPDATE_POINT_ERROR });
   }
@@ -79,7 +79,7 @@ export const deletePoint = (tourId, pointId) => async dispatch => {
   if (response.ok) {
     dispatch({ type: DELETE_POINT_SUCCESS, pointId });
     listPoints(tourId);
-    navigate(`/admin/tours/${tourId}`);
+    navigate(`/tours/${tourId}`);
   } else {
     dispatch({ type: DELETE_POINT_ERROR });
   }

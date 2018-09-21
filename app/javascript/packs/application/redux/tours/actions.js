@@ -27,7 +27,7 @@ export const createTour = attributes => async dispatch => {
       type: CREATE_TOUR_SUCCESS,
       data: { [response.data.id]: response.data }
     });
-    navigate(`/admin/tours/${response.data.id}`);
+    navigate(`/tours/${response.data.id}`);
   } else {
     dispatch({ type: CREATE_TOUR_ERROR });
   }
@@ -42,7 +42,7 @@ export const updateTour = attributes => async dispatch => {
       type: UPDATE_TOUR_SUCCESS,
       data: { [response.data.id]: response.data }
     });
-    navigate(`/admin/tours/${response.data.id}`);
+    navigate(`/tours/${response.data.id}`);
   } else {
     dispatch({ type: UPDATE_TOUR_ERROR });
   }

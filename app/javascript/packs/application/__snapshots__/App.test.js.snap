@@ -22,20 +22,17 @@ exports[`<App /> render 1`] = `
       default={true}
       path="/admin"
     />
-    <Connect(ToursList)
-      path="/admin/tours"
-    />
     <Connect(CreateTourForm)
-      path="/admin/tours/new"
+      path="/tours/new"
     />
     <Connect(UpdateTourForm)
-      path="/admin/tours/:tourId/edit"
+      path="/tours/:tourId/edit"
     />
     <Connect(TourContainer)
-      path="/admin/tours/:tourId"
+      path="/tours/:tourId"
     />
     <Connect(UpdatePointForm)
-      path="/admin/tours/:tourId/points/:pointId/edit"
+      path="/tours/:tourId/points/:pointId/edit"
     />
   </Router>
 </div>

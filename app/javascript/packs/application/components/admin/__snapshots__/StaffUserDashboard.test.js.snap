@@ -9,7 +9,7 @@ exports[`<StaffUserDashboard /> render 1`] = `
   <Connect(ToursList) />
   <[object Object]
     className="button hollow"
-    to="/admin/tours/new"
+    to="/tours/new"
   >
     Create New Tour
   </[object Object]>

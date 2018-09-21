@@ -39,11 +39,10 @@ export class App extends Component {
         {this.props.currentStaffUser ? (
           <Router className="container">
             <StaffUserDashboard path="/admin" default />
-            <ToursList path="/admin/tours" />
-            <CreateTourForm path="/admin/tours/new" />
-            <UpdateTourForm path="/admin/tours/:tourId/edit" />
-            <AdminTourContainer path="/admin/tours/:tourId" />
-            <UpdatePointForm path="/admin/tours/:tourId/points/:pointId/edit" />
+            <CreateTourForm path="/tours/new" />
+            <UpdateTourForm path="/tours/:tourId/edit" />
+            <AdminTourContainer path="/tours/:tourId" />
+            <UpdatePointForm path="/tours/:tourId/points/:pointId/edit" />
           </Router>
         ) : (
           <Router className="container">
